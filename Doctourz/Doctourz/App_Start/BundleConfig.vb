@@ -19,9 +19,27 @@ Public Module BundleConfig
                   "~/Scripts/bootstrap.js",
                   "~/Scripts/respond.js"))
 
+        bundles.Add(New ScriptBundle("~/bundles/user").Include(
+                  "~/Scripts/bootstrap.js",
+                  "~/Scripts/User.js",
+                  "~/Scripts/respond.js"))
+
         bundles.Add(New StyleBundle("~/Content/css").Include(
                   "~/Content/bootstrap.css",
-                  "~/Content/site.css"))
+                  "~/Content/site.css",
+                  "~/Content/custom.css"))
+
+        bundles.Add(New StyleBundle("~/Content/user").Include(
+                  "~/Content/bootstrap.css",
+                  "~/Content/User.css",
+                  "~/Content/custom.css"))
+
+        bundles.Add(New StyleBundle("~/Content/old").Include(
+                  "~/Content/bootstrap.css",
+                  "~/Content/site.css",
+                  "~/Content/custom.css",
+                  "~/Content/old.css"))
+
     End Sub
 End Module
 

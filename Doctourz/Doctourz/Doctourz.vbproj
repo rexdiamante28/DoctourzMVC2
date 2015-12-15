@@ -190,6 +190,7 @@
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
+    <Compile Include="Controllers\UserController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -223,8 +224,28 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\User.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\Images\Website\ft-logo.gif" />
+    <Content Include="Content\Images\Website\hero-img.jpg" />
+    <Content Include="Content\Images\Website\px.gif" />
+    <Content Include="Content\Images\Website\social.gif" />
+    <Content Include="Content\Images\Website\123_1.png" />
+    <Content Include="Content\Images\Website\123_2.png" />
+    <Content Include="Content\Images\Website\123_3.png" />
+    <Content Include="Content\Images\Website\123_4.png" />
+    <Content Include="Content\Images\Website\Ad1.jpg" />
+    <Content Include="Content\Images\Website\Ad2.jpg" />
+    <Content Include="Content\Images\Website\Ad3.jpg" />
+    <Content Include="Content\Images\Website\Ad4.jpg" />
+    <Content Include="Content\Images\Website\blueBG.png" />
+    <Content Include="Content\Images\Website\greenbar.png" />
+    <Content Include="Content\Images\Website\logo_blue.png" />
+    <Content Include="Content\Images\Website\logo_white.png" />
+    <Content Include="Content\Images\Website\Section4.png" />
+    <Content Include="Content\old.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -242,6 +263,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Scripts\User.js" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.vbhtml" />
     <Content Include="Views\Account\ConfirmEmail.vbhtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.vbhtml" />
@@ -262,6 +284,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.vbhtml" />
     <Content Include="Views\Shared\Lockout.vbhtml" />
     <Content Include="Views\Shared\_LoginPartial.vbhtml" />
+    <Content Include="Views\Shared\_WebsiteLayout.vbhtml" />
+    <Content Include="Views\Home\SignUp.vbhtml" />
+    <Content Include="Views\Shared\_BlankLayout.vbhtml" />
+    <Content Include="Views\Home\Login.vbhtml" />
+    <Content Include="Views\Shared\_UserLayout.vbhtml" />
+    <Content Include="Views\User\Home.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

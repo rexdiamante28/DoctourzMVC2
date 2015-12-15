@@ -16,9 +16,16 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.form-control{
+    border: 2px solid #e4e0e0;
+}
+.custom-fblue{
+    color: #3276B1;
+}
+.right-10{
+    margin-right: 10px;
+}
+.login{
+    max-width:400px;
+    margin: 0 auto;
 }

@@ -16,4 +16,16 @@
 
         Return View()
     End Function
+
+    Function SignUp() As ActionResult
+        ViewData("Message") = "Your registration page."
+
+        Return View()
+    End Function
+
+    Function Login() As ActionResult
+        ViewData("Message") = "Your Login page."
+
+        Return View()
+    End Function
 End Class

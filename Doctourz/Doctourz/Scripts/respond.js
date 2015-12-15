@@ -338,3 +338,25 @@ window.matchMedia = window.matchMedia || (function(doc, undefined){
 		win.attachEvent( "onresize", callMedia );
 	}
 })(this);
+
+
+$(document).ready(function () {
+
+    Main = function main() {
+
+        $(window).scroll(function () {
+            if ($(".topbar").offset().top > 50) {
+                $(".topbar").addClass("bgwhite padd-10");
+                document.getElementById('logo').setAttribute("src", "Content/Images/Website/logo_blue.png");
+            } else {
+                $(".topbar").removeClass("bgwhite padd-10");
+                document.getElementById('logo').setAttribute("src", "Content/Images/Website/logo_white.png");
+            }
+        });
+
+
+
+    }
+    Main();
+
+});
