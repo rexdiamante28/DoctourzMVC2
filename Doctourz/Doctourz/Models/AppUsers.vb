@@ -16,7 +16,7 @@ Public Class AppUsers
 
     Private _userName As String
     <Required>
-    <Display(Name:="Username")
+    <Display(Name:="Username")>
     Public Property userName() As String
         Get
             Return _userName
@@ -85,7 +85,6 @@ Public Class AppUsers
     End Property
 
     Private _gender As String
-    <Required>
     <Display(Name:="Gender")>
     Public Property gender() As String
         Get
@@ -97,7 +96,6 @@ Public Class AppUsers
     End Property
    
     Private _civilStatus As String
-    <Required>
     <Display(Name:="Civil Status")>
     Public Property civilStatus() As String
         Get
@@ -109,7 +107,7 @@ Public Class AppUsers
     End Property
 
     Private _birthDate As DateTime
-    <Required>
+    <DataType(DataType.DateTime)>
     <Display(Name:="Birth Date")>
     Public Property birthDate() As DateTime
         Get
@@ -121,7 +119,6 @@ Public Class AppUsers
     End Property
 
     Private _ethnicity As String
-    <Required>
     <Display(Name:="Ethnicity")>
     Public Property ethnicity() As String
         Get
@@ -210,7 +207,7 @@ Public Class AppUsers
     End Property
 
     Private _recreationalDrugs As String
-    <Display(Name:="Recreational Drugs")
+    <Display(Name:="Recreational Drugs")>
     Public Property recreationalDrugs() As String
         Get
             Return _recreationalDrugs
@@ -232,7 +229,7 @@ Public Class AppUsers
     End Property
 
     Private _telephone As String
-    <Display(Name:="Telephone")
+    <Display(Name:="Telephone")>
     Public Property telephone() As String
         Get
             Return _telephone

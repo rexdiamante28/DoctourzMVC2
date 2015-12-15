@@ -194,6 +194,23 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512150402280_InitialCreate.Designer.vb">
+      <DependentUpon>201512150402280_InitialCreate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150402280_InitialCreate.vb" />
+    <Compile Include="Migrations\201512150510476_firstMigration.Designer.vb">
+      <DependentUpon>201512150510476_firstMigration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150510476_firstMigration.vb" />
+    <Compile Include="Migrations\201512150513550_BirthDateToDateTime.Designer.vb">
+      <DependentUpon>201512150513550_BirthDateToDateTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150513550_BirthDateToDateTime.vb" />
+    <Compile Include="Migrations\201512150518066_date.Designer.vb">
+      <DependentUpon>201512150518066_date.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150518066_date.vb" />
+    <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\AppUsers.vb" />
     <Compile Include="Models\Clinics.vb" />
@@ -218,6 +235,18 @@
     <Compile Include="Startup.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512150402280_InitialCreate.resx">
+      <DependentUpon>201512150402280_InitialCreate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512150510476_firstMigration.resx">
+      <DependentUpon>201512150510476_firstMigration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512150513550_BirthDateToDateTime.resx">
+      <DependentUpon>201512150513550_BirthDateToDateTime.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512150518066_date.resx">
+      <DependentUpon>201512150518066_date.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

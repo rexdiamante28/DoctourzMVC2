@@ -12,7 +12,7 @@
     <nav class="topbar">
         <div class="col-xs-12 no-padd">
             <img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 30px;width: 300px;">
-            <a href="/loginform" class="btn btn-warning pull-right top-20 btn-lg">Sign In</a>
+            <a href="/Account/Login" class="btn btn-warning pull-right top-20 btn-lg">Sign In</a>
         </div>
     </nav>
         @RenderBody()

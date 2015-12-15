@@ -3,6 +3,7 @@ Imports System.Threading.Tasks
 Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.EntityFramework
 Imports Microsoft.AspNet.Identity.Owin
+Imports System.Data.Entity
 
 ' You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
 Public Class ApplicationUser
@@ -24,4 +25,14 @@ Public Class ApplicationDbContext
     Public Shared Function Create() As ApplicationDbContext
         Return New ApplicationDbContext()
     End Function
+
+    Private _AppUsers As DbSet(Of AppUsers)
+    Public Property AppUsers() As DbSet(Of AppUsers)
+        Get
+            Return _AppUsers
+        End Get
+        Set(ByVal value As DbSet(Of AppUsers))
+            _AppUsers = value
+        End Set
+    End Property
 End Class
