@@ -321,6 +321,7 @@
     <Content Include="Views\Home\Login.vbhtml" />
     <Content Include="Views\Shared\_UserLayout.vbhtml" />
     <Content Include="Views\User\Home.vbhtml" />
+    <Content Include="Views\Account\Roles.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

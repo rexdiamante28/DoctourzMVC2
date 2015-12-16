@@ -24,7 +24,7 @@ Public Class AccountController
         Get
             Return If(_signInManager, HttpContext.GetOwinContext().[Get](Of ApplicationSignInManager)())
         End Get
-        Private Set
+        Private Set(value As ApplicationSignInManager)
             _signInManager = value
         End Set
     End Property
@@ -33,7 +33,7 @@ Public Class AccountController
         Get
             Return If(_userManager, HttpContext.GetOwinContext().GetUserManager(Of ApplicationUserManager)())
         End Get
-        Private Set
+        Private Set(value As ApplicationUserManager)
             _userManager = value
         End Set
     End Property
@@ -106,7 +106,7 @@ Public Class AccountController
         ' If a user enters incorrect codes for a specified amount of time then the user account 
         ' will be locked out for a specified amount of time. 
         ' You can configure the account lockout settings in IdentityConfig
-        Dim result = Await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent := model.RememberMe, rememberBrowser := model.RememberBrowser)
+        Dim result = Await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:=model.RememberMe, rememberBrowser:=model.RememberBrowser)
         Select Case result
             Case SignInStatus.Success
                 Return RedirectToLocal(model.ReturnUrl)
@@ -130,7 +130,11 @@ Public Class AccountController
     <HttpPost>
     <AllowAnonymous>
     <ValidateAntiForgeryToken>
-    Public Async Function Register(model As RegisterViewModel) As Task(Of ActionResult)
+    Public Async Function Register(model As RegisterViewModel, regForm As FormCollection) As Task(Of ActionResult)
+        If Not regForm.GetValue("terms").AttemptedValue Then
+            AddErrors(IdentityResult.Failed("Please chech Terms and Conditions to proceed.").Errors)
+        End If
+
         If ModelState.IsValid Then
             Dim user = New ApplicationUser() With {
                 .UserName = model.Email,
@@ -138,7 +142,22 @@ Public Class AccountController
             }
             Dim result = Await UserManager.CreateAsync(user, model.Password)
             If result.Succeeded Then
-                Await SignInManager.SignInAsync(user, isPersistent := False, rememberBrowser := False)
+                Await SignInManager.SignInAsync(user, isPersistent:=False, rememberBrowser:=False)
+
+                Dim db = New ApplicationDbContext
+                Dim appUser = New AppUsers With {
+                    .firstName = model.firstName,
+                    .lastName = model.lastName,
+                    .name = model.firstName + " " + model.lastName,
+                    .email = model.Email,
+                    .birthDate = Date.Now,
+                    .userName = model.userName}
+
+                db.AppUsers.Add(appUser)
+                db.SaveChanges()
+
+                UserManager.AddToRole(user.Id, regForm.GetValue("Role").AttemptedValue)
+
 
                 ' For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 ' Send an email with this link
@@ -303,7 +322,7 @@ Public Class AccountController
         End If
 
         ' Sign in the user with this external login provider if the user already has a login
-        Dim result = Await SignInManager.ExternalSignInAsync(loginInfo, isPersistent := False)
+        Dim result = Await SignInManager.ExternalSignInAsync(loginInfo, isPersistent:=False)
         Select Case result
             Case SignInStatus.Success
                 Return RedirectToLocal(returnUrl)
@@ -331,28 +350,28 @@ Public Class AccountController
     <ValidateAntiForgeryToken>
     Public Async Function ExternalLoginConfirmation(model As ExternalLoginConfirmationViewModel, returnUrl As String) As Task(Of ActionResult)
         If User.Identity.IsAuthenticated Then
-          Return RedirectToAction("Index", "Manage")
+            Return RedirectToAction("Index", "Manage")
         End If
 
         If ModelState.IsValid Then
-          ' Get the information about the user from the external login provider
-          Dim info = Await AuthenticationManager.GetExternalLoginInfoAsync()
-          If info Is Nothing Then
-              Return View("ExternalLoginFailure")
-          End If
-          Dim userInfo = New ApplicationUser() With {
-              .UserName = model.Email,
-              .Email = model.Email
-          }
-          Dim result = Await UserManager.CreateAsync(userInfo)
-          If result.Succeeded Then
-            result = Await UserManager.AddLoginAsync(userInfo.Id, info.Login)
-            If result.Succeeded Then
-                Await SignInManager.SignInAsync(userInfo, isPersistent := False, rememberBrowser := False)
-                Return RedirectToLocal(returnUrl)
+            ' Get the information about the user from the external login provider
+            Dim info = Await AuthenticationManager.GetExternalLoginInfoAsync()
+            If info Is Nothing Then
+                Return View("ExternalLoginFailure")
             End If
-          End If
-          AddErrors(result)
+            Dim userInfo = New ApplicationUser() With {
+                .UserName = model.Email,
+                .Email = model.Email
+            }
+            Dim result = Await UserManager.CreateAsync(userInfo)
+            If result.Succeeded Then
+                result = Await UserManager.AddLoginAsync(userInfo.Id, info.Login)
+                If result.Succeeded Then
+                    Await SignInManager.SignInAsync(userInfo, isPersistent:=False, rememberBrowser:=False)
+                    Return RedirectToLocal(returnUrl)
+                End If
+            End If
+            AddErrors(result)
         End If
 
         ViewBag.ReturnUrl = returnUrl
@@ -390,7 +409,20 @@ Public Class AccountController
         MyBase.Dispose(disposing)
     End Sub
 
-    #Region "Helpers"
+    Public Function Roles() As ActionResult
+        Return View()
+    End Function
+
+    <HttpPost>
+    Public Function Roles(model As FormCollection) As ActionResult
+        Dim db = New ApplicationDbContext
+        db.Roles.Add(New Microsoft.AspNet.Identity.EntityFramework.IdentityRole(model.GetValue("RoleName").AttemptedValue))
+        db.SaveChanges()
+
+        Return View()
+    End Function
+
+#Region "Helpers"
     ' Used for XSRF protection when adding external logins
     Private Const XsrfKey As String = "XsrfId"
 
@@ -434,10 +466,10 @@ Public Class AccountController
                 .RedirectUri = RedirectUri
             }
             If UserId IsNot Nothing Then
-              properties.Dictionary(XsrfKey) = UserId
+                properties.Dictionary(XsrfKey) = UserId
             End If
             context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider)
         End Sub
     End Class
-    #End Region
+#End Region
 End Class
