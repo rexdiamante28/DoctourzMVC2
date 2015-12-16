@@ -131,6 +131,9 @@ Public Class AccountController
     <AllowAnonymous>
     <ValidateAntiForgeryToken>
     Public Async Function Register(model As RegisterViewModel, regForm As FormCollection) As Task(Of ActionResult)
+        If String.IsNullOrEmpty(regForm("terms")) Then
+            AddErrors(IdentityResult.Failed("Please accept terms and agreement"))
+        End If
 
         If ModelState.IsValid Then
             Dim user = New ApplicationUser() With {

@@ -51,11 +51,12 @@ End Code
                             As a Doctor :<input type="radio" name="Role" value="Doctor" />
                         </div>
                         @<div class="form-group">
-                            <label class="point"><input type="checkbox" id="agree" name="terms"> I agree to <a>Terms and Conditions</a></label>
+                            <label class="point"><input type="checkbox" id="agree" name="terms" value="1"> I agree to <a>Terms and Conditions</a></label>
                         </div>
                         @<div class="form-group">
                             <button type="submit" class="btn btn-primary btn-block">Register</button>
                         </div>
+                        
                     End Using
                 </div>
             </div>
