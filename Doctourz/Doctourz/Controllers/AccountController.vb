@@ -131,9 +131,6 @@ Public Class AccountController
     <AllowAnonymous>
     <ValidateAntiForgeryToken>
     Public Async Function Register(model As RegisterViewModel, regForm As FormCollection) As Task(Of ActionResult)
-        If Not regForm.GetValue("terms").AttemptedValue Then
-            AddErrors(IdentityResult.Failed("Please chech Terms and Conditions to proceed.").Errors)
-        End If
 
         If ModelState.IsValid Then
             Dim user = New ApplicationUser() With {
@@ -153,9 +150,11 @@ Public Class AccountController
                     .birthDate = Date.Now,
                     .userName = model.userName}
 
-                db.AppUsers.Add(appUser)
-                db.SaveChanges()
-
+                Try
+                    db.AppUsers.Add(appUser)
+                    db.SaveChanges()
+                Catch
+                End Try
                 UserManager.AddToRole(user.Id, regForm.GetValue("Role").AttemptedValue)
 
 
