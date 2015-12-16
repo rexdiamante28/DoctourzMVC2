@@ -32,7 +32,8 @@ Public Module BundleConfig
         bundles.Add(New StyleBundle("~/Content/user").Include(
                   "~/Content/bootstrap.css",
                   "~/Content/User.css",
-                  "~/Content/custom.css"))
+                  "~/Content/custom.css",
+                  "~/font-awesome/css/font-awesome.css"))
 
         bundles.Add(New StyleBundle("~/Content/old").Include(
                   "~/Content/bootstrap.css",

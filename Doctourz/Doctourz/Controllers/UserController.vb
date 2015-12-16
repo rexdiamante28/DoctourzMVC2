@@ -6,4 +6,10 @@
 
         Return View()
     End Function
+
+    Function Telemed() As ActionResult
+        ViewData("Message") = "Your user Telemed page."
+
+        Return View()
+    End Function
 End Class

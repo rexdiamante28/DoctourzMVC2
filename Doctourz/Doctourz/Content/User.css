@@ -7,24 +7,44 @@
 }
 
 #page-wrapper {
-    padding: 0 15px;
+    padding: 0;
     background-color: #fff;
     min-height:100vh !important;
     overflow-y:scroll;
+    background-color: #E1E0E1;
 }
 
 #page-wrapper{
-    -webkit-transition: margin .5s;
-    -moz-transition: margin .5s;
-    -o-transition: margin .5s;
-    transition: margin .5s;
+    -webkit-transition: margin .3s;
+    -moz-transition: margin .3s;
+    -o-transition: margin .3s;
+    transition: margin .3s;
 }
 
 @media(min-width:768px) {
+
+    .navbar li{
+    max-width:80px;
+    min-width:80px;
+    border-left:1px solid #E1E0E1;
+    min-height:60px;
+    max-height:50px;
+    padding:0px;
+    text-align:center;
+    }
+    .navbar li a{
+        min-height:60px;
+        max-height:50px;
+        color: #676767;
+        font-size: 12px;
+        padding:0px;
+        vertical-align:text-bottom;
+    }
+
     #page-wrapper {
         position: inherit;
-        margin: 0 0 0 60px;
-        padding: 0 30px;
+        margin: 0 0 0 50px;
+        padding: 0;
         border-left: 1px solid #e7e7e7;
         min-height:100vh !important;
     }
@@ -36,10 +56,11 @@
     }
     .page-wrapper-close{
         position: inherit;
-        margin: 0 0 0 60px !important;
+        margin: 0 0 0 50px !important;
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
     }
+    
 }
 
 .navbar-top-links {
@@ -145,19 +166,53 @@
     z-index: 1;
     position: absolute;
     width: 300px !important;
+    overflow-y:scroll;
 }
 .sidebar-close{
     z-index: 1;
     position: absolute;
-    width: 60px !important;
+    width: 50px !important;
 }
 
 #sidebar{
-    -webkit-transition: width .5s;
-    -moz-transition: width .5s;
-    -o-transition: width .5s;
-    transition: width .5s;
+    overflow-x:hidden;
+    white-space: nowrap;
+    -webkit-transition: width .3s;
+    -moz-transition: width .3s;
+    -o-transition: width .3s;
+    transition: width .3s;
+    z-index:3333;
 }
+
+#side-menu li {
+    border-bottom:none;
+    color: white;
+    font-size:15px;
+    cursor:pointer;
+    padding:5px 0;
+}
+#side-menu li img {
+    width:25px;
+    margin-left:10px;
+    margin-right:20px;
+}
+#side-menu li i {
+    font-size:25px;
+    margin-left:10px;
+    margin-right:20px;
+}
+
+#side-menu li:hover{
+    background-color: #9AFE66;
+}
+#side-menu li{
+    -webkit-transition: background-color .5s;
+    -moz-transition: background-color .5s;
+    -o-transition: background-color .5s;
+    transition: background-color .5s;
+}
+
+
 
 @media(min-width:768px) {
     .sidebar {
@@ -173,6 +228,7 @@
     .navbar-top-links .dropdown-alerts {
         margin-left: auto;
     }
+
 }
 
 .btn-outline {
@@ -385,3 +441,234 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+.top-links a{
+    min-width: 70px;
+    height:100%;
+    display:inline;
+    float: left;
+    cursor: pointer;
+    margin-left:10px;
+    border-left: 1px solid gray;
+}
+
+.navbar-right li img{
+    width:25px;
+    margin-top:10px;
+}
+
+.navbar-right li i{
+    font-size:25px;
+    margin-top:10px;
+}
+.name-section{
+    height:210px;
+    color:white;
+    padding-top:10px;
+}
+
+.name-section .name-section-button{
+    background-color: #3C3C3B;
+    border-radius:10px;
+    max-width: 150px;
+    padding: 3px 5px;
+    margin: 0 auto;
+}
+
+#transparent-cover{
+    /*Do some transition animation here*/
+}
+
+.transparent-cover-open{
+    background-color: rgba(62,62,66,.5);
+    min-height:100vh;
+    min-width:100%;
+    z-index:2222;
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+.transparent-cover-close{
+    background-color: rgba(62,62,66,.5);
+    min-height:100vh;
+    min-width:100%;
+    z-index:2222;
+    position:absolute;
+    top:0px;
+    left:0px;
+    display:none;
+}
+
+    #sidebar-child{
+        width:300px;
+        min-height:100vh;
+        position:absolute;
+        background-color: rgba(56,83,111,.8);
+        top:0px;
+        z-index:3322;
+        overflow-y:scroll;
+        -webkit-transition: left .5s;
+        -moz-transition: left .5s;
+        -o-transition: left .5s;
+        transition: left .3s;
+    }
+
+    .sidebar-child-open{
+        left: 284px;
+    }
+
+    .sidebar-child-close{
+        left:-300px;
+    }
+
+
+/*Style for the telemed section*/
+#bottom-dock{
+    position:fixed;
+    bottom:0px;
+    width:95%;
+    z-index:1112;
+}
+
+#bottom-dock > .bottom-link{
+    width:20%;
+    float:left;
+    cursor:pointer;
+    text-align:center;
+    color:white;
+    background-color: #3276B1;
+    padding:2px;
+    border-radius: 100px 100px 0px 0px;
+}
+
+#bottom-dock > .bottom-link-active{
+    width:20%;
+    float:left;
+    cursor:pointer;
+    text-align:center;
+    color:white;
+    background-color: green;
+    padding:2px;
+    border-radius: 100px 100px 0px 0px;
+}
+
+#telemedCover{
+}
+
+#main-frame{
+    width: 98%;
+    margin:0 auto;
+    height:auto;
+    background-color: #272822;
+    position:relative;
+}
+#controls{
+    height:70px;
+    width: 100%;
+    border-top: 3px solid #E1E0E1;
+    bottom:0px;
+    left:0px;
+}
+#video{
+    min-height:73vh;
+    width:100%;
+    background-color: rgba(225,224,225,.5);
+    position:relative;
+    background-image: url(../Content/Images/Website/hero-img.jpg)
+}
+
+#info{
+    min-height:100%;
+    max-height:100%;
+    overflow-y:hidden;
+    background-color: rgba(225,224,225,.7);
+    position: absolute;
+    top:0px;
+    left:0px;
+}
+#chat{
+    min-height:100%;
+    background-color: rgba(225,224,225,.7);
+    position: absolute;
+    top:0px;
+    right:0px;
+}
+#info,#chat{
+    -webkit-transition: width .2s;
+    -moz-transition: width .2s;
+    -o-transition: width .2s;
+    transition: width .2s;
+}
+.chat-open,.info-open{
+    width:300px;
+}
+
+.chat-close,.info-close{
+    width:30px;
+    overflow-y:hidden;
+    overflow-x:hidden;
+    padding-left:0px;
+}
+
+
+#chat .header, #info .header{
+    width:100%;
+    padding:3px;
+    background-color: rgba(50,118,177,.7);
+    overflow-x:hidden;
+    white-space:nowrap;
+    text-wrap:none;
+}
+#chat .header i, #info .header i{
+    font-size: 30px;
+    cursor:pointer;
+}
+
+#info .list-group,#chat .list-group{
+    background-color: rgba(255,255,255,.1) !important;
+    color: #5A5A5A;
+}
+#info .list-group-item,#chat .list-group-item{
+    background-color: rgba(255,255,255,.1) !important;
+    height:auto;
+}
+
+#message-box{
+    position:absolute;
+    bottom:0px;
+    height:auto;
+    width:100%;
+    padding:0px;
+}
+#chatbox{
+    max-height:60vh;
+    overflow-y:scroll;
+}
+#controls{
+    text-align:center;
+}
+#controls img{
+    width:55px;
+    margin: 5px 10px 0px 10px;
+}
+#controls #controls-frame i{
+    margin-right: 10px;
+    font-size: 30px;
+    margin-top:15px;
+    color: #CAC9CB;
+    cursor:pointer;
+}
+#controls #controls-frame i:hover{
+    color: #6089B3;
+}
+#telemedCover{
+    position:fixed;
+    min-width:100%;
+    max-width:100%;
+    min-height:100vh;
+    max-height:100vh;
+    background-color: rgba(225,224,225,1);
+    z-index:1111;
+}
+
+/*Style for the telemed section*/
