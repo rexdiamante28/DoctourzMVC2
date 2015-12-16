@@ -20,13 +20,13 @@ End Class
 Public Class VerifyCodeViewModel
     <Required>
     Public Property Provider As String
-    
+
     <Required>
     <Display(Name:="Code")>
     Public Property Code As String
-    
+
     Public Property ReturnUrl As String
-    
+
     <Display(Name:="Remember this browser?")>
     Public Property RememberBrowser As Boolean
 
@@ -41,9 +41,8 @@ End Class
 
 Public Class LoginViewModel
     <Required>
-    <Display(Name:="Email")>
-    <EmailAddress>
-    Public Property Email As String
+    <Display(Name:="Username")>
+    Public Property Username As String
 
     <Required>
     <DataType(DataType.Password)>
@@ -55,6 +54,18 @@ Public Class LoginViewModel
 End Class
 
 Public Class RegisterViewModel
+    <Required>
+    <Display(Name:="Username")>
+    Public Property userName() As String
+
+    <Required>
+    <Display(Name:="First Name")>
+    Public Property firstName() As String
+
+    <Required>
+    <Display(Name:="Last Name")>
+    Public Property lastName() As String
+
     <Required>
     <EmailAddress>
     <Display(Name:="Email")>
