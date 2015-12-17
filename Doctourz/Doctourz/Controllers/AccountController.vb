@@ -140,12 +140,14 @@ Public Class AccountController
                 .UserName = model.userName,
                 .Email = model.Email
             }
+
             Dim result = Await UserManager.CreateAsync(user, model.Password)
             If result.Succeeded Then
                 Await SignInManager.SignInAsync(user, isPersistent:=False, rememberBrowser:=False)
 
-                Dim db = New ApplicationDbContext
-                Dim appUser = New AppUsers With {
+                Dim db As New ApplicationDbContext()
+                Dim appUser = New AppUsers() With {
+                    .userId = user.Id,
                     .firstName = model.firstName,
                     .lastName = model.lastName,
                     .name = model.firstName + " " + model.lastName,
@@ -156,9 +158,9 @@ Public Class AccountController
 
                 db.AppUsers.Add(appUser)
                 db.SaveChanges()
-
+                Catch
+                End Try
                 UserManager.AddToRole(user.Id, regForm.GetValue("Role").AttemptedValue)
-
 
                 ' For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 ' Send an email with this link
@@ -471,6 +473,7 @@ Public Class AccountController
             End If
             context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider)
         End Sub
+
     End Class
 #End Region
 End Class

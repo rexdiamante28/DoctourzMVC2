@@ -75,7 +75,8 @@
     -ms-box-shadow:5px 5px 5px gray;
 }
 
-.bgwhite{background-color: white;}
+.bgwhite{background-color: white !important;}
+.bgwhite-trans{background-color: rgba(250,250,250,.8) !important}
 
 /*styles for background color red*/
 .bgred1{background-color: red;}

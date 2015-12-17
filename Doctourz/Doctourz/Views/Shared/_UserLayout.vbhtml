@@ -73,10 +73,10 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav"></ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><img src="~/Content/icons/ask-doctor.gif" /><br />Ask Doctor</a></li>
-                            <li><a href="#"><i class="fa fa-newspaper-o "></i><br />News</a></li>
-                            <li><a href="#"><i class="fa fa-search "></i><br />Search</a></li>
-                            <li><a href="#"><img src="~/Content/icons/dma.gif" /><br />To-Do</a></li>
+                            <li id="topbar1"><a href="#"><img src="~/Content/icons/ask-doctor.gif" /><br />Ask Doctor</a></li>
+                            <li id="topbar2"><a href="News"><i class="fa fa-newspaper-o "></i><br />News</a></li>
+                            <li id="topbar3"><a href="Search"><i class="fa fa-search "></i><br />Search</a></li>
+                            <li id="topbar4"><a href="#"><img src="~/Content/icons/dma.gif" /><br />To-Do</a></li>
                         </ul>
                     </div>
                 </div>

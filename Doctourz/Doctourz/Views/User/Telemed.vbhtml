@@ -18,7 +18,7 @@ End Code
 </div>
 
 
-<div id="bottom-dock">
+<div id="bottom-dock" class="bottom-dock-close">
     <div class="bottom-link" id="bottomLink1" onclick="TelemedCoverDecide(this.id)">
         <label>APPOINTMENTS</label>
         <i class="fa fa-expand"></i>

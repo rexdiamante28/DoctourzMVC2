@@ -158,17 +158,24 @@ TelemedCoverDecide = function telemedCoverDecide(id) {
 
     var telemedCover = document.getElementById('telemedCover');
     var telemedCoverClass = telemedCover.getAttribute("class");
+    var bottomDock = document.getElementById('bottom-dock');
+
+
 
     if (telemedCoverClass == "hidden") {
-        telemedCover.setAttribute("class","");
+        telemedCover.setAttribute("class", "");
+        bottomDock.setAttribute("class", "bottom-dock-open");
     }
     else if (telemedCoverClass == "" && oldVal == newVal) {
         telemedCover.setAttribute("class", "hidden");
-        document.getElementById(id).setAttribute("class","bottom-link");
+        document.getElementById(id).setAttribute("class", "bottom-link");
+        bottomDock.setAttribute("class", "bottom-dock-close");
     }
     else if (telemedCoverClass == "" && oldVal != newVal) {
     }
 
 }
+
+
 
 // telemed user interface functions
