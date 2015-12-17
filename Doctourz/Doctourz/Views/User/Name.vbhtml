@@ -32,13 +32,25 @@ End Code
             </div>
         </div>
         <div class="col-sm-10 col-sm-offset-1 top-20">
-            <form>
+            @If Request.IsAuthenticated Then
+                @Using Html.BeginForm("Name", "User", FormMethod.Post, New With {.id = "profileForm"})
+                    @Html.AntiForgeryToken
+                    @<div id="errorDiv"></div>
+                    @<div class="form-group">
+                        <input type="text" class="form-control text-center" placeholder="Your name" name="name" >
+                    </div>
+                    @<a href="javascript:document.getElementById('profileForm').submit()" class="btn btn-primary btn-block top-10 bold">Continue</a>
+
+                End Using
+            End If
+            @*<form method="post" action="">
                 <div id="errorDiv"></div>
                 <div class="form-group">
-                    <input type="text" class="form-control text-center" placeholder="Your name" id="name" >
+                    <input type="text" class="form-control text-center" placeholder="Your name" name="name" >
                 </div>
                 <button class="btn btn-primary btn-block top-10 bold">Continue</button>&nbsp;&nbsp;&nbsp;
-            </form>
+                @Html.ActionLink("Submit", "Name", "User")
+            </form>*@
             <div class="col-xs-12 text-center no-padd">
                 <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Gender", "User")</a></b><br /><br />
             </div>

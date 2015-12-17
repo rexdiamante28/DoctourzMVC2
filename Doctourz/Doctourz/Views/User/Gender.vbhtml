@@ -18,20 +18,21 @@ End Code
         <div class="col-sm-10 col-sm-offset-1 top-20">
             <form>
                 <div id="errorDiv"></div>
-                <div class="forn-group text-center">
+                <div class="forn-group">
                     <label>Gender</label><br /><br />
                     <div class="col-xs-6">
-                        <label><i style="font-size:60px;" class="fa fa-male"></i><input class="pretty-radio" type="radio" name="gender" id="male"><br /><label>Male</label></label>
+                        <label><i style="font-size:60px;" class="fa fa-male"></i><input class="pretty-radio" type="radio" name="gender" id="male" value="M"><br /><label>Male</label></label>
                     </div>
                     <div class="col-xs-6">
-                        <label><i style="font-size:60px;" class="fa fa-female"></i><input class="pretty-radio" type="radio" name="gender" id="female"><br /><label>Female</label></label>
+                        <label><i style="font-size:60px;" class="fa fa-female"></i><input class="pretty-radio" type="radio" name="gender" id="female" value="F"><br /><label>Female</label></label>
                     </div>
                 </div>
                 <button class="btn btn-primary btn-block top-10 bold bottom-10">Continue</button>
-                <div class="col-xs-12 text-center no-padd">
-                    <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Birthdate", "User")</a></b><br /><br />
-                </div>
             </form>
+                  
+            <div class="col-xs-12 text-center no-padd">
+                <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Birthdate", "User")</a></b><br /><br />
+            </div>
         </div>
     </div>
 </div>
