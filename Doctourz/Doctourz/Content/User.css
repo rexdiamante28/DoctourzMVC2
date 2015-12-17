@@ -12,7 +12,9 @@
     min-height:100vh !important;
     overflow-y:scroll;
     background-color: #E1E0E1;
+    max-height:100vh !important;
 }
+
 
 #page-wrapper{
     -webkit-transition: margin .3s;
@@ -672,3 +674,19 @@ table.dataTable thead .sorting:after {
 }
 
 /*Style for the telemed section*/
+
+.login{
+    max-width:400px;
+    margin:0 auto;
+}
+
+.login  h1,
+.login  h2,
+.login  h3,
+.login h4,
+.login  h5,
+.login h6
+{
+    color: #326799;
+}
+

@@ -287,6 +287,7 @@
     <Content Include="Content\icons\nofification.gif" />
     <Content Include="Content\icons\people-you-care-for.gif" />
     <Content Include="Content\icons\sign-out.gif" />
+    <Content Include="Content\Images\Website\feeds.png" />
     <Content Include="Content\Images\Website\dummy.jpg" />
     <Content Include="Content\User.css" />
     <Content Include="Content\custom.css" />
@@ -404,6 +405,13 @@
     <Content Include="Views\User\Home.vbhtml" />
     <Content Include="Views\Account\Roles.vbhtml" />
     <Content Include="Views\User\Telemed.vbhtml" />
+    <Content Include="Views\Shared\_UserLayoutBlank.vbhtml" />
+    <Content Include="Views\User\Name.vbhtml" />
+    <Content Include="Views\User\Gender.vbhtml" />
+    <Content Include="Views\User\Birthdate.vbhtml" />
+    <Content Include="Views\User\Location.vbhtml" />
+    <Content Include="Views\User\Topics.vbhtml" />
+    <Content Include="Views\User\News.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
