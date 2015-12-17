@@ -40,6 +40,12 @@
         Return View()
     End Function
 
+    Function Survey() As ActionResult
+        ViewData("Message") = "Your user survey page."
+
+        Return View()
+    End Function
+
     Function News() As ActionResult
         ViewData("Message") = "Your user news page."
 
@@ -63,7 +69,6 @@
 
         Return View()
     End Function
-
 
     Function Telemed() As ActionResult
         ViewData("Message") = "Your user Telemed page."

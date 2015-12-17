@@ -8,3 +8,7 @@ End Code
         <img src="~/Content/Images/Website/feeds.png" class="col-xs-12 no-padd" />
     </div>
 </div>
+
+<script>
+    document.getElementById('topbar2').setAttribute("class","bggray5");
+</script>

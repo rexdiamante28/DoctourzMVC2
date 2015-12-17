@@ -291,6 +291,12 @@
     <Content Include="Content\icons\nofification.gif" />
     <Content Include="Content\icons\people-you-care-for.gif" />
     <Content Include="Content\icons\sign-out.gif" />
+    <Content Include="Content\Images\User\search\searchimg1.png" />
+    <Content Include="Content\Images\User\search\searchimg2.png" />
+    <Content Include="Content\Images\User\search\searchimg3.png" />
+    <Content Include="Content\Images\User\search\searchimg4.png" />
+    <Content Include="Content\Images\User\search\searchimg5.png" />
+    <Content Include="Content\Images\User\search\searchimg6.png" />
     <Content Include="Content\Images\Website\feeds.png" />
     <Content Include="Content\Images\Website\dummy.jpg" />
     <Content Include="Content\User.css" />
@@ -416,6 +422,8 @@
     <Content Include="Views\User\Location.vbhtml" />
     <Content Include="Views\User\Topics.vbhtml" />
     <Content Include="Views\User\News.vbhtml" />
+    <Content Include="Views\User\Survey.vbhtml" />
+    <Content Include="Views\User\Search.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

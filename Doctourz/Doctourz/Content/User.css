@@ -527,9 +527,24 @@ table.dataTable thead .sorting:after {
 /*Style for the telemed section*/
 #bottom-dock{
     position:fixed;
-    bottom:0px;
-    width:95%;
+    width:96.5%;
+    background-color: white;
     z-index:1112;
+    min-height:100vh;
+    max-height:100vh;
+    overflow-y:scroll;
+    -webkit-transition:bottom .5s;
+    -moz-transition:bottom .5s;
+    -o-transition: bottom .5s;
+    transition: bottom .5s;
+}
+
+.bottom-dock-open{
+    bottom:-5vh;
+}
+
+.bottom-dock-close{
+    bottom: -94vh;
 }
 
 #bottom-dock > .bottom-link{
@@ -539,8 +554,9 @@ table.dataTable thead .sorting:after {
     text-align:center;
     color:white;
     background-color: #3276B1;
-    padding:2px;
-    border-radius: 100px 100px 0px 0px;
+    padding:5px;
+    /*border-radius: 100px 100px 0px 0px;*/
+    border: solid 2px darkgray;
 }
 
 #bottom-dock > .bottom-link-active{
@@ -549,13 +565,16 @@ table.dataTable thead .sorting:after {
     cursor:pointer;
     text-align:center;
     color:white;
-    background-color: green;
-    padding:2px;
-    border-radius: 100px 100px 0px 0px;
+    background-color: #3FC02F;
+    padding:5px;
+    /*border-radius: 100px 100px 0px 0px;*/
+    border-right: solid 2px darkgray;
+    border-left: solid 2px darkgray;
+    border-top: solid 2px darkgray;
+    border-bottom: solid 2px #3FC02F;
 }
 
-#telemedCover{
-}
+
 
 #main-frame{
     width: 98%;
@@ -669,7 +688,7 @@ table.dataTable thead .sorting:after {
     max-width:100%;
     min-height:100vh;
     max-height:100vh;
-    background-color: rgba(225,224,225,1);
+    background-color: rgba(225,224,225,.7);
     z-index:1111;
 }
 
