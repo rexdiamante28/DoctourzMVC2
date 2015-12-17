@@ -137,7 +137,7 @@ Public Class AccountController
 
         If ModelState.IsValid Then
             Dim user = New ApplicationUser() With {
-                .UserName = model.Email,
+                .UserName = model.userName,
                 .Email = model.Email
             }
             Dim result = Await UserManager.CreateAsync(user, model.Password)
@@ -151,13 +151,12 @@ Public Class AccountController
                     .name = model.firstName + " " + model.lastName,
                     .email = model.Email,
                     .birthDate = Date.Now,
-                    .userName = model.userName}
+                    .userName = model.userName,
+                    .userId = user.Id}
 
-                Try
-                    db.AppUsers.Add(appUser)
-                    db.SaveChanges()
-                Catch
-                End Try
+                db.AppUsers.Add(appUser)
+                db.SaveChanges()
+
                 UserManager.AddToRole(user.Id, regForm.GetValue("Role").AttemptedValue)
 
 

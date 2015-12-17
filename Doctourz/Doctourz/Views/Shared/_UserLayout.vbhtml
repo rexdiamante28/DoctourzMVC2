@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/user")
-    @Scripts.Render("~/bundles/modernizr")
+
+   
 
 </head>
 <body class="bggray5">
@@ -89,4 +90,4 @@
     @RenderSection("scripts", required:=False)
 </body>
 </html>
-</html>
+

@@ -1,4 +1,9 @@
-﻿Public Class UserController
+﻿Imports System.Threading.Tasks
+Imports Microsoft.AspNet.Identity
+Imports Microsoft.AspNet.Identity.Owin
+Imports Microsoft.Owin.Security
+Imports System.Linq
+Public Class UserController
     Inherits System.Web.Mvc.Controller
 
     Function Home() As ActionResult
@@ -66,7 +71,7 @@
 
 
     Function Telemed() As ActionResult
-        ViewData("Message") = "Your user Telemed page."
+       
 
         Return View()
     End Function
