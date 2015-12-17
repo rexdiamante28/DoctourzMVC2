@@ -1,4 +1,8 @@
-﻿Public Class UserController
+﻿Imports Microsoft.AspNet.Identity
+Imports Microsoft.AspNet.Identity.Owin
+Imports Microsoft.Owin.Security
+
+Public Class UserController
     Inherits System.Web.Mvc.Controller
 
     Function Home() As ActionResult
@@ -16,10 +20,32 @@
         Return View()
     End Function
 
+    <HttpPost()>
+    <ValidateAntiForgeryToken>
+    Function Name(obj As FormCollection) As ActionResult
+        Dim userId = User.Identity.GetUserId
+        Dim db As New ApplicationDbContext
+        Dim profileName = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
+        profileName.name = obj.GetValue("name").AttemptedValue
+        db.SaveChanges()
+        Return RedirectToAction("Gender", "User")
+    End Function
+
     Function Gender() As ActionResult
         ViewData("Message") = "Your user gender page."
 
         Return View()
+    End Function
+
+    <HttpPost()>
+    <ValidateAntiForgeryToken>
+    Function Gender(obj As FormCollection) As ActionResult
+        Dim userId = User.Identity.GetUserId
+        Dim db As New ApplicationDbContext
+        Dim profileGender = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
+        profileGender.gender = "FEMALE"
+        db.SaveChanges()
+        Return RedirectToAction("Birthdate", "User")
     End Function
 
     Function Birthdate() As ActionResult
