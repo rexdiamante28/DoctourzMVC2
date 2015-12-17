@@ -44,7 +44,13 @@
                     <li id="sidelink10" onclick="SidebarChildDecide(this.id)" class=""><img src="~/Content/icons/invite-friends.gif" />Invire Friends and Family</li>
                     <li id="sidelink11" onclick="SidebarChildDecide(this.id)" class=""><img src="~/Content/icons/help.gif" />Help and Support</li>
                     <li id="sidelink12" onclick="SidebarChildDecide(this.id)" class=""><i class="fa fa-cog"></i>Settings</li>
-                    <li id="sidelink13" onclick="SidebarChildDecide(this.id)" class=""><img src="~/Content/icons/sign-out.gif" />Log out</li>
+                    @If Request.IsAuthenticated Then
+                        @Using Html.BeginForm("LogOff", "Account", FormMethod.Post, New With {.id = "logoutForm"})
+                            @Html.AntiForgeryToken
+                            @<a href="javascript:document.getElementById('logoutForm').submit()" style="text-decoration:none;color:white"><li id="sidelink13" class=""><img src="~/Content/icons/sign-out.gif" />Log out</li></a>
+                        End Using
+                    End If
+                    
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
