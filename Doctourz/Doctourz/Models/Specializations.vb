@@ -1,19 +1,18 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 Imports System.ComponentModel.DataAnnotations.Schema
 
-Public Class Affiliation
+Public Class Specializations
+    Private _specializationId As Integer
     <Key>
     <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
-    Private _affiliationId As Integer
-    Public Property affiliationId() As Integer
+    Public Property NewProperty() As Integer
         Get
-            Return _affiliationId
+            Return _specializationId
         End Get
         Set(ByVal value As Integer)
-            _affiliationId = value
+            _specializationId = value
         End Set
     End Property
-
 
     Private _name As String
     Public Property name() As String
@@ -46,6 +45,5 @@ Public Class Affiliation
     End Property
 
     Public Overridable Property AppUser() As AppUsers
-
 
 End Class

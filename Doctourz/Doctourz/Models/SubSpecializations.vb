@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel.DataAnnotations
 Imports System.ComponentModel.DataAnnotations.Schema
 
-Public Class SubSpecialization
+Public Class SubSpecializations
     Private _subSpecId As Integer
     <Key>
     <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
@@ -44,5 +44,5 @@ Public Class SubSpecialization
         End Set
     End Property
 
-    Public Overridable Property Specialization() As Specialization
+    Public Overridable Property Specialization() As Specializations
 End Class
