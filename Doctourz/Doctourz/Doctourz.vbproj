@@ -214,6 +214,7 @@
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
+    <Compile Include="Controllers\QuestionController.vb" />
     <Compile Include="Controllers\UserController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -234,12 +235,19 @@
       <DependentUpon>201512150518066_date.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201512150518066_date.vb" />
+    <Compile Include="Migrations\201512190723144_addedColoumns.Designer.vb">
+      <DependentUpon>201512190723144_addedColoumns.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512190723144_addedColoumns.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\AppUsers.vb" />
     <Compile Include="Models\Clinics.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
+    <Compile Include="Models\Questions.vb" />
+    <Compile Include="Models\Ratings.vb" />
+    <Compile Include="Models\Traits.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -274,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512150518066_date.resx">
       <DependentUpon>201512150518066_date.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512190723144_addedColoumns.resx">
+      <DependentUpon>201512190723144_addedColoumns.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -443,6 +454,9 @@
     <Content Include="Views\User\Search.vbhtml" />
     <Content Include="Views\User\Dma.vbhtml" />
     <Content Include="Views\User\Menu.vbhtml" />
+    <Content Include="Views\Question\AddTraits.vbhtml" />
+    <Content Include="Views\Question\Main.vbhtml" />
+    <Content Include="Views\Question\ViewTraits.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
