@@ -102,4 +102,12 @@ Public Class UserController
 
         Return View()
     End Function
+
+    Public Function Menu() As ActionResult
+        Return PartialView("Menu")
+    End Function
+
+    Public Function Dma() As ActionResult
+        Return PartialView("Dma")
+    End Function
 End Class

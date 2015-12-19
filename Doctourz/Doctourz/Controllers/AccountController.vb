@@ -153,13 +153,11 @@ Public Class AccountController
                     .name = model.firstName + " " + model.lastName,
                     .email = model.Email,
                     .birthDate = Date.Now,
-                    .userName = model.userName,
-                    .userId = user.Id}
+                    .userName = model.userName}
 
                 db.AppUsers.Add(appUser)
                 db.SaveChanges()
-                Catch
-                End Try
+
                 UserManager.AddToRole(user.Id, regForm.GetValue("Role").AttemptedValue)
 
                 ' For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
