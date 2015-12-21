@@ -247,10 +247,15 @@
     <Compile Include="Models\Education.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
+    <Compile Include="Models\opentok.vb" />
     <Compile Include="Models\Procedures.vb" />
+    <Compile Include="Models\Questions.vb" />
+    <Compile Include="Models\Ratings.vb" />
     <Compile Include="Models\Specializations.vb" />
     <Compile Include="Models\SubSpecializations.vb" />
     <Compile Include="Models\Trainings.vb" />
+    <Compile Include="Models\Traits.vb" />
+    <Compile Include="Models\Users.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
