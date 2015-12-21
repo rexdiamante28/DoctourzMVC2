@@ -2,9 +2,9 @@
 Imports System.ComponentModel.DataAnnotations.Schema
 
 Public Class Affiliations
+    Private _affiliationId As Integer
     <Key>
     <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
-    Private _affiliationId As Integer
     Public Property affiliationId() As Integer
         Get
             Return _affiliationId
