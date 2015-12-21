@@ -96,15 +96,15 @@ Public Class ApplicationDbContext
         End Set
     End Property
 
-    Private _Questions As DbSet(Of Questions)
-    Public Property Questions() As DbSet(Of Questions)
-        Get
-            Return _Questions
-        End Get
-        Set(ByVal value As DbSet(Of Questions))
-            _Questions = value
-        End Set
-    End Property
+    'Private _Questions As DbSet(Of Questions)
+    'Public Property Questions() As DbSet(Of Questions)
+    '    Get
+    '        Return _Questions
+    '    End Get
+    '    Set(ByVal value As DbSet(Of Questions))
+    '        _Questions = value
+    '    End Set
+    'End Property
 
     Private _Specializations As DbSet(Of Specializations)
     Public Property Specializations() As DbSet(Of Specializations)

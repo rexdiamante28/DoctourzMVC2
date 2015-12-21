@@ -5,7 +5,7 @@ Public Class Education
     <Key>
     <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
     Private _educationId As Integer
-    Public Property NewProperty() As Integer
+    Public Property educationId() As Integer
         Get
             Return _educationId
         End Get
