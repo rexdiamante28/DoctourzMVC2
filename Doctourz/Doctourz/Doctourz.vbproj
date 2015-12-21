@@ -67,6 +67,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.0\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -106,6 +112,9 @@
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTokApi.Core">
+      <HintPath>..\packages\OpenTokApi.1.0.0\lib\net40\OpenTokApi.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -205,6 +214,7 @@
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
+    <Compile Include="Controllers\QuestionController.vb" />
     <Compile Include="Controllers\UserController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -225,12 +235,25 @@
       <DependentUpon>201512150518066_date.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201512150518066_date.vb" />
+    <Compile Include="Migrations\201512190723144_addedColoumns.Designer.vb">
+      <DependentUpon>201512190723144_addedColoumns.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512190723144_addedColoumns.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
+    <Compile Include="Models\Affiliations.vb" />
     <Compile Include="Models\AppUsers.vb" />
     <Compile Include="Models\Clinics.vb" />
+    <Compile Include="Models\Education.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
+    <Compile Include="Models\Procedures.vb" />
+    <Compile Include="Models\Questions.vb" />
+    <Compile Include="Models\Ratings.vb" />
+    <Compile Include="Models\Specializations.vb" />
+    <Compile Include="Models\SubSpecializations.vb" />
+    <Compile Include="Models\Trainings.vb" />
+    <Compile Include="Models\Traits.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -248,6 +271,10 @@
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Startup.vb" />
+    <Compile Include="Models\connection.vb" />
+    <Compile Include="Models\oTok.vb" />
+    <Compile Include="Controllers\RTCHub.vb" />
+    <Compile Include="Models\User.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512150402280_InitialCreate.resx">
@@ -262,6 +289,9 @@
     <EmbeddedResource Include="Migrations\201512150518066_date.resx">
       <DependentUpon>201512150518066_date.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512190723144_addedColoumns.resx">
+      <DependentUpon>201512190723144_addedColoumns.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -270,10 +300,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-Doctourz-20151214104407.mdf" />
-    <Content Include="App_Data\aspnet-Doctourz-20151214104407_log.ldf">
-      <DependentUpon>aspnet-Doctourz-20151214104407.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -373,16 +399,20 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="media\ringing .mp3" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\opentok2.2.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -424,6 +454,11 @@
     <Content Include="Views\User\News.vbhtml" />
     <Content Include="Views\User\Survey.vbhtml" />
     <Content Include="Views\User\Search.vbhtml" />
+    <Content Include="Views\User\Dma.vbhtml" />
+    <Content Include="Views\User\Menu.vbhtml" />
+    <Content Include="Views\Question\AddTraits.vbhtml" />
+    <Content Include="Views\Question\Main.vbhtml" />
+    <Content Include="Views\Question\ViewTraits.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -447,7 +482,9 @@
     <Content Include="Views\Shared\_Layout.vbhtml" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\_UserLayout\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />

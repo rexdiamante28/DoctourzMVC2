@@ -35,4 +35,107 @@ Public Class ApplicationDbContext
             _AppUsers = value
         End Set
     End Property
+
+    Private _Questions As DbSet(Of Questions)
+    Public Property Questions() As DbSet(Of Questions)
+        Get
+            Return _Questions
+        End Get
+        Set(ByVal value As DbSet(Of Questions))
+            _Questions = value
+        End Set
+    End Property
+
+    Private _Ratings As DbSet(Of Ratings)
+    Public Property Ratings() As DbSet(Of Ratings)
+        Get
+            Return _Ratings
+        End Get
+        Set(ByVal value As DbSet(Of Ratings))
+            _Ratings = value
+        End Set
+    End Property
+
+    Private _Traits As DbSet(Of Traits)
+    Public Property Traits() As DbSet(Of Traits)
+        Get
+            Return _Traits
+        End Get
+        Set(ByVal value As DbSet(Of Traits))
+            _Traits = value
+        End Set
+    End Property
+
+    Private _Affiliations As DbSet(Of Affiliations)
+    Public Property Affiliations() As DbSet(Of Affiliations)
+        Get
+            Return _Affiliations
+        End Get
+        Set(ByVal value As DbSet(Of Affiliations))
+            _Affiliations = value
+        End Set
+    End Property
+
+    Private _Education As DbSet(Of Education)
+    Public Property Education() As DbSet(Of Education)
+        Get
+            Return _Education
+        End Get
+        Set(ByVal value As DbSet(Of Education))
+            _Education = value
+        End Set
+    End Property
+
+    Private _Procedures As DbSet(Of Procedures)
+    Public Property Procedures() As DbSet(Of Procedures)
+        Get
+            Return _Procedures
+        End Get
+        Set(ByVal value As DbSet(Of Procedures))
+            _Procedures = value
+        End Set
+    End Property
+
+    Private _Questions As DbSet(Of Questions)
+    Public Property Questions() As DbSet(Of Questions)
+        Get
+            Return _Questions
+        End Get
+        Set(ByVal value As DbSet(Of Questions))
+            _Questions = value
+        End Set
+    End Property
+
+    Private _Specializations As DbSet(Of Specializations)
+    Public Property Specializations() As DbSet(Of Specializations)
+        Get
+            Return _Specializations
+        End Get
+        Set(ByVal value As DbSet(Of Specializations))
+            _Specializations = value
+        End Set
+    End Property
+
+    Private _SubSpecializations As DbSet(Of SubSpecializations)
+    Public Property SubSpecializations() As DbSet(Of SubSpecializations)
+        Get
+            Return _SubSpecializations
+        End Get
+        Set(ByVal value As DbSet(Of SubSpecializations))
+            _SubSpecializations = value
+        End Set
+    End Property
+
+    Private _Trainings As DbSet(Of Trainings)
+    Public Property Trainings() As DbSet(Of Trainings)
+        Get
+            Return _Trainings
+        End Get
+        Set(ByVal value As DbSet(Of Trainings))
+            _Trainings = value
+        End Set
+    End Property
+
+
+
 End Class
