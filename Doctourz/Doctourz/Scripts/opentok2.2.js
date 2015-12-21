@@ -71,12 +71,16 @@ var Opentok = {
 // Called when user wants to start publishing to the session
 function startPublishing() {
     if (!publisher) {
+
+        
+
         var name = document.getElementById("txtName").value;
         var parentDiv = document.getElementById("myCamera");
         var publisherDiv = document.createElement('div'); // Create a div for the publisher to replace
         publisherDiv.setAttribute('id', 'opentok_publisher');
         parentDiv.appendChild(publisherDiv);
-        var publisherProps = { width: VIDEO_WIDTH, height: VIDEO_HEIGHT, name: name };
+        //var publisherProps = { width: VIDEO_WIDTH, height: VIDEO_HEIGHT, name: name };
+        var publisherProps = { width: 120, height: 80, name: name };
         publisher = OT.initPublisher(apiKey, publisherDiv.id, publisherProps);  // Pass the replacement div id and properties
         session.publish(publisher);
         publisher.on("streamCreated", function (event) {  //access the self video 
@@ -228,7 +232,8 @@ function addStream(stream) {
     var subscriberDiv = document.createElement('div'); // Create a div for the subscriber to replace
     subscriberDiv.setAttribute('id', stream.streamId); // Give the replacement div the id of the stream as its id.
     document.getElementById("subscribers").appendChild(subscriberDiv);
-    var subscriberProps = { width: VIDEO_WIDTH, height: VIDEO_HEIGHT };
+    //var subscriberProps = { width: VIDEO_WIDTH, height: VIDEO_HEIGHT };
+    var subscriberProps = { width: "100%", height: "73vh"};
     subscribers[stream.streamId] = session.subscribe(stream, subscriberDiv.id, subscriberProps);
 }
 
