@@ -70,7 +70,7 @@ Public Class UserController
     End Function
 
     <HttpPost()>
-   <ValidateAntiForgeryToken>
+    <ValidateAntiForgeryToken>
     Function Birthdate(obj As FormCollection) As ActionResult
         Dim profileBirthDate As DateTime
         Dim userId = User.Identity.GetUserId
@@ -90,6 +90,21 @@ Public Class UserController
         ViewData("Message") = "Your user location page."
 
         Return View()
+    End Function
+
+    <HttpPost()>
+    <ValidateAntiForgeryToken>
+    Function Location(obj As FormCollection) As ActionResult
+        Dim profileLocation As String
+        Dim userId = User.Identity.GetUserId
+        Dim db As New ApplicationDbContext
+
+        profileLocation = obj("location")
+
+        Dim updateProfile = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
+        updateProfile.location = profileLocation
+        db.SaveChanges()
+        Return RedirectToAction("Topics", "User")
     End Function
 
     Function Topics() As ActionResult

@@ -215,7 +215,6 @@
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
     <Compile Include="Controllers\QuestionController.vb" />
-    <Compile Include="Controllers\RTCHub.vb" />
     <Compile Include="Controllers\UserController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -236,10 +235,10 @@
       <DependentUpon>201512150518066_date.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201512150518066_date.vb" />
-    <Compile Include="Migrations\201512190723144_addedColoumns.Designer.vb">
-      <DependentUpon>201512190723144_addedColoumns.vb</DependentUpon>
+    <Compile Include="Migrations\201512210216097_AffiliationChanges.Designer.vb">
+      <DependentUpon>201512210216097_AffiliationChanges.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512190723144_addedColoumns.vb" />
+    <Compile Include="Migrations\201512210216097_AffiliationChanges.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -249,12 +248,9 @@
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="Models\Procedures.vb" />
-    <Compile Include="Models\Questions.vb" />
-    <Compile Include="Models\Ratings.vb" />
     <Compile Include="Models\Specializations.vb" />
     <Compile Include="Models\SubSpecializations.vb" />
     <Compile Include="Models\Trainings.vb" />
-    <Compile Include="Models\Traits.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -274,6 +270,7 @@
     <Compile Include="Startup.vb" />
     <Compile Include="Models\connection.vb" />
     <Compile Include="Models\oTok.vb" />
+    <Compile Include="Controllers\RTCHub.vb" />
     <Compile Include="Models\User.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -289,8 +286,8 @@
     <EmbeddedResource Include="Migrations\201512150518066_date.resx">
       <DependentUpon>201512150518066_date.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512190723144_addedColoumns.resx">
-      <DependentUpon>201512190723144_addedColoumns.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512210216097_AffiliationChanges.resx">
+      <DependentUpon>201512210216097_AffiliationChanges.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

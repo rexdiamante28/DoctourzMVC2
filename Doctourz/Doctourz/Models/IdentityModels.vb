@@ -36,35 +36,35 @@ Public Class ApplicationDbContext
         End Set
     End Property
 
-    Private _Questions As DbSet(Of Questions)
-    Public Property Questions() As DbSet(Of Questions)
-        Get
-            Return _Questions
-        End Get
-        Set(ByVal value As DbSet(Of Questions))
-            _Questions = value
-        End Set
-    End Property
+    'Private _Questions As DbSet(Of Questions)
+    'Public Property Questions() As DbSet(Of Questions)
+    '    Get
+    '        Return _Questions
+    '    End Get
+    '    Set(ByVal value As DbSet(Of Questions))
+    '        _Questions = value
+    '    End Set
+    'End Property
 
-    Private _Ratings As DbSet(Of Ratings)
-    Public Property Ratings() As DbSet(Of Ratings)
-        Get
-            Return _Ratings
-        End Get
-        Set(ByVal value As DbSet(Of Ratings))
-            _Ratings = value
-        End Set
-    End Property
+    'Private _Ratings As DbSet(Of Ratings)
+    'Public Property Ratings() As DbSet(Of Ratings)
+    '    Get
+    '        Return _Ratings
+    '    End Get
+    '    Set(ByVal value As DbSet(Of Ratings))
+    '        _Ratings = value
+    '    End Set
+    'End Property
 
-    Private _Traits As DbSet(Of Traits)
-    Public Property Traits() As DbSet(Of Traits)
-        Get
-            Return _Traits
-        End Get
-        Set(ByVal value As DbSet(Of Traits))
-            _Traits = value
-        End Set
-    End Property
+    'Private _Traits As DbSet(Of Traits)
+    'Public Property Traits() As DbSet(Of Traits)
+    '    Get
+    '        Return _Traits
+    '    End Get
+    '    Set(ByVal value As DbSet(Of Traits))
+    '        _Traits = value
+    '    End Set
+    'End Property
 
     Private _Affiliations As DbSet(Of Affiliations)
     Public Property Affiliations() As DbSet(Of Affiliations)

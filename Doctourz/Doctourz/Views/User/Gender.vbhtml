@@ -25,10 +25,10 @@ End Code
                     @<div class="forn-group">
                         <label>Gender</label><br /><br />
                         <div class="col-xs-6">
-                            <label><i style="font-size:60px;" class="fa fa-male"></i><input class="pretty-radio" type="radio" name="male" id="male" value="M"><br /><label>Male</label></label>
+                            <label><i style="font-size:60px;" class="fa fa-male"></i><input class="pretty-radio" type="radio" name="male" id="male" value="Male"><br /><label>Male</label></label>
                          </div>
                         <div class="col-xs-6">
-                            <label><i style="font-size:60px;" class="fa fa-female"></i><input class="pretty-radio" type="radio" name="female" id="female" value="F"><br /><label>Female</label></label>
+                            <label><i style="font-size:60px;" class="fa fa-female"></i><input class="pretty-radio" type="radio" name="female" id="female" value="Female"><br /><label>Female</label></label>
                          </div>
                     </div>
                      @<div class="col-xs-12 text-center no-padd">
