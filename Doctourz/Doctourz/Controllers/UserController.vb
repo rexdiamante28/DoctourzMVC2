@@ -40,18 +40,49 @@ Public Class UserController
     <HttpPost()>
     <ValidateAntiForgeryToken>
     Function Gender(obj As FormCollection) As ActionResult
+        Dim profileGender As String = ""
         Dim userId = User.Identity.GetUserId
         Dim db As New ApplicationDbContext
-        Dim profileGender = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
-        profileGender.gender = "FEMALE"
-        db.SaveChanges()
-        Return RedirectToAction("Birthdate", "User")
+
+        If String.IsNullOrEmpty(obj("male")) And String.IsNullOrEmpty(obj("female")) Then
+            ViewBag.Error = "Please select a gender"
+        Else
+            If Not String.IsNullOrEmpty(obj("male")) Then
+                profileGender = obj("male")
+            End If
+            If Not String.IsNullOrEmpty(obj("female")) Then
+                profileGender = obj("female")
+            End If
+
+            Dim updateProfile = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
+            updateProfile.gender = profileGender.ToString
+            db.SaveChanges()
+            Return RedirectToAction("Birthdate", "User")
+        End If
+        Return View()
     End Function
 
     Function Birthdate() As ActionResult
         ViewData("Message") = "Your user birthdate page."
 
         Return View()
+    End Function
+
+    <HttpPost()>
+   <ValidateAntiForgeryToken>
+    Function Birthdate(obj As FormCollection) As ActionResult
+        Dim profileBirthDate As DateTime
+        Dim userId = User.Identity.GetUserId
+        Dim db As New ApplicationDbContext
+
+        If Not String.IsNullOrEmpty(obj("birthdate")) Then
+            profileBirthDate = DateTime.Parse(obj("birthdate"))
+        End If
+
+        Dim updateProfile = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
+        updateProfile.birthDate = profileBirthDate.ToString
+        db.SaveChanges()
+        Return RedirectToAction("Location", "User")
     End Function
 
     Function Location() As ActionResult

@@ -16,20 +16,26 @@ End Code
             <b class="normal fgray2 _12">Tell doctors a little more so they can personalize their answers</b>
         </div>
         <div class="col-sm-10 col-sm-offset-1 top-20">
-            <form>
-                <div id="errorDiv"></div>
-                <div class="forn-group">
-                    <label>Gender</label><br /><br />
-                    <div class="col-xs-6">
-                        <label><i style="font-size:60px;" class="fa fa-male"></i><input class="pretty-radio" type="radio" name="gender" id="male" value="M"><br /><label>Male</label></label>
+            @If Request.IsAuthenticated Then
+                @Using Html.BeginForm("Gender", "User", FormMethod.Post, New With {.id = "profileForm"})
+                    @Html.AntiForgeryToken
+                    @<div id="errorDiv">
+                        @ViewBag.Error
                     </div>
-                    <div class="col-xs-6">
-                        <label><i style="font-size:60px;" class="fa fa-female"></i><input class="pretty-radio" type="radio" name="gender" id="female" value="F"><br /><label>Female</label></label>
+                    @<div class="forn-group">
+                        <label>Gender</label><br /><br />
+                        <div class="col-xs-6">
+                            <label><i style="font-size:60px;" class="fa fa-male"></i><input class="pretty-radio" type="radio" name="male" id="male" value="M"><br /><label>Male</label></label>
+                         </div>
+                        <div class="col-xs-6">
+                            <label><i style="font-size:60px;" class="fa fa-female"></i><input class="pretty-radio" type="radio" name="female" id="female" value="F"><br /><label>Female</label></label>
+                         </div>
                     </div>
-                </div>
-                <button class="btn btn-primary btn-block top-10 bold bottom-10">Continue</button>
-            </form>
-                  
+                     @<div class="col-xs-12 text-center no-padd">
+                            <b><a href="javascript:document.getElementById('profileForm').submit()" class="btn btn-primary btn-block top-10 bold bottom-10">Continue</a></b><br /><br />
+                      </div>
+                End Using
+            End If
             <div class="col-xs-12 text-center no-padd">
                 <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Birthdate", "User")</a></b><br /><br />
             </div>
