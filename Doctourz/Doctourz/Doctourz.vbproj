@@ -244,10 +244,12 @@
     <Compile Include="Models\Affiliations.vb" />
     <Compile Include="Models\AppUsers.vb" />
     <Compile Include="Models\Clinics.vb" />
+    <Compile Include="Models\connection.vb" />
     <Compile Include="Models\Education.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="Models\opentok.vb" />
+    <Compile Include="Models\oTok.vb" />
     <Compile Include="Models\Procedures.vb" />
     <Compile Include="Models\Questions.vb" />
     <Compile Include="Models\Ratings.vb" />
@@ -255,6 +257,7 @@
     <Compile Include="Models\SubSpecializations.vb" />
     <Compile Include="Models\Trainings.vb" />
     <Compile Include="Models\Traits.vb" />
+    <Compile Include="Models\User.vb" />
     <Compile Include="Models\Users.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -273,10 +276,7 @@
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Startup.vb" />
-    <Compile Include="Models\connection.vb" />
-    <Compile Include="Models\oTok.vb" />
     <Compile Include="Controllers\RTCHub.vb" />
-    <Compile Include="Models\User.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201512150402280_InitialCreate.resx">

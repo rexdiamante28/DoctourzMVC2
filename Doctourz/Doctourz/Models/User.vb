@@ -4,13 +4,13 @@ Imports System.Linq
 Imports System.Web
 
 Namespace opentokRTC.Models
-    Public Class Users
+    Public Class User
         Public Property ConnectionId() As String
             Get
                 Return m_ConnectionId
             End Get
             Set(value As String)
-                m_ConnectionId = value
+                m_ConnectionId = Value
             End Set
         End Property
         Private m_ConnectionId As String
@@ -19,23 +19,23 @@ Namespace opentokRTC.Models
                 Return m_Name
             End Get
             Set(value As String)
-                m_Name = value
+                m_Name = Value
             End Set
         End Property
         Private m_Name As String
-        Public Property Opentok() As openTok
+        Public Property Opentok() As oTok
             Get
                 Return m_Opentok
             End Get
-            Set(value As openTok)
+            Set(value As oTok)
                 m_Opentok = value
             End Set
         End Property
-        Private m_Opentok As openTok
+        Private m_Opentok As oTok
         Public Sub New()
             Me.Name = ""
         End Sub
-        Public Sub New(name As String, connectionId As String, opentok As openTok)
+        Public Sub New(name As String, connectionId As String, opentok As oTok)
             Me.Name = name
 
             Me.ConnectionId = connectionId
@@ -45,3 +45,10 @@ Namespace opentokRTC.Models
     End Class
 
 End Namespace
+
+'=======================================================
+'Service provided by Telerik (www.telerik.com)
+'Conversion powered by NRefactory.
+'Twitter: @telerik
+'Facebook: facebook.com/telerik
+'=======================================================
