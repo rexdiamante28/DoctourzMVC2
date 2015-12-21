@@ -1,7 +1,8 @@
-﻿Imports Microsoft.AspNet.Identity
+﻿Imports System.Threading.Tasks
+Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.Owin
 Imports Microsoft.Owin.Security
-
+Imports System.Linq
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
@@ -97,6 +98,12 @@ Public Class UserController
         Return View()
     End Function
 
+    Function Survey() As ActionResult
+        ViewData("Message") = "Your user survey page."
+
+        Return View()
+    End Function
+
     Function News() As ActionResult
         ViewData("Message") = "Your user news page."
 
@@ -121,10 +128,17 @@ Public Class UserController
         Return View()
     End Function
 
-
     Function Telemed() As ActionResult
-        ViewData("Message") = "Your user Telemed page."
+
 
         Return View()
+    End Function
+
+    Public Function Menu() As ActionResult
+        Return PartialView("Menu")
+    End Function
+
+    Public Function Dma() As ActionResult
+        Return PartialView("Dma")
     End Function
 End Class

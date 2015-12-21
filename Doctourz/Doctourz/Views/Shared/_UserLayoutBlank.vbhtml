@@ -7,15 +7,17 @@
     @Styles.Render("~/Content/user")
     @Scripts.Render("~/bundles/modernizr")
 
+   
+
 </head>
 <body class="bggray5">
         <!-- Page Content -->
             @RenderBody()
         <!-- /#page-wrapper -->
-    </div>
+  
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/user")
     @RenderSection("scripts", required:=False)
 </body>
 </html>
-</html>
+

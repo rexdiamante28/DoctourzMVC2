@@ -137,7 +137,7 @@ Public Class AccountController
 
         If ModelState.IsValid Then
             Dim user = New ApplicationUser() With {
-                .UserName = model.Email,
+                .UserName = model.userName,
                 .Email = model.Email
             }
 
@@ -154,11 +154,9 @@ Public Class AccountController
                     .email = model.Email,
                     .birthDate = Date.Now,
                     .userName = model.userName}
-                Try
-                    db.AppUsers.Add(appUser)
-                    db.SaveChanges()
-                Catch ex As Exception
-                End Try
+
+                db.AppUsers.Add(appUser)
+                db.SaveChanges()
 
                 UserManager.AddToRole(user.Id, regForm.GetValue("Role").AttemptedValue)
 

@@ -8,7 +8,7 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
+<body style="padding-top:0px;">
     <nav class="topbar">
         <div class="col-xs-12 no-padd">
             <img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 30px;width: 300px;">

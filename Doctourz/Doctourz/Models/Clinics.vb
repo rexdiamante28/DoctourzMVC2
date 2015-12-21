@@ -1,8 +1,10 @@
 ﻿Imports System.ComponentModel.DataAnnotations
+Imports System.ComponentModel.DataAnnotations.Schema
 
 Public Class Clinics
     Private _clinicId As Integer
     <Key>
+    <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
     Public Property clinicId() As Integer
         Get
             Return _clinicId
