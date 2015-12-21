@@ -215,6 +215,7 @@
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
     <Compile Include="Controllers\QuestionController.vb" />
+    <Compile Include="Controllers\RTCHub.vb" />
     <Compile Include="Controllers\UserController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -273,7 +274,6 @@
     <Compile Include="Startup.vb" />
     <Compile Include="Models\connection.vb" />
     <Compile Include="Models\oTok.vb" />
-    <Compile Include="Controllers\RTCHub.vb" />
     <Compile Include="Models\User.vb" />
   </ItemGroup>
   <ItemGroup>
