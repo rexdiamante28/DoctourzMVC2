@@ -4,6 +4,8 @@ Imports System.Linq
 Imports System.Web
 Imports OpenTokApi.Core
 Imports System.Configuration
+Imports OpenTokApi
+
 Namespace opentokRTC.Models
     Public Class oTok
 
@@ -39,7 +41,7 @@ Namespace opentokRTC.Models
         Public Sub New(REMOTE_ADDR As String)
 
 
-            Dim ot As New OpenTok()
+            Dim ot As New OpenTokApi.Core.OpenTok
 
             Dim options As New Dictionary(Of String, Object)()
 
@@ -47,7 +49,6 @@ Namespace opentokRTC.Models
 
             Me.SessionId = ot.CreateSession(REMOTE_ADDR, options)
             Me.Token = ot.GenerateToken(Me.SessionId)
-
 
 
             Me.ApiKey = ConfigurationManager.AppSettings("opentok.key")
