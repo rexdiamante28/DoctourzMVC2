@@ -17,6 +17,9 @@ End Code
             <b class="normal fgray2 _12">Tell doctors a little more so they can personalize their answers</b>
         </div>
         <div class="col-sm-10 col-sm-offset-1 top-20">
+            @If Request.IsAuthenticated Then
+                
+            End If
             <form>
                 <div id="errorDiv"></div>
                 <div class="forn-group text-center">
