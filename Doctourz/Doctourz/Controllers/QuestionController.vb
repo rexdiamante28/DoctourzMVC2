@@ -63,8 +63,6 @@ Namespace Controllers
                 db.Entry(trait).State = Entity.EntityState.Modified
                 db.SaveChanges()
 
-
-
                 Return RedirectToAction("ViewTraits")
             Catch ex As Exception
                 MsgBox(ex.Message)
@@ -133,7 +131,7 @@ Namespace Controllers
                 Dim q = New Questions With {
                     .question = collection.GetValue("question").AttemptedValue,
                     .isNegative = isNegative,
-                    .traitId = collection.GetValue("traitId").AttemptedValue
+                    .traitId = collection.GetValue("traitsList").AttemptedValue
                 }
                 db.Questions.Add(q)
                 db.SaveChanges()
@@ -160,23 +158,23 @@ Namespace Controllers
                 isNegative = True
             End If
 
-            'Try
-            ' TODO: Add update logic here
-            Dim db = New ApplicationDbContext
-            Dim q = db.Questions.Where(Function(model) model.questionId = id).First
+            Try
+                ' TODO: Add update logic here
+                Dim db = New ApplicationDbContext
+                Dim q = db.Questions.Where(Function(model) model.questionId = id).First
 
-            q.question = collection.GetValue("question").AttemptedValue
-            q.isNegative = isNegative
-            q.traitId = collection.GetValue("traitId").AttemptedValue
+                q.question = collection.GetValue("question").AttemptedValue
+                q.isNegative = isNegative
+                q.traitId = collection.GetValue("traitId").AttemptedValue
 
-            db.Entry(q).State = Entity.EntityState.Modified
-            db.SaveChanges()
+                db.Entry(q).State = Entity.EntityState.Modified
+                db.SaveChanges()
 
-            Return RedirectToAction("ViewQuestions")
-            'Catch ex As Exception
-            '    'MsgBox(ex.Message)
-            '    Return View()
-            'End Try
+                Return RedirectToAction("ViewQuestions")
+            Catch ex As Exception
+                'MsgBox(ex.Message)
+                Return View()
+            End Try
         End Function
 
         ' GET: Question/Delete/5
