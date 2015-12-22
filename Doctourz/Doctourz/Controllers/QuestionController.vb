@@ -100,6 +100,12 @@ Namespace Controllers
             Return View(model)
         End Function
 
+        Function TakeSurvey() As ActionResult
+            Dim db = New ApplicationDbContext
+            Dim traits = db.Traits
+            Return View(traits)
+        End Function
+
         ' VIEW QUESTIONS
         Function ViewQuestions() As ActionResult
             Dim db = New ApplicationDbContext

@@ -483,6 +483,7 @@
     <Content Include="Views\Question\AddQuestions.vbhtml" />
     <Content Include="Views\Question\ViewQuestions.vbhtml" />
     <Content Include="Views\Question\EditQuestions.vbhtml" />
+    <Content Include="Views\Question\TakeSurvey.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

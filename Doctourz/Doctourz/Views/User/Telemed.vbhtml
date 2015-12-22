@@ -12,9 +12,10 @@ End Code
    
 
 <div id="acceptCallBox">
-
     <div id="acceptCallLabel"></div>
-    <input type="button" id="callAcceptButton" value="Accept" /> <input type="button" id="callRejectButton" value="Reject" />
+    <div class="text-center top-30">
+        <input type="button" id="callAcceptButton" class="btn btn-success btn-sm" value="Accept" /> <input type="button" id="callRejectButton" class="btn btn-danger btn-sm" value="Reject" />
+    </div>
 </div>
 
 
