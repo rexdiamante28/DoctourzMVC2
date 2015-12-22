@@ -8,5 +8,5 @@ End Code
     @Html.ActionLink("Traits", "ViewTraits")
 </div>
 <div class="row">
-   
+    @Html.ActionLink("Questions", "ViewQuestions")
 </div>
