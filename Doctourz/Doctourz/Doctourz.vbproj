@@ -243,6 +243,10 @@
       <DependentUpon>201512210532566_RegisterChanges.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201512210532566_RegisterChanges.vb" />
+    <Compile Include="Migrations\201512220340548_QuestionChanges.Designer.vb">
+      <DependentUpon>201512220340548_QuestionChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512220340548_QuestionChanges.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512210532566_RegisterChanges.resx">
       <DependentUpon>201512210532566_RegisterChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512220340548_QuestionChanges.resx">
+      <DependentUpon>201512220340548_QuestionChanges.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

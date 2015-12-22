@@ -45,6 +45,4 @@ Public Class Questions
     End Property
     Public Overridable Property traits As Traits
 
-
-
 End Class

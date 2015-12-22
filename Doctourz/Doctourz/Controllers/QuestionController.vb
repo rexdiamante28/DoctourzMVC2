@@ -17,6 +17,8 @@ Namespace Controllers
 
         ' GET: Question/Create
         Function AddTraits() As ActionResult
+            Dim db As New ApplicationDbContext
+            ViewData("TraitId") = New SelectList(db.Traits, "traitId", "trait")
             Return PartialView("AddTraits")
         End Function
 
@@ -191,6 +193,5 @@ Namespace Controllers
                 Return View()
             End Try
         End Function
-
     End Class
 End Namespace
