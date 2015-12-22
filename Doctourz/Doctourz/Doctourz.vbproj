@@ -219,6 +219,34 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512150402280_InitialCreate.Designer.vb">
+      <DependentUpon>201512150402280_InitialCreate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150402280_InitialCreate.vb" />
+    <Compile Include="Migrations\201512150510476_firstMigration.Designer.vb">
+      <DependentUpon>201512150510476_firstMigration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150510476_firstMigration.vb" />
+    <Compile Include="Migrations\201512150513550_BirthDateToDateTime.Designer.vb">
+      <DependentUpon>201512150513550_BirthDateToDateTime.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150513550_BirthDateToDateTime.vb" />
+    <Compile Include="Migrations\201512150518066_date.Designer.vb">
+      <DependentUpon>201512150518066_date.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512150518066_date.vb" />
+    <Compile Include="Migrations\201512210216097_AffiliationChanges.Designer.vb">
+      <DependentUpon>201512210216097_AffiliationChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512210216097_AffiliationChanges.vb" />
+    <Compile Include="Migrations\201512210532566_RegisterChanges.Designer.vb">
+      <DependentUpon>201512210532566_RegisterChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512210532566_RegisterChanges.vb" />
+    <Compile Include="Migrations\201512220340548_QuestionChanges.Designer.vb">
+      <DependentUpon>201512220340548_QuestionChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512220340548_QuestionChanges.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -259,6 +287,27 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512150402280_InitialCreate.resx">
+      <DependentUpon>201512150402280_InitialCreate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512150510476_firstMigration.resx">
+      <DependentUpon>201512150510476_firstMigration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512150513550_BirthDateToDateTime.resx">
+      <DependentUpon>201512150513550_BirthDateToDateTime.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512150518066_date.resx">
+      <DependentUpon>201512150518066_date.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512210216097_AffiliationChanges.resx">
+      <DependentUpon>201512210216097_AffiliationChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512210532566_RegisterChanges.resx">
+      <DependentUpon>201512210532566_RegisterChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512220340548_QuestionChanges.resx">
+      <DependentUpon>201512220340548_QuestionChanges.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -294,6 +343,11 @@
     <Content Include="Content\Images\User\search\searchimg4.png" />
     <Content Include="Content\Images\User\search\searchimg5.png" />
     <Content Include="Content\Images\User\search\searchimg6.png" />
+    <Content Include="Content\Images\User\Untitled.png" />
+    <Content Include="Content\Images\User\Untitled2.png" />
+    <Content Include="Content\Images\User\Untitled3.png" />
+    <Content Include="Content\Images\User\Untitled4.png" />
+    <Content Include="Content\Images\User\Untitled5.png" />
     <Content Include="Content\Images\Website\feeds.png" />
     <Content Include="Content\Images\Website\dummy.jpg" />
     <Content Include="Content\User.css" />
@@ -436,6 +490,11 @@
     <Content Include="Views\Question\EditTraits.vbhtml" />
     <Content Include="Views\Question\EditQuestions.vbhtml" />
     <Content Include="Views\Question\TakeSurvey.vbhtml" />
+    <Content Include="Views\User\appointment.vbhtml" />
+    <Content Include="Views\User\PatientRecords.vbhtml" />
+    <Content Include="Views\User\Notes.vbhtml" />
+    <Content Include="Views\User\CareTeam.vbhtml" />
+    <Content Include="Views\User\Diagnosis.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
