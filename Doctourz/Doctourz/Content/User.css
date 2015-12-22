@@ -593,9 +593,7 @@ table.dataTable thead .sorting:after {
 #video{
     min-height:73vh;
     width:100%;
-    background-color: rgba(225,224,225,.5);
     position:relative;
-    background-image: url(../Content/Images/Website/hero-img.jpg)
 }
 
 #info{
@@ -710,14 +708,17 @@ table.dataTable thead .sorting:after {
 }
 
 #acceptCallBox {
+            width: 20%;
+            height:20%;
             display: none;
             z-index: 2;
             position: absolute;
-            top: 100px;
-            left: 400px;
+            top: 35%;;
+            left: 40%;;
             border: #0042a9 solid 2px;
-            background-color: pink;
+            background-color: #C7C7C7;
             padding: 15px;
+            text-align: center;
         }
 
 

@@ -41,17 +41,22 @@ Namespace opentokRTC.Models
         Public Sub New(REMOTE_ADDR As String)
 
 
-            Dim ot As New OpenTokApi.Core.OpenTok
+            Try
+                Dim ot As New OpenTokApi.Core.OpenTok
 
-            Dim options As New Dictionary(Of String, Object)()
+                Dim options As New Dictionary(Of String, Object)()
 
-            options.Add(SessionProperties.P2PPreference, "enabled")
+                options.Add(SessionProperties.P2PPreference, "enabled")
 
-            Me.SessionId = ot.CreateSession(REMOTE_ADDR, options)
-            Me.Token = ot.GenerateToken(Me.SessionId)
+                Me.SessionId = ot.CreateSession(REMOTE_ADDR, options)
+                Me.Token = ot.GenerateToken(Me.SessionId)
 
 
-            Me.ApiKey = ConfigurationManager.AppSettings("opentok.key")
+                Me.ApiKey = ConfigurationManager.AppSettings("opentok.key")
+            Catch ex As Exception
+
+            End Try
+           
         End Sub
 
     End Class

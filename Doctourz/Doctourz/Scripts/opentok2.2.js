@@ -233,7 +233,7 @@ function addStream(stream) {
     subscriberDiv.setAttribute('id', stream.streamId); // Give the replacement div the id of the stream as its id.
     document.getElementById("subscribers").appendChild(subscriberDiv);
     //var subscriberProps = { width: VIDEO_WIDTH, height: VIDEO_HEIGHT };
-    var subscriberProps = { width: "100%", height: "73vh"};
+    var subscriberProps = { width: "100%", height: "73vh", showControls: true };
     subscribers[stream.streamId] = session.subscribe(stream, subscriberDiv.id, subscriberProps);
 }
 
