@@ -239,6 +239,10 @@
       <DependentUpon>201512210216097_AffiliationChanges.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201512210216097_AffiliationChanges.vb" />
+    <Compile Include="Migrations\201512210404355_TraitsChanges.Designer.vb">
+      <DependentUpon>201512210404355_TraitsChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512210404355_TraitsChanges.vb" />
     <Compile Include="Migrations\201512210532566_RegisterChanges.Designer.vb">
       <DependentUpon>201512210532566_RegisterChanges.vb</DependentUpon>
     </Compile>
@@ -305,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512210216097_AffiliationChanges.resx">
       <DependentUpon>201512210216097_AffiliationChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512210404355_TraitsChanges.resx">
+      <DependentUpon>201512210404355_TraitsChanges.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512210532566_RegisterChanges.resx">
       <DependentUpon>201512210532566_RegisterChanges.vb</DependentUpon>
