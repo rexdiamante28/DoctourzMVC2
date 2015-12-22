@@ -28,19 +28,6 @@ End Code
                     @<a href="javascript:document.getElementById('profileForm').submit()" class="btn btn-primary btn-block top-10 bold bottom-10">Continue</a>
                 End Using
             End If
-            @*<form>
-                <div id="errorDiv"></div>
-                <div class="forn-group text-center">
-                    <label>Date of Birth</label><br />
-                    <i class="fa fa-calendar fblue5 bottom-10" style="font-size:60px;"></i><br />
-                    <input type="date" class="form-control" id="birthdate">
-
-                </div>
-                <button class="btn btn-primary btn-block top-10 bold bottom-10">Continue</button>
-                <div class="col-xs-12 text-center no-padd">
-                    <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Location", "User")</a></b><br /><br />
-                </div>
-            </form>*@
             <div class="col-xs-12 text-center no-padd">
                 <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Location", "User")</a></b><br /><br />
             </div>
