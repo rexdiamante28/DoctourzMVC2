@@ -162,4 +162,24 @@ Public Class UserController
     Public Function Dma() As ActionResult
         Return PartialView("Dma")
     End Function
+
+    Public Function appointment() As ActionResult
+        Return PartialView("appointment")
+    End Function
+
+    Public Function CareTeam() As ActionResult
+        Return PartialView("CareTeam")
+    End Function
+
+    Public Function PatientRecords() As ActionResult
+        Return PartialView("PatientRecords")
+    End Function
+
+    Public Function Notes() As ActionResult
+        Return PartialView("Notes")
+    End Function
+
+    Public Function Diagnosis() As ActionResult
+        Return PartialView("Diagnosis")
+    End Function
 End Class

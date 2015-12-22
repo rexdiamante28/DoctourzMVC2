@@ -727,3 +727,14 @@ table.dataTable thead .sorting:after {
     left:-120px;
     bottom:0px;
 }
+
+
+.name-section #avatar{
+   position:static;
+   visibility:hidden;
+   max-height:0px;
+}
+
+.name-section img{
+   cursor: pointer;
+}

@@ -20,25 +20,28 @@ End Code
 
 
 <div id="bottom-dock" class="bottom-dock-close">
-    <div class="bottom-link" id="bottomLink1" onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink1" data-url='@Url.Action("appointment","User")' onclick="TelemedCoverDecide(this.id)">
         <label>APPOINTMENTS</label>
         <i class="fa fa-expand"></i>
     </div>
-    <div class="bottom-link" id="bottomLink2" onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink2" data-url='@Url.Action("PatientRecords", "User")' onclick="TelemedCoverDecide(this.id)">
         <label>PATIENT RECORDS</label>
         <i class="fa fa-expand"></i>
     </div>
-    <div class="bottom-link" id="bottomLink3" onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink3" data-url='@Url.Action("Notes", "User")' onclick="TelemedCoverDecide(this.id)">
         <label>NOTES</label>
         <i class="fa fa-expand"></i>
     </div>
-    <div class="bottom-link" id="bottomLink4" onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink4" data-url='@Url.Action("CareTeam", "User")' onclick="TelemedCoverDecide(this.id)">
         <label>CARE TEAM</label>
         <i class="fa fa-expand"></i>
     </div>
-    <div class="bottom-link" id="bottomLink5" onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink5" data-url='@Url.Action("Diagnosis","User")' onclick="TelemedCoverDecide(this.id)">
         <label>DIAGNOSIS</label>
         <i class="fa fa-expand"></i>
+    </div>
+    <div class="col-xs-12" id="bottom-container">
+
     </div>
 </div>
 
@@ -161,7 +164,7 @@ End Code
 
 <script>
 
-   
+    document.getElementById('topbar0').setAttribute("class", "bggray5");
 
     $(function () {
 
@@ -293,5 +296,9 @@ End Code
 
     });
 </script>
+
+
+
+
 
 End Section
