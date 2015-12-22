@@ -468,6 +468,7 @@
     <Content Include="Views\Question\AddTraits.vbhtml" />
     <Content Include="Views\Question\Main.vbhtml" />
     <Content Include="Views\Question\ViewTraits.vbhtml" />
+    <Content Include="Views\Question\EditTraits.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
