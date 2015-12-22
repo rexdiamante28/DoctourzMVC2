@@ -243,6 +243,10 @@
       <DependentUpon>201512210532566_RegisterChanges.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201512210532566_RegisterChanges.vb" />
+    <Compile Include="Migrations\201512220340548_QuestionChanges.Designer.vb">
+      <DependentUpon>201512220340548_QuestionChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512220340548_QuestionChanges.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -300,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512210532566_RegisterChanges.resx">
       <DependentUpon>201512210532566_RegisterChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512220340548_QuestionChanges.resx">
+      <DependentUpon>201512220340548_QuestionChanges.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -411,6 +418,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\doctourzbeta.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -453,6 +461,8 @@
     <Content Include="Views\Manage\ManageLogins.vbhtml" />
     <Content Include="Views\Manage\SetPassword.vbhtml" />
     <Content Include="Views\Manage\VerifyPhoneNumber.vbhtml" />
+    <Content Include="Views\Question\AddQuestions.vbhtml" />
+    <Content Include="Views\Question\ViewQuestions.vbhtml" />
     <Content Include="Views\Shared\Lockout.vbhtml" />
     <Content Include="Views\Shared\_LoginPartial.vbhtml" />
     <Content Include="Views\Shared\_WebsiteLayout.vbhtml" />
@@ -478,8 +488,6 @@
     <Content Include="Views\Question\Main.vbhtml" />
     <Content Include="Views\Question\ViewTraits.vbhtml" />
     <Content Include="Views\Question\EditTraits.vbhtml" />
-    <Content Include="Views\Question\AddQuestions.vbhtml" />
-    <Content Include="Views\Question\ViewQuestions.vbhtml" />
     <Content Include="Views\Question\EditQuestions.vbhtml" />
     <Content Include="Views\Question\TakeSurvey.vbhtml" />
     <Content Include="Views\User\appointment.vbhtml" />

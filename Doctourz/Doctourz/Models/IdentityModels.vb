@@ -20,6 +20,7 @@ Public Class ApplicationDbContext
     Inherits IdentityDbContext(Of ApplicationUser)
     Public Sub New()
         MyBase.New("DefaultConnection", throwIfV1Schema:=False)
+        Database.SetInitializer(New MigrateDatabaseToLatestVersion(Of ApplicationDbContext, Migrations.Configuration)())
     End Sub
 
     Public Shared Function Create() As ApplicationDbContext
