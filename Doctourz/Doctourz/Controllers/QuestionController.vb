@@ -25,16 +25,16 @@ Namespace Controllers
         Function AddTraits(ByVal collection As FormCollection) As ActionResult
             Try
                 ' TODO: Add insert logic here
-                'Dim db = New ApplicationDbContext
-                'Dim trait = New Traits With {
-                '    .trait = collection.GetValue("trait").AttemptedValue,
-                '    .description = collection.GetValue("description").AttemptedValue,
-                '    .color = collection.GetValue("color").AttemptedValue
-                '}
-                'db.Traits.Add(trait)
-                'db.SaveChanges()
+                Dim db = New ApplicationDbContext
+                Dim trait = New Traits With {
+                    .trait = collection.GetValue("trait").AttemptedValue,
+                    .description = collection.GetValue("description").AttemptedValue,
+                    .color = collection.GetValue("color").AttemptedValue
+                }
+                db.Traits.Add(trait)
+                db.SaveChanges()
 
-                'Return RedirectToAction("ViewTraits")
+                Return RedirectToAction("ViewTraits")
             Catch
                 Return View()
             End Try
@@ -49,7 +49,6 @@ Namespace Controllers
         <HttpPost()>
         Function Edit(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
             Try
-                ' TODO: Add update logic here
                 ' TODO: Add update logic here
                 Return RedirectToAction("Index")
             Catch
@@ -67,10 +66,10 @@ Namespace Controllers
         Function DeleteTrait(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
             Try
                 ' TODO: Add delete logic here
-                'Dim db = New ApplicationDbContext
-                'Dim trait = db.Traits.Where(Function(model) model.traitId = id).First
-                'db.Traits.Remove(trait)
-                'db.SaveChanges()
+                Dim db = New ApplicationDbContext
+                Dim trait = db.Traits.Where(Function(model) model.traitId = id).First
+                db.Traits.Remove(trait)
+                db.SaveChanges()
 
                 Return RedirectToAction("ViewTraits")
             Catch
@@ -78,11 +77,11 @@ Namespace Controllers
             End Try
         End Function
 
-        'Function ViewTraits() As ActionResult
-        '    Dim db = New ApplicationDbContext
-        '    'Dim model = db.Traits
+        Function ViewTraits() As ActionResult
+            Dim db = New ApplicationDbContext
+            Dim model = db.Traits
 
-        '    Return View(model)
-        'End Function
+            Return View(model)
+        End Function
     End Class
 End Namespace

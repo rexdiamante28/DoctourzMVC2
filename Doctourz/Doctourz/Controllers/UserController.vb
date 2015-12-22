@@ -26,9 +26,13 @@ Public Class UserController
     Function Name(obj As FormCollection) As ActionResult
         Dim userId = User.Identity.GetUserId
         Dim db As New ApplicationDbContext
-        Dim profileName = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
-        profileName.name = obj.GetValue("name").AttemptedValue
-        db.SaveChanges()
+
+        If Not String.IsNullOrEmpty(obj.GetValue("name").AttemptedValue) Then
+            Dim profileName = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
+            profileName.name = obj.GetValue("name").AttemptedValue
+            db.SaveChanges()
+        End If
+
         Return RedirectToAction("Gender", "User")
     End Function
 
@@ -54,12 +58,12 @@ Public Class UserController
             If Not String.IsNullOrEmpty(obj("female")) Then
                 profileGender = obj("female")
             End If
-
             Dim updateProfile = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
             updateProfile.gender = profileGender.ToString
             db.SaveChanges()
             Return RedirectToAction("Birthdate", "User")
         End If
+
         Return View()
     End Function
 
@@ -78,11 +82,11 @@ Public Class UserController
 
         If Not String.IsNullOrEmpty(obj("birthdate")) Then
             profileBirthDate = DateTime.Parse(obj("birthdate"))
+            Dim updateProfile = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
+            updateProfile.birthDate = profileBirthDate.ToString
+            db.SaveChanges()
         End If
 
-        Dim updateProfile = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
-        updateProfile.birthDate = profileBirthDate.ToString
-        db.SaveChanges()
         Return RedirectToAction("Location", "User")
     End Function
 
@@ -99,11 +103,13 @@ Public Class UserController
         Dim userId = User.Identity.GetUserId
         Dim db As New ApplicationDbContext
 
-        profileLocation = obj("location")
+        If Not String.IsNullOrEmpty(obj("location")) Then
+            profileLocation = obj("location")
+            Dim updateProfile = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
+            updateProfile.location = profileLocation
+            db.SaveChanges()
+        End If
 
-        Dim updateProfile = db.AppUsers.Where(Function(x) x.userId = userId).FirstOrDefault()
-        updateProfile.location = profileLocation
-        db.SaveChanges()
         Return RedirectToAction("Topics", "User")
     End Function
 

@@ -44,8 +44,7 @@ End Code
 
 
 <div id="main-frame">
-    <div id="video">
-        <div id="myCamera" class="publisherContainer"></div>
+    <div id="video" class="publisherContainer">
         <div id="subscribers" class="subscribersContainer"></div>
         <div id="info" class="info-open">
             <div class="header">
@@ -84,6 +83,7 @@ End Code
         </div>
         <div id="chat" class="chat-open">
             <div class="header">
+                <div id="myCamera" class="publisherContainer"></div>
                 <div class="row">
                     <div class="col-xs-12">
                         <text id="r1" class="fwhite _19 pull-right">CHAT</text>
@@ -160,14 +160,17 @@ End Code
 
 <script>
 
+   
+
     $(function () {
+
         var rtc = $.connection.rTCHub;
         var selfuser, caller;
 
         show('connectLink');
 
         function show(id) {
-            document.getElementById(id).style.display = 'block';
+            document.getElementById(id).style.display = 'inline-block';
         }
 
         function hide(id) {
@@ -179,7 +182,6 @@ End Code
             $.each(users, function (key, user) {
                 if (user.Name != $('#txtName').val()) {
                     OnlineUsers.addButton(user);
-
                 }
                 else
                     selfuser = user;
@@ -211,6 +213,7 @@ End Code
 
         }
 
+       
 
 
         rtc.client.notifyCallend = function (self, caller) {

@@ -166,7 +166,7 @@ Public Class AccountController
                 ' Dim callbackUrl = Url.Action("ConfirmEmail", "Account", New With { .userId = user.Id, .code = code }, protocol := Request.Url.Scheme)
                 ' Await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=""" & callbackUrl & """>here</a>")
 
-                Return RedirectToAction("Index", "Home")
+                Return RedirectToAction("Name", "User")
             End If
             AddErrors(result)
         End If

@@ -32,13 +32,11 @@ End Code
                          </div>
                     </div>
                      @<div class="col-xs-12 text-center no-padd">
-                            <b><a href="javascript:document.getElementById('profileForm').submit()" class="btn btn-primary btn-block top-10 bold bottom-10">Continue</a></b><br /><br />
+                            <b><a href="javascript:document.getElementById('profileForm').submit()" class="btn btn-primary btn-block top-10 bold bottom-10">Continue</a>
+                            <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Birthdate", "User")</a></b><br /><br />
                       </div>
                 End Using
             End If
-            <div class="col-xs-12 text-center no-padd">
-                <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Birthdate", "User")</a></b><br /><br />
-            </div>
         </div>
     </div>
 </div>

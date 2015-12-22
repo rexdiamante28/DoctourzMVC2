@@ -719,3 +719,10 @@ table.dataTable thead .sorting:after {
             background-color: pink;
             padding: 15px;
         }
+
+
+#myCamera{
+    position:absolute;
+    left:-120px;
+    bottom:0px;
+}
