@@ -8,6 +8,7 @@
         ViewBag.appUserEmail = appUser.email
     End If
 End Code
+
 <div class="sidebar-child-close" id="sidebar-child" onmouseover="UnfoldSideBar()">
     <div class="col-xs-12 top-10">
         <input type="text" value="empty" readonly class="hidden" id="currentSidebarChild" />
@@ -41,7 +42,7 @@ End Code
             <li id="sidelink9" onclick="SidebarChildDecide(this.id)" ><img src="~/Content/icons/people-you-care-for.gif" />People You Care For</li>
             <li id="sidelink10" onclick="SidebarChildDecide(this.id)" ><img src="~/Content/icons/invite-friends.gif" />Invire Friends and Family</li>
             <li id="sidelink11" onclick="SidebarChildDecide(this.id)" ><img src="~/Content/icons/help.gif" />Help and Support</li>
-            <a href="/Question/Main"><li id="sidelink12"><i class="fa fa-cog"></i>Settings</li></a>
+            <a href="/Question/Main" style="text-decoration:none;color:white"><li id="sidelink12"><i class="fa fa-cog"></i>Settings</li></a>
             @If Request.IsAuthenticated Then
                 @Using Html.BeginForm("LogOff", "Account", FormMethod.Post, New With {.id = "logoutForm"})
                     @Html.AntiForgeryToken
