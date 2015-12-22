@@ -31,7 +31,7 @@
             <li id="sidelink9" onclick="SidebarChildDecide(this.id)" ><img src="~/Content/icons/people-you-care-for.gif" />People You Care For</li>
             <li id="sidelink10" onclick="SidebarChildDecide(this.id)" ><img src="~/Content/icons/invite-friends.gif" />Invire Friends and Family</li>
             <li id="sidelink11" onclick="SidebarChildDecide(this.id)" ><img src="~/Content/icons/help.gif" />Help and Support</li>
-            <li id="sidelink12"><i class="fa fa-cog"></i><a href="/Question/Main">Settings</a></li>
+            <li id="sidelink11" onclick="SidebarChildDecide(this.id)"><img src="~/Content/icons/help.gif" />Settings</li>
             @If Request.IsAuthenticated Then
                 @Using Html.BeginForm("LogOff", "Account", FormMethod.Post, New With {.id = "logoutForm"})
                     @Html.AntiForgeryToken
