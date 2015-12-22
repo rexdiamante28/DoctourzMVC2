@@ -13,7 +13,7 @@ End Code
         <h4>Traits</h4>
         <hr />
         @Html.ValidationSummary(True, "", New With { .class = "text-danger" })
-        @Html.HiddenFor(Function(model) model.traitId)
+        @Html.HiddenFor(Function(model) model.questionId)
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.question, htmlAttributes:=New With {.class = "control-label col-md-2"})

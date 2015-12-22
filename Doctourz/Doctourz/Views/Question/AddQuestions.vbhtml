@@ -2,6 +2,9 @@
 @Code
     ViewData("Title") = "AddQuestions"
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
+    
+    Dim db As New ApplicationDbContext
+    Dim traits = db.Traits
 End Code
 <div class="row">
     <h2>Add Questions</h2>
@@ -33,14 +36,12 @@ End Code
              <div class="form-group">
                  @Html.LabelFor(Function(model) model.traitId, htmlAttributes:=New With {.class = "control-label col-md-2"})
                  <div class="col-md-10">
-                     @Html.EditorFor(Function(model) model.traitId, New With {.htmlAttributes = New With {.class = "form-control"}})
-                     @Html.ValidationMessageFor(Function(model) model.traitId, "", New With {.class = "text-danger"})
-                 </div>
-             </div>
-
-             <div class="form-group">
-                 <div class="col-md-10">
-                    @Html.DropDownList("TraitId", String.Empty)
+                     <select name="traitsList" class="form-control">
+                        @For Each item In traits
+                            @<option value="@item.traitId">@item.trait</option>
+                        Next
+                     </select>
+                   
                  </div>
              </div>
 
@@ -50,7 +51,7 @@ End Code
                 </div>
             </div>
         </div>
-    End Using
+                   End Using
 
     <div>
         @Html.ActionLink("Back to List", "ViewQuestions")

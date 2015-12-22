@@ -2,6 +2,9 @@
 @Code
     ViewData("Title") = "ViewQuestions"
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
+    
+    Dim db As New ApplicationDbContext
+    Dim trait = db.Traits
 End Code
 
 <h2>View Questions</h2>
@@ -32,7 +35,11 @@ End Code
                 @Html.DisplayFor(Function(modelItem) item.isNegative)
             </td>
             <td>
-                @Html.DisplayFor(Function(modelItem) item.traitId)
+                @For Each x In trait
+                If item.traitId = x.traitId Then
+                    @Html.DisplayFor(Function(modelItem) x.trait)
+                End If
+                Next
             </td>
             <td>
                 @Html.ActionLink("Edit", "EditQuestions", New With {.id = item.questionId})
