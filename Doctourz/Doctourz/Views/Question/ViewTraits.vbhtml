@@ -35,7 +35,7 @@ End Code
                 @Html.DisplayFor(Function(modelItem) item.color)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", New With {.id = item.traitId})
+                @Html.ActionLink("Edit", "EditTraits", New With {.id = item.traitId})
                 <a href="#" id="@item.traitId" class="deleteTraitBtn">Delete</a>
             </td>
         </tr>

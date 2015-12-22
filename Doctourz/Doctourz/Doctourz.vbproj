@@ -458,6 +458,7 @@
     <Content Include="Views\User\Home.vbhtml" />
     <Content Include="Views\Account\Roles.vbhtml" />
     <Content Include="Views\User\Menu.vbhtml" />
+    <Content Include="Views\User\Survey.vbhtml" />
     <Content Include="Views\User\Telemed.vbhtml" />
     <Content Include="Views\Shared\_UserLayoutBlank.vbhtml" />
     <Content Include="Views\User\Name.vbhtml" />
@@ -466,12 +467,12 @@
     <Content Include="Views\User\Location.vbhtml" />
     <Content Include="Views\User\Topics.vbhtml" />
     <Content Include="Views\User\News.vbhtml" />
-    <Content Include="Views\User\Survey.vbhtml" />
     <Content Include="Views\User\Search.vbhtml" />
     <Content Include="Views\User\Dma.vbhtml" />
     <Content Include="Views\Question\AddTraits.vbhtml" />
     <Content Include="Views\Question\Main.vbhtml" />
     <Content Include="Views\Question\ViewTraits.vbhtml" />
+    <Content Include="Views\Question\EditTraits.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

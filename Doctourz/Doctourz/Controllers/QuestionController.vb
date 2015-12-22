@@ -28,8 +28,7 @@ Namespace Controllers
                 Dim db = New ApplicationDbContext
                 Dim trait = New Traits With {
                     .trait = collection.GetValue("trait").AttemptedValue,
-                    .description = collection.GetValue("description").AttemptedValue,
-                    .color = collection.GetValue("color").AttemptedValue
+                    .description = collection.GetValue("description").AttemptedValue
                 }
                 db.Traits.Add(trait)
                 db.SaveChanges()
@@ -41,17 +40,32 @@ Namespace Controllers
         End Function
 
         ' GET: Question/Edit/5
-        Function Edit(ByVal id As Integer) As ActionResult
-            Return View()
+        Function EditTraits(ByVal id As Integer) As ActionResult
+            Dim db = New ApplicationDbContext
+            Dim trait = db.Traits.Where(Function(model) model.traitId = id).First
+
+            Return View(trait)
         End Function
 
         ' POST: Question/Edit/5
         <HttpPost()>
-        Function Edit(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
+        Function EditTraits(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
             Try
                 ' TODO: Add update logic here
-                Return RedirectToAction("Index")
-            Catch
+                Dim db = New ApplicationDbContext
+                Dim trait = db.Traits.Where(Function(model) model.traitId = id).First
+
+                trait.trait = collection.GetValue("trait").AttemptedValue
+                trait.description = collection.GetValue("description").AttemptedValue
+
+                db.Entry(trait).State = Entity.EntityState.Modified
+                db.SaveChanges()
+
+
+
+                Return RedirectToAction("ViewTraits")
+            Catch ex As Exception
+                MsgBox(ex.Message)
                 Return View()
             End Try
         End Function
