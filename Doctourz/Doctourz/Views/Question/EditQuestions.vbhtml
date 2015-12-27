@@ -2,6 +2,9 @@
 @Code
     ViewData("Title") = "EditQuestions"
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
+    
+    Dim db As New ApplicationDbContext
+    Dim traits = db.Traits
 End Code
 
 <h2>EditTraits</h2>
@@ -31,13 +34,31 @@ End Code
             </div>
         </div>
 
-         <div class="form-group">
+         @*<div class="form-group">
              @Html.LabelFor(Function(model) model.traitId, htmlAttributes:=New With {.class = "control-label col-md-2"})
              <div class="col-md-10">
                  @Html.EditorFor(Function(model) model.traitId, New With {.htmlAttributes = New With {.class = "form-control"}})
                  @Html.ValidationMessageFor(Function(model) model.traitId, "", New With {.class = "text-danger"})
              </div>
+         </div>*@
+
+         <div class="form-group">
+             @Html.LabelFor(Function(model) model.traitId, htmlAttributes:=New With {.class = "control-label col-md-2"})
+             <div class="col-md-10">
+                 <select name="traitsList" class="form-control">
+                     @For Each item In traits
+                             If Model.traitId = item.traitId Then
+                                 @<option selected="selected" value="@item.traitId">@item.trait</option>
+                     Else
+                         @<option value="@item.traitId">@item.trait</option>
+                         End If
+                            Next
+                 </select>
+
+             </div>
          </div>
+
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

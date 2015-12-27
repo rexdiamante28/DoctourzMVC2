@@ -12,7 +12,7 @@ End Code
             <p class="lead" style="color: #336799">Let us match you with a Doctor today.</p>
             <div class="row">
                 <div class="col-xs-6 col-xs-offset-3">
-                    <a href="about.html" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
+                    <a href="/Home/About" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
                     <a href="/Account/Register" class="btn btn-lg btn-warning" style="width: 150px;"><strong>Sign up</strong></a>
                 </div>
             </div>

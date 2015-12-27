@@ -165,7 +165,7 @@ Namespace Controllers
 
                 q.question = collection.GetValue("question").AttemptedValue
                 q.isNegative = isNegative
-                q.traitId = collection.GetValue("traitId").AttemptedValue
+                q.traitId = collection.GetValue("traitsList").AttemptedValue
 
                 db.Entry(q).State = Entity.EntityState.Modified
                 db.SaveChanges()
