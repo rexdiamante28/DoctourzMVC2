@@ -144,7 +144,18 @@ Public Class UserController
     End Function
 
     Function Search() As ActionResult
-        ViewData("Message") = "Your user Search page."
+        'ViewData("Message") = "Your user Search page."
+        Dim db As New ApplicationDbContext
+        Dim roleId As String
+
+        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor")
+        For Each item In userRoie
+            roleId = item.Id
+        Next
+
+        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = roleId)).ToList()
+
+        ViewBag.Users = users
 
         Return View()
     End Function
@@ -182,4 +193,10 @@ Public Class UserController
     Public Function Diagnosis() As ActionResult
         Return PartialView("Diagnosis")
     End Function
+
+    'Public Function GetRolesToUsers(ddlRole As String) As List(Of ApplicationUser)
+    '    Dim context As New ApplicationDbContext()
+    '    Dim users = context.Users.Where(Function(x) x.Roles.[Select](Function(y) y.RoleId).Contains(ddlRole)).ToList()
+    '    Return users
+    'End Function
 End Class

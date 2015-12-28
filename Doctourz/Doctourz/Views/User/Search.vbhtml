@@ -4,7 +4,14 @@ End Code
 
 <div class="col-xs-12 col-md-6 col-sm-offset-3">
     <div>
-        <input type="text" class="form-control" placeholder="Search answers, topics, doctors">
+        <input id="SearchText" type="text" class="form-control" placeholder="Search answers, topics, doctors">
+        @*<ul>
+            @For Each item In ViewBag.Users
+                @<li>
+                        @item.Name
+                </li>
+            Next
+        </ul>*@
     </div>
     <div class="top-30 bgwhite no-padd col-xs-12 radius-5">
         <div class="col-xs-6">
@@ -66,3 +73,29 @@ End Code
 <script>
     document.getElementById('topbar3').setAttribute("class","bggray5");
 </script>
+@Section scripts
+    <script>
+        $('#SearchText').keypress(function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+                search()
+            }
+        });
+
+
+        function search() {
+            var client = document.getElementById('SearchText').value;
+            var textbox = document.getElementById('SearchText');
+            var edittext = ", is not available!";
+            var result = client + edittext;
+
+            if (textbox.value == 'Search...') {
+                alert('Please enter a Client Name to search for ');
+                textbox.focus();
+            }
+            else {
+                alert(result);
+            };
+        }
+    </script>
+End Section
