@@ -65,7 +65,7 @@ Namespace Controllers
 
                 Return RedirectToAction("ViewTraits")
             Catch ex As Exception
-                MsgBox(ex.Message)
+                'MsgBox(ex.Message)
                 Return View()
             End Try
         End Function
@@ -120,12 +120,12 @@ Namespace Controllers
         ' POST: Question/Create
         <HttpPost()>
         Function AddQuestions(ByVal collection As FormCollection) As ActionResult
-            Dim isNegative As Boolean = False
-            If collection.GetValue("isNegative").AttemptedValue.Contains("true") Then
-                isNegative = True
-            End If
-
             Try
+                Dim isNegative As Boolean = False
+                If collection.GetValue("isNegative").AttemptedValue.Contains("true") Then
+                    isNegative = True
+                End If
+
                 ' TODO: Add insert logic here
                 Dim db = New ApplicationDbContext
                 Dim q = New Questions With {
@@ -153,12 +153,12 @@ Namespace Controllers
         ' POST: Question/Edit/5
         <HttpPost()>
         Function EditQuestions(ByVal id As Integer, ByVal collection As FormCollection) As ActionResult
-            Dim isNegative As Boolean = False
-            If collection.GetValue("isNegative").AttemptedValue.Contains("true") Then
-                isNegative = True
-            End If
-
             Try
+                Dim isNegative As Boolean = False
+                If collection.GetValue("isNegative").AttemptedValue.Contains("true") Then
+                    isNegative = True
+                End If
+
                 ' TODO: Add update logic here
                 Dim db = New ApplicationDbContext
                 Dim q = db.Questions.Where(Function(model) model.questionId = id).First
@@ -171,8 +171,7 @@ Namespace Controllers
                 db.SaveChanges()
 
                 Return RedirectToAction("ViewQuestions")
-            Catch ex As Exception
-                'MsgBox(ex.Message)
+            Catch
                 Return View()
             End Try
         End Function
