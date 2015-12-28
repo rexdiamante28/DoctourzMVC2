@@ -4,9 +4,11 @@
 End Code
 
 
-<div class="row">
-    @Html.ActionLink("Traits", "ViewTraits")
-</div>
-<div class="row">
-    @Html.ActionLink("Questions", "ViewQuestions")
+<div class="col-sm-6 col-sm-offset-3">
+    <div class="col-xs-12 bgwhite padd-10 top-10" >
+        @Html.ActionLink("Traits", "ViewTraits", "Question")
+    </div>
+    <div class="col-xs-12 bgwhite padd-10 top-10">
+        @Html.ActionLink("Questions", "ViewQuestions", "Question")
+    </div>
 </div>

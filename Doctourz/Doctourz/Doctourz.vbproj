@@ -302,6 +302,7 @@
     <Content Include="Content\Images\User\Untitled5.png" />
     <Content Include="Content\Images\Website\feeds.png" />
     <Content Include="Content\Images\Website\dummy.jpg" />
+    <Content Include="Content\Images\Website\img1.png" />
     <Content Include="Content\User.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\Images\Website\ft-logo.gif" />
@@ -454,6 +455,7 @@
     <Content Include="Views\User\CareTeam.vbhtml" />
     <Content Include="Views\User\Diagnosis.vbhtml" />
     <Content Include="Views\User\SearchDoctor.vbhtml" />
+    <Content Include="Views\Shared\_AboutLayout.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

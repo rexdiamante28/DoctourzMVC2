@@ -9,7 +9,7 @@ End Code
     <div class="intro">
         <div class="intro-body">
             <div class="jumbotron half-opac text-center">
-                <h1 style="color: #336799;"><strong>Global Healthcare<br> <span style="padding-left: 360px;color: #488DD0;">Made for YOU...</span> </strong></h1>
+                <h1 style="color: #336799;"><strong style="font-size:80px;">Global Healthcare<br> <span style="padding-left: 360px;color: #488DD0;font-size:70px;">Customized for YOU...</span> </strong></h1>
                 <p class="lead" style="color: #336799">Let us match you with a Doctor today.</p>
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3">
@@ -21,18 +21,18 @@ End Code
         </div>
     </div>
     <div class="col-xs-12 no-padd">
-        <div class="jumbotron" style="background-color: #336799;padding-bottom: 100px">
+        <div class="" style="background-color: #336799;padding-bottom: 60px; padding-top:30px;">
             <div class="col-xs-12">
                 <form name="search-physician">
                     <div class="form-inline text-center">
-                        <div class="col-xs-3">
+                        <div class="col-xs-3 padd-5">
                             <strong style="color: white;font-weight: bold;font-size: 20px">Find a Physician</strong>
                         </div>
                         <div class="col-xs-3">
-                            <input type="text" name="location" placeholder="Specializing in..." class="form-control" style="margin-right: 20px" />
+                            <input type="text" name="location" placeholder="Specializing in..." class="form-control input-lg" style="margin-right: 20px" />
                         </div>
                         <div class="col-xs-3">
-                            <input type="text" name="specialization" placeholder="Located in..." class="form-control" style="margin-right: 20px" />
+                            <input type="text" name="specialization" placeholder="Located in..." class="form-control input-lg" style="margin-right: 20px" />
                         </div>
                         <div class="col-xs-3">
                             <button type="submit" class="btn btn-lg" style="background-color: #488DD0;color: white;width: 150px"><strong>Search</strong></button>
@@ -47,7 +47,7 @@ End Code
         <div class="col-xs-12 text-center">
             <h1 style="font-weight: 600; color: black;font-size: 45px">We're here with you every step of the way</h1>
             <div style="background-image: url('../../Content/Images/Website/greenbar.png');height: 200px;background-position:center;background-repeat:no-repeat !important">
-                <ul class="nav nav-pills round-pills text-center" role="tablist">
+                <ul class="nav nav-pills round-pills text-center" role="tablist" style="margin-left:150px;">
                     <li class="active"><a href="#1" role="tab" data-toggle="tab">1</a><span class="step-text">PHYSICIAN SEARCH</span></li>
                     <li><a href="#2" role="tab" data-toggle="tab">2</a><span class="step-text">NURSE CONCIERGE</span></li>
                     <li><a href="#3" role="tab" data-toggle="tab">3</a><span class="step-text">TELEMED<br>CONSULTATION</span></li>
@@ -55,7 +55,7 @@ End Code
                 </ul>
             </div>
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="1"><img src="~/Content/Images/Website/123_1.png" /></div>
+                <div role="tabpanel" class="tab-pane active" id="1"><img src="~/Content/Images/Website/img1.png" /></div>
                 <div role="tabpanel" class="tab-pane" id="2"><img src="~/Content/Images/Website/123_2.png" /></div>
                 <div role="tabpanel" class="tab-pane" id="3"><img src="~/Content/Images/Website/123_3.png" /></div>
                 <div role="tabpanel" class="tab-pane" id="4"><img src="~/Content/Images/Website/123_4.png" /></div>
@@ -110,18 +110,18 @@ End Code
 
     <div class="col-xs-12 no-padd" style="background-image: url(../../Content/Images/Website/blueBG.png);background-size: cover;background-position:center;background-repeat: no-repeat">
         <div class="mybody-content text-center" id="registration">
-            <h2 class="fwhite">The vision of DOCTOURZ is to make healthcare<br />personal and accessible. We are dedicated to<br /> "making healthcare global" sign up now!</h2>
+            <h1 style="font-size:45px;" class="fwhite">The vision of DOCTOURZ is to make healthcare<br />personal and accessible. <br /> Join the Healthcare revolution</h1>
             <div class="col-xs-12 top-50" style="padding-bottom: 100px">
                 <form class="form-inline" role="form">
                     <div class="form-group">
-                        <select class="form-control" id="type">
+                        <select class="form-control input-lg" id="type">
                             <option>I am a...</option>
                             <option>I am a patient</option>
                             <option>I am a doctor</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Email" id="email">
+                        <input type="email" class="form-control input-lg" placeholder="Email" id="email">
                     </div>
                     <button type="submit" class="btn btn-warning btn-lg">Signup</button>
                 </form>
