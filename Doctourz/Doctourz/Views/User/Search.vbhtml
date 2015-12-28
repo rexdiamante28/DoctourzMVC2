@@ -5,13 +5,6 @@ End Code
 <div class="col-xs-12 col-md-6 col-sm-offset-3">
     <div>
         <input id="SearchText" type="text" class="form-control" placeholder="Search answers, topics, doctors">
-        @*<ul>
-            @For Each item In ViewBag.Users
-                @<li>
-                        @item.Name
-                </li>
-            Next
-        </ul>*@
     </div>
     <div class="top-30 bgwhite no-padd col-xs-12 radius-5">
         <div class="col-xs-6">
