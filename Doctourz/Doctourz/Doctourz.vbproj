@@ -453,6 +453,7 @@
     <Content Include="Views\User\Notes.vbhtml" />
     <Content Include="Views\User\CareTeam.vbhtml" />
     <Content Include="Views\User\Diagnosis.vbhtml" />
+    <Content Include="Views\User\SearchDoctor.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

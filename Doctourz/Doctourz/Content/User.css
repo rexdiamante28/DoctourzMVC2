@@ -738,3 +738,11 @@ table.dataTable thead .sorting:after {
 .name-section img{
    cursor: pointer;
 }
+
+.custom-fblue{
+    color: #3276B1;
+}
+.toggle-hide{
+    display:none;
+    list-style-type: none;
+}

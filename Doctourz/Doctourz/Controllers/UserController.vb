@@ -155,6 +155,12 @@ Public Class UserController
         Return View()
     End Function
 
+    Function SearchDoctor() As ActionResult
+        ViewData("Message") = "Your user Search page for doctors."
+
+        Return View()
+    End Function
+
     Public Function Menu() As ActionResult
         Return PartialView("Menu")
     End Function
