@@ -5,7 +5,7 @@ End Code
 
 <div class="col-xs-12 col-md-6 col-sm-offset-3">
     <div>
-        <input type="text" class="form-control" placeholder="Search answers, topics, doctors">
+        <input id="SearchText" type="text" class="form-control" placeholder="Search answers, topics, doctors" value=@ViewBag.Keyword>
     </div>
 
     <div class="col-sm-4 no-padd top-20">
@@ -174,7 +174,27 @@ End Code
 
     <div class="col-sm-8 no-padd top-20" style="padding-left:20px;">
         <ul class="list-group point" id="patient-initial-info">
-            <li class="list-group-item">
+            @For Each item In ViewBag.Users
+                Dim db As New ApplicationDbContext
+                Dim det = db.AppUsers.Where(Function(x) x.userId = item.ToString).FirstOrDefault()
+
+                    @<li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="col-xs-2 no-padd">
+                                    <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
+                                </div>
+                                <div class="col-xs-10">
+                                    <text class="bold custom-fblue">@det.Name</text><br />
+                                    <text class="fgray4">Specialization</text><br />
+                                    <text class="fgray4">Star ratings</text><br />
+                                    <text class="fgray4">@det.location</text>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+            Next
+            @*<li class="list-group-item">
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="col-xs-2 no-padd">
@@ -248,7 +268,24 @@ End Code
                         </div>
                     </div>
                 </div>
-            </li>
+            </li>*@
         </ul>
     </div>
 </div>
+
+@Section scripts
+    <script>
+        $('#SearchText').keypress(function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+                search()
+            }
+        });
+
+        function search() {
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/SearchDoctor?keyword=" + keyword.value;
+            window.location.href = url;
+        }
+    </script>
+End Section

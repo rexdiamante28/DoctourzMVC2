@@ -6,6 +6,8 @@ Imports System.Linq
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
+    Public Property doctorList As New List(Of String)
+
     Function Home() As ActionResult
         If Not Request.IsAuthenticated Then
             Return RedirectToAction("Index", "Home")
@@ -143,22 +145,54 @@ Public Class UserController
         Return View()
     End Function
 
-    Function Search() As ActionResult
-        ViewData("Message") = "Your user Search page."
-
-        Return View()
-    End Function
-
     Function Telemed() As ActionResult
+        Dim db As New ApplicationDbContext
+        Dim roleId As String
 
+        'GET DOCTOR ROLE
+        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor")
+        For Each item In userRoie
+            roleId = item.Id
+        Next
+
+        'GET USERS WITH DOCTOR ROLE
+        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = roleId)).ToList()
+        For Each u In users
+            doctorList.Add(u.Id)
+        Next
 
         Return View()
     End Function
 
-    Function SearchDoctor() As ActionResult
-        ViewData("Message") = "Your user Search page for doctors."
-
+    Function Search() As ActionResult
         Return View()
+    End Function
+
+    Function SearchDoctor(ByVal keyword As String) As ActionResult
+        ViewBag.Keyword = keyword
+
+        Dim db As New ApplicationDbContext
+
+        'GET DOCTOR ROLE
+        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
+
+        Try
+            'GET USERS WITH DOCTOR ROLE
+            Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.Contains(keyword))).ToList()
+            For Each item In users
+                doctorList.Add(item.Id)
+            Next
+        Catch ex As Exception
+
+        End Try
+
+
+        ViewBag.Users = doctorList
+        Return PartialView("SearchDoctor")
+    End Function
+
+    Function SeachDoctorTest(ByVal keyword As String) As ActionResult
+
     End Function
 
     Public Function Menu() As ActionResult
@@ -188,4 +222,8 @@ Public Class UserController
     Public Function Diagnosis() As ActionResult
         Return PartialView("Diagnosis")
     End Function
+    'Public Function SearchDoctor() As ActionResult
+    '    Return PartialView("SearchDoctor")
+    'End Function
+
 End Class

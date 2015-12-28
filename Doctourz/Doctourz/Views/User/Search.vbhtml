@@ -4,7 +4,7 @@ End Code
 
 <div class="col-xs-12 col-md-6 col-sm-offset-3">
     <div>
-        <input type="text" class="form-control" placeholder="Search answers, topics, doctors">
+        <input id="SearchText" type="text" class="form-control" placeholder="Search answers, topics, doctors">
     </div>
     <div class="top-30 bgwhite no-padd col-xs-12 radius-5">
         <div class="col-xs-6">
@@ -66,3 +66,21 @@ End Code
 <script>
     document.getElementById('topbar3').setAttribute("class","bggray5");
 </script>
+
+@Section scripts
+   <script>
+        $('#SearchText').keypress(function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+                search()
+            }
+        });
+
+        function search() {
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/SearchDoctor?keyword=" + keyword.value;
+            window.location.href = url;
+        }
+    </script>
+
+End Section
