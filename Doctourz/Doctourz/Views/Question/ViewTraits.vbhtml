@@ -48,17 +48,21 @@ End Code
 @Section scripts
 <script>
     $(".deleteTraitBtn").click(function (event) {
-        var traitId = $(event.currentTarget).context.id;
-        $.ajax({
-            url: '/Question/DeleteTrait/' + traitId,
-            data: { id: traitId },
-            type: 'POST',
-            dataType: 'html',
-            success: function () {
-                alert("Successfully Deleted");
-                window.location ="/Question/ViewTraits";
-            }
-        })
+        var conf = confirm("Deleting a trait will delete questions according to it. Are you sure you want to delete trait?");
+        if (conf) {
+            var traitId = $(event.currentTarget).context.id;
+            $.ajax({
+                url: '/Question/DeleteTrait/' + traitId,
+                data: { id: traitId },
+                type: 'POST',
+                dataType: 'html',
+                success: function () {
+                    alert("Successfully Deleted");
+                    window.location = "/Question/ViewTraits";
+                }
+            })
+        }
+
     })
 </script>
 End Section
