@@ -3,6 +3,8 @@ Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.Owin
 Imports Microsoft.Owin.Security
 Imports System.Linq
+Imports System.Web
+Imports System.Web.Mvc
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
@@ -153,7 +155,6 @@ Public Class UserController
         Return View()
     End Function
 
-    'SEARCH DOCTOR
     Function SearchDoctor(ByVal keyword As String) As ActionResult
         ViewBag.Keyword = keyword
 

@@ -30,10 +30,12 @@ End Code
 <div class="navbar-default sidebar sidebar-close" id="sidebar" role="navigation" onmouseover="UnfoldSideBar()">
     <div class="sidebar-nav navbar-collapse">
         <div class="name-section">
-                <label>
-                    <input type="file" id="avatar">
-                    <img src="~/Content/Images/Website/dummy.jpg" class="img-responsive img-circle" style="margin:0 auto; max-width:100px; width: 90%;">
-                </label>
+               <form method="POST" action="/User/Upload" enctype="multipart/form-data" id="avatarForm">
+                   <label>
+                       <input type="file" name="file" id="avatar" onchange="submitForm('avatarForm')">
+                       <img src="~/Content/Images/Website/dummy.jpg" class="img-responsive img-circle" style="margin:0 auto; max-width:100px; width: 90%;">
+                   </label>
+               </form>
             <div class="name-section top-10 hidden" id="name-section">
                 <h4 class="text-center">@ViewBag.appUserName.ToString</h4>
                 <div class="name-section-button text-center">Get help now</div>
