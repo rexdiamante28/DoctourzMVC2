@@ -504,16 +504,29 @@ table.dataTable thead .sorting:after {
     #sidebar-child{
         width:300px;
         min-height:100vh;
+        max-height:100vh;
         position:absolute;
         background-color: rgba(56,83,111,.8);
+        overflow-y:scroll;
         top:0px;
         z-index:3322;
-        overflow-y:scroll;
+        padding-left:15px;
         -webkit-transition: left .5s;
         -moz-transition: left .5s;
         -o-transition: left .5s;
         transition: left .3s;
     }
+
+    .sidebar-body i{
+        color: #3276B1;
+        font-size:18px;
+        cursor:pointer;
+    }
+
+    .sidebar-body i:hover{
+        color: #18A15F;
+    }
+
 
     .sidebar-child-open{
         left: 284px;

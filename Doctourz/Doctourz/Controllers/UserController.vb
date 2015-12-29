@@ -250,6 +250,14 @@ Public Class UserController
         Return PartialView()
     End Function
 
+    Public Function Notifications() As ActionResult
+        Return PartialView()
+    End Function
+
+    Public Function HealthProfile() As ActionResult
+        Return PartialView()
+    End Function
+
     Public Function appointment() As ActionResult
         Return PartialView("appointment")
     End Function

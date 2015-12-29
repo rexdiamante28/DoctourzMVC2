@@ -219,10 +219,6 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512290821515_renamedColumn.Designer.vb">
-      <DependentUpon>201512290821515_renamedColumn.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512290821515_renamedColumn.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -266,9 +262,6 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512290821515_renamedColumn.resx">
-      <DependentUpon>201512290821515_renamedColumn.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -462,6 +455,8 @@
     <Content Include="Views\User\Diagnosis.vbhtml" />
     <Content Include="Views\User\SearchDoctor.vbhtml" />
     <Content Include="Views\Shared\_AboutLayout.vbhtml" />
+    <Content Include="Views\User\Notifications.vbhtml" />
+    <Content Include="Views\User\HealthProfile.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
