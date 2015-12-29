@@ -3,6 +3,8 @@ Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.Owin
 Imports Microsoft.Owin.Security
 Imports System.Linq
+Imports System.Web
+Imports System.Web.Mvc
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
@@ -153,7 +155,6 @@ Public Class UserController
         Return View()
     End Function
 
-    'SEARCH DOCTOR
     Function SearchDoctor(ByVal keyword As String) As ActionResult
         ViewBag.Keyword = keyword
 
@@ -197,7 +198,7 @@ Public Class UserController
         Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
 
         'GET USERS WITH DOCTOR ROLE
-        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.Contains(keyword))).ToList()
+        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.ToLower.Contains(keyword.ToLower))).ToList()
         For Each item In users
             'DOCTOR DETAILS
             Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
@@ -235,7 +236,7 @@ Public Class UserController
     End Function
 
     Public Function Dma() As ActionResult
-        Return PartialView("Dma")
+        Return PartialView()
     End Function
 
     Public Function appointment() As ActionResult

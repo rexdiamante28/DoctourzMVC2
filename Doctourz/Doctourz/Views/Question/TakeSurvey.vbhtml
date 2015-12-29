@@ -9,6 +9,12 @@ End Code
     
 
 @<div class="col-sm-6 col-sm-offset-3 no-padd">
+    @If (ViewBag.message IsNot Nothing) Then
+        @<div class="alert alert-success">
+            @ViewBag.message
+        </div>
+    End If
+     
     <div class="col-sm-12 bgwhite">
         <div id="myTabContent" class="tab-content">
             @for Each question In Model
@@ -20,16 +26,16 @@ End Code
                     <label><input id='1_@question.questionId' type="radio" name=@question.questionId value="1 @question.traitId"> Strongly Agree</label><br />
                     <label><input id='2_@question.questionId' type="radio" name=@question.questionId value="2 @question.traitId"> Agree</label><br />
                     <label><input id='3_@question.questionId' type="radio" name=@question.questionId value="3 @question.traitId"> Neither Agree nor Disagree</label><br />
-                    <label><input id='4_@question.questionId' type="radio" name=@question.questionId value="4  @question.traitId"> Disagree</label><br />
-                    <label><input id='5_@question.questionId' type="radio" name=@question.questionId value="5  @question.traitId"> Strongly Disagree</label><br />
+                    <label><input id='4_@question.questionId' type="radio" name=@question.questionId value="4 @question.traitId"> Disagree</label><br />
+                    <label><input id='5_@question.questionId' type="radio" name=@question.questionId value="5 @question.traitId"> Strongly Disagree</label><br />
                 </div>
                 Else
                 @<div class="form-group">
                      <label><input id='1_@question.questionId' type="radio" name=@question.questionId value="5 @question.traitId"> Strongly Agree</label><br />
-                     <label><input id='2_@question.questionId' type="radio" name=@question.questionId value="4  @question.traitId"> Agree</label><br />
-                     <label><input id='3_@question.questionId' type="radio" name=@question.questionId value="3  @question.traitId"> Neither Agree nor Disagree</label><br />
-                     <label><input id='4_@question.questionId' type="radio" name=@question.questionId value="2  @question.traitId"> Disagree</label><br />
-                     <label><input id='5_@question.questionId' type="radio" name=@question.questionId value="1  @question.traitId"> Strongly Disagree</label><br />
+                     <label><input id='2_@question.questionId' type="radio" name=@question.questionId value="4 @question.traitId"> Agree</label><br />
+                     <label><input id='3_@question.questionId' type="radio" name=@question.questionId value="3 @question.traitId"> Neither Agree nor Disagree</label><br />
+                     <label><input id='4_@question.questionId' type="radio" name=@question.questionId value="2 @question.traitId"> Disagree</label><br />
+                     <label><input id='5_@question.questionId' type="radio" name=@question.questionId value="1 @question.traitId"> Strongly Disagree</label><br />
                 </div>
                 End If
             </div>
@@ -42,14 +48,3 @@ End Code
 </div>
 
 End Using
-
-@Section scripts
-<script>
-    $('#SurveyForm').submit(function (e) {
-
-        console.log('Submitted!')
-
-        a = e
-    })
-</script>
-End Section
