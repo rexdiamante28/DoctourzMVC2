@@ -6,7 +6,7 @@ Imports System.Linq
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
-    Public Property doctorList As New List(Of String)
+    Public Property doctorList As New List(Of DoctorList)
 
     Function Home() As ActionResult
         If Not Request.IsAuthenticated Then
@@ -146,21 +146,6 @@ Public Class UserController
     End Function
 
     Function Telemed() As ActionResult
-        Dim db As New ApplicationDbContext
-        Dim roleId As String
-
-        'GET DOCTOR ROLE
-        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor")
-        For Each item In userRoie
-            roleId = item.Id
-        Next
-
-        'GET USERS WITH DOCTOR ROLE
-        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = roleId)).ToList()
-        For Each u In users
-            doctorList.Add(u.Id)
-        Next
-
         Return View()
     End Function
 
@@ -168,27 +153,58 @@ Public Class UserController
         Return View()
     End Function
 
+    'SEARCH DOCTOR
     Function SearchDoctor(ByVal keyword As String) As ActionResult
         ViewBag.Keyword = keyword
 
+        MainSearch(keyword)
+
+        TempData("AllDoctors") = doctorList
+        TempData("Keyword") = keyword
+        ViewBag.Doctors = doctorList
+
+        Return PartialView("SearchDoctor")
+    End Function
+
+    'FILTER DOCTOR BY GENDER
+    Function FilterDoctor(filter As String) As ActionResult
+        ViewBag.Keyword = TempData("Keyword")
+
+        doctorList = TempData("AllDoctors")
+
+        doctorList = doctorList.Where(Function(x) x.docGender.Contains(filter)).ToList()
+
+        TempData("Keyword") = TempData("Keyword")
+        TempData("AllDoctors") = TempData("AllDoctors")
+        ViewBag.Doctors = doctorList
+
+        Return PartialView("SearchDoctor")
+    End Function
+
+    Function MainSearch(keyword As String)
         Dim db As New ApplicationDbContext
 
         'GET DOCTOR ROLE
         Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
 
-        Try
-            'GET USERS WITH DOCTOR ROLE
-            Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.Contains(keyword))).ToList()
-            For Each item In users
-                doctorList.Add(item.Id)
-            Next
-        Catch ex As Exception
+        'GET USERS WITH DOCTOR ROLE
+        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.Contains(keyword))).ToList()
+        For Each item In users
+            Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            Dim spDetails As String = "None"
+            If spec IsNot Nothing Then
+                spDetails = spec.name
+            End If
+            doctorList.Add(New DoctorList() With { _
+                           .docId = item.Id, _
+                           .docName = docDetails.name, _
+                           .docSpecialization = spDetails, _
+                           .docLocation = docDetails.location, _
+                           .docGender = docDetails.gender})
+        Next
 
-        End Try
-
-
-        ViewBag.Users = doctorList
-        Return PartialView("SearchDoctor")
+        Return doctorList
     End Function
 
     Function SeachDoctorTest(ByVal keyword As String) As ActionResult
@@ -225,5 +241,7 @@ Public Class UserController
     'Public Function SearchDoctor() As ActionResult
     '    Return PartialView("SearchDoctor")
     'End Function
+
+
 
 End Class

@@ -79,12 +79,16 @@ End Code
                 <text class="custom-fblue">Gender</text>
             </li>
             <div class="row toggle-hide bggray5" id="doctor-gender">
-                <li class="list-group-item ">
-                    <label class="normal"><input type="radio" name="availability" /> Male</label><br />
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="radio" name="availability" /> Female</label><br />
-                </li>
+                <a href="#" class="male">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="radio" id="male" /> Male</label><br />
+                    </li>
+                </a>
+                <a href="#" class="female">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="radio" id="female" /> Female</label><br />
+                    </li>
+                </a>
             </div>
 
             <li class="list-group-item" onclick="ToggleElement('doctor-score')">
@@ -174,9 +178,7 @@ End Code
 
     <div class="col-sm-8 no-padd top-20" style="padding-left:20px;">
         <ul class="list-group point" id="patient-initial-info">
-            @For Each item In ViewBag.Users
-                Dim db As New ApplicationDbContext
-                Dim det = db.AppUsers.Where(Function(x) x.userId = item.ToString).FirstOrDefault()
+            @For Each doc In ViewBag.Doctors
 
                     @<li class="list-group-item">
                         <div class="row">
@@ -185,10 +187,11 @@ End Code
                                     <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
                                 </div>
                                 <div class="col-xs-10">
-                                    <text class="bold custom-fblue">@det.Name</text><br />
-                                    <text class="fgray4">Specialization</text><br />
+                                    <text class="bold custom-fblue">@doc.docName</text><br />
+                                    <text class="fgray4">@doc.docSpecialization</text><br />
                                     <text class="fgray4">Star ratings</text><br />
-                                    <text class="fgray4">@det.location</text>
+                                    <text class="fgray4">@doc.docLocation</text><br />
+                                    <text class="fgray4">@doc.docGender</text>
                                 </div>
                             </div>
                         </div>
@@ -287,5 +290,17 @@ End Code
             var url = "/User/SearchDoctor?keyword=" + keyword.value;
             window.location.href = url;
         }
+
+        $(".male").click(function (event) {
+            var filter = "Male";
+            var url = "/User/FilterDoctor?filter=" + filter;
+            window.location.href = url;
+        })
+
+        $(".female").click(function (event) {
+            var filter = "Female";
+            var url = "/User/FilterDoctor?filter=" + filter;
+            window.location.href = url;
+        })
     </script>
 End Section

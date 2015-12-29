@@ -225,6 +225,7 @@
     <Compile Include="Models\AppUsers.vb" />
     <Compile Include="Models\Clinics.vb" />
     <Compile Include="Models\connection.vb" />
+    <Compile Include="Models\DoctorList.vb" />
     <Compile Include="Models\Education.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
