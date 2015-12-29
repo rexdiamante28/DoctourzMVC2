@@ -298,10 +298,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-Doctourz-20151214104407.mdf" />
-    <Content Include="App_Data\aspnet-Doctourz-20151214104407_log.ldf">
-      <DependentUpon>aspnet-Doctourz-20151214104407.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -487,6 +483,8 @@
     <Content Include="Views\User\Diagnosis.vbhtml" />
     <Content Include="Views\User\SearchDoctor.vbhtml" />
     <Content Include="Views\Shared\_AboutLayout.vbhtml" />
+    <Content Include="Views\User\Notifications.vbhtml" />
+    <Content Include="Views\User\HealthProfile.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -511,6 +509,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\_UserLayout\" />
   </ItemGroup>
   <ItemGroup>

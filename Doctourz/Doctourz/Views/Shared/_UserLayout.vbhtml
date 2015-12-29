@@ -52,7 +52,6 @@
 
     <script>
 
-
         $('#bottomLink1').click( function (evt) {
             evt.preventDefault();
             evt.stopPropagation();
