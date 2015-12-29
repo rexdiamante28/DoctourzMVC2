@@ -38,7 +38,7 @@ End Code
                 </div>
                 <button class="btn btn-primary btn-block top-10 bold bottom-10">Continue</button>
                 <div class="col-xs-12 text-center no-padd">
-                    <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "Survey", "User")</a></b><br /><br />
+                    <b><a href="/passwordrecovery">@Html.ActionLink("Skip", "TakeSurvey", "Question")</a></b><br /><br />
                 </div>
             </form>
         </div>
