@@ -173,8 +173,6 @@ Public Class UserController
 
         MainSearch(keyword)
 
-        'doctorList = TempData("AllDoctors")
-
         If type = "gender" Then
             doctorList = doctorList.Where(Function(x) x.docGender.ToLower = filter.ToLower).ToList()
         End If
