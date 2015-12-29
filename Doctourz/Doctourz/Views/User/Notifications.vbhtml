@@ -1,3 +1,10 @@
-﻿<div class="col-xs-12 padd-10 bgwhite">
-    <h1>Sample notification</h1>
-</div>
+﻿<ul class="list-group">
+    <li class="list-group-item">
+        <b class="_17 normal">Notifications</b>
+    </li>
+    <li class="list-group-item">
+        <b class="normal">Notification details</b>
+        <i class="fa fa-pencil-square-o pull-right"></i>
+        <b class="pull-right normal bluefont">--</b>
+    </li>
+</ul>

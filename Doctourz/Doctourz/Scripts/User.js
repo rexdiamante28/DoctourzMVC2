@@ -187,3 +187,8 @@ ToggleElement = function toggleElement(id) {
     $(concatId).toggle('fast','linear');
 }
 //function for toggling element's display
+
+toggleElement = function toggleelement(id) {
+    var finalId = '#' + id;
+    $(finalId).toggle("fast", "linear");
+}

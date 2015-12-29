@@ -13,7 +13,7 @@ End Code
         <text class="bold _19">Questions</text>
         <a href="/Question/AddQuestions" class="btn btn-info btn-sm pull-right"> <i class="fa fa-plus"></i> Add new</a>
     </div>
-    <div class="col-xs-12 bgwhite padd-10 top-10">
+    <div class="col-xs-12 bgwhite padd-10 top-10 table-responsive">
         <table class="table table-striped table-bordered">
             <tr>
                 <th>

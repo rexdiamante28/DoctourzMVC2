@@ -466,6 +466,7 @@
     <Content Include="Views\User\SearchDoctor.vbhtml" />
     <Content Include="Views\Shared\_AboutLayout.vbhtml" />
     <Content Include="Views\User\Notifications.vbhtml" />
+    <Content Include="Views\User\HealthProfile.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
