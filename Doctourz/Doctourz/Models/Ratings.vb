@@ -36,7 +36,7 @@ Public Class Ratings
     End Property
 
     Private _userId As String
-    Public Property NewProperty() As String
+    Public Property userId() As String
         Get
             Return _userId
         End Get

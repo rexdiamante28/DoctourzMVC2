@@ -66,8 +66,9 @@ End Code
 <script>
     document.getElementById('topbar3').setAttribute("class","bggray5");
 </script>
+
 @Section scripts
-    <script>
+   <script>
         $('#SearchText').keypress(function (e) {
             var code = (e.keyCode ? e.keyCode : e.which);
             if (code == 13) {
@@ -75,20 +76,11 @@ End Code
             }
         });
 
-
         function search() {
-            var client = document.getElementById('SearchText').value;
-            var textbox = document.getElementById('SearchText');
-            var edittext = ", is not available!";
-            var result = client + edittext;
-
-            if (textbox.value == 'Search...') {
-                alert('Please enter a Client Name to search for ');
-                textbox.focus();
-            }
-            else {
-                alert(result);
-            };
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/SearchDoctor?keyword=" + keyword.value;
+            window.location.href = url;
         }
     </script>
+
 End Section

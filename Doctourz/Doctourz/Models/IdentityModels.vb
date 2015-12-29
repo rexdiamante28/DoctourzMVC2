@@ -137,6 +137,25 @@ Public Class ApplicationDbContext
         End Set
     End Property
 
+    Private _SpecializationCategory As DbSet(Of SpecializationCategory)
+    Public Property SpecializationCategory() As DbSet(Of SpecializationCategory)
+        Get
+            Return _SpecializationCategory
+        End Get
+        Set(ByVal value As DbSet(Of SpecializationCategory))
+            _SpecializationCategory = value
+        End Set
+    End Property
+
+    Private _Degree As DbSet(Of Degree)
+    Public Property Degree() As DbSet(Of Degree)
+        Get
+            Return _Degree
+        End Get
+        Set(ByVal value As DbSet(Of Degree))
+            _Degree = value
+        End Set
+    End Property
 
 
 End Class

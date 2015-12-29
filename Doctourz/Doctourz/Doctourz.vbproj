@@ -219,12 +219,30 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512290321113_SubSpecializationChanges.Designer.vb">
+      <DependentUpon>201512290321113_SubSpecializationChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290321113_SubSpecializationChanges.vb" />
+    <Compile Include="Migrations\201512290323045_SubSpecialization2Changes.Designer.vb">
+      <DependentUpon>201512290323045_SubSpecialization2Changes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290323045_SubSpecialization2Changes.vb" />
+    <Compile Include="Migrations\201512290606049_EducationChanges.Designer.vb">
+      <DependentUpon>201512290606049_EducationChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290606049_EducationChanges.vb" />
+    <Compile Include="Migrations\201512290626341_EducationChanges1.Designer.vb">
+      <DependentUpon>201512290626341_EducationChanges1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290626341_EducationChanges1.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
     <Compile Include="Models\AppUsers.vb" />
     <Compile Include="Models\Clinics.vb" />
     <Compile Include="Models\connection.vb" />
+    <Compile Include="Models\Degree.vb" />
+    <Compile Include="Models\DoctorList.vb" />
     <Compile Include="Models\Education.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
@@ -233,6 +251,7 @@
     <Compile Include="Models\Procedures.vb" />
     <Compile Include="Models\Questions.vb" />
     <Compile Include="Models\Ratings.vb" />
+    <Compile Include="Models\SpecializationCategory.vb" />
     <Compile Include="Models\Specializations.vb" />
     <Compile Include="Models\SubSpecializations.vb" />
     <Compile Include="Models\Trainings.vb" />
@@ -259,6 +278,18 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512290321113_SubSpecializationChanges.resx">
+      <DependentUpon>201512290321113_SubSpecializationChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512290323045_SubSpecialization2Changes.resx">
+      <DependentUpon>201512290323045_SubSpecialization2Changes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512290606049_EducationChanges.resx">
+      <DependentUpon>201512290606049_EducationChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512290626341_EducationChanges1.resx">
+      <DependentUpon>201512290626341_EducationChanges1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -302,6 +333,7 @@
     <Content Include="Content\Images\User\Untitled5.png" />
     <Content Include="Content\Images\Website\feeds.png" />
     <Content Include="Content\Images\Website\dummy.jpg" />
+    <Content Include="Content\Images\Website\img1.png" />
     <Content Include="Content\User.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\Images\Website\ft-logo.gif" />
@@ -453,6 +485,8 @@
     <Content Include="Views\User\Notes.vbhtml" />
     <Content Include="Views\User\CareTeam.vbhtml" />
     <Content Include="Views\User\Diagnosis.vbhtml" />
+    <Content Include="Views\User\SearchDoctor.vbhtml" />
+    <Content Include="Views\Shared\_AboutLayout.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

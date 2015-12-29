@@ -3,8 +3,12 @@ Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.Owin
 Imports Microsoft.Owin.Security
 Imports System.Linq
+Imports System.Web
+Imports System.Web.Mvc
 Public Class UserController
     Inherits System.Web.Mvc.Controller
+
+    Public Property doctorList As New List(Of DoctorList)
 
     Function Home() As ActionResult
         If Not Request.IsAuthenticated Then
@@ -143,27 +147,99 @@ Public Class UserController
         Return View()
     End Function
 
-    Function Search() As ActionResult
-        'ViewData("Message") = "Your user Search page."
-        Dim db As New ApplicationDbContext
-        Dim roleId As String
-
-        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor")
-        For Each item In userRoie
-            roleId = item.Id
-        Next
-
-        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = roleId)).ToList()
-
-        ViewBag.Users = users
-
+    Function Telemed() As ActionResult
         Return View()
     End Function
 
-    Function Telemed() As ActionResult
-
-
+    Function Search() As ActionResult
         Return View()
+    End Function
+
+    Function SearchDoctor(ByVal keyword As String) As ActionResult
+        ViewBag.Keyword = keyword
+
+        MainSearch(keyword)
+
+        TempData("AllDoctors") = doctorList
+        TempData("Keyword") = keyword
+        ViewBag.Doctors = doctorList
+
+        Return PartialView("SearchDoctor")
+    End Function
+
+    'FILTER DOCTOR BY GENDER
+    Function FilterDoctor(keyword As String, type As String, filter As String) As ActionResult
+        ViewBag.Keyword = keyword
+
+        MainSearch(keyword)
+
+        'doctorList = TempData("AllDoctors")
+
+        If type = "gender" Then
+            doctorList = doctorList.Where(Function(x) x.docGender.ToLower = filter.ToLower).ToList()
+        End If
+
+        If type = "location" Then
+            doctorList = doctorList.Where(Function(x) x.docLocation.ToLower.Contains(filter.ToLower)).ToList()
+        End If
+
+        If type = "specialty" Then
+            doctorList = doctorList.Where(Function(x) x.docSpecializationId.ToLower = filter.ToLower).ToList()
+        End If
+
+        If type = "degree" Then
+            doctorList = doctorList.Where(Function(x) x.docDegree.ToLower = filter.ToLower).ToList()
+        End If
+
+        TempData("Keyword") = keyword
+        TempData("AllDoctors") = doctorList
+
+        ViewBag.Doctors = doctorList
+
+        Return PartialView("SearchDoctor")
+    End Function
+
+    Function MainSearch(keyword As String)
+        Dim db As New ApplicationDbContext
+
+        Try
+            'GET DOCTOR ROLE
+            Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
+
+            'GET USERS WITH DOCTOR ROLE
+            Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.ToLower.Contains(keyword.ToLower))).ToList()
+            For Each item In users
+                'DOCTOR DETAILS
+                Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+                'DOCTOR SPECUALIZATION
+                Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+                Dim spDetails As String = "None"
+                Dim spId As String = "0"
+                If spec IsNot Nothing Then
+                    Dim spCategory = db.SpecializationCategory.Where(Function(x) x.id = spec.categoryId).FirstOrDefault()
+                    spDetails = spCategory.name
+                    spId = spCategory.id
+                End If
+                'DOCTOR DEGREE
+                Dim education = db.Education.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+                Dim degreeId As String = "0"
+                If education IsNot Nothing Then
+                    degreeId = education.degreeId
+                End If
+                doctorList.Add(New DoctorList() With { _
+                               .docId = item.Id, _
+                               .docName = docDetails.name, _
+                               .docSpecializationId = spId, _
+                               .docSpecialization = spDetails, _
+                               .docLocation = docDetails.location, _
+                               .docGender = docDetails.gender, _
+                               .docDegree = degreeId
+                           })
+            Next
+        Catch
+        End Try
+
+        Return doctorList
     End Function
 
     Public Function Menu() As ActionResult
@@ -171,7 +247,7 @@ Public Class UserController
     End Function
 
     Public Function Dma() As ActionResult
-        Return PartialView("Dma")
+        Return PartialView()
     End Function
 
     Public Function appointment() As ActionResult
@@ -193,10 +269,10 @@ Public Class UserController
     Public Function Diagnosis() As ActionResult
         Return PartialView("Diagnosis")
     End Function
-
-    'Public Function GetRolesToUsers(ddlRole As String) As List(Of ApplicationUser)
-    '    Dim context As New ApplicationDbContext()
-    '    Dim users = context.Users.Where(Function(x) x.Roles.[Select](Function(y) y.RoleId).Contains(ddlRole)).ToList()
-    '    Return users
+    'Public Function SearchDoctor() As ActionResult
+    '    Return PartialView("SearchDoctor")
     'End Function
+
+
+
 End Class

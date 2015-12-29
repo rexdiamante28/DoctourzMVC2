@@ -179,3 +179,11 @@ TelemedCoverDecide = function telemedCoverDecide(id) {
 
 
 // telemed user interface functions
+
+
+//function for toggling element's display
+ToggleElement = function toggleElement(id) {
+    var concatId = '#' + id;
+    $(concatId).toggle('fast','linear');
+}
+//function for toggling element's display

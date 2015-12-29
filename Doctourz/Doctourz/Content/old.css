@@ -1125,7 +1125,7 @@ hr{
 .intro-body{
     display: table-cell;
     vertical-align: middle;
-    background-color: rgba(12, 112, 167,0.7);
+    background-color: rgba(12, 112, 167,0.3);
     text-align: center;
 }
 
@@ -1319,13 +1319,12 @@ hr{
 }
 
 .round-pills > li{
-    padding-right: 85px;
+  
+    min-width:20%;
     padding-top: 60px;
 }
 
-.round-pills {
-    padding-left: 408px;
-}
+
 
 .step-text {
     color: #336799;
