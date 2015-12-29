@@ -2,6 +2,7 @@
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
     Dim db As New ApplicationDbContext
     Dim spCategory = db.SpecializationCategory
+    Dim degrees = db.Degree
 End Code
 
 
@@ -132,44 +133,70 @@ End Code
                 <text class="custom-fblue">Degrees</text>
             </li>
             <div class="row toggle-hide bggray5" id="doctor-degree">
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> MD</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> MDCM</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> MBBS</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> MBChB</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> DDS</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> DMD</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> DO</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> DPM</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> EdD</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> PhD</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> PharmD</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> PsyD</label>
-                </li>
+                @For Each item In degrees
+                    @<a href="#" class="degree">
+                        <li class="list-group-item ">
+                            <label class="normal"><input type="checkbox" name="degree" value="@item.id" /> @item.name</label>
+                        </li>
+                    </a>
+                Next
+                
+                @*<a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="MDCM" /> MDCM</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="MBBS" /> MBBS</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="MBChB" /> MBChB</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="DDS" /> DDS</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="DMD" /> DMD</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="DO" /> DO</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="DPM" /> DPM</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="EdD" /> EdD</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="PhD" /> PhD</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="PharmD" /> PharmD</label>
+                    </li>
+                </a>
+                <a href="#" class="degree">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="checkbox" name="degree" value="PsyD" /> PsyD</label>
+                    </li>
+                </a>*@
             </div>
-
         </ul>
     </div>
 
@@ -217,7 +244,8 @@ End Code
         $(".male").click(function (event) {
             var type = "gender";
             var filter = "male";
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
             window.location.href = url;
         })
 
@@ -225,7 +253,8 @@ End Code
         $(".female").click(function (event) {
             var type = "gender";
             var filter = "female";
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
             window.location.href = url;
         })
 
@@ -239,8 +268,9 @@ End Code
 
         function filter() {
             var type = "location";
-            var filter = document.getElementById('FilterLocation');
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter.value;
+            var filter = document.getElementById('FilterLocation').value;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
             window.location.href = url;
         }
 
@@ -253,9 +283,22 @@ End Code
                 category.push($(this).val());
             });
 
-            var cat = document.getElementById('category').checked;
-            var filter = cat;
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + category;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + category;
+            window.location.href = url;
+        })
+
+        //FILTER DOCTOR BY DEGREES
+        $(".degree").click(function (event) {
+            var type = "degree";
+
+            var degree = [];
+            $.each($("input[name='degree']:checked"), function () {
+                degree.push($(this).val());
+            });
+
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + degree;
             window.location.href = url;
         })
     </script>

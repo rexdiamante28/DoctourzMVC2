@@ -26,7 +26,7 @@ Public Class Education
 
     <DataType(DataType.DateTime)>
     Private _yearGraduated As DateTime
-    Public Property NewProperty() As DateTime
+    Public Property yearGraduated() As DateTime
         Get
             Return _yearGraduated
         End Get
@@ -35,13 +35,13 @@ Public Class Education
         End Set
     End Property
 
-    Private _degree As String
-    Public Property degree() As String
+    Private _degreeId As String
+    Public Property degreeId() As String
         Get
-            Return _degree
+            Return _degreeId
         End Get
         Set(ByVal value As String)
-            _degree = value
+            _degreeId = value
         End Set
     End Property
 
