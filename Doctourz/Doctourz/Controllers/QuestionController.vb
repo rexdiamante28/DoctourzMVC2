@@ -1,4 +1,6 @@
 ﻿Imports System.Web.Mvc
+Imports Microsoft.AspNet.Identity
+Imports Microsoft.AspNet.Identity.Owin
 
 Namespace Controllers
     Public Class QuestionController
@@ -100,8 +102,25 @@ Namespace Controllers
 
         Function TakeSurvey() As ActionResult
             Dim db = New ApplicationDbContext
-            Dim traits = db.Traits
-            Return View(traits)
+            Dim questions = db.Questions
+            Return View(questions)
+        End Function
+
+        <HttpPost>
+        Function TakeSurvey(checkBoxes As FormCollection) As ActionResult
+            Dim db = New ApplicationDbContext
+            Dim questions = db.Questions
+            
+            For Each item In checkBoxes.AllKeys()
+                MsgBox(item)
+                Dim trait = checkBoxes.GetValue(item).AttemptedValue.Split(" ")
+                MsgBox(trait(0))
+                MsgBox(trait(1))
+
+            Next
+
+            MsgBox("Submitted!")
+            Return View(questions)
         End Function
 
         ' VIEW QUESTIONS
