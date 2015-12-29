@@ -219,6 +219,10 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512290130535_renamedRatingsColumn.Designer.vb">
+      <DependentUpon>201512290130535_renamedRatingsColumn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290130535_renamedRatingsColumn.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -259,6 +263,9 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512290130535_renamedRatingsColumn.resx">
+      <DependentUpon>201512290130535_renamedRatingsColumn.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
