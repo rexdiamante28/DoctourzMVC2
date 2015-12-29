@@ -14,13 +14,13 @@ Public Class Specializations
         End Set
     End Property
 
-    Private _name As String
-    Public Property name() As String
+    Private _categoryId As String
+    Public Property categoryId() As String
         Get
-            Return _name
+            Return _categoryId
         End Get
         Set(ByVal value As String)
-            _name = value
+            _categoryId = value
         End Set
     End Property
 

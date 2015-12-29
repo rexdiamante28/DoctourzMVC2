@@ -137,6 +137,16 @@ Public Class ApplicationDbContext
         End Set
     End Property
 
+    Private _SpecializationCategory As DbSet(Of SpecializationCategory)
+    Public Property SpecializationCategory() As DbSet(Of SpecializationCategory)
+        Get
+            Return _SpecializationCategory
+        End Get
+        Set(ByVal value As DbSet(Of SpecializationCategory))
+            _SpecializationCategory = value
+        End Set
+    End Property
+
 
 
 End Class

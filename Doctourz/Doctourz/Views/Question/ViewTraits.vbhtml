@@ -4,44 +4,47 @@
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
 End Code
 
-<h2>ViewTraits</h2>
+<div class="col-sm-6 col-sm-offset-3">
+    <div class="col-xs-12 padd-10 bgwhite">
+        <text class="bold _19">Traits</text>
+        <a href="/Question/Addtraits" class="btn btn-info btn-sm pull-right"> <i class="fa fa-plus"></i> Add new</a>
+    </div>
+    <div class="col-xs-12 bgwhite padd-10 top-10">
+        <table class="table table-striped table-bordered">
+            <tr>
+                <th>
+                    Trait
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
 
-<p>
-    @Html.ActionLink("Add Traits", "AddTraits")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.trait)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.color)
-        </th>
-        <th></th>
-    </tr>
+            @For Each item In Model
+                @<tr>
+                    <td>
+                        @Html.DisplayFor(Function(modelItem) item.trait)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(Function(modelItem) item.description)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditTraits", New With {.id = item.traitId}) |
+                        <a href="#" id="@item.traitId" class="deleteTraitBtn">Delete</a>
+                    </td>
+                </tr>
+            Next
 
-    @For Each item In Model
-        @<tr>
-            <td>
-                @Html.DisplayFor(Function(modelItem) item.trait)
-            </td>
-            <td>
-                @Html.DisplayFor(Function(modelItem) item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(Function(modelItem) item.color)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "EditTraits", New With {.id = item.traitId})
-                <a href="#" id="@item.traitId" class="deleteTraitBtn">Delete</a>
-            </td>
-        </tr>
-    Next
+        </table>
+    </div>
 
-</table>
+    
+</div>
+
+
 @Section scripts
 <script>
     $(".deleteTraitBtn").click(function (event) {

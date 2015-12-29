@@ -167,15 +167,20 @@ Public Class UserController
     End Function
 
     'FILTER DOCTOR BY GENDER
-    Function FilterDoctor(filter As String) As ActionResult
+    Function FilterDoctor(type As String, filter As String) As ActionResult
         ViewBag.Keyword = TempData("Keyword")
 
         doctorList = TempData("AllDoctors")
 
-        doctorList = doctorList.Where(Function(x) x.docGender.Contains(filter)).ToList()
+        If type = "gender" Then
+            doctorList = doctorList.Where(Function(x) x.docGender.ToLower = filter.ToLower).ToList()
+        ElseIf type = "location" Then
+            doctorList = doctorList.Where(Function(x) x.docLocation.ToLower.Contains(filter.ToLower)).ToList()
+        End If
 
         TempData("Keyword") = TempData("Keyword")
         TempData("AllDoctors") = TempData("AllDoctors")
+
         ViewBag.Doctors = doctorList
 
         Return PartialView("SearchDoctor")
@@ -190,11 +195,12 @@ Public Class UserController
         'GET USERS WITH DOCTOR ROLE
         Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.Contains(keyword))).ToList()
         For Each item In users
+            'DETAILS
             Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
             Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
             Dim spDetails As String = "None"
             If spec IsNot Nothing Then
-                spDetails = spec.name
+                spDetails = spec.categoryId
             End If
             doctorList.Add(New DoctorList() With { _
                            .docId = item.Id, _
@@ -205,10 +211,6 @@ Public Class UserController
         Next
 
         Return doctorList
-    End Function
-
-    Function SeachDoctorTest(ByVal keyword As String) As ActionResult
-
     End Function
 
     Public Function Menu() As ActionResult

@@ -1,5 +1,7 @@
 ﻿@Code
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
+    Dim db As New ApplicationDbContext
+    Dim specialization = db.SpecializationCategory.
 End Code
 
 
@@ -33,7 +35,7 @@ End Code
             </li>
             <div class="row toggle-hide bggray5" id="doctor-location">
                 <li class="list-group-item ">
-                    <input type="text" class="form-control" placeholder="Enter Location" />
+                    <input id="FilterLocation" type="text" class="form-control" placeholder="Enter Location" />
                 </li>
             </div>
 
@@ -292,15 +294,31 @@ End Code
         }
 
         $(".male").click(function (event) {
-            var filter = "Male";
-            var url = "/User/FilterDoctor?filter=" + filter;
+            var type = "gender";
+            var filter = "male";
+            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter;
             window.location.href = url;
         })
 
         $(".female").click(function (event) {
-            var filter = "Female";
-            var url = "/User/FilterDoctor?filter=" + filter;
+            var type = "gender";
+            var filter = "female";
+            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter;
             window.location.href = url;
         })
+
+        $('#FilterLocation').keypress(function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+                filter()
+            }
+        });
+
+        function filter() {
+            var type = "location";
+            var filter = document.getElementById('FilterLocation');
+            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter.value;
+            window.location.href = url;
+        }
     </script>
 End Section

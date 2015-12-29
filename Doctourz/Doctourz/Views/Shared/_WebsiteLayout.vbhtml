@@ -11,8 +11,8 @@
 <body style="padding-top:0px;">
     <nav class="topbar">
         <div class="col-xs-12 no-padd">
-            <img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 30px;width: 200px;">
-            <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius">Sign In</a>
+            <img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 130px;width: 200px;">
+            <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius" style="margin-right:130px;">Sign In</a>
         </div>
     </nav>
         @RenderBody()

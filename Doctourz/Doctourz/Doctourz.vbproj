@@ -219,6 +219,10 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512290230062_SpecializationsChanges.Designer.vb">
+      <DependentUpon>201512290230062_SpecializationsChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290230062_SpecializationsChanges.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -234,6 +238,7 @@
     <Compile Include="Models\Procedures.vb" />
     <Compile Include="Models\Questions.vb" />
     <Compile Include="Models\Ratings.vb" />
+    <Compile Include="Models\SpecializationCategory.vb" />
     <Compile Include="Models\Specializations.vb" />
     <Compile Include="Models\SubSpecializations.vb" />
     <Compile Include="Models\Trainings.vb" />
@@ -260,6 +265,9 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512290230062_SpecializationsChanges.resx">
+      <DependentUpon>201512290230062_SpecializationsChanges.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -303,6 +311,7 @@
     <Content Include="Content\Images\User\Untitled5.png" />
     <Content Include="Content\Images\Website\feeds.png" />
     <Content Include="Content\Images\Website\dummy.jpg" />
+    <Content Include="Content\Images\Website\img1.png" />
     <Content Include="Content\User.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\Images\Website\ft-logo.gif" />
@@ -455,6 +464,7 @@
     <Content Include="Views\User\CareTeam.vbhtml" />
     <Content Include="Views\User\Diagnosis.vbhtml" />
     <Content Include="Views\User\SearchDoctor.vbhtml" />
+    <Content Include="Views\Shared\_AboutLayout.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
