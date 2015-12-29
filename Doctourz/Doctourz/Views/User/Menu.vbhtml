@@ -42,7 +42,7 @@ End Code
             </div>
         </div>
         <ul class="nav" id="side-menu">
-            <li id="sidelink1" onclick="SidebarChildDecide(this.id)" ><i class="fa fa-bell-o"></i>Notifications</li>
+            <li id="sidelink1" onclick="SidebarChildDecide(this.id); loadPage('Notifications')" ><i class="fa fa-bell-o"></i>Notifications</li>
             <li id="sidelink2" onclick="SidebarChildDecide(this.id)" ><i class="fa fa-user"></i>Health Profile</li>
             <li id="sidelink3" onclick="SidebarChildDecide(this.id); loadPage('Dma')" class="side-menu-link"><img src="~/Content/icons/dma-white.gif" />DMA</li>
             <li id="sidelink4" onclick="SidebarChildDecide(this.id)" ><i class="fa fa-user-md"></i>Consults</li>

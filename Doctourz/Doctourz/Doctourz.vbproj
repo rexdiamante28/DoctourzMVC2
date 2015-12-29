@@ -219,6 +219,10 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512290615143_kahitAnongPangalan.Designer.vb">
+      <DependentUpon>201512290615143_kahitAnongPangalan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290615143_kahitAnongPangalan.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -261,6 +265,9 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512290615143_kahitAnongPangalan.resx">
+      <DependentUpon>201512290615143_kahitAnongPangalan.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -458,6 +465,7 @@
     <Content Include="Views\User\Diagnosis.vbhtml" />
     <Content Include="Views\User\SearchDoctor.vbhtml" />
     <Content Include="Views\Shared\_AboutLayout.vbhtml" />
+    <Content Include="Views\User\Notifications.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
