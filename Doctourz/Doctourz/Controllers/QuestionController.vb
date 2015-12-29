@@ -85,6 +85,9 @@ Namespace Controllers
                 ' TODO: Add delete logic here
                 Dim db = New ApplicationDbContext
                 Dim trait = db.Traits.Where(Function(model) model.traitId = id).First
+
+                db.Questions.RemoveRange(db.Questions.Where(Function(x) x.traitId = trait.traitId))
+
                 db.Traits.Remove(trait)
                 db.SaveChanges()
 
