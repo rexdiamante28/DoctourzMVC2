@@ -5,7 +5,7 @@ Public Class Specializations
     Private _specializationId As Integer
     <Key>
     <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
-    Public Property NewProperty() As Integer
+    Public Property specializationId() As Integer
         Get
             Return _specializationId
         End Get

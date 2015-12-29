@@ -176,6 +176,8 @@ Public Class UserController
             doctorList = doctorList.Where(Function(x) x.docGender.ToLower = filter.ToLower).ToList()
         ElseIf type = "location" Then
             doctorList = doctorList.Where(Function(x) x.docLocation.ToLower.Contains(filter.ToLower)).ToList()
+        ElseIf type = "specialty" Then
+            doctorList = doctorList.Where(Function(x) x.docSpecializationId.ToLower = filter.ToLower).ToList()
         End If
 
         TempData("Keyword") = TempData("Keyword")
@@ -199,12 +201,16 @@ Public Class UserController
             Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
             Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
             Dim spDetails As String = "None"
+            Dim spId As String = "0"
             If spec IsNot Nothing Then
-                spDetails = spec.categoryId
+                Dim spCategory = db.SpecializationCategory.Where(Function(x) x.id = spec.categoryId).FirstOrDefault()
+                spDetails = spCategory.name
+                spId = spCategory.id
             End If
             doctorList.Add(New DoctorList() With { _
                            .docId = item.Id, _
                            .docName = docDetails.name, _
+                           .docSpecializationId = spId, _
                            .docSpecialization = spDetails, _
                            .docLocation = docDetails.location, _
                            .docGender = docDetails.gender})

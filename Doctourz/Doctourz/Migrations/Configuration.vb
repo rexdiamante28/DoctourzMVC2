@@ -10,7 +10,6 @@ Namespace Migrations
 
         Public Sub New()
             AutomaticMigrationsEnabled = False
-            ContextKey = "Doctourz.ApplicationDbContext"
         End Sub
 
         Protected Overrides Sub Seed(context As ApplicationDbContext)

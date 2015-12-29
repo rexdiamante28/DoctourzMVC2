@@ -219,10 +219,14 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512290230062_SpecializationsChanges.Designer.vb">
-      <DependentUpon>201512290230062_SpecializationsChanges.vb</DependentUpon>
+    <Compile Include="Migrations\201512290321113_SubSpecializationChanges.Designer.vb">
+      <DependentUpon>201512290321113_SubSpecializationChanges.vb</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512290230062_SpecializationsChanges.vb" />
+    <Compile Include="Migrations\201512290321113_SubSpecializationChanges.vb" />
+    <Compile Include="Migrations\201512290323045_SubSpecialization2Changes.Designer.vb">
+      <DependentUpon>201512290323045_SubSpecialization2Changes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290323045_SubSpecialization2Changes.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -265,8 +269,11 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512290230062_SpecializationsChanges.resx">
-      <DependentUpon>201512290230062_SpecializationsChanges.vb</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512290321113_SubSpecializationChanges.resx">
+      <DependentUpon>201512290321113_SubSpecializationChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512290323045_SubSpecialization2Changes.resx">
+      <DependentUpon>201512290323045_SubSpecialization2Changes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

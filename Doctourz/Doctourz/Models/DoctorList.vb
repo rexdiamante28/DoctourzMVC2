@@ -19,6 +19,16 @@
     End Property
     Private m_docName As String
 
+    Public Property docSpecializationId() As String
+        Get
+            Return m_docSpecializationId
+        End Get
+        Set(value As String)
+            m_docSpecializationId = value
+        End Set
+    End Property
+    Private m_docSpecializationId As String
+
     Public Property docSpecialization() As String
         Get
             Return m_docSpecialization
