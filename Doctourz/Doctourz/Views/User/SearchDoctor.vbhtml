@@ -244,7 +244,8 @@ End Code
         $(".male").click(function (event) {
             var type = "gender";
             var filter = "male";
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
             window.location.href = url;
         })
 
@@ -252,7 +253,8 @@ End Code
         $(".female").click(function (event) {
             var type = "gender";
             var filter = "female";
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
             window.location.href = url;
         })
 
@@ -266,8 +268,9 @@ End Code
 
         function filter() {
             var type = "location";
-            var filter = document.getElementById('FilterLocation');
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter.value;
+            var filter = document.getElementById('FilterLocation').value;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
             window.location.href = url;
         }
 
@@ -280,7 +283,8 @@ End Code
                 category.push($(this).val());
             });
 
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + category;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + category;
             window.location.href = url;
         })
 
@@ -293,7 +297,8 @@ End Code
                 degree.push($(this).val());
             });
 
-            var url = "/User/FilterDoctor?type=" + type + "&filter=" + degree;
+            var keyword = document.getElementById('SearchText');
+            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + degree;
             window.location.href = url;
         })
     </script>
