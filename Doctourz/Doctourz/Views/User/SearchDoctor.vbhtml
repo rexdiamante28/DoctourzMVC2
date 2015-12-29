@@ -1,5 +1,7 @@
 ﻿@Code
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
+    Dim db As New ApplicationDbContext
+    Dim spCategory = db.SpecializationCategory
 End Code
 
 
@@ -33,7 +35,7 @@ End Code
             </li>
             <div class="row toggle-hide bggray5" id="doctor-location">
                 <li class="list-group-item ">
-                    <input type="text" class="form-control" placeholder="Enter Location" />
+                    <input id="FilterLocation" type="text" class="form-control" placeholder="Enter Location" />
                 </li>
             </div>
 
@@ -42,18 +44,13 @@ End Code
                 <text class="custom-fblue">Specialty</text>
             </li>
             <div class="row toggle-hide bggray5" id="doctor-specialty">
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> Specialty 1</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> Specialty 2</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> Specialty 3</label>
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="checkbox" name="availability" /> Specialty 4</label>
-                </li>
+                @For Each item In spCategory
+                    @<a href="#" class="specialty">
+                         <li class="list-group-item ">
+                             <label class="normal"><input id="category" type="checkbox" name="category" value="@item.id" /> @item.name</label>
+                         </li>
+                     </a>
+                Next
             </div>
 
 
@@ -79,12 +76,16 @@ End Code
                 <text class="custom-fblue">Gender</text>
             </li>
             <div class="row toggle-hide bggray5" id="doctor-gender">
-                <li class="list-group-item ">
-                    <label class="normal"><input type="radio" name="availability" /> Male</label><br />
-                </li>
-                <li class="list-group-item ">
-                    <label class="normal"><input type="radio" name="availability" /> Female</label><br />
-                </li>
+                <a href="#" class="male">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="radio" id="male" /> Male</label><br />
+                    </li>
+                </a>
+                <a href="#" class="female">
+                    <li class="list-group-item ">
+                        <label class="normal"><input type="radio" id="female" /> Female</label><br />
+                    </li>
+                </a>
             </div>
 
             <li class="list-group-item" onclick="ToggleElement('doctor-score')">
@@ -174,9 +175,7 @@ End Code
 
     <div class="col-sm-8 no-padd top-20" style="padding-left:20px;">
         <ul class="list-group point" id="patient-initial-info">
-            @For Each item In ViewBag.Users
-                Dim db As New ApplicationDbContext
-                Dim det = db.AppUsers.Where(Function(x) x.userId = item.ToString).FirstOrDefault()
+            @For Each doc In ViewBag.Doctors
 
                     @<li class="list-group-item">
                         <div class="row">
@@ -185,96 +184,22 @@ End Code
                                     <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
                                 </div>
                                 <div class="col-xs-10">
-                                    <text class="bold custom-fblue">@det.Name</text><br />
-                                    <text class="fgray4">Specialization</text><br />
+                                    <text class="bold custom-fblue">@doc.docName</text><br />
+                                    <text class="fgray4">@doc.docSpecialization</text><br />
                                     <text class="fgray4">Star ratings</text><br />
-                                    <text class="fgray4">@det.location</text>
+                                    <text class="fgray4">@doc.docLocation</text><br />
                                 </div>
                             </div>
                         </div>
                     </li>
             Next
-            @*<li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="col-xs-2 no-padd">
-                            <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd"/>
-                        </div>
-                        <div class="col-xs-10">
-                            <text class="bold custom-fblue">Doctor's name</text><br/>
-                            <text class="fgray4">Specialization</text><br/>
-                            <text class="fgray4">Star ratings</text><br/>
-                            <text class="fgray4">Location</text>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="col-xs-2 no-padd">
-                            <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
-                        </div>
-                        <div class="col-xs-10">
-                            <text class="bold custom-fblue">Doctor's name</text><br />
-                            <text class="fgray4">Specialization</text><br />
-                            <text class="fgray4">Star ratings</text><br />
-                            <text class="fgray4">Location</text>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="col-xs-2 no-padd">
-                            <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
-                        </div>
-                        <div class="col-xs-10">
-                            <text class="bold custom-fblue">Doctor's name</text><br />
-                            <text class="fgray4">Specialization</text><br />
-                            <text class="fgray4">Star ratings</text><br />
-                            <text class="fgray4">Location</text>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="col-xs-2 no-padd">
-                            <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
-                        </div>
-                        <div class="col-xs-10">
-                            <text class="bold custom-fblue">Doctor's name</text><br />
-                            <text class="fgray4">Specialization</text><br />
-                            <text class="fgray4">Star ratings</text><br />
-                            <text class="fgray4">Location</text>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="col-xs-2 no-padd">
-                            <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
-                        </div>
-                        <div class="col-xs-10">
-                            <text class="bold custom-fblue">Doctor's name</text><br />
-                            <text class="fgray4">Specialization</text><br />
-                            <text class="fgray4">Star ratings</text><br />
-                            <text class="fgray4">Location</text>
-                        </div>
-                    </div>
-                </div>
-            </li>*@
         </ul>
     </div>
 </div>
 
 @Section scripts
     <script>
+        //SEARCH DOCTOR
         $('#SearchText').keypress(function (e) {
             var code = (e.keyCode ? e.keyCode : e.which);
             if (code == 13) {
@@ -287,5 +212,51 @@ End Code
             var url = "/User/SearchDoctor?keyword=" + keyword.value;
             window.location.href = url;
         }
+
+        //FILTER DOCTOR BY GENDER -- MALE
+        $(".male").click(function (event) {
+            var type = "gender";
+            var filter = "male";
+            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter;
+            window.location.href = url;
+        })
+
+        //FILTER DOCTOR BY GENDER -- FEMALE 
+        $(".female").click(function (event) {
+            var type = "gender";
+            var filter = "female";
+            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter;
+            window.location.href = url;
+        })
+
+        //FILTER DOCTOR BY LOCATION
+        $('#FilterLocation').keypress(function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 13) {
+                filter()
+            }
+        });
+
+        function filter() {
+            var type = "location";
+            var filter = document.getElementById('FilterLocation');
+            var url = "/User/FilterDoctor?type=" + type + "&filter=" + filter.value;
+            window.location.href = url;
+        }
+
+        //FILTER DOCTOR BY SPECIALTY
+        $(".specialty").click(function (event) {
+            var type = "specialty";
+
+            var category = [];
+            $.each($("input[name='category']:checked"), function () {
+                category.push($(this).val());
+            });
+
+            var cat = document.getElementById('category').checked;
+            var filter = cat;
+            var url = "/User/FilterDoctor?type=" + type + "&filter=" + category;
+            window.location.href = url;
+        })
     </script>
 End Section

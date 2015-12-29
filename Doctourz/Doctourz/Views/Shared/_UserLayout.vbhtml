@@ -52,23 +52,6 @@
 
     <script>
 
-        function submitForm(id) {
-            document.getElementById(id).submit();
-        }
-
-        $('#sidelink3').on('click', function (evt) {
-            evt.preventDefault();
-            evt.stopPropagation();
-
-            var $sideBar = $('.sidebar-body'),
-                url = $(this).data('url');
-
-            $.get(url, function (data) {
-                $sideBar.replaceWith(data);
-            });
-        });
-
-
 
         $('#bottomLink1').click( function (evt) {
             evt.preventDefault();

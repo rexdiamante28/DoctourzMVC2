@@ -8,7 +8,7 @@ Imports System.Web.Mvc
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
-    Public Property doctorList As New List(Of String)
+    Public Property doctorList As New List(Of DoctorList)
 
     Function Home() As ActionResult
         If Not Request.IsAuthenticated Then
@@ -148,21 +148,6 @@ Public Class UserController
     End Function
 
     Function Telemed() As ActionResult
-        Dim db As New ApplicationDbContext
-        Dim roleId As String
-
-        'GET DOCTOR ROLE
-        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor")
-        For Each item In userRoie
-            roleId = item.Id
-        Next
-
-        'GET USERS WITH DOCTOR ROLE
-        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = roleId)).ToList()
-        For Each u In users
-            doctorList.Add(u.Id)
-        Next
-
         Return View()
     End Function
 
@@ -170,38 +155,69 @@ Public Class UserController
         Return View()
     End Function
 
-    Function Upload(ByVal file As HttpPostedFileBase) As ActionResult
-        Dim path As String = Server.MapPath("~/Images/" + file.FileName)
-        file.SaveAs(path)
-
-        Response.Redirect("/home")
-    End Function
-
     Function SearchDoctor(ByVal keyword As String) As ActionResult
         ViewBag.Keyword = keyword
 
+        MainSearch(keyword)
+
+        TempData("AllDoctors") = doctorList
+        TempData("Keyword") = keyword
+        ViewBag.Doctors = doctorList
+
+        Return PartialView("SearchDoctor")
+    End Function
+
+    'FILTER DOCTOR BY GENDER
+    Function FilterDoctor(type As String, filter As String) As ActionResult
+        ViewBag.Keyword = TempData("Keyword")
+
+        doctorList = TempData("AllDoctors")
+
+        If type = "gender" Then
+            doctorList = doctorList.Where(Function(x) x.docGender.ToLower = filter.ToLower).ToList()
+        ElseIf type = "location" Then
+            doctorList = doctorList.Where(Function(x) x.docLocation.ToLower.Contains(filter.ToLower)).ToList()
+        ElseIf type = "specialty" Then
+            doctorList = doctorList.Where(Function(x) x.docSpecializationId.ToLower = filter.ToLower).ToList()
+        End If
+
+        TempData("Keyword") = TempData("Keyword")
+        TempData("AllDoctors") = TempData("AllDoctors")
+
+        ViewBag.Doctors = doctorList
+
+        Return PartialView("SearchDoctor")
+    End Function
+
+    Function MainSearch(keyword As String)
         Dim db As New ApplicationDbContext
 
         'GET DOCTOR ROLE
         Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
 
-        Try
-            'GET USERS WITH DOCTOR ROLE
-            Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.Contains(keyword))).ToList()
-            For Each item In users
-                doctorList.Add(item.Id)
-            Next
-        Catch ex As Exception
+        'GET USERS WITH DOCTOR ROLE
+        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.Contains(keyword))).ToList()
+        For Each item In users
+            'DETAILS
+            Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            Dim spDetails As String = "None"
+            Dim spId As String = "0"
+            If spec IsNot Nothing Then
+                Dim spCategory = db.SpecializationCategory.Where(Function(x) x.id = spec.categoryId).FirstOrDefault()
+                spDetails = spCategory.name
+                spId = spCategory.id
+            End If
+            doctorList.Add(New DoctorList() With { _
+                           .docId = item.Id, _
+                           .docName = docDetails.name, _
+                           .docSpecializationId = spId, _
+                           .docSpecialization = spDetails, _
+                           .docLocation = docDetails.location, _
+                           .docGender = docDetails.gender})
+        Next
 
-        End Try
-
-
-        ViewBag.Users = doctorList
-        Return PartialView("SearchDoctor")
-    End Function
-
-    Function SeachDoctorTest(ByVal keyword As String) As ActionResult
-
+        Return doctorList
     End Function
 
     Public Function Menu() As ActionResult
@@ -209,7 +225,7 @@ Public Class UserController
     End Function
 
     Public Function Dma() As ActionResult
-        Return PartialView("Dma")
+        Return PartialView()
     End Function
 
     Public Function appointment() As ActionResult
@@ -234,5 +250,7 @@ Public Class UserController
     'Public Function SearchDoctor() As ActionResult
     '    Return PartialView("SearchDoctor")
     'End Function
+
+
 
 End Class
