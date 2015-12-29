@@ -1,4 +1,5 @@
 ﻿Imports System.Web.Mvc
+Imports System.Linq
 Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.Owin
 
@@ -110,16 +111,53 @@ Namespace Controllers
         Function TakeSurvey(checkBoxes As FormCollection) As ActionResult
             Dim db = New ApplicationDbContext
             Dim questions = db.Questions
-            
-            For Each item In checkBoxes.AllKeys()
-                MsgBox(item)
-                Dim trait = checkBoxes.GetValue(item).AttemptedValue.Split(" ")
-                MsgBox(trait(0))
-                MsgBox(trait(1))
 
+            Dim traits = db.Traits
+
+            Dim ratings = db.Ratings.ToList().Where(Function(x) x.userId = User.Identity.GetUserId)
+
+            Dim db1 = New ApplicationDbContext
+            If ratings.Count() <= 0 Then
+                For Each trait In traits
+                    Dim rate As New Ratings With {
+                  .userId = User.Identity.GetUserId,
+                  .traitId = trait.traitId,
+                  .score = 0}
+
+                    db1.Ratings.Add(rate)
+                    db1.SaveChanges()
+                Next
+            End If
+
+            Dim rating As New List(Of KeyValuePair(Of String, Integer))
+
+
+            For Each item In checkBoxes.AllKeys
+                Dim trt = checkBoxes.GetValue(item).AttemptedValue.Split(" ")
+                If rating.Exists(Function(x) x.Key = trt(1)) Then
+                    Dim oldRate = rating.Where(Function(x) x.Key = trt(1)).First
+                    Dim newRate = New KeyValuePair(Of String, Integer)(oldRate.Key, oldRate.Value + Convert.ToInt64(trt(0)))
+                    rating.Remove(oldRate)
+                    rating.Add(newRate)
+                Else
+                    rating.Add(New KeyValuePair(Of String, Integer)(trt(1), Convert.ToInt64(trt(0))))
+                End If
             Next
 
-            MsgBox("Submitted!")
+            For Each rt In rating
+                Dim qCount = questions.Where(Function(x) x.traitId = rt.Key).Count
+                Dim newScore = (rt.Value / (qCount * 5)) * 100
+                Dim userId = User.Identity.GetUserId
+               
+                Dim oldRating = db1.Ratings.Where(Function(x) x.userId = userId).Where(Function(x) x.traitId = rt.Key).First
+                oldRating.score = newScore
+
+                db1.Entry(oldRating).State = Entity.EntityState.Modified
+                db1.SaveChanges()
+            Next
+
+            ViewBag.message = "Your profile has been updated!"
+
             Return View(questions)
         End Function
 

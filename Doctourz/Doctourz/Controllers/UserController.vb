@@ -200,7 +200,7 @@ Public Class UserController
     End Function
 
     Public Function Dma() As ActionResult
-        Return PartialView("Dma")
+        Return PartialView()
     End Function
 
     Public Function appointment() As ActionResult
