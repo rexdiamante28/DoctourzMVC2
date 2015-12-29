@@ -58,4 +58,14 @@
         End Set
     End Property
     Private m_docGender As String
+
+    Public Property docDegree() As String
+        Get
+            Return m_docDegree
+        End Get
+        Set(value As String)
+            m_docDegree = value
+        End Set
+    End Property
+    Private m_docDegree As String
 End Class

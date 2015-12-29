@@ -227,12 +227,21 @@
       <DependentUpon>201512290323045_SubSpecialization2Changes.vb</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201512290323045_SubSpecialization2Changes.vb" />
+    <Compile Include="Migrations\201512290606049_EducationChanges.Designer.vb">
+      <DependentUpon>201512290606049_EducationChanges.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290606049_EducationChanges.vb" />
+    <Compile Include="Migrations\201512290626341_EducationChanges1.Designer.vb">
+      <DependentUpon>201512290626341_EducationChanges1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512290626341_EducationChanges1.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
     <Compile Include="Models\AppUsers.vb" />
     <Compile Include="Models\Clinics.vb" />
     <Compile Include="Models\connection.vb" />
+    <Compile Include="Models\Degree.vb" />
     <Compile Include="Models\DoctorList.vb" />
     <Compile Include="Models\Education.vb" />
     <Compile Include="Models\IdentityModels.vb" />
@@ -274,6 +283,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512290323045_SubSpecialization2Changes.resx">
       <DependentUpon>201512290323045_SubSpecialization2Changes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512290606049_EducationChanges.resx">
+      <DependentUpon>201512290606049_EducationChanges.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512290626341_EducationChanges1.resx">
+      <DependentUpon>201512290626341_EducationChanges1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

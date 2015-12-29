@@ -178,6 +178,8 @@ Public Class UserController
             doctorList = doctorList.Where(Function(x) x.docLocation.ToLower.Contains(filter.ToLower)).ToList()
         ElseIf type = "specialty" Then
             doctorList = doctorList.Where(Function(x) x.docSpecializationId.ToLower = filter.ToLower).ToList()
+        ElseIf type = "degree" Then
+            doctorList = doctorList.Where(Function(x) x.docDegree.ToLower = filter.ToLower).ToList()
         End If
 
         TempData("Keyword") = TempData("Keyword")
@@ -197,8 +199,9 @@ Public Class UserController
         'GET USERS WITH DOCTOR ROLE
         Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.Contains(keyword))).ToList()
         For Each item In users
-            'DETAILS
+            'DOCTOR DETAILS
             Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            'DOCTOR SPECUALIZATION
             Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
             Dim spDetails As String = "None"
             Dim spId As String = "0"
@@ -207,13 +210,21 @@ Public Class UserController
                 spDetails = spCategory.name
                 spId = spCategory.id
             End If
+            'DOCTOR DEGREE
+            Dim education = db.Education.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            Dim degreeId As String = "0"
+            If education IsNot Nothing Then
+                degreeId = education.degreeId
+            End If
             doctorList.Add(New DoctorList() With { _
                            .docId = item.Id, _
                            .docName = docDetails.name, _
                            .docSpecializationId = spId, _
                            .docSpecialization = spDetails, _
                            .docLocation = docDetails.location, _
-                           .docGender = docDetails.gender})
+                           .docGender = docDetails.gender, _
+                           .docDegree = degreeId
+                       })
         Next
 
         Return doctorList
