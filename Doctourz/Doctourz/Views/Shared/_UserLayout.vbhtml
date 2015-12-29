@@ -51,6 +51,11 @@
     @RenderSection("scripts", required:=False)
 
     <script>
+
+        function submitForm(id) {
+            document.getElementById(id).submit();
+        }
+
         $('#sidelink3').on('click', function (evt) {
             evt.preventDefault();
             evt.stopPropagation();

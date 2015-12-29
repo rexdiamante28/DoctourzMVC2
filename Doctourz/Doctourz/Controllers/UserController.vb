@@ -3,6 +3,8 @@ Imports Microsoft.AspNet.Identity
 Imports Microsoft.AspNet.Identity.Owin
 Imports Microsoft.Owin.Security
 Imports System.Linq
+Imports System.Web
+Imports System.Web.Mvc
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
@@ -166,6 +168,13 @@ Public Class UserController
 
     Function Search() As ActionResult
         Return View()
+    End Function
+
+    Function Upload(ByVal file As HttpPostedFileBase) As ActionResult
+        Dim path As String = Server.MapPath("~/Images/" + file.FileName)
+        file.SaveAs(path)
+
+        Response.Redirect("/home")
     End Function
 
     Function SearchDoctor(ByVal keyword As String) As ActionResult
