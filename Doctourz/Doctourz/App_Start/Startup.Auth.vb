@@ -52,5 +52,14 @@ Partial Public Class Startup
         'app.UseGoogleAuthentication(New GoogleOAuth2AuthenticationOptions() With {
         '   .ClientId = "",
         '   .ClientSecret = ""})
+
+        Dim db = New ApplicationDbContext
+        If db.Roles.Count <= 0 Then
+            db.Roles.Add(New Microsoft.AspNet.Identity.EntityFramework.IdentityRole("Doctor"))
+            db.Roles.Add(New Microsoft.AspNet.Identity.EntityFramework.IdentityRole("Patient"))
+            db.SaveChanges()
+
+        End If
+
     End Sub
 End Class
