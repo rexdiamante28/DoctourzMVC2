@@ -20,28 +20,27 @@ End Code
 
 
 <div id="bottom-dock" class="bottom-dock-close">
-    <div class="bottom-link" id="bottomLink1" data-url='@Url.Action("appointment","User")' onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink1"  onclick="TelemedCoverDecide(this.id); loadPageBottom('appointment')">
         <label>APPOINTMENTS</label>
-        <i class="fa fa-expand"></i>
+        <i class="fa fa-expand pull-right top-5"></i>
     </div>
-    <div class="bottom-link" id="bottomLink2" data-url='@Url.Action("PatientRecords", "User")' onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink2"  onclick="TelemedCoverDecide(this.id); loadPageBottom('PatientRecords')">
         <label>PATIENT RECORDS</label>
-        <i class="fa fa-expand"></i>
+        <i class="fa fa-expand pull-right top-5"></i>
     </div>
-    <div class="bottom-link" id="bottomLink3" data-url='@Url.Action("Notes", "User")' onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink3" onclick="TelemedCoverDecide(this.id); loadPageBottom('Notes')">
         <label>NOTES</label>
-        <i class="fa fa-expand"></i>
+        <i class="fa fa-expand pull-right top-5"></i>
     </div>
-    <div class="bottom-link" id="bottomLink4" data-url='@Url.Action("CareTeam", "User")' onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink4"  onclick="TelemedCoverDecide(this.id); loadPageBottom('CareTeam')">
         <label>CARE TEAM</label>
-        <i class="fa fa-expand"></i>
+        <i class="fa fa-expand pull-right top-5"></i>
     </div>
-    <div class="bottom-link" id="bottomLink5" data-url='@Url.Action("Diagnosis","User")' onclick="TelemedCoverDecide(this.id)">
+    <div class="bottom-link" id="bottomLink5" onclick="TelemedCoverDecide(this.id); loadPageBottom('Diagnosis')">
         <label>DIAGNOSIS</label>
-        <i class="fa fa-expand"></i>
+        <i class="fa fa-expand pull-right top-5"></i>
     </div>
-    <div class="col-xs-12" id="bottom-container">
-
+    <div class="col-xs-12 " id="bottom-container">
     </div>
 </div>
 
@@ -104,24 +103,27 @@ End Code
             </div>
             <div id="chatbox">
                 <ul class="list-group">
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
-                    <li class="list-group-item">sldkfjlsdjfsjlf</li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
+                    <li class="list-group-item"></li>
                 </ul>
             </div>
             <div id="message-box" class="list-group-item">

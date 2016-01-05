@@ -8,13 +8,7 @@
         ViewBag.appUserEmail = appUser.email
     End If
 End Code
-<script>
-    function loadPage(action) {
-        $.post("/User/" + action, function (data) {
-            $(".sidebar-body").html(data);
-        });
-    }
-</script>
+
 <div class="sidebar-child-close" id="sidebar-child" onmouseover="UnfoldSideBar()">
     <div class="col-xs-12 top-10 padd-5">
         <input type="text" value="empty" readonly class="hidden" id="currentSidebarChild" />

@@ -192,3 +192,22 @@ toggleElement = function toggleelement(id) {
     var finalId = '#' + id;
     $(finalId).toggle("fast", "linear");
 }
+
+
+loadPage = function loadPage(action) {
+        $.post("/User/" + action, function (data) {
+            $(".sidebar-body").html(data);
+        });
+}
+
+loadPageBottom = function loadPageBottom(action) {
+    $.post("/User/" + action, function (data) {
+        $("#bottom-container").html(data);
+    });
+}
+
+loadPartialView = function loadPartialView(action,urlSegment,target) {
+    $.post(urlSegment + action, function (data) {
+        $(target).html(data);
+    });
+}
