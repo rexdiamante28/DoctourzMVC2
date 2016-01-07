@@ -1,5 +1,10 @@
 ﻿@ModelType AppUsers
 @Imports Microsoft.AspNet.Identity
+<script>
+    $(document).ready(function () {
+        loadHealthProfile();
+    })
+</script>
 
 <ul class="nav nav-pills">
     <li class="dropdown pull-right">
@@ -606,8 +611,9 @@
         </div>
     </div>
 </div>
-<script src="~/Scripts/SideBar.js"></script>
+
 <script>
+
     $("#UpdateNameForm").submit(function (e) {
         e.preventDefault();
 

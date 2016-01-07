@@ -23,6 +23,9 @@
             $("#UsrWeight").html(d.weight);
             $("#UsrBmi").html(d.bmi);
 
+        },
+        error: function (err) {
+            console.log(err)
         }
 
     })
