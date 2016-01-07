@@ -118,14 +118,14 @@ Public Class AppUsers
         End Set
     End Property
 
-    Private _ethnicity As String
+    Private _ethnicityId As Integer
     <Display(Name:="Ethnicity")>
-    Public Property ethnicity() As String
+    Public Property ethnicityId() As Integer
         Get
-            Return _ethnicity
+            Return _ethnicityId
         End Get
-        Set(ByVal value As String)
-            _ethnicity = value
+        Set(ByVal value As Integer)
+            _ethnicityId = value
         End Set
     End Property
 

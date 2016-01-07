@@ -219,6 +219,10 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601072330178_ethnicity.Designer.vb">
+      <DependentUpon>201601072330178_ethnicity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601072330178_ethnicity.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -228,6 +232,7 @@
     <Compile Include="Models\Degree.vb" />
     <Compile Include="Models\DoctorList.vb" />
     <Compile Include="Models\Education.vb" />
+    <Compile Include="Models\Ethnicities.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="Models\opentok.vb" />
@@ -262,6 +267,9 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601072330178_ethnicity.resx">
+      <DependentUpon>201601072330178_ethnicity.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
