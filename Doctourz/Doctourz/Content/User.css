@@ -593,7 +593,7 @@ table.dataTable thead .sorting:after {
     width: 98%;
     margin:0 auto;
     height:auto;
-    background-color: #272822;
+    background-color: #010101;
     position:relative;
 }
 #controls{
@@ -613,14 +613,12 @@ table.dataTable thead .sorting:after {
     min-height:100%;
     max-height:100%;
     overflow-y:hidden;
-    background-color: rgba(225,224,225,.7);
     position: absolute;
     top:0px;
     left:0px;
 }
 #chat{
     min-height:100%;
-    background-color: rgba(225,224,225,.7);
     position: absolute;
     top:0px;
     right:0px;
@@ -633,13 +631,15 @@ table.dataTable thead .sorting:after {
 }
 .chat-open,.info-open{
     width:300px;
+    background-color: rgba(225,224,225,.7);
 }
 
 .chat-close,.info-close{
-    width:30px;
+    width:40px;
     overflow-y:hidden;
     overflow-x:hidden;
     padding-left:0px;
+    background-color: rgba(225,224,225,.0);
 }
 
 
@@ -683,11 +683,11 @@ table.dataTable thead .sorting:after {
     width:55px;
     margin: 5px 10px 0px 10px;
 }
-#controls #controls-frame i{
+#controls #controls-frame i, #onlineusers i{
     margin-right: 10px;
-    font-size: 30px;
+    font-size: 25px;
     margin-top:15px;
-    color: #CAC9CB;
+    color: #31699C;
     cursor:pointer;
 }
 #controls #controls-frame i:hover{
@@ -737,8 +737,11 @@ table.dataTable thead .sorting:after {
 
 #myCamera{
     position:absolute;
-    left:-120px;
-    bottom:0px;
+    left:43%;
+    bottom:20px;
+    border: solid 4px white;
+    width: 178px;
+    border-radius: 10px;
 }
 
 
@@ -746,6 +749,7 @@ table.dataTable thead .sorting:after {
    position:static;
    visibility:hidden;
    max-height:0px;
+   
 }
 
 .name-section img{
@@ -767,7 +771,33 @@ table.dataTable thead .sorting:after {
 }
 
 .onlineUserButton{
-    height:50px;
-    max-width:50px;
-    background-color: green !important;
+    margin-top:15px;
+    margin-right:10px;
+    min-height:30px;
+    min-width:30px;
+    background-image: url('../Content/Images/Website/dummy.jpg');
+    background-size: 100%;
+    border-radius:50%;
 }
+
+#subscribers{
+    width:80%;
+    min-height:200px;
+    position: absolute;
+    top: 120px;
+    left: 10%;
+}
+
+.floatLeft{
+    float: left;
+    border: 1px solid white !important;
+}
+
+.callSubscriber:nth-child(1){
+    margin-right:2%;
+}
+.callSubscriber:nth-child(3){
+    margin-left:2%;
+}
+
+

@@ -78,9 +78,10 @@ function startPublishing() {
         var parentDiv = document.getElementById("myCamera");
         var publisherDiv = document.createElement('div'); // Create a div for the publisher to replace
         publisherDiv.setAttribute('id', 'opentok_publisher');
+        publisherDiv.style.borderRadius = "10px;";
         parentDiv.appendChild(publisherDiv);
         //var publisherProps = { width: VIDEO_WIDTH, height: VIDEO_HEIGHT, name: name };
-        var publisherProps = { width: 120, height: 80, name: name };
+        var publisherProps = { width: 170, height: 120, name: name, showControls: true};
         publisher = OT.initPublisher(apiKey, publisherDiv.id, publisherProps);  // Pass the replacement div id and properties
         session.publish(publisher);
         publisher.on("streamCreated", function (event) {  //access the self video 
@@ -124,7 +125,6 @@ var OnlineUsers = {
             button.setAttribute("id", "btn_" + user.ConnectionId);
             button.setAttribute("type", "button");
             button.setAttribute("class", "onlineUserButton");
-            button.setAttribute("value", "Photo Here");
             button.setAttribute("title", "Call " + user.Name);
             button.setAttribute("onclick", "begincallsignal(this)");
             buttonContainer.appendChild(button);
@@ -233,9 +233,10 @@ function addStream(stream) {
     }
     var subscriberDiv = document.createElement('div'); // Create a div for the subscriber to replace
     subscriberDiv.setAttribute('id', stream.streamId); // Give the replacement div the id of the stream as its id.
+    subscriberDiv.setAttribute('class',"floatLeft callSubscriber");
     document.getElementById("subscribers").appendChild(subscriberDiv);
     //var subscriberProps = { width: VIDEO_WIDTH, height: VIDEO_HEIGHT };
-    var subscriberProps = { width: "100%", height: "73vh", showControls: true };
+    var subscriberProps = { width: "32%", height: "35vh", showControls: true };
     subscribers[stream.streamId] = session.subscribe(stream, subscriberDiv.id, subscriberProps);
 }
 
