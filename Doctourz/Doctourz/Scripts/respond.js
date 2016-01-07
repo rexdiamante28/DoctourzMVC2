@@ -347,10 +347,10 @@ $(document).ready(function () {
         $(window).scroll(function () {
             if ($(".topbar").offset().top > 50) {
                 $(".topbar").addClass("bgwhite-trans padd-10");
-                document.getElementById('logo').setAttribute("src", "Content/Images/Website/logo_blue.png");
+                document.getElementById('logo').setAttribute("src", "../Content/Images/Website/logo_blue.png");
             } else {
                 $(".topbar").removeClass("bgwhite-trans padd-10");
-                document.getElementById('logo').setAttribute("src", "Content/Images/Website/logo_white.png");
+                document.getElementById('logo').setAttribute("src", "../Content/Images/Website/logo_white.png");
             }
         });
 

@@ -1,5 +1,12 @@
-﻿@Code
+﻿@Imports Microsoft.AspNet.Identity
+@Code
     Layout = "~/Views/Shared/_UserLayoutBlank.vbhtml"
+    
+    Dim db = New ApplicationDbContext
+    Dim appUser As String = User.Identity.GetUserName
+    Dim name = db.AppUsers.Where(Function(model) model.userName = appUser).First().name
+
+    ViewData("Name") = name
 End Code
 <div class="login bgwhite top-100">
     <div class="col-xs-12 padd-30 bgwhite no-padd text-center top-10">
@@ -37,7 +44,7 @@ End Code
                     @Html.AntiForgeryToken
                     @<div id="errorDiv"></div>
                     @<div class="form-group">
-                        <input type="text" class="form-control text-center" placeholder="Your name" name="name" >
+                        <input type="text" class="form-control text-center" placeholder="Your name" name="name" value="@ViewData("Name")" >
                     </div>
                     @<a href="javascript:document.getElementById('profileForm').submit()" class="btn btn-primary btn-block top-10 bold">Continue</a>
 

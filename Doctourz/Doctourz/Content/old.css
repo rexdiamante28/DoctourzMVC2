@@ -21,6 +21,11 @@
         padding: 0 30px;
         border-left: 1px solid #e7e7e7;
     }
+    .fifth{
+        width:20%;
+        padding:10px;
+        float:left;
+    }
 }
 
 .sidebar .sidebar-nav.navbar-collapse {
@@ -1125,7 +1130,7 @@ hr{
 .intro-body{
     display: table-cell;
     vertical-align: middle;
-    background-color: rgba(12, 112, 167,0.3);
+    background-color: rgba(12, 112, 167,0.1);
     text-align: center;
 }
 
@@ -1203,6 +1208,11 @@ hr{
         top: 0px;
         left: 0px;
     }
+    .fifth{
+        width: 100%;
+        padding:10px;
+        float: left;
+    }
 }
 
 .mybody{
@@ -1249,27 +1259,27 @@ hr{
 #social1{
     width: 32px;
     height: 33px;
-    background-image: url('Content/Images/Website/social.gif') 0 0;
+    background-image: url('../Content/Images/Website/social.gif')0 0 ;
 }
 #social1:hover{
-    background-image: url('Content/Images/Website/social.gif') 0 -33px;
+    background-image: url('../Content/Images/Website/social.gif') 0 -33px;
 }
 
 #social2{
     width: 32px;
     height: 33px;
-    background-image: url('Content/Images/Website/social.gif') -32px 0;
+    background-image: url('../Content/Images/Website/social.gif') -32px 0;
 }
 #social2:hover{
-    background-image: url('Content/Images/Website/social.gif') -32px -33px;
+    background-image: url('../Content/Images/Website/social.gif') -32px -33px;
 }
 #social3{
     width: 32px;
     height: 33px;
-    background-image: url('Content/Images/Website/social.gif') -64px 0;
+    background-image: url('../Content/Images/Website/social.gif') -64px 0;
 }
 #social3:hover{
-    background-image: url('Content/Images/Website/social.gif') -64px -33px;
+    background-image: url('..//Content/Images/Website/social.gif') -64px -33px;
 }
 #social>li{
     text-decoration: none;
@@ -1306,9 +1316,9 @@ hr{
 .round-pills > li > a{
     border-radius: 50%;
     background-color: #336799;
-    font-size: 40px;
-    width: 80px;
-    height: 80px;
+    font-size: 38px;
+    width: 73px;
+    height: 73px;
     font-weight: bold;
     color: white;
     margin: 0 auto;
@@ -1463,7 +1473,7 @@ hr{
 }
 
 .half-opac{
-    background-color: rgba(250,250,250,.5);
+    background-color: rgba(250,250,250,.3);
 }
 
 #panel_left1{
@@ -1633,3 +1643,16 @@ ul.tabs > li > a:hover{
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
+
+.caption{
+    position:absolute;
+    background-color: rgba(0,0,0,.3);
+    padding: 50px;
+    bottom:0px;
+    width:84%;
+    left:8%;
+}
+
+.relative{
+    position: relative;
+}

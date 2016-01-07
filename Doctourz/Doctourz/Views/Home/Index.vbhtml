@@ -9,11 +9,12 @@ End Code
     <div class="intro">
         <div class="intro-body">
             <div class="jumbotron half-opac text-center">
-                <h1 style="color: #336799;"><strong style="font-size:80px;">Global Healthcare<br> <span style="padding-left: 360px;color: #488DD0;font-size:70px;">Customized for YOU...</span> </strong></h1>
-                <p class="lead" style="color: #336799">Let us match you with a Doctor today.</p>
+                <p style="color: #336799; font-size:80px; font-weight:900; line-height:60%;">Global Healthcare</p>
+                <p style="color: #428BD8; font-size:70px; font-weight:900; text-indent:350px; line-height:60%;">Customized by YOU...</p>
+                <text style="color: #4982AD; font-weight: bold; font-size: 17px; line-height:400%;">Let us match you with a Doctor today.</text>
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3">
-                        <a href="/Home/About" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
+                        <a href="#learn" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
                         <a href="/Account/Register" class="btn btn-lg btn-warning" style="width: 150px;"><strong>Sign up</strong></a>
                     </div>
                 </div>
@@ -22,7 +23,7 @@ End Code
     </div>
     <div class="col-xs-12 no-padd">
         <div class="" style="background-color: #336799;padding-bottom: 60px; padding-top:30px;">
-            <div class="col-xs-12">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <form name="search-physician">
                     <div class="form-inline text-center">
                         <div class="col-xs-3 padd-5">
@@ -43,9 +44,9 @@ End Code
         </div>
     </div>
 
-    <div class="row step-page">
-        <div class="col-xs-12 text-center">
-            <h1 style="font-weight: 600; color: black;font-size: 45px">We're here with you every step of the way</h1>
+    <div class="row step-page" id="learn">
+        <div class="col-xs-12 text-left top-50">
+            <h1 style="font-weight: 600; color:#262626 ;font-size: 45px" class="text-center">We're here with you every step of the way</h1>
             <div style="background-image: url('../../Content/Images/Website/greenbar.png');height: 200px;background-position:center;background-repeat:no-repeat !important">
                 <ul class="nav nav-pills round-pills text-center" role="tablist" style="margin-left:150px;">
                     <li class="active"><a href="#1" role="tab" data-toggle="tab">1</a><span class="step-text">PHYSICIAN SEARCH</span></li>
@@ -55,10 +56,46 @@ End Code
                 </ul>
             </div>
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="1"><img src="~/Content/Images/Website/img1.png" /></div>
-                <div role="tabpanel" class="tab-pane" id="2"><img src="~/Content/Images/Website/123_2.png" /></div>
-                <div role="tabpanel" class="tab-pane" id="3"><img src="~/Content/Images/Website/123_3.png" /></div>
-                <div role="tabpanel" class="tab-pane" id="4"><img src="~/Content/Images/Website/123_4.png" /></div>
+                <div role="tabpanel" class="tab-pane active" id="1">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="col-sm-7">
+                            <p style="font-size:15px;" class="top-50">DOCTOURZ Mathing Algorithm (DMA) is a state-of-the-art physician search engine built with a behavioral science algorithm that delivers real-time matching solutions.</p>
+                        </div>
+                        <div class="col-sm-5 no-padd">
+                            <img src="~/Content/Images/Website/img1.png" class="col-xs-12" />
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="2">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="col-sm-7">
+                            <p style="font-size:15px;" class="top-50">Our 24/7 medical concierge staff is able and willing to assist yout with you every query you need. Anytime, anywhere at your convinience.</p>
+                        </div>
+                        <div class="col-sm-5 no-padd">
+                            <img src="~/Content/Images/Website/123_2.png" class="col-xs-12" />
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="3">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="col-sm-7">
+                            <p style="font-size:15px;" class="top-50">Doctourz can facilitate hassle free patient-physician consults at the comfort of your own home.</p>
+                        </div>
+                        <div class="col-sm-5 no-padd">
+                            <img src="~/Content/Images/Website/123_3.png" class="col-xs-12" />
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="4">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="col-sm-7">
+                            <p style="font-size:15px;" class="top-50">With the use of our wearable apps, it will alloe trained medical staff to provide the best folloe-up patient care.</p>
+                        </div>
+                        <div class="col-sm-5 no-padd">
+                            <img src="~/Content/Images/Website/123_4.png" class="col-xs-12" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -77,19 +114,19 @@ End Code
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="~/Content/Images/Website/Ad1.jpg" width="100%">
+                    <img src="~/Content/Images/Website/Ad1.jpg"  class="col-xs-12">
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/Images/Website/Ad2.jpg" width="100%">
+                    <img src="~/Content/Images/Website/Ad2.jpg" class="col-xs-12">
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/Images/Website/Ad3.jpg" width="100%">
+                    <img src="~/Content/Images/Website/Ad3.jpg" class="col-xs-12">
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/Images/Website/Ad4.jpg" width="100%">
+                    <img src="~/Content/Images/Website/Ad4.jpg" class="col-xs-12">
                 </div>
             </div>
 
