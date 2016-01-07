@@ -155,13 +155,21 @@ Public Class UserController
         Return View()
     End Function
 
-    Function SearchDoctor(ByVal keyword As String) As ActionResult
+    Function SearchDoctor(ByVal keyword As String, ByVal gender As String, ByVal location As String) As ActionResult
         ViewBag.Keyword = keyword
+        ViewBag.Gender = gender
 
         MainSearch(keyword)
 
-        TempData("AllDoctors") = doctorList
-        TempData("Keyword") = keyword
+        'If gender IsNot Nothing Then
+        '    doctorList = doctorList.Where(Function(x) x.docGender.ToLower = gender.ToLower).ToList()
+        'End If
+
+        If location IsNot Nothing Then
+            doctorList = doctorList.Where(Function(x) x.docLocation.Contains(location.ToLower)).ToList()
+        End If
+        'TempData("AllDoctors") = doctorList
+        'TempData("Keyword") = keyword
         ViewBag.Doctors = doctorList
 
         Return PartialView("SearchDoctor")
@@ -278,6 +286,7 @@ Public Class UserController
     'Public Function SearchDoctor() As ActionResult
     '    Return PartialView("SearchDoctor")
     'End Function
+
 
 
 

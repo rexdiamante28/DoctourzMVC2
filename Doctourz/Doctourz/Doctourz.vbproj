@@ -219,22 +219,6 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201512290321113_SubSpecializationChanges.Designer.vb">
-      <DependentUpon>201512290321113_SubSpecializationChanges.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512290321113_SubSpecializationChanges.vb" />
-    <Compile Include="Migrations\201512290323045_SubSpecialization2Changes.Designer.vb">
-      <DependentUpon>201512290323045_SubSpecialization2Changes.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512290323045_SubSpecialization2Changes.vb" />
-    <Compile Include="Migrations\201512290606049_EducationChanges.Designer.vb">
-      <DependentUpon>201512290606049_EducationChanges.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512290606049_EducationChanges.vb" />
-    <Compile Include="Migrations\201512290626341_EducationChanges1.Designer.vb">
-      <DependentUpon>201512290626341_EducationChanges1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512290626341_EducationChanges1.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -278,18 +262,6 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201512290321113_SubSpecializationChanges.resx">
-      <DependentUpon>201512290321113_SubSpecializationChanges.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512290323045_SubSpecialization2Changes.resx">
-      <DependentUpon>201512290323045_SubSpecialization2Changes.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512290606049_EducationChanges.resx">
-      <DependentUpon>201512290606049_EducationChanges.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512290626341_EducationChanges1.resx">
-      <DependentUpon>201512290626341_EducationChanges1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

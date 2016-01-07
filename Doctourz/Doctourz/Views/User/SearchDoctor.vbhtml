@@ -79,12 +79,12 @@ End Code
             <div class="row toggle-hide bggray5" id="doctor-gender">
                 <a href="#" class="male">
                     <li class="list-group-item ">
-                        <label class="normal"><input type="radio" id="male" /> Male</label><br />
+                        <label class="normal"><input type="radio" id="male" name="gender" value="male"/> Male</label><br />
                     </li>
                 </a>
                 <a href="#" class="female">
                     <li class="list-group-item ">
-                        <label class="normal"><input type="radio" id="female" /> Female</label><br />
+                        <label class="normal"><input type="radio" id="female" name="gender" value="female"/> Female</label><br />
                     </li>
                 </a>
             </div>
@@ -236,33 +236,41 @@ End Code
 
         function search() {
             var keyword = document.getElementById('SearchText');
-            var url = "/User/SearchDoctor?keyword=" + keyword.value;
+            var gender = $('input[name=gender]:checked').val();
+            if (gender == undefined) {
+                gender = ""
+            }
+            var location = document.getElementById('FilterLocation').value;
+            var url = "/User/SearchDoctor?keyword=" + keyword.value + "&gender=" + gender + "&location=" + location;
             window.location.href = url;
         }
 
         //FILTER DOCTOR BY GENDER -- MALE
         $(".male").click(function (event) {
-            var type = "gender";
-            var filter = "male";
-            var keyword = document.getElementById('SearchText');
-            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
-            window.location.href = url;
+            search()
+            //var type = "gender";
+            //var filter = "male";
+            //var keyword = document.getElementById('SearchText');
+            //var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
+            //window.location.href = url;
         })
 
         //FILTER DOCTOR BY GENDER -- FEMALE 
         $(".female").click(function (event) {
-            var type = "gender";
-            var filter = "female";
-            var keyword = document.getElementById('SearchText');
-            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
-            window.location.href = url;
+            //var type = "gender";
+            //var filter = "female";
+            //var keyword = document.getElementById('SearchText');
+            //var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
+            //window.location.href = url;
+            search()
         })
 
         //FILTER DOCTOR BY LOCATION
         $('#FilterLocation').keypress(function (e) {
             var code = (e.keyCode ? e.keyCode : e.which);
             if (code == 13) {
-                filter()
+                //filter()
+                search()
             }
         });
 
