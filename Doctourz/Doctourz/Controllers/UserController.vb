@@ -281,6 +281,82 @@ Public Class UserController
     '    Return PartialView("SearchDoctor")
     'End Function
 
+    Function UpdateName(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
 
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.firstName = usr.firstName
+                update.lastName = usr.lastName
+                update.name = usr.firstName + " " + usr.lastName
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
+
+    Function UpdateGender(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.gender = usr.gender
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
+    Function UpdateLocation(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.location = usr.location
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
+    Function UpdateBirthDate(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.birthDate = usr.birthDate
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
+    Function getAppUser() As JsonResult
+        Dim db As New ApplicationDbContext
+        Dim usrId = User.Identity.GetUserId
+        Dim appUsr = db.AppUsers.Where(Function(x) x.userId = usrId).First
+
+        Return New JsonResult With {
+                .Data = appUsr,
+                .JsonRequestBehavior = JsonRequestBehavior.AllowGet
+            }
+    End Function
 
 End Class

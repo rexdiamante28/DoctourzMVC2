@@ -1,4 +1,6 @@
-﻿
+﻿@ModelType AppUsers
+@Imports Microsoft.AspNet.Identity
+
 <ul class="nav nav-pills">
     <li class="dropdown pull-right">
         <a class="dropdown-toggle bggray5 pull-right" data-toggle="dropdown" href="#">
@@ -26,36 +28,44 @@
                     <div class="col-xs-12">
                         <b class="normal">Name</b>
                         <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('name_edit')"></i>
-                        <b class="pull-right normal bluefont">{{basicInfo.name}}</b>
+                        <b class="pull-right normal bluefont"><span id="UsrName"></span></b>
                     </div>
                 </div>
 
             </li>
             <li class="list-group-item bggray5 no-display" id="name_edit">
                 What is your name?
-                <input type="text" id="name" value="{{basicInfo.name}}" class="form-control bottom-10">
-                <button class="btn" onclick="toggleElement('name_edit')">Cancel</button>
-                <button class="btn btn-primary savename">Save</button>
+                @Using Html.BeginForm("UpdateName", "User", FormMethod.Post, New With {.role = "form", .id = "UpdateNameForm"})
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", New With {.class = "text-danger"})
+
+                    @Html.TextBoxFor(Function(model) model.firstName, New With {.class = "form-control bottom-10", .id = "fName"})
+                    @Html.TextBoxFor(Function(model) model.lastName, New With {.class = "form-control bottom-10", .id = "lName"})
+                    @<button class="btn" type="button" onclick="toggleElement('name_edit')">Cancel</button>
+                    @<button class="btn btn-primary savename" type="submit" onclick="toggleElement('name_edit')">Save</button>
+                End Using
+
             </li>
 
 
             <li class="list-group-item">
                 <b class="normal">Gender</b>
                 <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('gender_edit')"></i>
-                <b class="pull-right normal bluefont">{{basicInfo.gender}}</b>
+                <b class="pull-right normal bluefont"><span id="UsrGender"></span></b>
             </li>
             <li class="list-group-item no-display bggray5" id="gender_edit">
                 What gender are you?<br /><br />
-                {{#if equals basicInfo.gender 'Male'}}
-                <label class="normal point"><input type="radio" name="gender" id="male" checked class="pretty-radio"> Male</label><br />
-                <label class="normal point"><input type="radio" name="gender" id="female" class="pretty-radio"> Female</label><br />
-                {{else}}
-                <label class="normal point"><input type="radio" name="gender" id="male" class="pretty-radio"> Male</label><br />
-                <label class="normal point"><input type="radio" name="gender" id="female" checked class="pretty-radio"> Female</label><br />
-                {{/if}}
+                @Using Html.BeginForm("UpdateGender", "User", FormMethod.Post, New With {.role = "form", .id = "UpdateGenderForm"})
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", New With {.class = "text-danger"})
+                    @Html.HiddenFor(Function(model) model.gender, New With { .id = "genderType"})
+                    
+                    @<label class="normal point"><input type="radio" name="gender" id="male" onclick="$('#genderType').val('Male')"/> Male</label>@<br />
+                    @<label class="normal point"><input type="radio" name="gender" id="female" onclick="$('#genderType').val('Female')" /> Female</label>@<br />
 
-                <button class="btn" onclick="toggleElement('gender_edit')">Cancel</button>
-                <button class="btn btn-primary savegender">Save</button>
+                    @<button class="btn" type="button" onclick="toggleElement('gender_edit')">Cancel</button>
+                    @<button class="btn btn-primary savegender" type="submit" onclick="toggleElement('gender_edit')">Save</button>
+                End Using
             </li>
 
 
@@ -64,15 +74,21 @@
                     <div class="col-xs-12">
                         <b class="normal">Location</b>
                         <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('location_edit')"></i>
-                        <b class="pull-right normal bluefont">{{basicInfo.location}}</b>
+                        <b class="pull-right normal bluefont"><span id="UsrLocation"></span></b>
                     </div>
                 </div>
             </li>
             <li class="list-group-item bggray5 no-display" id="location_edit">
                 Where are you located?
-                <input type="text" id="location" value="{{basicInfo.location}}" class="form-control bottom-10">
-                <button class="btn" onclick="toggleElement('location_edit')">Cancel</button>
-                <button class="btn btn-primary savelocation">Save</button>
+                @Using Html.BeginForm("UpdateLocation", "User", FormMethod.Post, New With {.role = "form", .id = "UpdateLocationForm"})
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", New With {.class = "text-danger"})
+
+                    @Html.TextBoxFor(Function(model) model.location, New With {.class = "form-control bottom-10", .id = "location"})
+
+                    @<button class="btn" type="button" onclick="toggleElement('location_edit')">Cancel</button>
+                    @<button class="btn btn-primary savelocation" type="submit" onclick="toggleElement('location_edit')">Save</button>
+                End Using
             </li>
 
 
@@ -81,22 +97,28 @@
                     <div class="col-xs-12">
                         <b class="normal">Date of Birth</b>
                         <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('birthdate_edit')"></i>
-                        <b class="pull-right normal bluefont">{{formatDate basicInfo.birthdate}}</b>
+                        <b class="pull-right normal bluefont"><span id="UsrBirthDate"></span></b>
                     </div>
                 </div>
             </li>
             <li class="list-group-item bggray5 no-display" id="birthdate_edit">
                 What is your birth date?
-                <input type="date" id="birthdate" value="{{formatDate basicInfo.birthdate}}" class="form-control bottom-10">
-                <button class="btn" onclick="toggleElement('birthdate_edit')">Cancel</button>
-                <button class="btn btn-primary savebirthdate">Save</button>
+                @Using Html.BeginForm("UpdateBirthDate", "User", FormMethod.Post, New With {.role = "form", .id = "UpdateBirthForm"})
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", New With {.class = "text-danger"})
+
+                    @Html.TextBoxFor(Function(model) model.birthDate, New With {.class = "form-control bottom-10", .id = "birthDate", .type = "Date"})
+
+                    @<button class="btn" type="button" onclick="toggleElement('birthdate_edit')">Cancel</button>
+                    @<button class="btn btn-primary savebirthdate" type="submit" onclick="toggleElement('birthdate_edit')">Save</button>
+                End Using
             </li>
 
 
             <li class="list-group-item">
                 <b class="normal">Ethnicity</b>
                 <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('ethnicity_edit')"></i>
-                <b class="pull-right normal bluefont">{{basicInfo.ethnicity}}</b>
+                <b class="pull-right normal bluefont"><span id="UsrEthnicity"></span></b>
             </li>
             <li class="list-group-item no-display bggray5" id="ethnicity_edit">
                 What gender are you?<br /><br />
@@ -119,7 +141,7 @@
             <li class="list-group-item">
                 <b class="normal">Height</b>
                 <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('height_edit')"></i>
-                <b class="pull-right normal bluefont">{{basicInfo.height}}</b>
+                <b class="pull-right normal bluefont"><span id="UsrHeight"></span></b>
             </li>
             <li class="list-group-item bggray5 no-display" id="height_edit">
                 <div class="row">
@@ -143,7 +165,7 @@
             <li class="list-group-item">
                 <b class="normal">Weight</b>
                 <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('weight_edit')"></i>
-                <b class="pull-right normal bluefont">{{basicInfo.weight}}</b>
+                <b class="pull-right normal bluefont"><span id="UsrWeight"></span></b>
             </li>
             <li class="list-group-item bggray5 no-display" id="weight_edit">
                 <div class="row">
@@ -164,7 +186,7 @@
             <li class="list-group-item">
                 <b class="normal">BMI</b>
                 <i class="fa fa-pencil-square-o pull-right"></i>
-                <b class="pull-right normal bluefont">{{basicInfo.bmi}}</b>
+                <b class="pull-right normal bluefont"><span id="UsrBmi"></span></b>
             </li>
         </ul>
 
@@ -584,3 +606,85 @@
         </div>
     </div>
 </div>
+<script src="~/Scripts/SideBar.js"></script>
+<script>
+    $("#UpdateNameForm").submit(function (e) {
+        e.preventDefault();
+
+        if ($("#fName").val().trim() == '' ||
+            $("#lName").val().trim() == '') {
+
+            alert('Fields Cannot be empty');
+            return false
+        }
+
+        var name = {
+            firstName: $("#fName").val().trim(),
+            lastName: $("#lName").val().trim()
+        }
+
+        $.ajax({
+            url: '/User/UpdateName',
+            type: 'POST',
+            data: name,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+            }
+        });
+    })
+
+    $("#UpdateGenderForm").submit(function (e) {
+        e.preventDefault();
+
+        var user = {
+            gender: $("#genderType").val().trim()
+        }
+
+        $.ajax({
+            url: '/User/UpdateGender',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+            }
+        });
+    })
+
+    $("#UpdateBirthForm").submit(function (e) {
+        e.preventDefault();
+
+        var user = {
+            birthDate: $("#birthDate").val().trim()
+        }
+
+        $.ajax({
+            url: '/User/UpdateBirthDate',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+            }
+        });
+    })
+
+    $("#UpdateLocationForm").submit(function (e) {
+        e.preventDefault();
+
+        var user = {
+            location: $("#location").val().trim()
+        }
+
+        $.ajax({
+            url: '/User/UpdateLocation',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+            }
+        });
+    })
+</script>

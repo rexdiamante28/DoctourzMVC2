@@ -48,6 +48,7 @@
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/user")
+    <script src="~/Scripts/SideBar.js"></script>
     @RenderSection("scripts", required:=False)
 
     <script>

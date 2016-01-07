@@ -12,6 +12,7 @@ End Code
     function loadPage(action) {
         $.post("/User/" + action, function (data) {
             $(".sidebar-body").html(data);
+            loadHealthProfile();
         });
     }
 </script>
