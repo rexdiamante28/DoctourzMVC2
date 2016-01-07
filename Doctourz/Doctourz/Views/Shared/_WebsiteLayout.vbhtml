@@ -6,13 +6,15 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/old")
     @Scripts.Render("~/bundles/modernizr")
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 
 </head>
-<body style="padding-top:0px;">
+<body style="padding-top:0px;font-family: 'PT Sans', sans-serif;">
     <nav class="topbar">
         <div class="col-xs-12 no-padd">
-            <img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 130px;width: 200px;">
-            <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius" style="margin-right:130px;">Sign In</a>
+            <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 20%;width: 230px;"></a>
+            <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius" style="margin-right:20%;">Sign In</a>
+            <a href="/Home/About" class="btn btn-warning pull-right top-10 no-radius">About</a>
         </div>
     </nav>
         @RenderBody()

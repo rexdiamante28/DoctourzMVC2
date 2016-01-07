@@ -123,7 +123,9 @@ var OnlineUsers = {
 
             button.setAttribute("id", "btn_" + user.ConnectionId);
             button.setAttribute("type", "button");
-            button.setAttribute("value", "Call " + user.Name);
+            button.setAttribute("class", "onlineUserButton");
+            button.setAttribute("value", "Photo Here");
+            button.setAttribute("title", "Call " + user.Name);
             button.setAttribute("onclick", "begincallsignal(this)");
             buttonContainer.appendChild(button);
 
