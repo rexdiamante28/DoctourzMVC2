@@ -8,7 +8,48 @@
         ViewBag.appUserEmail = appUser.email
     End If
 End Code
+<script>
+    function loadHealthProfile() {
+        $.ajax({
+            url: '/User/getAppUser',
+            type: 'GET',
+            dataType: 'json',
+            success: function (d) {
+                $("#fName").val(d.firstName);
+                $("#lName").val(d.lastName);
+                $("#UsrName").html(d.name);
+                $("#UsrGender").html(d.gender);
+                if (d.gender == "Male") {
+                    $("#male").click()
+                } else if (d.gender == "Female") {
+                    $("#female").click()
+                }
+                $("#UsrLocation").html(d.location);
+                $("#location").val(d.location);
+                var bDate = new Date(parseInt(d.birthDate.replace("/Date(", "").replace(")/", ""), 10)).toDateString();
+                $("#UsrBirthDate").html(bDate);
+                $("#birthDate").val(new Date(parseInt(d.birthDate.replace("/Date(", "").replace(")/", ""), 10)).toLocaleDateString());
+                $("#UsrEthnicity").html(d.ethnicity);
+                $("#UsrHeight").html(d.height);
+                $("#UsrWeight").html(d.weight);
+                $("#UsrBmi").html(d.bmi);
 
+            },
+            error: function (err) {
+                console.log(err)
+            }
+
+        })
+    }
+
+
+
+    function loadPage(action) {
+        $.post("/User/" + action, function (data) {
+            $(".sidebar-body").html(data);
+        });
+    }
+</script>
 <div class="sidebar-child-close" id="sidebar-child" onmouseover="UnfoldSideBar()">
     <div class="col-xs-12 top-10 padd-5">
         <input type="text" value="empty" readonly class="hidden" id="currentSidebarChild" />
@@ -37,7 +78,7 @@ End Code
         </div>
         <ul class="nav" id="side-menu">
             <li id="sidelink1" onclick="SidebarChildDecide(this.id); loadPage('Notifications')" ><i class="fa fa-bell-o"></i>Notifications</li>
-            <li id="sidelink2" onclick="SidebarChildDecide(this.id); loadPage('HealthProfile')" ><i class="fa fa-user"></i>Health Profile</li>
+            <li id="sidelink2" onclick="SidebarChildDecide(this.id); loadPage('HealthProfile');" ><i class="fa fa-user"></i>Health Profile</li>
             <li id="sidelink3" onclick="SidebarChildDecide(this.id); loadPage('Dma')" class="side-menu-link"><img src="~/Content/icons/dma-white.gif" />DMA</li>
             <li id="sidelink4" onclick="SidebarChildDecide(this.id); loadPage('Dma')" ><i class="fa fa-user-md"></i>Consults</li>
             <li id="sidelink5" onclick="SidebarChildDecide(this.id); loadPage('Dma')" ><i class="fa fa-wechat"></i>Answer</li>
