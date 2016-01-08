@@ -162,6 +162,8 @@
                         What is your height?
 
                         @Using Html.BeginForm("UpdateHeight", "User", Nothing, FormMethod.Post, New With {.id = "UpdateHeightForm", .role = "form"})
+                            @Html.AntiForgeryToken()
+                            
                             @Html.HiddenFor(Function(model) model.height, New With {.id = "heightVal"})
                             @<div class="row">
                                 <div class="col-xs-6">
@@ -189,13 +191,19 @@
                 <div class="row">
                     <div class="col-xs-12">
                         What is your weight (Kilogram)?
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <input type="number" id="weight" value="{{basicInfo.weight}}" placeholder="Kilogram" class="form-control bottom-10" min="1" max="200">
+                        @Using Html.BeginForm("UpdateWeight", "User", Nothing, FormMethod.Post, New With {.id = "UpdateWeightForm", .role = "form"})
+                            @Html.AntiForgeryToken()
+
+                            @Html.HiddenFor(Function(model) model.weight, New With {.id = "weightVal"})
+                            @<div class="row">
+                                 <div class="col-xs-12">
+                                     <input type="number" id="weight" placeholder="Kilogram" class="form-control bottom-10" min="1" max="200">
+                                 </div>
                             </div>
-                        </div>
-                        <button class="btn" onclick="toggleElement('weight_edit')">Cancel</button>
-                        <button class="btn btn-primary saveweight">Save</button>
+                            @<button class="btn" type="button" onclick="toggleElement('weight_edit')">Cancel</button>
+                            @<button class="btn btn-primary saveweight" type="submit">Save</button>
+                        End Using
+
                     </div>
                 </div>
             </li>
@@ -744,8 +752,17 @@
             $("#heightVal").val(concat)
         }
 
+        var bmi;
+        height = $("#UsrHeight").html().split("'");
+        weight = $("#weight").val();
+
+        var h = (parseInt(height[0]) * 0.3048) + (parseInt(height[1]) * 0.0254)
+        h *= h;
+        bmi = weight / h
+
         var user = {
-            height: $("#heightVal").val()
+            height: $("#heightVal").val(),
+            bmi: bmi.toFixed(2)
         }
 
         $.ajax({
@@ -758,5 +775,43 @@
                 toggleElement('height_edit')
             }
         });
+    })
+
+    $("#UpdateWeightForm").submit(function (e) {
+        e.preventDefault();
+        var w = $("#weight").val();
+
+        if (isNaN(w)) {
+            return
+        } else {
+            w += "Kg"
+            $("#weightVal").val(w);
+        }
+
+        var bmi;
+        height = $("#UsrHeight").html().split("'");
+        weight = $("#weight").val();
+
+        var h = (parseInt(height[0]) * 0.3048) + (parseInt(height[1]) * 0.0254)
+        h *= h;
+        bmi = weight / h
+
+        var user = {
+            weight: w,
+            bmi: bmi.toFixed(2)
+        }
+
+        $.ajax({
+            url: '/User/UpdateWeight',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+                toggleElement('weight_edit')
+            }
+        });
+
+
     })
 </script>

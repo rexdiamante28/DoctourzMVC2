@@ -379,6 +379,25 @@ Public Class UserController
             If usr.userId IsNot Nothing Then
                 Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
                 update.height = usr.height
+                update.bmi = usr.bmi
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
+
+    Function UpdateWeight(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.weight = usr.weight
+                update.bmi = usr.bmi
 
                 db.SaveChanges()
             End If
