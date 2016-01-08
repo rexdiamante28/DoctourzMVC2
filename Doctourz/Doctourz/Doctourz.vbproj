@@ -299,6 +299,15 @@
     <Content Include="Content\Images\User\Untitled3.png" />
     <Content Include="Content\Images\User\Untitled4.png" />
     <Content Include="Content\Images\User\Untitled5.png" />
+    <Content Include="Content\Images\Website\about_icon1.png" />
+    <Content Include="Content\Images\Website\about_icon2.png" />
+    <Content Include="Content\Images\Website\about_icon3.png" />
+    <Content Include="Content\Images\Website\about_icon4.png" />
+    <Content Include="Content\Images\Website\about_icon5.png" />
+    <Content Include="Content\Images\Website\about_img1.png" />
+    <Content Include="Content\Images\Website\about_img2.png" />
+    <Content Include="Content\Images\Website\about_img3.png" />
+    <Content Include="Content\Images\Website\about_img4.png" />
     <Content Include="Content\Images\Website\feeds.png" />
     <Content Include="Content\Images\Website\dummy.jpg" />
     <Content Include="Content\Images\Website\img1.png" />

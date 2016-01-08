@@ -22,23 +22,18 @@ End Code
 <div id="bottom-dock" class="bottom-dock-close">
     <div class="bottom-link" id="bottomLink1"  onclick="TelemedCoverDecide(this.id); loadPageBottom('appointment')">
         <label>APPOINTMENTS</label>
-        <i class="fa fa-expand pull-right top-5"></i>
     </div>
     <div class="bottom-link" id="bottomLink2"  onclick="TelemedCoverDecide(this.id); loadPageBottom('PatientRecords')">
         <label>PATIENT RECORDS</label>
-        <i class="fa fa-expand pull-right top-5"></i>
     </div>
     <div class="bottom-link" id="bottomLink3" onclick="TelemedCoverDecide(this.id); loadPageBottom('Notes')">
         <label>NOTES</label>
-        <i class="fa fa-expand pull-right top-5"></i>
     </div>
     <div class="bottom-link" id="bottomLink4"  onclick="TelemedCoverDecide(this.id); loadPageBottom('CareTeam')">
         <label>CARE TEAM</label>
-        <i class="fa fa-expand pull-right top-5"></i>
     </div>
     <div class="bottom-link" id="bottomLink5" onclick="TelemedCoverDecide(this.id); loadPageBottom('Diagnosis')">
         <label>DIAGNOSIS</label>
-        <i class="fa fa-expand pull-right top-5"></i>
     </div>
     <div class="col-xs-12 " id="bottom-container">
     </div>
@@ -49,11 +44,11 @@ End Code
 <div id="main-frame">
     <div id="video" class="publisherContainer">
         <div id="subscribers" class="subscribersContainer"></div>
-        <div id="info" class="info-close">
+        <div id="info" class="info-open">
             <div class="header">
-                <text id="l1" class="fwhite _17 pull-right">INFO &nbsp;<i class="fa fa-file-text-o"></i></text>
+                <text id="l1" class="fwhite _13 pull-right">INFO &nbsp;<i class="fa fa-file-text-o"></i></text>
                 <i id="l2" class="pull-right fa fa-file-text-o fwhite opener" style="display:none;" onclick="ExpandInfo()"></i>
-                <i id="l3" class="pull-left fa fa-minus fwhite" onclick="CompressInfo()"></i>
+                <i id="l3" class="pull-left fa fa-minus fwhite" style="font-size:10px;margin-top:10px;" onclick="CompressInfo()"></i>
             </div>
             
             <ul class="list-group" id="patient-initial-info">
@@ -86,13 +81,13 @@ End Code
 
         <div id="myCamera" class="publisherContainer"></div>
 
-        <div id="chat" class="chat-close">
+        <div id="chat" class="chat-open">
             <div class="header">
                 <div class="row">
                     <div class="col-xs-12">
-                        <text id="r1" class="fwhite _17"><i class="fa fa-comments"></i> CHAT</text>
+                        <text id="r1" class="fwhite _13" style="margin-bottom:3px;"><i class="fa fa-comments"></i> CHAT</text>
                         <i id="r2" class="pull-left fa fa-comments fwhite opener" style="display:none;" onclick="ExpandChat()"></i>
-                        <i id="r3" class="pull-right fa fa-minus fwhite" onclick="CompressChat()"></i>
+                        <i id="r3" class="pull-right fa fa-minus fwhite" style="font-size:10px;margin-top:10px;" onclick="CompressChat()"></i>
                     </div>
                 </div>
             </div>
@@ -101,23 +96,14 @@ End Code
             <div id="chatbox" class="padd-10">
                     <div class="col-xs-12 bgwhite padd-10 top-10">
                         <img src="~/Content/Images/Website/dummy.jpg"  class="img-circle" style="width:30px;"/>
-                        <text class="custom-fblue">Nurse name:</text>
-                        <p class="fgray3">Sample message sample message sample message.</p>
+                        <text class="custom-fblue">Carmella Dela Cruz</text>
+                        <p class="fgray3">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci vel</p>
                     </div>
-                    <div class="col-xs-12 bgwhite padd-10 top-10">
-                        <img src="~/Content/Images/Website/dummy.jpg" class="img-circle" style="width:30px;" />
-                        <text class="custom-fblue">Nurse name:</text>
-                        <p class="fgray3">Sample message sample message sample message.</p>
+                    <div class="col-xs-12 bgwhite padd-50 top-10">
                     </div>
-                    <div class="col-xs-12 bgwhite padd-10 top-10">
-                        <img src="~/Content/Images/Website/dummy.jpg" class="img-circle" style="width:30px;" />
-                        <text class="custom-fblue">Nurse name:</text>
-                        <p class="fgray3">Sample message sample message sample message.</p>
+                    <div class="col-xs-12 bgwhite padd-50 top-10">
                     </div>
-                    <div class="col-xs-12 bgwhite padd-10 top-10">
-                        <img src="~/Content/Images/Website/dummy.jpg" class="img-circle" style="width:30px;" />
-                        <text class="custom-fblue">Nurse name:</text>
-                        <p class="fgray3">Sample message sample message sample message.</p>
+                    <div class="col-xs-12 bgwhite padd-50 top-10">
                     </div>
             </div>
             <div id="message-box" class="list-group-item">
@@ -137,10 +123,13 @@ End Code
                     <i class="fa fa-users"></i>
                 </div>
                 <div id="controls-frame" class="text-center">
-                    <i class="fa fa-volume-up"></i>
+                    <i class="fa fa-volume-down" style="margin-right:0px;" title="Adjust volume"></i>
+                    <input type="number" onchange="TestAlert(this.value)" class="slider" value="" style="width:50px;margin-top:0px;" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="70" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show">
                     <i class="fa fa-phone"></i>
-                    <a id="connectLink"><i class="fa fa-video-camera"></i></a>
-                    <a id="disconnectLink"><i class="fa fa-microphone"></i></a>
+                    <a id="videoControl" onclick="HideElement(this.id), ShowElement('videoControlSlashed')" title="Disable video" ><i class="fa fa-video-camera"></i></a>
+                    <a id="videoControlSlashed" class="no-display" onclick="HideElement(this.id), ShowElement('videoControl')" title="Enable video"><i class="fa fa-eye-slash"></i></a>
+                    <a id="audioControl" onclick="HideElement(this.id), ShowElement('audioControlSlashed')"><i class="fa fa-microphone" title="Disable audio"></i></a>
+                    <a id="audioControlSlashed" onclick="HideElement(this.id), ShowElement('audioControl')" class="no-display" title="Enable audio"><i class="fa fa-microphone-slash"></i></a>
                 </div>
             </div>
         </div>
@@ -159,6 +148,16 @@ End Code
 
 <script>
 
+
+    function countSubscriber() {
+        var a = $('.callSubscriber');
+        var b = parseInt(a.length);
+        if(b==1){
+            a.style.width = "100%";
+            a.style.height = "40vh";
+        }
+    }
+
     CompressInfo();
     CompressChat();
 
@@ -169,7 +168,7 @@ End Code
         var rtc = $.connection.rTCHub;
         var selfuser, caller;
 
-        show('connectLink');
+       // show('connectLink');
 
         function show(id) {
             document.getElementById(id).style.display = 'inline-block';
@@ -235,7 +234,6 @@ End Code
                     Opentok.disconnect();
                     Opentok.connect(self.Opentok);
 
-
                 }
 
 
@@ -273,9 +271,30 @@ End Code
         }
 
 
+      
+
+        $('#videoControl').click(function () {
+            publisher.publishVideo(false);
+        });
+
+        $('#videoControlSlashed').click(function () {
+            publisher.publishVideo(true);
+        });
+
+        $('#audioControl').click(function () {
+            publisher.publishAudio(false);
+        });
+
+        $('#audioControlSlashed').click(function () {
+            publisher.publishAudio(true);
+        });
+
         $.connection.hub.start().done(function () {
 
             $(document).ready(function () {
+
+                $('.slider').slider();
+
                 var name = document.getElementById("txtName").value;
                 rtc.server.getConnected(name, 'http://localhost:13624').done(function (user) {
                     Opentok.connect(user.Opentok);
@@ -286,9 +305,10 @@ End Code
                 rtc.server.getDisConnected().done(function () {
                     Opentok.disconnect();
                     OnlineUsers.removeAllButtons();
-                   
                 });
             });
+
+            
 
         });
 

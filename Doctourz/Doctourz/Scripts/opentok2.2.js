@@ -16,7 +16,7 @@ var _streams = new Array();
 var _connections = new Array();
 
 var Opentok = {
-    connect: function (openTok) {
+    connect: function (openTok){
 
 
         OT.on("exception", exceptionHandler);
@@ -60,8 +60,6 @@ var Opentok = {
         session.off('sessionDisconnected', sessionDisconnectedHandler);
         publisher = null;
 
-
-
     }
 }
 
@@ -96,8 +94,6 @@ function stopPublishing() {
         session.unpublish(publisher);
     }
     publisher = null;
-
-
 }
 
 
@@ -153,7 +149,6 @@ var OnlineUsers = {
 
 function endCall(obj, label) {
 
-
     console.log(obj.value);
     obj.value = label;
     obj.setAttribute("onclick", "begincallsignal(this)");
@@ -177,10 +172,6 @@ function begincallsignal(obj) {
 
 
 function beginCall(obj) {
-
-
-
-
     obj.setAttribute("onclick", "endcallsignal(this,'" + obj.value + "')");
     obj.value = 'End Call';
 
