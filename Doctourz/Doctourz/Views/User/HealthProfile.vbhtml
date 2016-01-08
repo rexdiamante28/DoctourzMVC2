@@ -47,7 +47,7 @@
                     @Html.TextBoxFor(Function(model) model.firstName, New With {.class = "form-control bottom-10", .id = "fName"})
                     @Html.TextBoxFor(Function(model) model.lastName, New With {.class = "form-control bottom-10", .id = "lName"})
                     @<button class="btn" type="button" onclick="toggleElement('name_edit')">Cancel</button>
-                    @<button class="btn btn-primary savename" type="submit" onclick="toggleElement('name_edit')">Save</button>
+                    @<button class="btn btn-primary savename" type="submit">Save</button>
                 End Using
 
             </li>
@@ -69,7 +69,7 @@
                     @<label class="normal point"><input type="radio" name="gender" id="female" onclick="$('#genderType').val('Female')" /> Female</label>@<br />
 
                     @<button class="btn" type="button" onclick="toggleElement('gender_edit')">Cancel</button>
-                    @<button class="btn btn-primary savegender" type="submit" onclick="toggleElement('gender_edit')">Save</button>
+                    @<button class="btn btn-primary savegender" type="submit" >Save</button>
                 End Using
             </li>
 
@@ -92,7 +92,7 @@
                     @Html.TextBoxFor(Function(model) model.location, New With {.class = "form-control bottom-10", .id = "location"})
 
                     @<button class="btn" type="button" onclick="toggleElement('location_edit')">Cancel</button>
-                    @<button class="btn btn-primary savelocation" type="submit" onclick="toggleElement('location_edit')">Save</button>
+                    @<button class="btn btn-primary savelocation" type="submit">Save</button>
                 End Using
             </li>
 
@@ -115,7 +115,7 @@
                     @Html.TextBoxFor(Function(model) model.birthDate, New With {.class = "form-control bottom-10", .id = "birthDate", .type = "Date"})
 
                     @<button class="btn" type="button" onclick="toggleElement('birthdate_edit')">Cancel</button>
-                    @<button class="btn btn-primary savebirthdate" type="submit" onclick="toggleElement('birthdate_edit')">Save</button>
+                    @<button class="btn btn-primary savebirthdate" type="submit">Save</button>
                 End Using
             </li>
 
@@ -143,7 +143,7 @@
                         Next
 
                         @<button class="btn" onclick="toggleElement('ethnicity_edit')">Cancel</button>
-                        @<button class="btn btn-primary saveethnicity" onclick="toggleElement('ethnicity_edit')" type="submit">Save</button>
+                        @<button class="btn btn-primary saveethnicity" type="submit">Save</button>
 
                     End Using
 
@@ -160,16 +160,21 @@
                 <div class="row">
                     <div class="col-xs-12">
                         What is your height?
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <input type="number" id="height1" value="{{basicInfo.height}}" placeholder="meters" class="form-control bottom-10" min="1" max="8">
+
+                        @Using Html.BeginForm("UpdateHeight", "User", Nothing, FormMethod.Post, New With {.id = "UpdateHeightForm", .role = "form"})
+                            @Html.HiddenFor(Function(model) model.height, New With {.id = "heightVal"})
+                            @<div class="row">
+                                <div class="col-xs-6">
+                                    <input type="number" id="height1" placeholder="feet" class="form-control bottom-10" min="1" max="8">
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="number" id="height2" placeholder="inches" class="form-control bottom-10" min="0" max="11">
+                                </div>
                             </div>
-                            <div class="col-xs-6">
-                                <input type="number" id="height2" value="{{basicInfo.height}}" placeholder="inches" class="form-control bottom-10" min="1" max="11">
-                            </div>
-                        </div>
-                        <button class="btn" onclick="toggleElement('height_edit')">Cancel</button>
-                        <button class="btn btn-primary saveheight">Save</button>
+                            @<button class="btn" onclick="toggleElement('height_edit')">Cancel</button>
+                            @<button class="btn btn-primary saveheight" type="submit">Save</button>
+                        End Using
+
                     </div>
                 </div>
 
@@ -620,7 +625,7 @@
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
 
     $("#UpdateNameForm").submit(function (e) {
         e.preventDefault();
@@ -644,6 +649,7 @@
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
+                toggleElement('name_edit')
             }
         });
     })
@@ -662,6 +668,7 @@
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
+                toggleElement('gender_edit')
             }
         });
     })
@@ -680,6 +687,7 @@
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
+                toggleElement('birthdate_edit')
             }
         });
     })
@@ -698,6 +706,7 @@
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
+                toggleElement('location_edit')
             }
         });
     })
@@ -716,7 +725,37 @@
             DataType: 'json',
             success: function (data) {
                 var id = $("input[name='ethnicity']:checked").attr('value');
-                $("#UsrEthnicity").html(id)
+                $("#UsrEthnicity").html(id);
+                toggleElement('ethnicity_edit')
+            }
+        });
+    })
+
+    $("#UpdateHeightForm").submit(function (e) {
+        e.preventDefault();
+        var h1 = $("#height1").val();
+        var h2 = $("#height2").val();
+        var concat;
+
+        if (isNaN(h1) || isNaN(h2)) {
+            return
+        } else {
+            concat = h1 + "'" + h2 +  "''"
+            $("#heightVal").val(concat)
+        }
+
+        var user = {
+            height: $("#heightVal").val()
+        }
+
+        $.ajax({
+            url: '/User/UpdateHeight',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+                toggleElement('height_edit')
             }
         });
     })

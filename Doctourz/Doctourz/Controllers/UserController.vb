@@ -371,6 +371,23 @@ Public Class UserController
                 .Data = New With {.message = "Successfully Updated!"}
             }
     End Function
+
+    Function UpdateHeight(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.height = usr.height
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
     Function getAppUser() As JsonResult
         Dim db As New ApplicationDbContext
         Dim usrId = User.Identity.GetUserId
