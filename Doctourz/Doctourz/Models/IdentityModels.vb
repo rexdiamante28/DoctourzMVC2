@@ -157,5 +157,14 @@ Public Class ApplicationDbContext
         End Set
     End Property
 
+    Public _Ethnicities As DbSet(Of Ethnicities)
 
+    Public Property Ethnicities As DbSet(Of Ethnicities)
+        Get
+            Return _Ethnicities
+        End Get
+        Set(value As DbSet(Of Ethnicities))
+            _Ethnicities = value
+        End Set
+    End Property
 End Class

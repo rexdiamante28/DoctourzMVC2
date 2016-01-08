@@ -155,13 +155,21 @@ Public Class UserController
         Return View()
     End Function
 
-    Function SearchDoctor(ByVal keyword As String) As ActionResult
+    Function SearchDoctor(ByVal keyword As String, ByVal gender As String, ByVal location As String) As ActionResult
         ViewBag.Keyword = keyword
+        ViewBag.Gender = gender
 
         MainSearch(keyword)
 
-        TempData("AllDoctors") = doctorList
-        TempData("Keyword") = keyword
+        'If gender IsNot Nothing Then
+        '    doctorList = doctorList.Where(Function(x) x.docGender.ToLower = gender.ToLower).ToList()
+        'End If
+
+        If location IsNot Nothing Then
+            doctorList = doctorList.Where(Function(x) x.docLocation.Contains(location.ToLower)).ToList()
+        End If
+        'TempData("AllDoctors") = doctorList
+        'TempData("Keyword") = keyword
         ViewBag.Doctors = doctorList
 
         Return PartialView("SearchDoctor")
@@ -172,8 +180,6 @@ Public Class UserController
         ViewBag.Keyword = keyword
 
         MainSearch(keyword)
-
-        'doctorList = TempData("AllDoctors")
 
         If type = "gender" Then
             doctorList = doctorList.Where(Function(x) x.docGender.ToLower = filter.ToLower).ToList()
@@ -348,6 +354,59 @@ Public Class UserController
                 .Data = New With {.message = "Successfully Updated!"}
             }
     End Function
+
+    Function UpdateEthnicity(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.ethnicityId = usr.ethnicityId
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
+
+    Function UpdateHeight(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.height = usr.height
+                update.bmi = usr.bmi
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
+
+    Function UpdateWeight(usr As AppUsers) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                update.weight = usr.weight
+                update.bmi = usr.bmi
+
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
     Function getAppUser() As JsonResult
         Dim db As New ApplicationDbContext
         Dim usrId = User.Identity.GetUserId
@@ -358,5 +417,6 @@ Public Class UserController
                 .JsonRequestBehavior = JsonRequestBehavior.AllowGet
             }
     End Function
+
 
 End Class

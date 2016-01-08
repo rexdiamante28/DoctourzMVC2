@@ -228,6 +228,7 @@
     <Compile Include="Models\Degree.vb" />
     <Compile Include="Models\DoctorList.vb" />
     <Compile Include="Models\Education.vb" />
+    <Compile Include="Models\Ethnicities.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
     <Compile Include="Models\opentok.vb" />

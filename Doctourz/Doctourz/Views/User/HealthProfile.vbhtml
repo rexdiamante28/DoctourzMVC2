@@ -47,7 +47,7 @@
                     @Html.TextBoxFor(Function(model) model.firstName, New With {.class = "form-control bottom-10", .id = "fName"})
                     @Html.TextBoxFor(Function(model) model.lastName, New With {.class = "form-control bottom-10", .id = "lName"})
                     @<button class="btn" type="button" onclick="toggleElement('name_edit')">Cancel</button>
-                    @<button class="btn btn-primary savename" type="submit" onclick="toggleElement('name_edit')">Save</button>
+                    @<button class="btn btn-primary savename" type="submit">Save</button>
                 End Using
 
             </li>
@@ -63,13 +63,13 @@
                 @Using Html.BeginForm("UpdateGender", "User", FormMethod.Post, New With {.role = "form", .id = "UpdateGenderForm"})
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary("", New With {.class = "text-danger"})
-                    @Html.HiddenFor(Function(model) model.gender, New With { .id = "genderType"})
-                    
-                    @<label class="normal point"><input type="radio" name="gender" id="male" onclick="$('#genderType').val('Male')"/> Male</label>@<br />
+                    @Html.HiddenFor(Function(model) model.gender, New With {.id = "genderType"})
+
+                    @<label class="normal point"><input type="radio" name="gender" id="male" onclick="$('#genderType').val('Male')" /> Male</label>@<br />
                     @<label class="normal point"><input type="radio" name="gender" id="female" onclick="$('#genderType').val('Female')" /> Female</label>@<br />
 
                     @<button class="btn" type="button" onclick="toggleElement('gender_edit')">Cancel</button>
-                    @<button class="btn btn-primary savegender" type="submit" onclick="toggleElement('gender_edit')">Save</button>
+                    @<button class="btn btn-primary savegender" type="submit" >Save</button>
                 End Using
             </li>
 
@@ -92,7 +92,7 @@
                     @Html.TextBoxFor(Function(model) model.location, New With {.class = "form-control bottom-10", .id = "location"})
 
                     @<button class="btn" type="button" onclick="toggleElement('location_edit')">Cancel</button>
-                    @<button class="btn btn-primary savelocation" type="submit" onclick="toggleElement('location_edit')">Save</button>
+                    @<button class="btn btn-primary savelocation" type="submit">Save</button>
                 End Using
             </li>
 
@@ -115,7 +115,7 @@
                     @Html.TextBoxFor(Function(model) model.birthDate, New With {.class = "form-control bottom-10", .id = "birthDate", .type = "Date"})
 
                     @<button class="btn" type="button" onclick="toggleElement('birthdate_edit')">Cancel</button>
-                    @<button class="btn btn-primary savebirthdate" type="submit" onclick="toggleElement('birthdate_edit')">Save</button>
+                    @<button class="btn btn-primary savebirthdate" type="submit">Save</button>
                 End Using
             </li>
 
@@ -126,21 +126,29 @@
                 <b class="pull-right normal bluefont"><span id="UsrEthnicity"></span></b>
             </li>
             <li class="list-group-item no-display bggray5" id="ethnicity_edit">
-                What gender are you?<br /><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="male" value="White or Caucasian" class="pretty-radio"> White or Caucasian</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="Black or African American"> Black or African American</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="male" class="pretty-radio" value="Hispanic or Latin American"> Hispanic or Latin American</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="South Asian"> South Asian</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="East Asian"> East Asian</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="African"> African</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="East Asian"> East Asian</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="Native American or Inuit"> Native American or Inuit</label><br />
-                <label class="normal point">
-                    <input type="radio" name="ethnicity" id="female" class="pretty-radio" value="Native Hawaiian or other Pacific Islander"> Native Hawaiian or other Pacific Islander
-                </label><br /><br />
+                What is your ethnicity?<br /><br />
 
-                <button class="btn" onclick="toggleElement('ethnicity_edit')">Cancel</button>
-                <button class="btn btn-primary saveethnicity">Save</button>
+                @Code
+                    @Using Html.BeginForm("UpdateEthnicity", "User", Nothing, FormMethod.Post, New With {.id = "UpdateEthForm", .role = "form"})
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(Function(model) model.ethnicityId, New With {.id = "ethType"})
+
+                        Dim db = New ApplicationDbContext
+
+                        Dim ethnicities = db.Ethnicities
+
+                        For Each i In ethnicities
+                        @<label class="normal point"><input type="radio" name="ethnicity" onclick="$('#ethType').val(this.id)" id="@i.ethnicityId" value="@i.name" class="pretty-radio"> @i.name</label>@<br />
+                        Next
+
+                        @<button class="btn" onclick="toggleElement('ethnicity_edit')">Cancel</button>
+                        @<button class="btn btn-primary saveethnicity" type="submit">Save</button>
+
+                    End Using
+
+                End Code
+
             </li>
 
             <li class="list-group-item">
@@ -152,16 +160,23 @@
                 <div class="row">
                     <div class="col-xs-12">
                         What is your height?
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <input type="number" id="height1" value="{{basicInfo.height}}" placeholder="meters" class="form-control bottom-10" min="1" max="8">
+
+                        @Using Html.BeginForm("UpdateHeight", "User", Nothing, FormMethod.Post, New With {.id = "UpdateHeightForm", .role = "form"})
+                            @Html.AntiForgeryToken()
+                            
+                            @Html.HiddenFor(Function(model) model.height, New With {.id = "heightVal"})
+                            @<div class="row">
+                                <div class="col-xs-6">
+                                    <input type="number" id="height1" placeholder="feet" class="form-control bottom-10" min="1" max="8">
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="number" id="height2" placeholder="inches" class="form-control bottom-10" min="0" max="11">
+                                </div>
                             </div>
-                            <div class="col-xs-6">
-                                <input type="number" id="height2" value="{{basicInfo.height}}" placeholder="inches" class="form-control bottom-10" min="1" max="11">
-                            </div>
-                        </div>
-                        <button class="btn" onclick="toggleElement('height_edit')">Cancel</button>
-                        <button class="btn btn-primary saveheight">Save</button>
+                            @<button class="btn" onclick="toggleElement('height_edit')">Cancel</button>
+                            @<button class="btn btn-primary saveheight" type="submit">Save</button>
+                        End Using
+
                     </div>
                 </div>
 
@@ -176,13 +191,19 @@
                 <div class="row">
                     <div class="col-xs-12">
                         What is your weight (Kilogram)?
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <input type="number" id="weight" value="{{basicInfo.weight}}" placeholder="Kilogram" class="form-control bottom-10" min="1" max="200">
+                        @Using Html.BeginForm("UpdateWeight", "User", Nothing, FormMethod.Post, New With {.id = "UpdateWeightForm", .role = "form"})
+                            @Html.AntiForgeryToken()
+
+                            @Html.HiddenFor(Function(model) model.weight, New With {.id = "weightVal"})
+                            @<div class="row">
+                                 <div class="col-xs-12">
+                                     <input type="number" id="weight" placeholder="Kilogram" class="form-control bottom-10" min="1" max="200">
+                                 </div>
                             </div>
-                        </div>
-                        <button class="btn" onclick="toggleElement('weight_edit')">Cancel</button>
-                        <button class="btn btn-primary saveweight">Save</button>
+                            @<button class="btn" type="button" onclick="toggleElement('weight_edit')">Cancel</button>
+                            @<button class="btn btn-primary saveweight" type="submit">Save</button>
+                        End Using
+
                     </div>
                 </div>
             </li>
@@ -612,7 +633,7 @@
     </div>
 </div>
 
-<script>
+<script type="text/javascript">
 
     $("#UpdateNameForm").submit(function (e) {
         e.preventDefault();
@@ -636,6 +657,7 @@
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
+                toggleElement('name_edit')
             }
         });
     })
@@ -654,6 +676,7 @@
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
+                toggleElement('gender_edit')
             }
         });
     })
@@ -672,6 +695,7 @@
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
+                toggleElement('birthdate_edit')
             }
         });
     })
@@ -690,7 +714,104 @@
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
+                toggleElement('location_edit')
             }
         });
+    })
+
+    $("#UpdateEthForm").submit(function (e) {
+        e.preventDefault();
+
+        var user = {
+            ethnicityId: $("#ethType").val()
+        }
+
+        $.ajax({
+            url: '/User/UpdateEthnicity',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                var id = $("input[name='ethnicity']:checked").attr('value');
+                $("#UsrEthnicity").html(id);
+                toggleElement('ethnicity_edit')
+            }
+        });
+    })
+
+    $("#UpdateHeightForm").submit(function (e) {
+        e.preventDefault();
+        var h1 = $("#height1").val();
+        var h2 = $("#height2").val();
+        var concat;
+
+        if (isNaN(h1) || isNaN(h2)) {
+            return
+        } else {
+            concat = h1 + "'" + h2 +  "''"
+            $("#heightVal").val(concat)
+        }
+
+        var bmi;
+        height = $("#UsrHeight").html().split("'");
+        weight = $("#weight").val();
+
+        var h = (parseInt(height[0]) * 0.3048) + (parseInt(height[1]) * 0.0254)
+        h *= h;
+        bmi = weight / h
+
+        var user = {
+            height: $("#heightVal").val(),
+            bmi: bmi.toFixed(2)
+        }
+
+        $.ajax({
+            url: '/User/UpdateHeight',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+                toggleElement('height_edit')
+            }
+        });
+    })
+
+    $("#UpdateWeightForm").submit(function (e) {
+        e.preventDefault();
+        var w = $("#weight").val();
+
+        if (isNaN(w)) {
+            return
+        } else {
+            w += "Kg"
+            $("#weightVal").val(w);
+        }
+
+        var bmi;
+        height = $("#UsrHeight").html().split("'");
+        weight = $("#weight").val();
+
+        var h = (parseInt(height[0]) * 0.3048) + (parseInt(height[1]) * 0.0254)
+        h *= h;
+        bmi = weight / h
+
+        var user = {
+            weight: w,
+            bmi: bmi.toFixed(2)
+        }
+
+        $.ajax({
+            url: '/User/UpdateWeight',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+                toggleElement('weight_edit')
+            }
+        });
+
+
     })
 </script>
