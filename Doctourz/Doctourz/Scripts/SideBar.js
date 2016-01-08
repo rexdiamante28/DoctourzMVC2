@@ -18,8 +18,9 @@
             var bDate = new Date(parseInt(d.birthDate.replace("/Date(", "").replace(")/", ""), 10)).toDateString();
             $("#UsrBirthDate").html(bDate);
             $("#birthDate").val(new Date(parseInt(d.birthDate.replace("/Date(", "").replace(")/", ""), 10)).toLocaleDateString());
-            $("#UsrEthnicity").html(d.ethnicity);
-            $("#" + d.ethnicity).click();
+            $("#" + d.ethnicityId).click();
+            var id = $("input[name='ethnicity']:checked").attr('value');
+            $("#UsrEthnicity").html(id)
             $("#UsrHeight").html(d.height);
             $("#UsrWeight").html(d.weight);
             $("#UsrBmi").html(d.bmi);

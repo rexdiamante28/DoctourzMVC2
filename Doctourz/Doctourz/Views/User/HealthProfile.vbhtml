@@ -134,20 +134,20 @@
 
                         @Html.HiddenFor(Function(model) model.ethnicityId, New With {.id = "ethType"})
 
+                        Dim db = New ApplicationDbContext
+
+                        Dim ethnicities = db.Ethnicities
+
+                        For Each i In ethnicities
+                        @<label class="normal point"><input type="radio" name="ethnicity" onclick="$('#ethType').val(this.id)" id="@i.ethnicityId" value="@i.name" class="pretty-radio"> @i.name</label>@<br />
+                        Next
+
+                        @<button class="btn" onclick="toggleElement('ethnicity_edit')">Cancel</button>
+                        @<button class="btn btn-primary saveethnicity" onclick="toggleElement('ethnicity_edit')" type="submit">Save</button>
+
                     End Using
 
-
-                    Dim db = New ApplicationDbContext
-
-                    Dim ethnicities = db.Ethnicities
-
-                    For Each i In ethnicities
-                    @<label class="normal point"><input type="radio" name="ethnicity" onclick="$('#ethType').val(this.value)" id="@i.name" value="@i.ethnicityId" class="pretty-radio"> @i.name</label>@<br />
-                    Next
-
-                    @<button class="btn"  onclick="toggleElement('ethnicity_edit')">Cancel</button>
-                    @<button class="btn btn-primary saveethnicity" onclick="toggleElement('ethnicity_edit')" type="submit">Save</button>
-End Code
+                End Code
 
             </li>
 
@@ -706,7 +706,7 @@ End Code
         e.preventDefault();
 
         var user = {
-            ethnicity: $("#ethType").val().trim()
+            ethnicityId: $("#ethType").val()
         }
 
         $.ajax({
@@ -715,7 +715,8 @@ End Code
             data: user,
             DataType: 'json',
             success: function (data) {
-                loadHealthProfile();
+                var id = $("input[name='ethnicity']:checked").attr('value');
+                $("#UsrEthnicity").html(id)
             }
         });
     })
