@@ -19,6 +19,7 @@
             $("#UsrBirthDate").html(bDate);
             $("#birthDate").val(new Date(parseInt(d.birthDate.replace("/Date(", "").replace(")/", ""), 10)).toLocaleDateString());
             $("#UsrEthnicity").html(d.ethnicity);
+            $("#" + d.ethnicity).click();
             $("#UsrHeight").html(d.height);
             $("#UsrWeight").html(d.weight);
             $("#UsrBmi").html(d.bmi);

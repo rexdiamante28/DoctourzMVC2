@@ -63,9 +63,9 @@
                 @Using Html.BeginForm("UpdateGender", "User", FormMethod.Post, New With {.role = "form", .id = "UpdateGenderForm"})
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary("", New With {.class = "text-danger"})
-                    @Html.HiddenFor(Function(model) model.gender, New With { .id = "genderType"})
-                    
-                    @<label class="normal point"><input type="radio" name="gender" id="male" onclick="$('#genderType').val('Male')"/> Male</label>@<br />
+                    @Html.HiddenFor(Function(model) model.gender, New With {.id = "genderType"})
+
+                    @<label class="normal point"><input type="radio" name="gender" id="male" onclick="$('#genderType').val('Male')" /> Male</label>@<br />
                     @<label class="normal point"><input type="radio" name="gender" id="female" onclick="$('#genderType').val('Female')" /> Female</label>@<br />
 
                     @<button class="btn" type="button" onclick="toggleElement('gender_edit')">Cancel</button>
@@ -126,21 +126,29 @@
                 <b class="pull-right normal bluefont"><span id="UsrEthnicity"></span></b>
             </li>
             <li class="list-group-item no-display bggray5" id="ethnicity_edit">
-                What gender are you?<br /><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="male" value="White or Caucasian" class="pretty-radio"> White or Caucasian</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="Black or African American"> Black or African American</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="male" class="pretty-radio" value="Hispanic or Latin American"> Hispanic or Latin American</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="South Asian"> South Asian</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="East Asian"> East Asian</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="African"> African</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="East Asian"> East Asian</label><br />
-                <label class="normal point"><input type="radio" name="ethnicity" id="female" class="pretty-radio" value="Native American or Inuit"> Native American or Inuit</label><br />
-                <label class="normal point">
-                    <input type="radio" name="ethnicity" id="female" class="pretty-radio" value="Native Hawaiian or other Pacific Islander"> Native Hawaiian or other Pacific Islander
-                </label><br /><br />
+                What is your ethnicity?<br /><br />
 
-                <button class="btn" onclick="toggleElement('ethnicity_edit')">Cancel</button>
-                <button class="btn btn-primary saveethnicity">Save</button>
+                @Code
+                    @Using Html.BeginForm("UpdateEthnicity", "User", Nothing, FormMethod.Post, New With {.id = "UpdateEthForm", .role = "form"})
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(Function(model) model.ethnicityId, New With {.id = "ethType"})
+
+                    End Using
+
+
+                    Dim db = New ApplicationDbContext
+
+                    Dim ethnicities = db.Ethnicities
+
+                    For Each i In ethnicities
+                    @<label class="normal point"><input type="radio" name="ethnicity" onclick="$('#ethType').val(this.value)" id="@i.name" value="@i.ethnicityId" class="pretty-radio"> @i.name</label>@<br />
+                    Next
+
+                    @<button class="btn"  onclick="toggleElement('ethnicity_edit')">Cancel</button>
+                    @<button class="btn btn-primary saveethnicity" onclick="toggleElement('ethnicity_edit')" type="submit">Save</button>
+End Code
+
             </li>
 
             <li class="list-group-item">
@@ -685,6 +693,24 @@
 
         $.ajax({
             url: '/User/UpdateLocation',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+            }
+        });
+    })
+
+    $("#UpdateEthForm").submit(function (e) {
+        e.preventDefault();
+
+        var user = {
+            ethnicity: $("#ethType").val().trim()
+        }
+
+        $.ajax({
+            url: '/User/UpdateEthnicity',
             type: 'POST',
             data: user,
             DataType: 'json',
