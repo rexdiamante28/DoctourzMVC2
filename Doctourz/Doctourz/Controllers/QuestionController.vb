@@ -151,7 +151,7 @@ Namespace Controllers
                 Dim qCount = questions.Where(Function(x) x.traitId = rt.Key).Count
                 Dim newScore = (rt.Value / (qCount * 5)) * 100
                 Dim userId = User.Identity.GetUserId
-               
+
                 Dim oldRating = db1.Ratings.Where(Function(x) x.userId = userId).Where(Function(x) x.traitId = rt.Key).First
                 oldRating.score = newScore
 
@@ -164,7 +164,7 @@ Namespace Controllers
             Return View(questions)
         End Function
 
-        ' VIEW QUESTIONS
+        'VIEW QUESTIONS
         Function ViewQuestions() As ActionResult
             Dim db = New ApplicationDbContext
             Dim model = db.Questions
