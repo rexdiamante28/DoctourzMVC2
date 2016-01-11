@@ -241,7 +241,7 @@ End Code
                 gender = ""
             }
             var location = document.getElementById('FilterLocation').value;
-            var url = "/User/SearchDoctor?keyword=" + keyword.value + "&gender=" + gender + "&location=" + location;
+            var url = "/User/SearchDoctor?keyword=" + keyword.value;
             window.location.href = url;
         }
 
