@@ -11,7 +11,7 @@ End Code
             <div class="jumbotron half-opac text-center">
                 <p style="color: #336799; font-size:80px; font-weight:900; line-height:60%;">Global Healthcare</p>
                 <p style="color: #428BD8; font-size:70px; font-weight:900; text-indent:350px; line-height:60%;">Customized by YOU...</p>
-                <text style="color: #4982AD; font-weight: bold; font-size: 17px; line-height:400%;">Let us match you with a Doctor today.</text>
+                <text style="color: #336799; font-weight: bold; font-size: 17px; line-height:400%;">Let us match you with a Doctor today.</text>
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3">
                         <a href="#learn" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
