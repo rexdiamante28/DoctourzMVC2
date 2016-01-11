@@ -173,7 +173,7 @@ function begincallsignal(obj) {
 
 function beginCall(obj) {
     obj.setAttribute("onclick", "endcallsignal(this,'" + obj.value + "')");
-    obj.value = 'End Call';
+    obj.title = 'End call';
 
 }
 
