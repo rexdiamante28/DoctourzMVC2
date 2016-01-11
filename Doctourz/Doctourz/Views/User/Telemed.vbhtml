@@ -124,7 +124,7 @@ End Code
                 </div>
                 <div id="controls-frame" class="text-center">
                     <i class="fa fa-volume-down" style="margin-right:0px;" title="Adjust volume"></i>
-                    <input type="number" onchange="TestAlert(this.value)" class="slider" value="" style="width:50px;margin-top:0px;" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="70" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show">
+                    <input type="number" class="slider" ondrag="TestAlert('sdg')" value="" style="width:50px;margin-top:0px;" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="70" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show">
                     <i class="fa fa-phone"></i>
                     <a id="videoControl" onclick="HideElement(this.id), ShowElement('videoControlSlashed')" title="Disable video" ><i class="fa fa-video-camera"></i></a>
                     <a id="videoControlSlashed" class="no-display" onclick="HideElement(this.id), ShowElement('videoControl')" title="Enable video"><i class="fa fa-eye-slash"></i></a>

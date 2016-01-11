@@ -616,6 +616,6 @@ ShowElement = function showElement(id) {
 }
 
 TestAlert = function testAlert(message) {
-    aler(message);
+    alert(message);
 }
 
