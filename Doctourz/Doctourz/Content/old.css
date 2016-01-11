@@ -1130,7 +1130,7 @@ hr{
 .intro-body{
     display: table-cell;
     vertical-align: middle;
-    background-color: rgba(12, 112, 167,0.1);
+    background-color: rgba(12, 112, 167,0.4);
     text-align: center;
 }
 

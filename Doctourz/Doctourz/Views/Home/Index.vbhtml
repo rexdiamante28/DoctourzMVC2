@@ -4,23 +4,22 @@
 End Code
 
 
-
-<div class="box-layout" style="max-width:1200px; margin:0 auto;">
-    <div class="intro">
-        <div class="intro-body">
-            <div class="jumbotron half-opac text-center">
-                <p style="color: #336799; font-size:80px; font-weight:900; line-height:60%;">Global Healthcare</p>
-                <p style="color: #428BD8; font-size:70px; font-weight:900; text-indent:350px; line-height:60%;">Customized by YOU...</p>
-                <text style="color: #4982AD; font-weight: bold; font-size: 17px; line-height:400%;">Let us match you with a Doctor today.</text>
-                <div class="row">
-                    <div class="col-xs-6 col-xs-offset-3">
-                        <a href="#learn" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
-                        <a href="/Account/Register" class="btn btn-lg btn-warning" style="width: 150px;"><strong>Sign up</strong></a>
-                    </div>
+<div class="intro">
+    <div class="intro-body">
+        <div class="jumbotron half-opac text-center">
+            <p style="color: #336799; font-size:80px; font-weight:900; line-height:60%;">Global Healthcare</p>
+            <p style="color: #428BD8; font-size:70px; font-weight:900; text-indent:350px; line-height:60%;">Customized by YOU...</p>
+            <text style="color: #4982AD; font-weight: bold; font-size: 17px; line-height:400%;">Let us match you with a Doctor today.</text>
+            <div class="row">
+                <div class="col-xs-6 col-xs-offset-3">
+                    <a href="#learn" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
+                    <a href="/Account/Register" class="btn btn-lg btn-warning" style="width: 150px; background-color:#F26E23;"><strong>Sign up</strong></a>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="box-layout" style="max-width:1200px; margin:0 auto;">
     <div class="col-xs-12 no-padd">
         <div class="" style="background-color: #336799;padding-bottom: 60px; padding-top:30px;">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">

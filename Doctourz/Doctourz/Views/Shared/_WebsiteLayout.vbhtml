@@ -12,9 +12,9 @@
 <body style="padding-top:0px;font-family: 'PT Sans', sans-serif;">
     <nav class="topbar">
         <div class="col-xs-12 no-padd">
-            <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 20%;width: 230px;"></a>
-            <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius" style="margin-right:20%;border-radius: 0px 5px 5px 0px;">Sign In</a>
-            <a href="/Home/About" class="btn btn-warning pull-right top-10 no-radius" style="border-radius: 5px 0px 0px 5px;">About</a>
+            <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 3%;width: 250px;"></a>
+            <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius no-border" style="margin-right:3%;border-radius: 0px 5px 5px 0px; background-color:#F26E23;">Sign In</a>
+            <a href="/Home/About" class="btn btn-warning pull-right top-10 no-radius no-border" style="border-radius: 5px 0px 0px 5px;  background-color:#F26E23;">About</a>
         </div>
     </nav>
         @RenderBody()
