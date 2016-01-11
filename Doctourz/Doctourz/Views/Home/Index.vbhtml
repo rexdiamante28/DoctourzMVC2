@@ -4,22 +4,23 @@
 End Code
 
 
-<div class="intro">
-    <div class="intro-body">
-        <div class="jumbotron half-opac text-center">
-            <p style="color: #336799; font-size:80px; font-weight:900; line-height:60%;">Global Healthcare</p>
-            <p style="color: #428BD8; font-size:70px; font-weight:900; text-indent:350px; line-height:60%;">Customized by YOU...</p>
-            <text style="color: #4982AD; font-weight: bold; font-size: 17px; line-height:400%;">Let us match you with a Doctor today.</text>
-            <div class="row">
-                <div class="col-xs-6 col-xs-offset-3">
-                    <a href="#learn" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
-                    <a href="/Account/Register" class="btn btn-lg btn-warning" style="width: 150px; background-color:#F26E23;"><strong>Sign up</strong></a>
+
+<div class="box-layout" >
+    <div class="intro">
+        <div class="intro-body">
+            <div class="jumbotron half-opac text-center">
+                <p style="color: #336799; font-size:80px; font-weight:900; line-height:60%;">Global Healthcare</p>
+                <p style="color: #428BD8; font-size:70px; font-weight:900; text-indent:350px; line-height:60%;">Customized by YOU...</p>
+                <text style="color: #4982AD; font-weight: bold; font-size: 17px; line-height:400%;">Let us match you with a Doctor today.</text>
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3">
+                        <a href="#learn" class="btn btn-lg" style="width: 150px; border: 2px solid #336799;background-color: transparent !important;color: #336799"><strong>Learn more</strong></a>
+                        <a href="/Account/Register" class="btn btn-lg btn-warning" style="width: 150px; background-color:#F26E23;"><strong>Sign up</strong></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="box-layout" style="max-width:1200px; margin:0 auto;">
     <div class="col-xs-12 no-padd">
         <div class="" style="background-color: #336799;padding-bottom: 60px; padding-top:30px;">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
@@ -46,7 +47,7 @@ End Code
     <div class="row step-page" id="learn">
         <div class="col-xs-12 text-left top-50">
             <h1 style="font-weight: 600; color:#262626 ;font-size: 45px" class="text-center">We're here with you every step of the way</h1>
-            <div style="background-image: url('../../Content/Images/Website/greenbar.png');height: 200px;background-position:center;background-repeat:no-repeat !important">
+            <div style="background-image: url('../../Content/Images/Website/greenbar.png');height: 200px;background-position:center;background-size: 100%;background-repeat:no-repeat !important">
                 <ul class="nav nav-pills round-pills text-center" role="tablist" style="margin-left:150px;">
                     <li class="active"><a href="#1" role="tab" data-toggle="tab">1</a><span class="step-text">PHYSICIAN SEARCH</span></li>
                     <li><a href="#2" role="tab" data-toggle="tab">2</a><span class="step-text">NURSE CONCIERGE</span></li>
@@ -100,7 +101,7 @@ End Code
     </div>
 
 
-    <div class="col-xs-12">
+    <div class="col-xs-12 no-padd">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="false">
             <!-- Indicators
             <ol class="carousel-indicators">
@@ -113,19 +114,19 @@ End Code
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
-                    <img src="~/Content/Images/Website/Ad1.jpg"  class="col-xs-12">
+                    <img src="~/Content/Images/Website/Ad1.jpg"  class="col-xs-12 no-padd">
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/Images/Website/Ad2.jpg" class="col-xs-12">
+                    <img src="~/Content/Images/Website/Ad2.jpg" class="col-xs-12 no-padd">
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/Images/Website/Ad3.jpg" class="col-xs-12">
+                    <img src="~/Content/Images/Website/Ad3.jpg" class="col-xs-12 no-padd">
                 </div>
 
                 <div class="item">
-                    <img src="~/Content/Images/Website/Ad4.jpg" class="col-xs-12">
+                    <img src="~/Content/Images/Website/Ad4.jpg" class="col-xs-12 no-padd">
                 </div>
             </div>
 
