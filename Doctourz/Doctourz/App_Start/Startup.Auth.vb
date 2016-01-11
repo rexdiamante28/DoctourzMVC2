@@ -60,6 +60,18 @@ Partial Public Class Startup
             db.SaveChanges()
 
         End If
+        If db.Ethnicities.Count <= 0 Then
+            db.Ethnicities.Add(New Ethnicities With {.name = "White or Caucasian"})
+            db.Ethnicities.Add(New Ethnicities With {.name = "Black or African American"})
+            db.Ethnicities.Add(New Ethnicities With {.name = "Hispanic or Latin American"})
+            db.Ethnicities.Add(New Ethnicities With {.name = "South Asian"})
+            db.Ethnicities.Add(New Ethnicities With {.name = "East Asian"})
+            db.Ethnicities.Add(New Ethnicities With {.name = "African"})
+            db.Ethnicities.Add(New Ethnicities With {.name = "Native American or Inuit"})
+            db.Ethnicities.Add(New Ethnicities With {.name = "Native Hawaiian or other Pacific Islander"})
+
+            db.SaveChanges()
+        End If
 
     End Sub
 End Class

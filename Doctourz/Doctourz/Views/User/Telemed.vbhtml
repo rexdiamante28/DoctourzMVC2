@@ -87,7 +87,7 @@ End Code
                     <div class="col-xs-12">
                         <text id="r1" class="fwhite _13" style="margin-bottom:3px;"><i class="fa fa-comments"></i> CHAT</text>
                         <i id="r2" class="pull-left fa fa-comments fwhite opener" style="display:none;" onclick="ExpandChat()"></i>
-                        <i id="r3" class="pull-right fa fa-minus fwhite" style="font-size:10px;margin-top:10px;" onclick="CompressChat()"></i>
+                        <i id="r3" class=" fa fa-minus fwhite" style="font-size:10px;margin-left:200px;" onclick="CompressChat()"></i>
                     </div>
                 </div>
             </div>

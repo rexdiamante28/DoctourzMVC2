@@ -219,6 +219,14 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201601090533336_userId.Designer.vb">
+      <DependentUpon>201601090533336_userId.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601090533336_userId.vb" />
+    <Compile Include="Migrations\201601090534571_userId1.Designer.vb">
+      <DependentUpon>201601090534571_userId1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601090534571_userId1.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -263,6 +271,12 @@
     <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601090533336_userId.resx">
+      <DependentUpon>201601090533336_userId.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601090534571_userId1.resx">
+      <DependentUpon>201601090534571_userId1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

@@ -142,7 +142,7 @@
                         @<label class="normal point"><input type="radio" name="ethnicity" onclick="$('#ethType').val(this.id)" id="@i.ethnicityId" value="@i.name" class="pretty-radio"> @i.name</label>@<br />
                         Next
 
-                        @<button class="btn" onclick="toggleElement('ethnicity_edit')">Cancel</button>
+                        @<button class="btn" type="button" onclick="toggleElement('ethnicity_edit')">Cancel</button>
                         @<button class="btn btn-primary saveethnicity" type="submit">Save</button>
 
                     End Using
@@ -173,7 +173,7 @@
                                     <input type="number" id="height2" placeholder="inches" class="form-control bottom-10" min="0" max="11">
                                 </div>
                             </div>
-                            @<button class="btn" onclick="toggleElement('height_edit')">Cancel</button>
+                            @<button class="btn" type="button" onclick="toggleElement('height_edit')">Cancel</button>
                             @<button class="btn btn-primary saveheight" type="submit">Save</button>
                         End Using
 
@@ -200,7 +200,7 @@
                                      <input type="number" id="weight" placeholder="Kilogram" class="form-control bottom-10" min="1" max="200">
                                  </div>
                             </div>
-                            @<button class="btn" type="button" onclick="toggleElement('weight_edit')">Cancel</button>
+                            @<button class="btn"  type="button" onclick="toggleElement('weight_edit')">Cancel</button>
                             @<button class="btn btn-primary saveweight" type="submit">Save</button>
                         End Using
 
