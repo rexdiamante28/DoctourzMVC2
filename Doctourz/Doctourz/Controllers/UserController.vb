@@ -165,11 +165,15 @@ Public Class UserController
         '    doctorList = doctorList.Where(Function(x) x.docGender.ToLower = gender.ToLower).ToList()
         'End If
 
-        If location IsNot Nothing Then
-            doctorList = doctorList.Where(Function(x) x.docLocation.Contains(location.ToLower)).ToList()
-        End If
+        'If location IsNot Nothing Then
+        '    doctorList = doctorList.Where(Function(x) x.docLocation.Contains(location.ToLower)).ToList()
+        'End If
         'TempData("AllDoctors") = doctorList
         'TempData("Keyword") = keyword
+
+        For Each item In doctorList
+            MsgBox(item.docName)
+        Next
         ViewBag.Doctors = doctorList
 
         Return PartialView("SearchDoctor")
