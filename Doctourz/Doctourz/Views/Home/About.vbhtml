@@ -4,21 +4,25 @@
 End Code
 
 
-<div class="box-layout" style="max-width:1200px; margin:0 auto;">
-    <div class="col-xs-12 no-padd relative">
-        <img src="~/Content/Images/Website/about_img1.png" class="col-xs-12"/>
-        <div class="caption hidden">
-            <div class="col-sm-5">
-                <h1 style="font-size:55px; color: #03BAF7;" class="bold" >The Physician</h1>
-            </div>
-            <div class="col-sm-7">
-                <p class="fwhite _17">We understand the need in finding truted medical care,which is why the patient journey 
+<div class="col-xs-12 no-padd relative">
+    <img src="~/Content/Images/Website/about_img1.png" class="col-xs-12" />
+    <div class="caption hidden">
+        <div class="col-sm-5">
+            <h1 style="font-size:55px; color: #03BAF7;" class="bold">The Physician</h1>
+        </div>
+        <div class="col-sm-7">
+            <p class="fwhite _17">
+                We understand the need in finding truted medical care,which is why the patient journey
                 and experience is of our utmist importance. Doctourz takes pride in successfully matching
-                 patients with physicians globally with our one of a kind Doctourz Matching Algorithm (DMA)
-                and delivering the best global healthcare possible.</p>
-            </div>
+                patients with physicians globally with our one of a kind Doctourz Matching Algorithm (DMA)
+                and delivering the best global healthcare possible.
+            </p>
         </div>
     </div>
+</div>
+
+<div class="box-layout" style="max-width:1200px; margin:0 auto;">
+   
     <div class="col-xs-12 no-padd bgwhite" style="padding-bottom: 100px;">
         <div class="col-xs-12 padd-50">
             <h1 class="text-center" style="font-size: 55px; font-weight: bolder;"><text style="color: #3AAF48; ">PHYSICIANS</text> <text class="custom-fblue">EXPAND YOUR PRACTICE</text></h1>

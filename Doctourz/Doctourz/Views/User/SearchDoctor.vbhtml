@@ -35,8 +35,9 @@ End Code
                 <text class="custom-fblue">Near City/ Town</text>
             </li>
             <div class="row toggle-hide bggray5" id="doctor-location">
+
                 <li class="list-group-item ">
-                    <input id="FilterLocation" type="text" class="form-control" placeholder="Enter Location" />
+                    <input id="FilterLocation" type="text" class="form-control" placeholder="Enter Location" value="@ViewBag.Location" />
                 </li>
             </div>
 
@@ -79,12 +80,14 @@ End Code
             <div class="row toggle-hide bggray5" id="doctor-gender">
                 <a href="#" class="male">
                     <li class="list-group-item ">
-                        <label class="normal"><input type="radio" id="male" name="gender" value="male"/> Male</label><br />
+                        @*<label class="normal"><input type="radio" id="male" name="gender" value="male"/> Male</label><br />*@
+                        <label class="normal">@Html.RadioButton("gender", "male") Male</label><br />
                     </li>
                 </a>
                 <a href="#" class="female">
                     <li class="list-group-item ">
-                        <label class="normal"><input type="radio" id="female" name="gender" value="female"/> Female</label><br />
+                        @*<label class="normal"><input type="radio" id="female" name="gender" value="female"/> Female</label><br />*@
+                        <label class="normal">@Html.RadioButton("gender", "female") Female</label><br />
                     </li>
                 </a>
             </div>
@@ -136,7 +139,7 @@ End Code
                 @For Each item In degrees
                     @<a href="#" class="degree">
                         <li class="list-group-item ">
-                            <label class="normal"><input type="checkbox" name="degree" value="@item.id" /> @item.name</label>
+                            @*<label class="normal"><input type="checkbox" name="degree" value="@item.id" /> @item.name</label>*@
                         </li>
                     </a>
                 Next
@@ -235,13 +238,25 @@ End Code
         });
 
         function search() {
+            //KEYWORD
             var keyword = document.getElementById('SearchText');
+
+            //GENDER
             var gender = $('input[name=gender]:checked').val();
             if (gender == undefined) {
                 gender = ""
             }
+
+            //LOCATION
             var location = document.getElementById('FilterLocation').value;
-            var url = "/User/SearchDoctor?keyword=" + keyword.value;
+
+            //SPECIALTY
+            var specialty = [];
+            $.each($("input[name='category']:checked"), function () {
+                specialty.push($(this).val());
+            });
+
+            var url = "/User/SearchDoctor?keyword=" + keyword.value + "&location=" + location + "&specialty=" + specialty + "&gender=" + gender;
             window.location.href = url;
         }
 
@@ -274,26 +289,27 @@ End Code
             }
         });
 
-        function filter() {
-            var type = "location";
-            var filter = document.getElementById('FilterLocation').value;
-            var keyword = document.getElementById('SearchText');
-            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
-            window.location.href = url;
-        }
+        //function filter() {
+        //    var type = "location";
+        //    var filter = document.getElementById('FilterLocation').value;
+        //    var keyword = document.getElementById('SearchText');
+        //    var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
+        //    window.location.href = url;
+        //}
 
         //FILTER DOCTOR BY SPECIALTY
         $(".specialty").click(function (event) {
-            var type = "specialty";
+            //var type = "specialty";
 
-            var category = [];
-            $.each($("input[name='category']:checked"), function () {
-                category.push($(this).val());
-            });
+            //var category = [];
+            //$.each($("input[name='category']:checked"), function () {
+            //    category.push($(this).val());
+            //});
 
-            var keyword = document.getElementById('SearchText');
-            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + category;
-            window.location.href = url;
+            //var keyword = document.getElementById('SearchText');
+            //var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + category;
+            //window.location.href = url;
+            search()
         })
 
         //FILTER DOCTOR BY DEGREES

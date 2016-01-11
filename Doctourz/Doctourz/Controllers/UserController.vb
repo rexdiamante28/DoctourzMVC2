@@ -155,25 +155,29 @@ Public Class UserController
         Return View()
     End Function
 
-    Function SearchDoctor(ByVal keyword As String, ByVal gender As String, ByVal location As String) As ActionResult
+    Function SearchDoctor(ByVal keyword As String, ByVal location As String, ByVal gender As String, ByVal specialty As String) As ActionResult
         ViewBag.Keyword = keyword
-        ViewBag.Gender = gender
+        ViewBag.Location = gender
+        ViewBag.Location = location
 
         MainSearch(keyword)
 
-        'If gender IsNot Nothing Then
-        '    doctorList = doctorList.Where(Function(x) x.docGender.ToLower = gender.ToLower).ToList()
-        'End If
+        If location IsNot Nothing Then
+            doctorList = doctorList.Where(Function(x) x.docLocation.ToLower.Contains(location.ToLower)).ToList()
+        End If
 
-        'If location IsNot Nothing Then
-        '    doctorList = doctorList.Where(Function(x) x.docLocation.Contains(location.ToLower)).ToList()
-        'End If
+        If Not gender = "" Then
+            doctorList = doctorList.Where(Function(x) x.docGender.ToLower = gender.ToLower).ToList()
+        End If
+
+        If Not specialty = "" Then
+            doctorList = doctorList.Where(Function(x) x.docSpecializationId.ToLower = specialty.ToLower).ToList()
+        End If
+
+
         'TempData("AllDoctors") = doctorList
         'TempData("Keyword") = keyword
 
-        For Each item In doctorList
-            MsgBox(item.docName)
-        Next
         ViewBag.Doctors = doctorList
 
         Return PartialView("SearchDoctor")
@@ -212,42 +216,42 @@ Public Class UserController
     Function MainSearch(keyword As String)
         Dim db As New ApplicationDbContext
 
-        Try
-            'GET DOCTOR ROLE
-            Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
+        'Try
+        'GET DOCTOR ROLE
+        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
 
-            'GET USERS WITH DOCTOR ROLE
-            Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.ToLower.Contains(keyword.ToLower))).ToList()
-            For Each item In users
-                'DOCTOR DETAILS
-                Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-                'DOCTOR SPECUALIZATION
-                Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-                Dim spDetails As String = "None"
-                Dim spId As String = "0"
-                If spec IsNot Nothing Then
-                    Dim spCategory = db.SpecializationCategory.Where(Function(x) x.id = spec.categoryId).FirstOrDefault()
-                    spDetails = spCategory.name
-                    spId = spCategory.id
-                End If
-                'DOCTOR DEGREE
-                Dim education = db.Education.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-                Dim degreeId As String = "0"
-                If education IsNot Nothing Then
-                    degreeId = education.degreeId
-                End If
-                doctorList.Add(New DoctorList() With { _
-                               .docId = item.Id, _
-                               .docName = docDetails.name, _
-                               .docSpecializationId = spId, _
-                               .docSpecialization = spDetails, _
-                               .docLocation = docDetails.location, _
-                               .docGender = docDetails.gender, _
-                               .docDegree = degreeId
-                           })
-            Next
-        Catch
-        End Try
+        'GET USERS WITH DOCTOR ROLE
+        Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.ToLower.Contains(keyword.ToLower))).ToList()
+        For Each item In users
+            'DOCTOR DETAILS
+            Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            'DOCTOR SPECUALIZATION
+            Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            Dim spDetails As String = "None"
+            Dim spId As String = "0"
+            If spec IsNot Nothing Then
+                Dim spCategory = db.SpecializationCategory.Where(Function(x) x.id = spec.categoryId).FirstOrDefault()
+                spDetails = spCategory.name
+                spId = spCategory.id
+            End If
+            'DOCTOR DEGREE
+            Dim education = db.Education.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+            Dim degreeId As String = "0"
+            If education IsNot Nothing Then
+                degreeId = education.degreeId
+            End If
+            doctorList.Add(New DoctorList() With { _
+                           .docId = item.Id, _
+                           .docName = docDetails.name, _
+                           .docSpecializationId = spId, _
+                           .docSpecialization = spDetails, _
+                           .docLocation = docDetails.location, _
+                           .docGender = docDetails.gender, _
+                           .docDegree = degreeId
+                       })
+        Next
+        'Catch
+        'End Try
 
         Return doctorList
     End Function
