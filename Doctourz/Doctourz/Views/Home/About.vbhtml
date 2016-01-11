@@ -4,7 +4,7 @@
 End Code
 
 
-<div class="box-layout" style="max-width:1200px; margin:0 auto;">
+<div class="box-layout">
     <div class="col-xs-12 no-padd relative">
         <img src="~/Content/Images/Website/about_img1.png" class="col-xs-12"/>
         <div class="caption hidden">
