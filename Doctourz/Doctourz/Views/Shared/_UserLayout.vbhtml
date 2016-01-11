@@ -27,7 +27,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand no-padd" href="#"><img src="~/Content/Images/Website/logo_blue.png" /></a>
+                        <a class="navbar-brand no-padd" href="#"><img src="~/Content/Images/Website/logo_blue.png" style="width:240px;" /></a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav"></ul>

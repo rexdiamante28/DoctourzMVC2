@@ -123,7 +123,7 @@ End Code
                     <i class="fa fa-users"></i>
                 </div>
                 <div id="controls-frame" class="text-center">
-                    <i class="fa fa-volume-down" style="margin-right:0px;" title="Adjust volume"></i>
+                    <i class="fa fa-volume-down" onclick="countSubscriber()" style="margin-right:0px;" title="Adjust volume"></i>
                     <input type="number" class="slider" ondrag="TestAlert('sdg')" value="" style="width:50px;margin-top:0px;" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="70" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show">
                     <i class="fa fa-phone"></i>
                     <a id="videoControl" onclick="HideElement(this.id), ShowElement('videoControlSlashed')" title="Disable video" ><i class="fa fa-video-camera"></i></a>
@@ -152,11 +152,19 @@ End Code
     function countSubscriber() {
         var a = $('.callSubscriber');
         var b = parseInt(a.length);
+
         if(b==1){
-            a.style.width = "100%";
-            a.style.height = "40vh";
+            a.css({ "width": "100%", "height": "73vh" });
+            $('#subscribers').css({"width":"100%","top":"0px","left": "0px"});
         }
+        else {
+            a.css({ "width": "32%", "height": "35vh" });
+            $('#subscribers').css({ "width": "80%", "top": "120px", "left": "10%" });
+        }
+        setTimeout(countSubscriber, 1000);
     }
+
+    countSubscriber();
 
     CompressInfo();
     CompressChat();
@@ -244,8 +252,8 @@ End Code
         rtc.client.notifyCallrejected = function (message, calleruser) {
             alert(message);
             var btn = document.getElementById("btn_" + calleruser.ConnectionId);
-            if (btn.value == "End Call")
-                endCall(btn, "Call " + calleruser.Name);
+            if (btn.value == "")
+                endCall();
             ringing.mute();
         }
 
@@ -257,7 +265,6 @@ End Code
             Opentok.connect(caller.Opentok);
             ringing.mute();
             acceptCallBox.hide();
-
 
 
 
