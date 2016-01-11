@@ -159,7 +159,7 @@ End Code
                     <div class="form-group">
                         <input type="email" class="form-control input-lg" placeholder="Email" id="email">
                     </div>
-                    <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+                    <button type="submit" class="btn btn-warning btn-lg" style="background-color:#F26E23;">Signup</button>
                 </form>
             </div>
         </div>
