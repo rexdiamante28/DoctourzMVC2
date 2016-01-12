@@ -119,17 +119,19 @@ End Code
     <div id="controls">
         <div class="row">
             <div class="col-xs-12">
-                <div id="onlineusers" class="pull-right">
+                <div id="onlineusers">
                     <i class="fa fa-users"></i>
                 </div>
                 <div id="controls-frame" class="text-center">
                     <i class="fa fa-volume-down" onclick="countSubscriber()" style="margin-right:0px;" title="Adjust volume"></i>
                     <input type="number" class="slider" ondrag="TestAlert('sdg')" value="" style="width:50px;margin-top:0px;" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="70" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show">
-                    <i class="fa fa-phone"></i>
+                    <i id="endCall" class="fa fa-phone"></i>
                     <a id="videoControl" onclick="HideElement(this.id), ShowElement('videoControlSlashed')" title="Disable video" ><i class="fa fa-video-camera"></i></a>
                     <a id="videoControlSlashed" class="no-display" onclick="HideElement(this.id), ShowElement('videoControl')" title="Enable video"><i class="fa fa-eye-slash"></i></a>
                     <a id="audioControl" onclick="HideElement(this.id), ShowElement('audioControlSlashed')"><i class="fa fa-microphone" title="Disable audio"></i></a>
                     <a id="audioControlSlashed" onclick="HideElement(this.id), ShowElement('audioControl')" class="no-display" title="Enable audio"><i class="fa fa-microphone-slash"></i></a>
+                    <a id="selfVideo" onclick="HideElement(this.id), ShowElement('sefVideoHidden'), HideElement('myCamera')" class="" title="Enable audio"><i class="fa fa-compress" title="hide self video"></i></a>
+                    <a id="sefVideoHidden" onclick="HideElement(this.id), ShowElement('selfVideo'), ShowElement('myCamera')" class="no-display" title="Enable audio"><i class="fa fa-expand" title="Show self video"></i></a>
                 </div>
             </div>
         </div>
@@ -155,11 +157,15 @@ End Code
 
         if(b==1){
             a.css({ "width": "100%", "height": "73vh" });
-            $('#subscribers').css({"width":"100%","top":"0px","left": "0px"});
+            $('#subscribers').css({ "width": "100%", "top": "0px", "left": "0px" });
+            $('#opentok_publisher').css({ "width": "100", "height": "75px" });
+            $('#myCamera').css({"bottom":"0px","left":"46%","width":"108px"});
         }
         else {
             a.css({ "width": "32%", "height": "35vh" });
             $('#subscribers').css({ "width": "80%", "top": "120px", "left": "10%" });
+            $('#opentok_publisher').css({ "width": "170", "height": "120px" });
+            $('#myCamera').css({ "bottom": "20px", "left": "43.5%", "width": "178px" });
         }
         setTimeout(countSubscriber, 1000);
     }
@@ -295,6 +301,9 @@ End Code
         $('#audioControlSlashed').click(function () {
             publisher.publishAudio(true);
         });
+        $('#endCall').click(function () {
+            window.location.reload(false);
+        })
 
         $.connection.hub.start().done(function () {
 

@@ -22,20 +22,20 @@ End Code
         </div>
     </div>
     <div class="col-xs-12 no-padd">
-        <div class="" style="background-color: #336799;padding-bottom: 60px; padding-top:30px;">
+        <div class="" style="background-color: #336799;padding-bottom: 60px; padding-top:15px;">
             <div class="col-xs-12 col-sm-10 col-sm-offset-1">
                 <form name="search-physician">
-                    <div class="form-inline text-center">
-                        <div class="col-xs-3 padd-5">
+                    <div class=" text-center">
+                        <div class="col-xs-3 padd-5 ">
                             <strong style="color: white;font-weight: bold;font-size: 20px">Find a Physician</strong>
                         </div>
-                        <div class="col-xs-3">
-                            <input type="text" name="location" placeholder="Specializing in..." class="form-control input-lg" style="margin-right: 20px" />
+                        <div class="col-xs-3  ">
+                            <input type="text" name="location" placeholder="Specializing in..." class="form-control input-lg" />
                         </div>
-                        <div class="col-xs-3">
-                            <input type="text" name="specialization" placeholder="Located in..." class="form-control input-lg" style="margin-right: 20px" />
+                        <div class="col-xs-3 ">
+                            <input type="text" name="specialization" placeholder="Located in..." class="form-control input-lg"  />
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-xs-3 ">
                             <button type="submit" class="btn btn-lg" style="background-color: #488DD0;color: white;width: 150px"><strong>Search</strong></button>
                         </div>
                     </div>
@@ -47,8 +47,8 @@ End Code
     <div class="row step-page" id="learn">
         <div class="col-xs-12 text-left top-50">
             <h1 style="font-weight: 600; color:#262626 ;font-size: 45px" class="text-center">We're here with you every step of the way</h1>
-            <div style="background-image: url('../../Content/Images/Website/greenbar.png');height: 200px;background-position:center;background-size: 100%;background-repeat:no-repeat !important">
-                <ul class="nav nav-pills round-pills text-center" role="tablist" style="margin-left:150px;">
+            <div style="background-image: url('../../Content/Images/Website/greenbar.png');height: 200px;background-position:center;background-repeat:no-repeat !important">
+                <ul class="nav nav-pills round-pills text-center" role="tablist" style="margin-left:250px;">
                     <li class="active"><a href="#1" role="tab" data-toggle="tab">1</a><span class="step-text">PHYSICIAN SEARCH</span></li>
                     <li><a href="#2" role="tab" data-toggle="tab">2</a><span class="step-text">NURSE CONCIERGE</span></li>
                     <li><a href="#3" role="tab" data-toggle="tab">3</a><span class="step-text">TELEMED<br>CONSULTATION</span></li>

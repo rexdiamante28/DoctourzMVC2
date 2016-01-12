@@ -150,7 +150,7 @@ var OnlineUsers = {
 function endCall(obj, label) {
 
     console.log(obj.value);
-    obj.value = label;
+    obj.setAttribute("title",label);
     obj.setAttribute("onclick", "begincallsignal(this)");
 
 }
