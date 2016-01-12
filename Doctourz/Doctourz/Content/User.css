@@ -846,6 +846,11 @@ table.dataTable thead .sorting:after {
     color: #31699C;
     cursor:pointer;
 }
+#onlineusers{
+    position: absolute;
+    right:20px;
+    bottom:0px;
+}
 #controls #controls-frame i:hover{
     color: #6089B3;
 }
@@ -893,7 +898,7 @@ table.dataTable thead .sorting:after {
 
 #myCamera{
     position:absolute;
-    left:43%;
+    left:43.5%;
     bottom:20px;
     border: solid 4px white;
     width: 178px;
