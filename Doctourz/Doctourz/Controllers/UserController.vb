@@ -155,14 +155,14 @@ Public Class UserController
         Return View()
     End Function
 
-    Function SearchDoctor(ByVal keyword As String, ByVal location As String, ByVal gender As String, ByVal specialty As String) As ActionResult
+    Function SearchDoctor(ByVal keyword As String, ByVal location As String, ByVal gender As String, ByVal specialty As String, ByVal degree As String) As ActionResult
         ViewBag.Keyword = keyword
         ViewBag.Location = gender
         ViewBag.Location = location
 
         MainSearch(keyword)
 
-        If location IsNot Nothing Then
+        If Not location = "" Then
             doctorList = doctorList.Where(Function(x) x.docLocation.ToLower.Contains(location.ToLower)).ToList()
         End If
 
@@ -171,9 +171,13 @@ Public Class UserController
         End If
 
         If Not specialty = "" Then
+
             doctorList = doctorList.Where(Function(x) x.docSpecializationId.ToLower = specialty.ToLower).ToList()
         End If
 
+        If Not degree = "" Then
+            doctorList = doctorList.Where(Function(x) x.docDegree.ToLower = degree.ToLower).ToList()
+        End If
 
         'TempData("AllDoctors") = doctorList
         'TempData("Keyword") = keyword

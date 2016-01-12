@@ -35,7 +35,6 @@ End Code
                 <text class="custom-fblue">Near City/ Town</text>
             </li>
             <div class="row toggle-hide bggray5" id="doctor-location">
-
                 <li class="list-group-item ">
                     <input id="FilterLocation" type="text" class="form-control" placeholder="Enter Location" value="@ViewBag.Location" />
                 </li>
@@ -139,7 +138,7 @@ End Code
                 @For Each item In degrees
                     @<a href="#" class="degree">
                         <li class="list-group-item ">
-                            @*<label class="normal"><input type="checkbox" name="degree" value="@item.id" /> @item.name</label>*@
+                            <label class="normal"><input type="checkbox" name="degree" value="@item.id" /> @item.name</label>
                         </li>
                     </a>
                 Next
@@ -256,7 +255,13 @@ End Code
                 specialty.push($(this).val());
             });
 
-            var url = "/User/SearchDoctor?keyword=" + keyword.value + "&location=" + location + "&specialty=" + specialty + "&gender=" + gender;
+            //DEGREE
+            var degree = [];
+            $.each($("input[name='degree']:checked"), function () {
+                degree.push($(this).val());
+            });
+
+            var url = "/User/SearchDoctor?keyword=" + keyword.value + "&location=" + location + "&specialty=" + specialty + "&gender=" + gender + "&degree=" + degree;
             window.location.href = url;
         }
 
@@ -314,16 +319,17 @@ End Code
 
         //FILTER DOCTOR BY DEGREES
         $(".degree").click(function (event) {
-            var type = "degree";
+            //var type = "degree";
 
-            var degree = [];
-            $.each($("input[name='degree']:checked"), function () {
-                degree.push($(this).val());
-            });
+            //var degree = [];
+            //$.each($("input[name='degree']:checked"), function () {
+            //    degree.push($(this).val());
+            //});
 
-            var keyword = document.getElementById('SearchText');
-            var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + degree;
-            window.location.href = url;
+            //var keyword = document.getElementById('SearchText');
+            //var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + degree;
+            //window.location.href = url;
+            search()
         })
     </script>
 End Section
