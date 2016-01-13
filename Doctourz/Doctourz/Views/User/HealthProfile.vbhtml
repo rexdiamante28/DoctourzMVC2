@@ -69,7 +69,7 @@
                     @<label class="normal point"><input type="radio" name="gender" id="female" onclick="$('#genderType').val('Female')" /> Female</label>@<br />
 
                     @<button class="btn" type="button" onclick="toggleElement('gender_edit')">Cancel</button>
-                    @<button class="btn btn-primary savegender" type="submit" >Save</button>
+                    @<button class="btn btn-primary savegender" type="submit">Save</button>
                 End Using
             </li>
 
@@ -163,7 +163,7 @@
 
                         @Using Html.BeginForm("UpdateHeight", "User", Nothing, FormMethod.Post, New With {.id = "UpdateHeightForm", .role = "form"})
                             @Html.AntiForgeryToken()
-                            
+
                             @Html.HiddenFor(Function(model) model.height, New With {.id = "heightVal"})
                             @<div class="row">
                                 <div class="col-xs-6">
@@ -196,11 +196,11 @@
 
                             @Html.HiddenFor(Function(model) model.weight, New With {.id = "weightVal"})
                             @<div class="row">
-                                 <div class="col-xs-12">
-                                     <input type="number" id="weight" placeholder="Kilogram" class="form-control bottom-10" min="1" max="200">
-                                 </div>
+                                <div class="col-xs-12">
+                                    <input type="number" id="weight" placeholder="Kilogram" class="form-control bottom-10" min="1" max="200">
+                                </div>
                             </div>
-                            @<button class="btn"  type="button" onclick="toggleElement('weight_edit')">Cancel</button>
+                            @<button class="btn" type="button" onclick="toggleElement('weight_edit')">Cancel</button>
                             @<button class="btn btn-primary saveweight" type="submit">Save</button>
                         End Using
 
@@ -227,12 +227,12 @@
                     <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('edit_history1')"></i>
                 </small>
             </li>
-            {{#each history1}}
-            <li class="list-group-item">
-                {{condition}}<label class="normal fgray4">({{relative}})</label>
-                <i class="fa fa-remove pull-right" id={{_id}} onclick="ConfirmActionDelete(this.id,FamilyHistory)"></i>
-            </li>
-            {{/each}}
+            @For Each x In ViewBag.history1
+                @<li class="list-group-item">
+                    @x.symptom<label class="normal fgray4">(@x.whoHadIt)</label>
+                    <i class="fa fa-remove pull-right" id={{_id}} onclick="ConfirmActionDelete(this.id,FamilyHistory)"></i>
+                </li>
+            Next
             <li class="list-group-item bggray5 no-display" id="edit_history1">
                 <div class="row">
                     <div class="col-xs-12">
@@ -642,7 +642,7 @@
             $("#lName").val().trim() == '') {
 
             alert('Fields Cannot be empty');
-            return false
+            Return False
         }
 
         var name = {
@@ -651,10 +651,10 @@
         }
 
         $.ajax({
-            url: '/User/UpdateName',
-            type: 'POST',
-            data: name,
-            DataType: 'json',
+            url:                        '/User/UpdateName',
+            type:                       'POST',
+            data:                       name,
+            DataType 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('name_edit')
@@ -670,10 +670,10 @@
         }
 
         $.ajax({
-            url: '/User/UpdateGender',
-            type: 'POST',
-            data: user,
-            DataType: 'json',
+            url:                        '/User/UpdateGender',
+            type:                       'POST',
+            data:                       User,
+            DataType 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('gender_edit')
@@ -689,10 +689,10 @@
         }
 
         $.ajax({
-            url: '/User/UpdateBirthDate',
-            type: 'POST',
-            data: user,
-            DataType: 'json',
+            url:                        '/User/UpdateBirthDate',
+            type:                       'POST',
+            data:                       User,
+            DataType 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('birthdate_edit')
@@ -708,10 +708,10 @@
         }
 
         $.ajax({
-            url: '/User/UpdateLocation',
-            type: 'POST',
-            data: user,
-            DataType: 'json',
+            url:                        '/User/UpdateLocation',
+            type:                       'POST',
+            data:                       User,
+            DataType 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('location_edit')
@@ -727,10 +727,10 @@
         }
 
         $.ajax({
-            url: '/User/UpdateEthnicity',
-            type: 'POST',
-            data: user,
-            DataType: 'json',
+            url:                        '/User/UpdateEthnicity',
+            type:                       'POST',
+            data:                       User,
+            DataType 'json',
             success: function (data) {
                 var id = $("input[name='ethnicity']:checked").attr('value');
                 $("#UsrEthnicity").html(id);
@@ -746,9 +746,9 @@
         var concat;
 
         if (isNaN(h1) || isNaN(h2)) {
-            return
+            Return
         } else {
-            concat = h1 + "'" + h2 +  "''"
+            concat = h1 + "'" + h2 + "''"
             $("#heightVal").val(concat)
         }
 
@@ -762,14 +762,14 @@
 
         var user = {
             height: $("#heightVal").val(),
-            bmi: bmi.toFixed(2)
+            bmi:                            bmi.toFixed(2)
         }
 
         $.ajax({
-            url: '/User/UpdateHeight',
-            type: 'POST',
-            data: user,
-            DataType: 'json',
+            url:                            '/User/UpdateHeight',
+            type:                           'POST',
+            data:                           User,
+            DataType 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('height_edit')
@@ -782,7 +782,7 @@
         var w = $("#weight").val();
 
         if (isNaN(w)) {
-            return
+            Return
         } else {
             w += "Kg"
             $("#weightVal").val(w);
@@ -802,10 +802,10 @@
         }
 
         $.ajax({
-            url: '/User/UpdateWeight',
-            type: 'POST',
-            data: user,
-            DataType: 'json',
+            url:                                '/User/UpdateWeight',
+            type:                               'POST',
+            data:                               User,
+            DataType 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('weight_edit')
