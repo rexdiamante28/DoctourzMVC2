@@ -227,41 +227,41 @@ Public Class UserController
     Function MainSearch(keyword As String)
         Dim db As New ApplicationDbContext
 
-        Try
-            'GET DOCTOR ROLE
-            Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
+        'Try
+        'GET DOCTOR ROLE
+        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
 
-            'GET USERS WITH DOCTOR ROLE
-            'Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.ToLower.Contains(keyword.ToLower))).ToList()
-            'For Each item In users
-            '    'DOCTOR DETAILS
-            '    Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-            '    'DOCTOR SPECUALIZATION
-            '    Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-            '    Dim spDetails As String = "None"
-            '    Dim spId As String = "0"
-            '    If spec IsNot Nothing Then
-            '        Dim spCategory = db.SpecializationCategory.Where(Function(x) x.id = spec.categoryId).FirstOrDefault()
-            '        spDetails = spCategory.name
-            '        spId = spCategory.id
-            '    End If
-            '    'DOCTOR DEGREE
-            '    Dim education = db.Education.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-            '    Dim degreeId As String = "0"
-            '    If education IsNot Nothing Then
-            '        degreeId = education.degreeId
-            '    End If
-            '    doctorList.Add(New DoctorList() With { _
-            '                   .docId = item.Id, _
-            '                   .docName = docDetails.name, _
-            '                   .docSpecializationId = spId, _
-            '                   .docSpecialization = spDetails, _
-            '                   .docLocation = docDetails.location, _
-            '                   .docGender = docDetails.gender, _
-            '                   .docDegree = degreeId
-            '               })
-            'Next
-       
+        'GET USERS WITH DOCTOR ROLE
+        'Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.ToLower.Contains(keyword.ToLower))).ToList()
+        'For Each item In users
+        '    'DOCTOR DETAILS
+        '    Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+        '    'DOCTOR SPECUALIZATION
+        '    Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+        '    Dim spDetails As String = "None"
+        '    Dim spId As String = "0"
+        '    If spec IsNot Nothing Then
+        '        Dim spCategory = db.SpecializationCategory.Where(Function(x) x.id = spec.categoryId).FirstOrDefault()
+        '        spDetails = spCategory.name
+        '        spId = spCategory.id
+        '    End If
+        '    'DOCTOR DEGREE
+        '    Dim education = db.Education.Where(Function(x) x.userId = item.Id).FirstOrDefault()
+        '    Dim degreeId As String = "0"
+        '    If education IsNot Nothing Then
+        '        degreeId = education.degreeId
+        '    End If
+        '    doctorList.Add(New DoctorList() With { _
+        '                   .docId = item.Id, _
+        '                   .docName = docDetails.name, _
+        '                   .docSpecializationId = spId, _
+        '                   .docSpecialization = spDetails, _
+        '                   .docLocation = docDetails.location, _
+        '                   .docGender = docDetails.gender, _
+        '                   .docDegree = degreeId
+        '               })
+        'Next
+
 
         Dim usrs = From users In db.Users Where
                     users.Roles.Any(Function(s) s.RoleId = userRoie.Id) And users.UserName.ToLower.Contains(keyword.ToLower)
@@ -272,20 +272,20 @@ Public Class UserController
                     Join degree In db.Degree On education.degreeId Equals degree.id
                     Select users.Id, appUsers, spec.categoryId, specCategory.name, appUsers.location, appUsers.gender, education.degreeId
 
-            For Each item In usrs
-                userDoctor.Add(New DoctorList() With { _
-                               .docId = item.Id, _
-                               .docName = item.appUsers.name, _
-                               .docSpecializationId = item.categoryId, _
-                               .docSpecialization = item.name, _
-                               .docLocation = item.location, _
-                               .docGender = item.gender, _
-                               .docDegree = item.degreeId
-                           })
-            Next
+        For Each item In usrs
+            userDoctor.Add(New DoctorList() With { _
+                           .docId = item.Id, _
+                           .docName = item.appUsers.name, _
+                           .docSpecializationId = item.categoryId, _
+                           .docSpecialization = item.name, _
+                           .docLocation = item.location, _
+                           .docGender = item.gender, _
+                           .docDegree = item.degreeId
+                       })
+        Next
 
-        Catch
-        End Try
+        'Catch
+        'End Try
 
         Return doctorList
     End Function
@@ -473,6 +473,4 @@ Public Class UserController
                 .JsonRequestBehavior = JsonRequestBehavior.AllowGet
             }
     End Function
-
-
 End Class
