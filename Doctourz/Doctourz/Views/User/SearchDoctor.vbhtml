@@ -46,9 +46,13 @@ End Code
             </li>
             <div class="row toggle-hide bggray5" id="doctor-specialty">
                 @For Each item In spCategory
+                    Dim sp As String = ""
+                    If ViewBag.Specialty IsNot Nothing Then
+                        sp = ViewBag.Specialty
+                    End If
                     @<a href="#" class="specialty">
                          <li class="list-group-item ">
-                             <label class="normal"><input id="category" type="checkbox" name="category" value="@item.id" /> @item.name</label>
+                             <label class="normal"><input id="category" type="checkbox" name="category" value="@item.id" @(If(sp.Contains(item.id), " checked=""checked""", "")) /> @item.name</label>
                          </li>
                      </a>
                 Next
@@ -136,9 +140,13 @@ End Code
             </li>
             <div class="row toggle-hide bggray5" id="doctor-degree">
                 @For Each item In degrees
+                    Dim dg As String = ""
+                    If ViewBag.Degree IsNot Nothing Then
+                        dg = ViewBag.Degree
+                    End If
                     @<a href="#" class="degree">
                         <li class="list-group-item ">
-                            <label class="normal"><input type="checkbox" name="degree" value="@item.id" /> @item.name</label>
+                            <label class="normal"><input type="checkbox" name="degree" value="@item.id" @(If(dg.Contains(item.id), " checked=""checked""", "")) /> @item.name</label>
                         </li>
                     </a>
                 Next
