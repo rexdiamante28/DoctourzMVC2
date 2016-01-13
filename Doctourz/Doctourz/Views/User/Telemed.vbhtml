@@ -130,6 +130,8 @@ End Code
                     <a id="videoControlSlashed" class="no-display" onclick="HideElement(this.id), ShowElement('videoControl')" title="Enable video"><i class="fa fa-eye-slash"></i></a>
                     <a id="audioControl" onclick="HideElement(this.id), ShowElement('audioControlSlashed')"><i class="fa fa-microphone" title="Disable audio"></i></a>
                     <a id="audioControlSlashed" onclick="HideElement(this.id), ShowElement('audioControl')" class="no-display" title="Enable audio"><i class="fa fa-microphone-slash"></i></a>
+                    <a id="recordStart" onclick="HideElement(this.id), ShowElement('recordStop')" class="" title="Start recording"><i class="fa fa-stop"></i></a>
+                    <a id="recordStop" onclick="HideElement(this.id), ShowElement('recordStart')" class="no-display" title="Stop recording"><i class="fa fa-play"></i></a>
                     <a id="selfVideo" onclick="HideElement(this.id), ShowElement('sefVideoHidden'), HideElement('myCamera')" class="" title="Enable audio"><i class="fa fa-compress" title="hide self video"></i></a>
                     <a id="sefVideoHidden" onclick="HideElement(this.id), ShowElement('selfVideo'), ShowElement('myCamera')" class="no-display" title="Enable audio"><i class="fa fa-expand" title="Show self video"></i></a>
                 </div>
@@ -160,6 +162,12 @@ End Code
             $('#subscribers').css({ "width": "100%", "top": "0px", "left": "0px" });
             $('#opentok_publisher').css({ "width": "100", "height": "75px" });
             $('#myCamera').css({"bottom":"0px","left":"46%","width":"108px"});
+        }
+        else if (b == 2) {
+            a.css({ "width": "49%", "height": "38vh" });
+            $('#subscribers').css({ "width": "50%", "top": "100px", "left": "25%" });
+            $('#opentok_publisher').css({ "width": "170", "height": "120px" });
+            $('#myCamera').css({ "bottom": "20px", "left": "43.5%", "width": "178px" });
         }
         else {
             a.css({ "width": "32%", "height": "35vh" });

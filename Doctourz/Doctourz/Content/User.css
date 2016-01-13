@@ -960,4 +960,15 @@ table.dataTable thead .sorting:after {
 .callSubscriber:nth-child(3){
     margin-left:2%;
 }
-
+.callSubscriber:nth-child(4){
+    margin-right:2%;
+}
+.callSubscriber:nth-child(6){
+    margin-left:2%;
+}
+.callSubscriber:nth-child(7){
+    margin-right:2%;
+}
+.callSubscriber:nth-child(9){
+    margin-left:2%;
+}
