@@ -269,6 +269,20 @@ Public Class UserController
     End Function
 
     Public Function HealthProfile() As ActionResult
+        Dim db As New ApplicationDbContext
+        Dim userId = User.Identity.GetUserId
+        Dim history1 = From a In db.History1
+                      Where a.userId = userId
+                      Select a
+
+        Dim history As New List(Of History1)
+        For Each i In history1
+            history.Add(New History1() With {.symptom = i.symptom, .whoHadIt = i.whoHadIt, .age = i.age})
+        Next
+
+        ViewBag.history1 = history
+
+
         Return PartialView()
     End Function
 

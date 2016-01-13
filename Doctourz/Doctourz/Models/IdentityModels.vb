@@ -167,4 +167,15 @@ Public Class ApplicationDbContext
             _Ethnicities = value
         End Set
     End Property
+
+    Private _History1 As DbSet(Of History1)
+    Public Property History1() As DbSet(Of History1)
+        Get
+            Return _History1
+        End Get
+        Set(ByVal value As DbSet(Of History1))
+            _History1 = value
+        End Set
+    End Property
+
 End Class
