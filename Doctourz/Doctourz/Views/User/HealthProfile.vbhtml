@@ -642,7 +642,7 @@
             $("#lName").val().trim() == '') {
 
             alert('Fields Cannot be empty');
-            Return False
+            return false
         }
 
         var name = {
@@ -654,7 +654,7 @@
             url:                        '/User/UpdateName',
             type:                       'POST',
             data:                       name,
-            DataType 'json',
+            DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('name_edit')
@@ -673,7 +673,7 @@
             url:                        '/User/UpdateGender',
             type:                       'POST',
             data:                       User,
-            DataType 'json',
+            DataType :'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('gender_edit')
@@ -692,7 +692,7 @@
             url:                        '/User/UpdateBirthDate',
             type:                       'POST',
             data:                       User,
-            DataType 'json',
+            DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('birthdate_edit')
@@ -711,7 +711,7 @@
             url:                        '/User/UpdateLocation',
             type:                       'POST',
             data:                       User,
-            DataType 'json',
+            DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('location_edit')
@@ -730,7 +730,7 @@
             url:                        '/User/UpdateEthnicity',
             type:                       'POST',
             data:                       User,
-            DataType 'json',
+            DataType: 'json',
             success: function (data) {
                 var id = $("input[name='ethnicity']:checked").attr('value');
                 $("#UsrEthnicity").html(id);
@@ -769,7 +769,7 @@
             url:                            '/User/UpdateHeight',
             type:                           'POST',
             data:                           User,
-            DataType 'json',
+            DataType :'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('height_edit')
@@ -805,7 +805,7 @@
             url:                                '/User/UpdateWeight',
             type:                               'POST',
             data:                               User,
-            DataType 'json',
+            DataType :'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('weight_edit')

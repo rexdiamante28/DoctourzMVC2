@@ -93,25 +93,15 @@ End Code
             </div>
             <div id="messaging-controls" class="messaging-controls">
             </div>
-            <div id="chatbox" class="padd-10">
-                    <div class="col-xs-12 bgwhite padd-10 top-10">
-                        <img src="~/Content/Images/Website/dummy.jpg"  class="img-circle" style="width:30px;"/>
-                        <text class="custom-fblue">Carmella Dela Cruz</text>
-                        <p class="fgray3">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci vel</p>
-                    </div>
-                    <div class="col-xs-12 bgwhite padd-50 top-10">
-                    </div>
-                    <div class="col-xs-12 bgwhite padd-50 top-10">
-                    </div>
-                    <div class="col-xs-12 bgwhite padd-50 top-10">
-                    </div>
+            <div id="chatbox" class="padd-10" style="min-height:60vh;">
+                   
             </div>
             <div id="message-box" class="list-group-item">
                 <div class="input-group">
-                    <textarea type="text" class="form-control" placeholder="Type your message..."></textarea>
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary" type="button" style="height:53px;">Send</button>
-                    </span>
+                        <textarea type="text" id="chatMessage" class="form-control" placeholder="Type your message..."></textarea>
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" id="chatSendButton" type="button" style="height:53px;">Send</button>
+                        </span>
                 </div>
             </div>
         </div>
@@ -152,6 +142,45 @@ End Code
 
 <script>
 
+    
+    // This optional function html-encodes messages for display in the page.
+    function htmlEncode(value) {
+        var encodedValue = $('<div />').text(value).html();
+        return encodedValue;
+    }
+
+    function getCaret(el) {
+        if (el.selectionStart) {
+            return el.selectionStart;
+        } else if (document.selection) {
+            el.focus();
+            var r = document.selection.createRange();
+            if (r == null) {
+                return 0;
+            }
+            var re = el.createTextRange(), rc = re.duplicate();
+            re.moveToBookmark(r.getBookmark());
+            rc.setEndPoint('EndToStart', re);
+            return rc.text.length;
+        }
+        return 0;
+    }
+
+    $('#chatMessage').keyup(function (event) {
+        if (event.keyCode == 13) {
+            var content = this.value;
+            var caret = getCaret(this);
+            if (event.shiftKey) {
+                this.value = content.substring(0, caret - 1) + "\n" + content.substring(caret, content.length);
+                event.stopPropagation();
+            } else {
+                this.value = content.substring(0, caret - 1) + content.substring(caret, content.length);
+                $('#chatSendButton').click();
+              
+            }
+        }
+    });
+
 
     function countSubscriber() {
         var a = $('.callSubscriber');
@@ -190,7 +219,31 @@ End Code
         var rtc = $.connection.rTCHub;
         var selfuser, caller;
 
-       // show('connectLink');
+        // show('connectLink');
+
+        rtc.client.addNewMessageToPage = function (name, message) {
+            // Add the message to the page. 
+            $('#chatbox').append(""+
+                    '<div class="col-xs-12 bgwhite padd-10 top-10">'+
+                        '<img src="../../Content/Images/Website/dummy.jpg"  class="img-circle chatAvatar" style="width:30px;"/>'+
+                       '<text class="custom-fblue bold">&nbsp;'+ name+'</text>'+
+                        '<p class="fgray3">'+message+'</p>'+
+                    '</div>'
+            );
+
+            var wtf = $('#chatBox');
+            var height = wtf[0].scrollHeight;
+            wtf.scrollTop(height);
+        };
+
+        $.connection.hub.start().done(function () {
+            $('#chatSendButton').click(function () {
+                // Call the Send method on the hub. 
+                rtc.server.send($('#userFullName').html(), $('#chatMessage').val());
+                // Clear text box and reset focus for next comment. 
+                $('#chatMessage').val('').focus();
+            });
+        });
 
         function show(id) {
             document.getElementById(id).style.display = 'inline-block';

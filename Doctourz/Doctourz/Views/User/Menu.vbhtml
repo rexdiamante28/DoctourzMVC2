@@ -40,7 +40,7 @@ End Code
                    </label>
                </form>
             <div class="name-section top-10 hidden" id="name-section">
-                <h4 class="text-center">@ViewBag.appUserName.ToString</h4>
+                <h4 class="text-center" id="userFullName">@ViewBag.appUserName.ToString</h4>
                 <div class="name-section-button text-center">Get help now</div>
             </div>
         </div>

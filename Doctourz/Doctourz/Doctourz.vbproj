@@ -301,6 +301,9 @@
     <Content Include="Content\Images\User\Untitled3.png" />
     <Content Include="Content\Images\User\Untitled4.png" />
     <Content Include="Content\Images\User\Untitled5.png" />
+    <Content Include="Content\Images\Website\About_02.jpg" />
+    <Content Include="Content\Images\Website\About_04.jpg" />
+    <Content Include="Content\Images\Website\About_06.jpg" />
     <Content Include="Content\Images\Website\about_icon1.png" />
     <Content Include="Content\Images\Website\about_icon2.png" />
     <Content Include="Content\Images\Website\about_icon3.png" />
