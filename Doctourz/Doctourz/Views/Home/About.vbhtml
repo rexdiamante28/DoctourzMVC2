@@ -6,8 +6,8 @@ End Code
 
 <div class="box-layout">
     <div class="col-xs-12 no-padd relative">
-        <img src="~/Content/Images/Website/about_img1.png" class="col-xs-12 no-padd"/>
-        <div class="caption hidden">
+        <img src="~/Content/Images/Website/About_02.jpg" class="col-xs-12 no-padd"/>
+        <div class="caption">
             <div class="col-sm-5">
                 <h1 style="font-size:55px; color: #03BAF7;" class="bold" >The Physician</h1>
             </div>
@@ -69,8 +69,8 @@ End Code
     </div>
 
     <div class="col-xs-12 no-padd relative">
-        <img src="~/Content/Images/Website/about_img2.png" class="col-xs-12 no-padd" />
-        <div class="caption hidden">
+        <img src="~/Content/Images/Website/About_04.jpg" class="col-xs-12 no-padd" />
+        <div class="caption">
             <div class="col-sm-7">
                 <p class="fwhite _17">
                     Seeking global healthcare has its perks. Other than cutting medical costs into half, patients can also enjoy a holistic
@@ -134,8 +134,8 @@ End Code
     </div>
 
     <div class="col-xs-12 no-padd relative">
-        <img src="~/Content/Images/Website/about_img3.png" class="col-xs-12 no-padd" />
-        <div class="caption hidden">
+        <img src="~/Content/Images/Website/About_06.jpg" class="col-xs-12 no-padd" />
+        <div class="caption ">
             <div class="col-sm-6">
                 <h1 style="font-size:55px; color: #FBF366;" class="bold">Cultural Affinity</h1>
             </div>

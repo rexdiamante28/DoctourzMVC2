@@ -43,7 +43,8 @@ var Opentok = {
             session.on('streamCreated', streamCreatedHandler);
             session.on('streamDestroyed', streamDestroyedHandler);
             // session.on("signal", signalEventHandler);
-
+            
+            
 
         }
     }
@@ -62,6 +63,7 @@ var Opentok = {
 
     }
 }
+
 
 
 

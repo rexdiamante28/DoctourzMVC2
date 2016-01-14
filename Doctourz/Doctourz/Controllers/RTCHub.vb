@@ -16,6 +16,11 @@ Namespace opentokRTC.Controllers
         Public Shared connections As New connections()
 
 
+        Public Sub Send(ByVal name As String, ByVal message As String)
+            Clients.All.addNewMessageToPage(name, message)
+        End Sub
+
+
         Public Function GetConnected(username As String, Remote_Address As String) As User
             Dim user As User
             connections.Add(Context.ConnectionId)
