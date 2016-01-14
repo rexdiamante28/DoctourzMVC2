@@ -226,66 +226,58 @@ Public Class UserController
 
     Function MainSearch(keyword As String)
         Dim db As New ApplicationDbContext
+        Dim docId As String = ""
+        Dim docName As String = ""
+        Dim docLocation As String = ""
+        Dim docGender As String = ""
+        Dim docSpecializationId As String = ""
+        Dim docSpecialization As String = ""
+        Dim docDegeree As String = ""
+        'Try
+        'GET DOCTOR ROLE
+        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
 
-        Try
-            'GET DOCTOR ROLE
-            Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
+        Dim usrs = From users In db.Users _
+                    Group Join appUsers In db.AppUsers On users.Id Equals appUsers.userId Into docUsers = Group _
+                    From u In docUsers.DefaultIfEmpty()
+                    Group Join spec In db.Specializations On users.Id Equals spec.userId Into docSpecs = Group _
+                    From s In docSpecs.DefaultIfEmpty() _
+                    Group Join specCategory In db.SpecializationCategory On s.categoryId Equals specCategory.id Into category = Group _
+                    From c In category.DefaultIfEmpty() _
+                    Group Join education In db.Education On users.Id Equals education.userId Into docEduc = Group _
+                    From e In docEduc.DefaultIfEmpty() _
+                    Group Join degree In db.Degree On e.degreeId Equals degree.id Into eDegree = Group _
+                    From d In eDegree.DefaultIfEmpty() _
+                    Where users.Roles.Any(Function(x) x.RoleId = userRoie.Id) And u.name.ToLower.Contains(keyword.ToLower) _
+                    Select u, s, c, e, d
 
-            'GET USERS WITH DOCTOR ROLE
-            'Dim users = db.Users.ToList().Where(Function(x) x.Roles.Any(Function(s) s.RoleId = userRoie.Id And x.UserName.ToLower.Contains(keyword.ToLower))).ToList()
-            'For Each item In users
-            '    'DOCTOR DETAILS
-            '    Dim docDetails = db.AppUsers.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-            '    'DOCTOR SPECUALIZATION
-            '    Dim spec = db.Specializations.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-            '    Dim spDetails As String = "None"
-            '    Dim spId As String = "0"
-            '    If spec IsNot Nothing Then
-            '        Dim spCategory = db.SpecializationCategory.Where(Function(x) x.id = spec.categoryId).FirstOrDefault()
-            '        spDetails = spCategory.name
-            '        spId = spCategory.id
-            '    End If
-            '    'DOCTOR DEGREE
-            '    Dim education = db.Education.Where(Function(x) x.userId = item.Id).FirstOrDefault()
-            '    Dim degreeId As String = "0"
-            '    If education IsNot Nothing Then
-            '        degreeId = education.degreeId
-            '    End If
-            '    doctorList.Add(New DoctorList() With { _
-            '                   .docId = item.Id, _
-            '                   .docName = docDetails.name, _
-            '                   .docSpecializationId = spId, _
-            '                   .docSpecialization = spDetails, _
-            '                   .docLocation = docDetails.location, _
-            '                   .docGender = docDetails.gender, _
-            '                   .docDegree = degreeId
-            '               })
-            'Next
-       
+        For Each item In usrs
+            If item.u IsNot Nothing Then
+                docId = item.u.userId
+                docName = item.u.name
+                docLocation = item.u.location
+                docGender = item.u.gender
+            End If
+            If item.s IsNot Nothing Then
+                docSpecialization = item.s.categoryId
+            End If
+            If item.e IsNot Nothing Then
+                docDegeree = item.e.degreeId
+            End If
 
-        Dim usrs = From users In db.Users Where
-                    users.Roles.Any(Function(s) s.RoleId = userRoie.Id) And users.UserName.ToLower.Contains(keyword.ToLower)
-                    Join appUsers In db.AppUsers On users.Id Equals appUsers.userId
-                    Join spec In db.Specializations On users.Id Equals spec.userId
-                    Join specCategory In db.SpecializationCategory On spec.categoryId Equals specCategory.id
-                    Join education In db.Education On users.Id Equals education.userId
-                    Join degree In db.Degree On education.degreeId Equals degree.id
-                    Select users.Id, appUsers, spec.categoryId, specCategory.name, appUsers.location, appUsers.gender, education.degreeId
+            userDoctor.Add(New DoctorList() With { _
+                           .docId = docId, _
+                           .docName = docName, _
+                           .docSpecializationId = docSpecializationId, _
+                           .docSpecialization = docSpecialization, _
+                           .docLocation = docLocation, _
+                           .docGender = docGender, _
+                           .docDegree = docDegeree
+                       })
+        Next
 
-            For Each item In usrs
-                userDoctor.Add(New DoctorList() With { _
-                               .docId = item.Id, _
-                               .docName = item.appUsers.name, _
-                               .docSpecializationId = item.categoryId, _
-                               .docSpecialization = item.name, _
-                               .docLocation = item.location, _
-                               .docGender = item.gender, _
-                               .docDegree = item.degreeId
-                           })
-            Next
-
-        Catch
-        End Try
+        'Catch
+        'End Try
 
         Return doctorList
     End Function
@@ -473,6 +465,4 @@ Public Class UserController
                 .JsonRequestBehavior = JsonRequestBehavior.AllowGet
             }
     End Function
-
-
 End Class
