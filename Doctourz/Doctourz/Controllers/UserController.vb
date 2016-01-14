@@ -233,51 +233,50 @@ Public Class UserController
         Dim docSpecializationId As String = ""
         Dim docSpecialization As String = ""
         Dim docDegeree As String = ""
-        'Try
-        'GET DOCTOR ROLE
-        Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
+        Try
+            'GET DOCTOR ROLE
+            Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
 
-        Dim usrs = From users In db.Users _
-                    Group Join appUsers In db.AppUsers On users.Id Equals appUsers.userId Into docUsers = Group _
-                    From u In docUsers.DefaultIfEmpty()
-                    Group Join spec In db.Specializations On users.Id Equals spec.userId Into docSpecs = Group _
-                    From s In docSpecs.DefaultIfEmpty() _
-                    Group Join specCategory In db.SpecializationCategory On s.categoryId Equals specCategory.id Into category = Group _
-                    From c In category.DefaultIfEmpty() _
-                    Group Join education In db.Education On users.Id Equals education.userId Into docEduc = Group _
-                    From e In docEduc.DefaultIfEmpty() _
-                    Group Join degree In db.Degree On e.degreeId Equals degree.id Into eDegree = Group _
-                    From d In eDegree.DefaultIfEmpty() _
-                    Where users.Roles.Any(Function(x) x.RoleId = userRoie.Id) And u.name.ToLower.Contains(keyword.ToLower) _
-                    Select u, s, c, e, d
+            Dim usrs = From users In db.Users _
+                        Group Join appUsers In db.AppUsers On users.Id Equals appUsers.userId Into docUsers = Group _
+                        From u In docUsers.DefaultIfEmpty()
+                        Group Join spec In db.Specializations On users.Id Equals spec.userId Into docSpecs = Group _
+                        From s In docSpecs.DefaultIfEmpty() _
+                        Group Join specCategory In db.SpecializationCategory On s.categoryId Equals specCategory.id Into category = Group _
+                        From c In category.DefaultIfEmpty() _
+                        Group Join education In db.Education On users.Id Equals education.userId Into docEduc = Group _
+                        From e In docEduc.DefaultIfEmpty() _
+                        Group Join degree In db.Degree On e.degreeId Equals degree.id Into eDegree = Group _
+                        From d In eDegree.DefaultIfEmpty() _
+                        Where users.Roles.Any(Function(x) x.RoleId = userRoie.Id) And u.name.ToLower.Contains(keyword.ToLower) _
+                        Select u, s, c, e, d
 
-        For Each item In usrs
-            If item.u IsNot Nothing Then
-                docId = item.u.userId
-                docName = item.u.name
-                docLocation = item.u.location
-                docGender = item.u.gender
-            End If
-            If item.s IsNot Nothing Then
-                docSpecialization = item.s.categoryId
-            End If
-            If item.e IsNot Nothing Then
-                docDegeree = item.e.degreeId
-            End If
+            For Each item In usrs
+                If item.u IsNot Nothing Then
+                    docId = item.u.userId
+                    docName = item.u.name
+                    docLocation = item.u.location
+                    docGender = item.u.gender
+                End If
+                If item.s IsNot Nothing Then
+                    docSpecialization = item.s.categoryId
+                End If
+                If item.e IsNot Nothing Then
+                    docDegeree = item.e.degreeId
+                End If
 
-            userDoctor.Add(New DoctorList() With { _
-                           .docId = docId, _
-                           .docName = docName, _
-                           .docSpecializationId = docSpecializationId, _
-                           .docSpecialization = docSpecialization, _
-                           .docLocation = docLocation, _
-                           .docGender = docGender, _
-                           .docDegree = docDegeree
-                       })
-        Next
-
-        'Catch
-        'End Try
+                userDoctor.Add(New DoctorList() With { _
+                               .docId = docId, _
+                               .docName = docName, _
+                               .docSpecializationId = docSpecializationId, _
+                               .docSpecialization = docSpecialization, _
+                               .docLocation = docLocation, _
+                               .docGender = docGender, _
+                               .docDegree = docDegeree
+                           })
+            Next
+        Catch
+        End Try
 
         Return doctorList
     End Function
