@@ -160,7 +160,7 @@ End Code
                     a co-founder in DOCTOURZ is a considered the foremost expert in the international patient safety and was named by Health Magazine as one of the most
                     influential people in the healthcare. Marty has teamed with Lou Holder, the co-founder of Vonage, to deliver as "World Class" patient engaging telemed
                     platform. The final team member, Ferdinand Piano, is a perennial patient. After experiencing over 20+ surgeries in his lifetime, "Ferdie" saw 
-                    firsthand that finding the best physician is not about a star rating or zip code. It is about finding a physician who understansds your unique wants
+                    firsthand that finding the best physician is not about a star rating or zip code. It is about finding a physician who understands your unique wants
                     and needs and who can use that information to provide you the highest level of care.
                 </p>
             </div>
