@@ -937,7 +937,6 @@ table.dataTable thead .sorting:after {
     margin-right:10px;
     min-height:30px;
     min-width:30px;
-    background-image: url('../Content/Images/Website/dummy.jpg');
     background-size: 100%;
     border-radius:50%;
 }

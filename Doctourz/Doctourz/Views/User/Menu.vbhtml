@@ -6,11 +6,17 @@
         Dim appUser = db.AppUsers.Where(Function(x) x.userId = userId).First()
         ViewBag.appUserName = appUser.name
         ViewBag.appUserEmail = appUser.email
+        ViewBag.avatar = appUser.avatar
     End If
 End Code
 
 <script src="~/Scripts/SideBar.js"></script>
 <script>
+
+
+    function submitForm(form) {
+        $("#avatarForm").submit();
+    }
 
     function loadPage(action) {
         $.post("/User/" + action, function (data) {
@@ -36,7 +42,7 @@ End Code
                <form method="POST" action="/User/Upload" enctype="multipart/form-data" id="avatarForm">
                    <label>
                        <input type="file" name="file" id="avatar" onchange="submitForm('avatarForm')">
-                       <img src="~/Content/Images/Website/dummy.jpg" class="img-responsive img-circle" style="margin:0 auto; max-width:100px; width: 90%;">
+                       <img id="myAvatar" src="~/Images/@ViewBag.avatar" class="img-responsive img-circle" style="margin:0 auto; max-width:100px; width: 90%;">
                    </label>
                </form>
             <div class="name-section top-10 hidden" id="name-section">

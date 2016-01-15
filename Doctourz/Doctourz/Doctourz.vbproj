@@ -472,6 +472,7 @@
     <Content Include="Views\Shared\_AboutLayout.vbhtml" />
     <Content Include="Views\User\Notifications.vbhtml" />
     <Content Include="Views\User\HealthProfile.vbhtml" />
+    <Content Include="Views\User\Upload.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -497,6 +498,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
     <Folder Include="Views\_UserLayout\" />
   </ItemGroup>
   <ItemGroup>

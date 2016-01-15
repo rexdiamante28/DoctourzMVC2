@@ -1,5 +1,11 @@
-﻿@Code
+﻿@Imports System.Xml
+
+@Code
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
+    
+    Dim rssDoc = New XmlDocument()
+    rssDoc.Load("http://rss.medicalnewstoday.com/allergy.xml")
+    
 End Code
 
 
