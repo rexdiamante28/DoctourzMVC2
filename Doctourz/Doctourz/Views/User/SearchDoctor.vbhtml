@@ -3,12 +3,20 @@
     Dim db As New ApplicationDbContext
     Dim spCategory = db.SpecializationCategory
     Dim degrees = db.Degree
+    Dim searchKeyword As String = ""
+    Dim searchFIlterLocation As String = ""
+    If Not ViewBag.Keyword = "" Then
+        searchKeyword = ViewBag.Keyword.ToString()
+    End If
+    If Not ViewBag.Location = "" Then
+        searchFIlterLocation = ViewBag.Location.ToString()
+    End If
 End Code
 
 
 <div class="col-xs-12 col-md-6 col-sm-offset-3">
     <div>
-        <input id="SearchText" type="text" class="form-control" placeholder="Search answers, topics, doctors" value=@ViewBag.Keyword>
+        <input id="SearchText" type="text" class="form-control" placeholder="Search answers, topics, doctors" value="@searchKeyword">
     </div>
 
     <div class="col-sm-4 no-padd top-20">
@@ -36,7 +44,7 @@ End Code
             </li>
             <div class="row toggle-hide bggray5" id="doctor-location">
                 <li class="list-group-item ">
-                    <input id="FilterLocation" type="text" class="form-control" placeholder="Enter Location" value="@ViewBag.Location" />
+                    <input id="FilterLocation" type="text" class="form-control" placeholder="Enter Location" value="@searchFIlterLocation" />
                 </li>
             </div>
 
@@ -246,7 +254,7 @@ End Code
 
         function search() {
             //KEYWORD
-            var keyword = document.getElementById('SearchText');
+            var keyword = document.getElementById('SearchText').value;
 
             //GENDER
             var gender = $('input[name=gender]:checked').val();
@@ -269,7 +277,7 @@ End Code
                 degree.push($(this).val());
             });
 
-            var url = "/User/SearchDoctor?keyword=" + keyword.value + "&location=" + location + "&specialty=" + specialty + "&gender=" + gender + "&degree=" + degree;
+            var url = "/User/SearchDoctor?keyword=" + keyword + "&location=" + location + "&specialty=" + specialty + "&gender=" + gender + "&degree=" + degree;
             window.location.href = url;
         }
 

@@ -158,7 +158,7 @@ Public Class UserController
 
     Function SearchDoctor(ByVal keyword As String, ByVal location As String, ByVal gender As String, ByVal specialty As String, ByVal degree As String) As ActionResult
         ViewBag.Keyword = keyword
-        ViewBag.Location = gender
+        'ViewBag.Location = gender
         ViewBag.Location = location
 
         MainSearch(keyword)
