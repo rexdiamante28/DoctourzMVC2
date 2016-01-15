@@ -98,7 +98,7 @@ End Code
             </div>
             <div id="message-box" class="list-group-item">
                 <div class="input-group">
-                        <textarea type="text" id="chatMessage" class="form-control" placeholder="Type your message..."></textarea>
+                        <textarea type="text" id="chatMessage" style="max-height:53px;" class="form-control" placeholder="Type your message..."></textarea>
                         <span class="input-group-btn">
                             <button class="btn btn-primary" id="chatSendButton" type="button" style="height:53px;">Send</button>
                         </span>
@@ -231,9 +231,8 @@ End Code
                     '</div>'
             );
 
-            var wtf = $('#chatBox');
-            var height = wtf[0].scrollHeight;
-            wtf.scrollTop(height);
+           
+            $("#chatbox").animate({ scrollTop: $("#chatbox")[0].scrollHeight }, 500);
         };
 
         $.connection.hub.start().done(function () {
