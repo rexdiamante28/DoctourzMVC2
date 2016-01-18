@@ -89,7 +89,7 @@ End Code
                 <div role="tabpanel" class="tab-pane" id="4">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="col-sm-7">
-                            <p style="font-size:15px;" class="top-50">With the use of our wearable apps, it will allow trained medical staff to provide the best folloe-up patient care.</p>
+                            <p style="font-size:15px;" class="top-50">With the use of our wearable apps, it will allow trained medical staff to provide the best follow-up patient care.</p>
                         </div>
                         <div class="col-sm-5 no-padd">
                             <img src="~/Content/Images/Website/123_4.png" class="col-xs-12" />
