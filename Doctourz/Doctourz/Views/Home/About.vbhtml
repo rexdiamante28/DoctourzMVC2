@@ -12,8 +12,8 @@ End Code
                 <h1 style="font-size:55px; color: #03BAF7;" class="bold" >The Physician</h1>
             </div>
             <div class="col-sm-7">
-                <p class="fwhite _17">We understand the need in finding truted medical care,which is why the patient journey 
-                and experience is of our utmist importance. Doctourz takes pride in successfully matching
+                <p class="fwhite _17">We understand the need in finding trusted medical care,which is why the patient journey 
+                and experience is of our utmost importance. Doctourz takes pride in successfully matching
                  patients with physicians globally with our one of a kind Doctourz Matching Algorithm (DMA)
                 and delivering the best global healthcare possible.</p>
             </div>
@@ -156,9 +156,9 @@ End Code
         <div class="col-xs-12">
             <div class="col-sm-7">
                 <p class="_17">
-                    The DOCTOURZ founders come from different backgrounds but share a common vision; revolutionize global healthcare. Dr. Marting "Marty" Makary
+                    The DOCTOURZ founders come from different backgrounds but share a common vision; revolutionize global healthcare. Dr. Martin "Marty" Makary
                     a co-founder in DOCTOURZ is a considered the foremost expert in the international patient safety and was named by Health Magazine as one of the most
-                    influential people in the healthcare. Marty has teamed with Lou Holder, the co-founder of Vonage, to deliver as "World Class" patient engaging telemed
+                    influential people in the healthcare. Marty has teamed with Lou Holder, the co-founder of Vonage, to deliver a "World Class" patient engaging telemed
                     platform. The final team member, Ferdinand Piano, is a perennial patient. After experiencing over 20+ surgeries in his lifetime, "Ferdie" saw 
                     firsthand that finding the best physician is not about a star rating or zip code. It is about finding a physician who understands your unique wants
                     and needs and who can use that information to provide you the highest level of care.

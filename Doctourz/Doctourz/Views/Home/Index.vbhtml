@@ -59,7 +59,7 @@ End Code
                 <div role="tabpanel" class="tab-pane active" id="1">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="col-sm-7">
-                            <p style="font-size:15px;" class="top-50">DOCTOURZ Mathing Algorithm (DMA) is a state-of-the-art physician search engine built with a behavioral science algorithm that delivers real-time matching solutions.</p>
+                            <p style="font-size:15px;" class="top-50">DOCTOURZ Matching Algorithm (DMA) is a state-of-the-art physician search engine built with a behavioral science algorithm that delivers real-time matching solutions.</p>
                         </div>
                         <div class="col-sm-5 no-padd">
                             <img src="~/Content/Images/Website/img1.png" class="col-xs-12" />
@@ -89,7 +89,7 @@ End Code
                 <div role="tabpanel" class="tab-pane" id="4">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="col-sm-7">
-                            <p style="font-size:15px;" class="top-50">With the use of our wearable apps, it will alloe trained medical staff to provide the best folloe-up patient care.</p>
+                            <p style="font-size:15px;" class="top-50">With the use of our wearable apps, it will allow trained medical staff to provide the best folloe-up patient care.</p>
                         </div>
                         <div class="col-sm-5 no-padd">
                             <img src="~/Content/Images/Website/123_4.png" class="col-xs-12" />
@@ -113,20 +113,62 @@ End Code
              -->
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
+                <div class="item active relative">
                     <img src="~/Content/Images/Website/Ad1.jpg"  class="col-xs-12 no-padd">
+                    <div  style="position: absolute; right:30%; top:350px;">
+                        <h1 class="bold text-center" style="font-size:140px; color:#46AADC;">
+                            Healthcare<br/>
+                            For All.<br/>
+                            Affordable.<br/>
+                            Accessible.<br/>
+                        </h1>
+                    </div>
                 </div>
 
-                <div class="item">
+                <div class="item relative">
                     <img src="~/Content/Images/Website/Ad2.jpg" class="col-xs-12 no-padd">
+                    <div style="position: absolute; right:20%; top:250px;">
+                        <h1 class="bold text-center" style="font-size:140px; color:#CA592D;">
+                            Matching<br />
+                            your Medical<br />
+                            needs with<br />
+                            Top Physicians<br />
+                            Globally<br />
+                        </h1>
+                    </div>
                 </div>
 
-                <div class="item">
+                <div class="item relative">
                     <img src="~/Content/Images/Website/Ad3.jpg" class="col-xs-12 no-padd">
+                    <div style="position: absolute; right:2%; top:250px;">
+                        <h1 class="bold text-center" style="font-size:140px; color:#CA592D;">
+                            Saving Lives<br />
+                            Empowering<br />
+                            Nations.<br />
+                        </h1>
+                        <hr/>
+                        <h4 style="font-size:40px;">
+                            The health of the community is important<br/> to us. Donate a telemed session to a child<br/> in need.<br/><br/>
+                            <button class="btn btn-warning" style="background-color: #F26E23 !important; width:200px; height:80px; font-size:40px;">DONATE</button>
+                        </h4>
+                    </div>
                 </div>
 
-                <div class="item">
+                <div class="item relative">
                     <img src="~/Content/Images/Website/Ad4.jpg" class="col-xs-12 no-padd">
+                    <div style="position: absolute; right:2%; top:50px;">
+                        <h1 class="bold text-center" style="font-size:140px; color:#CA592D;">
+                            Be a part<br />
+                            of the<br />
+                            Healthcare<br />
+                            Revolution<br />
+                        </h1>
+                        <hr />
+                        <h4 style="font-size:40px;">
+                            We want the best of the best, our services are<br />catered to maximize your practice<br /> in need.<br /><br />
+                            <button class="btn btn-info" style="background-color: #32B7F8 !important;  height:80px; font-size:40px;">LEARN HOW</button>
+                        </h4>
+                    </div>
                 </div>
             </div>
 
@@ -142,7 +184,9 @@ End Code
              -->
         </div>
     </div>
-
+    <div class="col-xs-12 text-center padd-30">
+        <h1 class="custom-fblue bold" style="font-size:60px;">Driving Worldclass Patient Experience</h1>
+    </div>
     <img class="col-xs-12" src="~/Content/Images/Website/Section4.png" />
 
     <div class="col-xs-12 no-padd" style="background-image: url(../../Content/Images/Website/blueBG.png);background-size: cover;background-position:center;background-repeat: no-repeat">
