@@ -1,4 +1,6 @@
-﻿@Code
+﻿@ModelType List(Of DoctorList)
+
+@Code
     Layout = "~/Views/Shared/_UserLayout.vbhtml"
     Dim db As New ApplicationDbContext
     Dim spCategory = db.SpecializationCategory
@@ -14,7 +16,7 @@
 End Code
 
 
-<div class="col-xs-12 col-md-6 col-sm-offset-3">
+<div id="doctors" class="col-xs-12 col-md-6 col-sm-offset-3">
     <div>
         <input id="SearchText" type="text" class="form-control" placeholder="Search answers, topics, doctors" value="@searchKeyword">
     </div>
@@ -49,10 +51,10 @@ End Code
             </div>
 
 
-            <li class="list-group-item" onclick="ToggleElement('doctor-specialty')">
+            <li id="doctor-specialty-li" class="list-group-item" onclick="ToggleElement('doctor-specialty')">
                 <text class="custom-fblue">Specialty</text>
             </li>
-            <div class="row toggle-hide bggray5" id="doctor-specialty">
+            <div class="row toggle-hide bggray5" id="doctor-specialty" >
                 @For Each item In spCategory
                     Dim sp As String = ""
                     If ViewBag.Specialty IsNot Nothing Then
@@ -60,11 +62,12 @@ End Code
                     End If
                     @<a href="#" class="specialty">
                          <li class="list-group-item ">
-                             <label class="normal"><input id="category" type="checkbox" name="category" value="@item.id" @(If(sp.Contains(item.id), " checked=""checked""", "")) /> @item.name</label>
+                             <label class="normal"><input id="category" type="checkbox" name="category" value="@item.id" @(If(sp.Contains(item.id), " checked=""checked""", ""))/> @item.name</label>
                          </li>
                      </a>
                 Next
             </div>
+            <input id="toggleSpecialty" type="hidden" />
 
 
             <li class="list-group-item" onclick="ToggleElement('language-spoken')">
@@ -242,6 +245,8 @@ End Code
     </div>
 </div>
 
+@Styles.Render("~/Content/jquery.cookie.js")
+
 @Section scripts
     <script>
         //SEARCH DOCTOR
@@ -278,26 +283,17 @@ End Code
             });
 
             var url = "/User/SearchDoctor?keyword=" + keyword + "&location=" + location + "&specialty=" + specialty + "&gender=" + gender + "&degree=" + degree;
+            //$('#doctors').load(url)
             window.location.href = url;
         }
 
         //FILTER DOCTOR BY GENDER -- MALE
         $(".male").click(function (event) {
             search()
-            //var type = "gender";
-            //var filter = "male";
-            //var keyword = document.getElementById('SearchText');
-            //var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
-            //window.location.href = url;
         })
 
         //FILTER DOCTOR BY GENDER -- FEMALE 
         $(".female").click(function (event) {
-            //var type = "gender";
-            //var filter = "female";
-            //var keyword = document.getElementById('SearchText');
-            //var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
-            //window.location.href = url;
             search()
         })
 
@@ -305,47 +301,50 @@ End Code
         $('#FilterLocation').keypress(function (e) {
             var code = (e.keyCode ? e.keyCode : e.which);
             if (code == 13) {
-                //filter()
                 search()
             }
         });
 
-        //function filter() {
-        //    var type = "location";
-        //    var filter = document.getElementById('FilterLocation').value;
-        //    var keyword = document.getElementById('SearchText');
-        //    var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + filter;
-        //    window.location.href = url;
-        //}
-
         //FILTER DOCTOR BY SPECIALTY
         $(".specialty").click(function (event) {
-            //var type = "specialty";
-
-            //var category = [];
-            //$.each($("input[name='category']:checked"), function () {
-            //    category.push($(this).val());
-            //});
-
-            //var keyword = document.getElementById('SearchText');
-            //var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + category;
-            //window.location.href = url;
             search()
         })
 
         //FILTER DOCTOR BY DEGREES
         $(".degree").click(function (event) {
-            //var type = "degree";
-
-            //var degree = [];
-            //$.each($("input[name='degree']:checked"), function () {
-            //    degree.push($(this).val());
-            //});
-
-            //var keyword = document.getElementById('SearchText');
-            //var url = "/User/FilterDoctor?keyword=" + keyword.value + "&type=" + type + "&filter=" + degree;
-            //window.location.href = url;
             search()
         })
+
+
+        $("#doctor-specialty-li").click(function (event) {
+            if ($('#toggleSpecialty').val() == "") {
+                $('#toggleSpecialty').val("1");
+                $.cookie('toggle') = "1";
+            } else {
+                if ($('#toggleSpecialty').val() == "0") {
+                    $('#toggleSpecialty').val("1");
+                    $.cookie('toggle') = "1";
+                } else {
+                    $('#toggleSpecialty').val("0");
+                    $.cookie('toggle') = "0";
+                }
+            }
+        })
+
+        $(window).load(function () {
+            var toggle = $.cookie('toggle');
+            alert(toggle);
+            if (toggle == "1") {
+                ToggleElement('doctor-specialty')
+            }
+        });
+
+        $(function () {
+            if ($('#category:checkbox:checked').length > 0) {
+                ToggleElement('doctor-specialty')
+            }
+        });
+       
+
     </script>
 End Section
