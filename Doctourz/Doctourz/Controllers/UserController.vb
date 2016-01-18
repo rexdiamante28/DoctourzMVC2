@@ -224,7 +224,7 @@ Public Class UserController
 
         ViewBag.Doctors = doctorList
 
-        Return PartialView("SearchDoctor")
+        Return PartialView(doctorList)
     End Function
 
     Function MainSearch(keyword As String)
