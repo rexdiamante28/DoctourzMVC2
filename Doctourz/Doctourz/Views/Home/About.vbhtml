@@ -74,7 +74,7 @@ End Code
             <div class="col-sm-7">
                 <p class="fwhite _17">
                     Seeking global healthcare has its perks. Other than cutting medical costs into half, patients can also enjoy a holistic
-                    amd healthy lifetyle while recovering abroad. Our 24/7 trained medical concierges can assist patients with global travel
+                    and healthy lifetyle while recovering abroad. Our 24/7 trained medical concierges can assist patients with global travel
                     arrangements as well as cater to patient's daily medical and personal needs ensuring a positive medical journey.
                 </p>
             </div>
