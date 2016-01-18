@@ -5,6 +5,7 @@
     Dim db = New ApplicationDbContext
     Dim appUser As String = User.Identity.GetUserName
     Dim name = db.AppUsers.Where(Function(model) model.userName = appUser).First().name
+    
 
     ViewData("Name") = name
 End Code

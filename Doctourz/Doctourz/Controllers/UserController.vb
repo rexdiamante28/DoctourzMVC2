@@ -5,6 +5,9 @@ Imports Microsoft.Owin.Security
 Imports System.Linq
 Imports System.Web
 Imports System.Web.Mvc
+Imports System
+Imports System.Collections.Generic
+Imports System.IO
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
@@ -214,7 +217,7 @@ Public Class UserController
                 Next
             Next
         End If
-     
+
         If location = "" And gender = "" And specialty = "" And degree = "" Then
             doctorList = userDoctor
         End If
@@ -464,4 +467,30 @@ Public Class UserController
                 .JsonRequestBehavior = JsonRequestBehavior.AllowGet
             }
     End Function
+
+    Public Function Upload(ByVal file As HttpPostedFileBase, usr As AppUsers) As ActionResult
+        Try
+            Dim pic As String = System.IO.Path.GetFileName(file.FileName)
+            Dim path As String = System.IO.Path.Combine(Server.MapPath("~/Images/"), pic)
+
+            usr.userId = User.Identity.GetUserId
+
+            Using db As New ApplicationDbContext
+                If usr.userId IsNot Nothing Then
+                    Dim update = db.AppUsers.Where(Function(x) x.userId = usr.userId).First
+                    update.avatar = pic
+
+                    db.SaveChanges()
+                End If
+            End Using
+
+            file.SaveAs(path)
+            ViewBag.image = pic
+            Response.Redirect("News")
+        Catch ex As Exception
+            Response.Redirect("News")
+        End Try
+
+    End Function
+
 End Class

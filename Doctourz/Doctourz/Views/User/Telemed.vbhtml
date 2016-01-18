@@ -221,11 +221,13 @@ End Code
 
         // show('connectLink');
 
-        rtc.client.addNewMessageToPage = function (name, message) {
+        rtc.client.addNewMessageToPage = function (name, message,senderAvatar) {
             // Add the message to the page. 
+
+
             $('#chatbox').append(""+
                     '<div class="col-xs-12 bgwhite padd-10 top-10">'+
-                        '<img src="../../Content/Images/Website/dummy.jpg"  class="img-circle chatAvatar" style="width:30px;"/>'+
+                        '<img src="' +senderAvatar+ '"  class="img-circle chatAvatar" style="width:30px;"/>' +
                        '<text class="custom-fblue bold">&nbsp;'+ name+'</text>'+
                         '<p class="fgray3">'+message+'</p>'+
                     '</div>'
@@ -238,7 +240,8 @@ End Code
         $.connection.hub.start().done(function () {
             $('#chatSendButton').click(function () {
                 // Call the Send method on the hub. 
-                rtc.server.send($('#userFullName').html(), $('#chatMessage').val());
+                var myAvatar = document.getElementById('myAvatar').getAttribute("src");
+                rtc.server.send($('#userFullName').html(), $('#chatMessage').val(), myAvatar);
                 // Clear text box and reset focus for next comment. 
                 $('#chatMessage').val('').focus();
             });

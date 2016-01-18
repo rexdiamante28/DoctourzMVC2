@@ -16,8 +16,8 @@ Namespace opentokRTC.Controllers
         Public Shared connections As New connections()
 
 
-        Public Sub Send(ByVal name As String, ByVal message As String)
-            Clients.All.addNewMessageToPage(name, message)
+        Public Sub Send(ByVal name As String, ByVal message As String, ByVal senderAvatar As String)
+            Clients.All.addNewMessageToPage(name, message, senderAvatar)
         End Sub
 
 

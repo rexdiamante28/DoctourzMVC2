@@ -119,10 +119,15 @@ var OnlineUsers = {
         if (!document.getElementById("btn_" + user.ConnectionId)) {
             var button = document.createElement("input");
             var buttonContainer = document.getElementById("onlineusers");
+            var theirAvatar = document.getElementById('myAvatar').getAttribute("src");
+
+            theirAvatar = "background-image: url('" + theirAvatar + "')";
+
 
             button.setAttribute("id", "btn_" + user.ConnectionId);
             button.setAttribute("type", "button");
             button.setAttribute("class", "onlineUserButton");
+            button.setAttribute("style", theirAvatar);
             button.setAttribute("title", "Call " + user.Name);
             button.setAttribute("onclick", "begincallsignal(this)");
             buttonContainer.appendChild(button);
