@@ -70,7 +70,7 @@ End Code
 
     <div class="col-xs-12 no-padd relative">
         <img src="~/Content/Images/Website/About_04.jpg" class="col-xs-12 no-padd" />
-        <div class="caption">
+        <div class="caption">            
             <div class="col-sm-7">
                 <p class="fwhite _17">
                     Seeking global healthcare has its perks. Other than cutting medical costs into half, patients can also enjoy a holistic

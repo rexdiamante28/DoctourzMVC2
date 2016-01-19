@@ -470,8 +470,16 @@ Public Class UserController
 
     Public Function Upload(ByVal file As HttpPostedFileBase, usr As AppUsers) As ActionResult
         Try
+
+            Dim path0 = Server.MapPath("~/Images/")
+
+            If System.IO.Directory.Exists(path0) = False Then
+                System.IO.Directory.CreateDirectory(path0)
+            End If
+
             Dim pic As String = System.IO.Path.GetFileName(file.FileName)
             Dim path As String = System.IO.Path.Combine(Server.MapPath("~/Images/"), pic)
+
 
             usr.userId = User.Identity.GetUserId
 
