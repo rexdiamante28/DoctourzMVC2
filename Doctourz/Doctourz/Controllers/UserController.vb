@@ -468,7 +468,7 @@ Public Class UserController
             }
     End Function
 
-    Public Function Upload(ByVal file As HttpPostedFileBase, usr As AppUsers) As ActionResult
+    Public Sub Upload(ByVal file As HttpPostedFileBase, usr As AppUsers)
         Try
 
             Dim path0 = Server.MapPath("~/Images/")
@@ -499,6 +499,6 @@ Public Class UserController
             Response.Redirect("News")
         End Try
 
-    End Function
+    End Sub
 
 End Class
