@@ -135,7 +135,7 @@ End Code
 </audio>
 
 @Section scripts
-<script src="http://static.opentok.com/webrtc/v2.2/js/opentok.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="~/Scripts/opentok.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="@Url.Content("~/Scripts/opentok2.2.js")" type="text/javascript" charset="utf-8"></script>
 <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
 <script src="~/signalr/hubs"></script>
@@ -223,7 +223,12 @@ End Code
 
         rtc.client.addNewMessageToPage = function (name, message,senderAvatar) {
             // Add the message to the page. 
+            var chat = document.getElementById('chat');
+            var chatStatus = chat.getAttribute("class");
 
+            if(chatStatus!="chat-open"){
+                alert("animate");
+            }
 
             $('#chatbox').append(""+
                     '<div class="col-xs-12 bgwhite padd-10 top-10">'+
@@ -235,6 +240,8 @@ End Code
 
            
             $("#chatbox").animate({ scrollTop: $("#chatbox")[0].scrollHeight }, 500);
+
+           
         };
 
         $.connection.hub.start().done(function () {

@@ -115,8 +115,8 @@ End Code
             <div class="carousel-inner" role="listbox">
                 <div class="item active relative">
                     <img src="~/Content/Images/Website/Ad1.jpg"  class="col-xs-12 no-padd">
-                    <div  style="position: absolute; right:30%; top:350px;">
-                        <h1 class="bold text-center" style="font-size:140px; color:#46AADC;">
+                    <div  style="position: absolute; right:10%; top:350px;">
+                        <h1 class="bold text-center" style="font-size:90px; color:#46AADC; line-height:80%;">
                             Healthcare<br/>
                             For All.<br/>
                             Affordable.<br/>
@@ -127,8 +127,8 @@ End Code
 
                 <div class="item relative">
                     <img src="~/Content/Images/Website/Ad2.jpg" class="col-xs-12 no-padd">
-                    <div style="position: absolute; right:20%; top:250px;">
-                        <h1 class="bold text-center" style="font-size:140px; color:#CA592D;">
+                    <div style="position: absolute; right:10%; top:230px;">
+                        <h1 class="bold text-left" style="font-size:90px; color:#CA592D; line-height:80%;">
                             Matching<br />
                             your Medical<br />
                             needs with<br />
