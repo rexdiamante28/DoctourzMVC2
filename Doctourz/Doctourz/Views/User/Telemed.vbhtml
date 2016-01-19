@@ -227,7 +227,7 @@ End Code
             var chatStatus = chat.getAttribute("class");
 
             if(chatStatus!="chat-open"){
-                alert("animate");
+                $('#r2').css("color","red");
             }
 
             $('#chatbox').append(""+
@@ -355,6 +355,10 @@ End Code
 
 
       
+
+        $('#r2').click(function () {
+            $('#r2').css("color","white");
+        });
 
         $('#videoControl').click(function () {
             publisher.publishVideo(false);
