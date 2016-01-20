@@ -21,11 +21,11 @@ Namespace opentokRTC.Controllers
         End Sub
 
 
-        Public Function GetConnected(username As String, Remote_Address As String) As User
+        Public Function GetConnected(username As String, avatar As String, Remote_Address As String) As User
             Dim user As User
             connections.Add(Context.ConnectionId)
             Dim ot = New oTok(Remote_Address)
-            user = New User(username, Context.ConnectionId, ot)
+            user = New User(username, Context.ConnectionId, ot, avatar)
 
             Users.TryAdd(Context.ConnectionId, user)
             Clients.Clients(connections.AllExcept(Context.ConnectionId)).getNewOnlineUser(user)

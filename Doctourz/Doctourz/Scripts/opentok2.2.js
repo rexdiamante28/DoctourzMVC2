@@ -115,16 +115,14 @@ function streamCreatedHandler(event) {
 var OnlineUsers = {
     addButton: function (user) {
 
+        
 
         if (!document.getElementById("btn_" + user.ConnectionId)) {
             var button = document.createElement("input");
             var buttonContainer = document.getElementById("onlineusers");
 
-            var theirAvatar = document.getElementById('myAvatar').getAttribute("src");
+            theirAvatar = "background-image: url('" + user.Avatar + "')";
 
-            theirAvatar = "background-image: url('" + theirAvatar + "')";
-
-            
             button.setAttribute("id", "btn_" + user.ConnectionId);
             button.setAttribute("type", "button");
             button.setAttribute("class", "onlineUserButton");
