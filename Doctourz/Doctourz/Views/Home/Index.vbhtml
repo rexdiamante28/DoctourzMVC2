@@ -115,8 +115,8 @@ End Code
             <div class="carousel-inner" role="listbox">
                 <div class="item active relative">
                     <img src="~/Content/Images/Website/Ad1.jpg"  class="col-xs-12 no-padd">
-                    <div  style="position: absolute; right:10%; top:350px;">
-                        <h1 class="bold text-center" style="font-size:90px; color:#46AADC; line-height:80%;">
+                    <div  style="position: absolute; right:15%; top:30vh; opacity: .8;">
+                        <h1 class="bold text-center" style="font-size:120px; color:#46AADC; line-height:80%;">
                             Healthcare<br/>
                             For All.<br/>
                             Affordable.<br/>
@@ -127,8 +127,8 @@ End Code
 
                 <div class="item relative">
                     <img src="~/Content/Images/Website/Ad2.jpg" class="col-xs-12 no-padd">
-                    <div style="position: absolute; right:10%; top:230px;">
-                        <h1 class="bold text-left" style="font-size:90px; color:#CA592D; line-height:80%;">
+                    <div style="position: absolute; right:10%; top:30vh; opacity: .8;">
+                        <h1 class="bold text-left" style="font-size:110px; color:#CA592D; line-height:80%;">
                             Matching<br />
                             your Medical<br />
                             needs with<br />
@@ -140,36 +140,39 @@ End Code
 
                 <div class="item relative">
                     <img src="~/Content/Images/Website/Ad3.jpg" class="col-xs-12 no-padd">
-                    <div style="position: absolute; right:2%; top:250px;">
-                        <h1 class="bold text-center" style="font-size:140px; color:#CA592D;">
+                    <div style="position: absolute; right:2%; top:20vh; opacity: .8;">
+                        <h1 class="bold text-center" style="font-size:110px; color:#CA592D; line-height:95%;">
                             Saving Lives<br />
                             Empowering<br />
                             Nations.<br />
                         </h1>
                         <hr/>
-                        <h4 style="font-size:40px;">
+                        <h4 style="font-size:30px;">
                             The health of the community is important<br/> to us. Donate a telemed session to a child<br/> in need.<br/><br/>
-                            <button class="btn btn-warning" style="background-color: #F26E23 !important; width:200px; height:80px; font-size:40px;">DONATE</button>
+                            <button class="btn btn-warning" style="background-color: #F26E23 !important; height:60px; font-size:30px;">DONATE</button>
                         </h4>
                     </div>
                 </div>
 
                 <div class="item relative">
                     <img src="~/Content/Images/Website/Ad4.jpg" class="col-xs-12 no-padd">
-                    <div style="position: absolute; right:2%; top:50px;">
-                        <h1 class="bold text-center" style="font-size:140px; color:#CA592D;">
+                    <div style="position: absolute; right:2%; top:10vh; opacity: .8;">
+                        <h1 class="bold text-center" style="font-size:110px; color:#CA592D; line-height: 80%;">
                             Be a part<br />
                             of the<br />
                             Healthcare<br />
                             Revolution<br />
                         </h1>
                         <hr />
-                        <h4 style="font-size:40px;">
+                        <h4 style="font-size:30px;">
                             We want the best of the best, our services are<br />catered to maximize your practice<br /> in need.<br /><br />
-                            <button class="btn btn-info" style="background-color: #32B7F8 !important;  height:80px; font-size:40px;">LEARN HOW</button>
+                            <button class="btn btn-info" style="background-color: #32B7F8 !important;  height:60px; font-size:30px;">LEARN MORE</button>
                         </h4>
                     </div>
                 </div>
+            </div>
+            <div>
+
             </div>
 
             <!-- Left and right controls
