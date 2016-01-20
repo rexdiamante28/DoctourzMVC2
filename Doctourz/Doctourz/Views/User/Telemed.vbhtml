@@ -5,8 +5,10 @@
     Dim db = New ApplicationDbContext
     Dim appUser As String = User.Identity.GetUserName
     Dim name = db.AppUsers.Where(Function(model) model.userName = appUser).First().name
+    Dim avatar = db.AppUsers.Where(Function(model) model.userName = appUser).First().avatar
 
     ViewData("Name") = name
+    ViewData("Avatar") = avatar
 End Code
  <input id="txtName" type="hidden" value="@ViewData("Name")" />
    
@@ -271,6 +273,7 @@ End Code
                 else
                     selfuser = user;
             });
+
         }
         rtc.client.getNewOnlineUser = function (user) {
 
@@ -386,7 +389,9 @@ End Code
                 $('.slider').slider();
 
                 var name = document.getElementById("txtName").value;
-                rtc.server.getConnected(name, 'http://localhost:13624').done(function (user) {
+                var avatar = document.getElementById('myAvatar').getAttribute("src");
+
+                rtc.server.getConnected(name,avatar, 'http://localhost:13624').done(function (user) {
                     Opentok.connect(user.Opentok);
 
                 });

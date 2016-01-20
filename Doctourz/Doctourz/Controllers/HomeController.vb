@@ -14,7 +14,7 @@ Public Class HomeController
             Return View()
         End If
 
-        Return RedirectToAction("Home", "User")
+        Return RedirectToAction("News", "User")
 
         'Return RedirectToAction
     End Function
