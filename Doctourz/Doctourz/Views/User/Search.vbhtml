@@ -19,7 +19,7 @@ End Code
         <input id="SearchText" type="text" class="form-control" placeholder="Search answers, topics, doctors">
     </div>
 
-    <div id="searchDoctor">
+    <div id="searchDoctor" style="display:none">
         <div class="col-sm-4 no-padd top-20">
             <ul class="list-group point" id="patient-initial-info">
                 <li class="list-group-item">
@@ -247,8 +247,8 @@ End Code
        //MAIN SEARCH FUNCTION
         function search() {
 
-            $("#searchOptions").hide();
-            $("#searchDoctor").show();
+            document.getElementById("searchOptions").style.display = "none";
+            document.getElementById("searchDoctor").style.display = "block";
 
             //KEYWORD
             var keyword = document.getElementById('SearchText').value;
@@ -322,10 +322,6 @@ End Code
             }
         })
 
-       //PAGE LOAD
-        $(window).load(function () {
-            $("#searchDoctor").hide();
-        });
     </script>
 
 End Section
