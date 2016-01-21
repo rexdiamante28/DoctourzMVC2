@@ -251,7 +251,9 @@ End Code
             document.getElementById("searchDoctor").style.display = "block";
 
             //KEYWORD
-            var keyword = document.getElementById('SearchText').value;
+            var keyword = $('input[id=SearchText]').val();
+            keyword = keyword.replace(/\s+/g, ',');
+            //alert(keyword)
 
             //GENDER
             var gender = $('input[name=gender]:checked').val();

@@ -163,6 +163,8 @@ Public Class UserController
         'ViewBag.Keyword = keyword
         'ViewBag.Location = gender
         'ViewBag.Location = location
+        keyword = keyword.Replace(",", " ")
+        'MsgBox(keyword)
 
         MainSearch(keyword)
 
@@ -224,7 +226,7 @@ Public Class UserController
 
         ViewBag.Doctors = doctorList
 
-        Return PartialView(doctorList)
+        Return PartialView("SearchDoctor")
     End Function
 
     Function MainSearch(keyword As String)
@@ -284,7 +286,7 @@ Public Class UserController
         Catch
         End Try
 
-        Return doctorList
+        Return userDoctor
     End Function
 
     Public Function Menu() As ActionResult
