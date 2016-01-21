@@ -306,15 +306,27 @@ Public Class UserController
         Dim userId = User.Identity.GetUserId
         Dim history1 = From a In db.History1
                       Where a.userId = userId
+                      Where a.type = "1"
                       Select a
 
-        Dim history As New List(Of History1)
+        Dim hs1 As New List(Of History1)
         For Each i In history1
-            history.Add(New History1() With {.symptom = i.symptom, .whoHadIt = i.whoHadIt, .age = i.age})
+            hs1.Add(New History1() With {.symptom = i.symptom, .whoHadIt = i.whoHadIt, .age = i.age, .historyId = i.historyId})
         Next
 
-        ViewBag.history1 = history
+        Dim history2 = From a In db.History1
+                       Where a.userId = userId
+                       Where a.type = "2"
+                       Select a
 
+        Dim hs2 As New List(Of History1)
+        For Each i In history2
+            hs2.Add(New History1() With {.symptom = i.symptom, .whoHadIt = i.whoHadIt, .age = i.age, .historyId = i.historyId})
+        Next
+
+
+        ViewBag.history1 = hs1
+        ViewBag.history2 = hs2
 
         Return PartialView()
     End Function
@@ -505,5 +517,65 @@ Public Class UserController
         End Try
 
     End Sub
+
+    Function AddHistory1(usr As History1) As JsonResult
+        usr.userId = User.Identity.GetUserId
+        Dim hsId As New History1
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim hs As New History1 With {
+                    .userId = usr.userId,
+                    .symptom = usr.symptom,
+                    .whoHadIt = usr.whoHadIt,
+                    .age = usr.age,
+                    .type = "1"}
+                db.History1.Add(hs)
+                db.SaveChanges()
+                hsId = db.History1.Where(Function(x) x.type = "1").Where(Function(x) x.userId = usr.userId).Where(Function(x) x.symptom = usr.symptom).First
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!", .hsId = hsId.historyId}
+            }
+    End Function
+
+    Function AddHistory2(usr As History1) As JsonResult
+        usr.userId = User.Identity.GetUserId
+        Dim hsId As New History1
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim hs As New History1 With {
+                    .userId = usr.userId,
+                    .symptom = usr.symptom,
+                    .whoHadIt = usr.whoHadIt,
+                    .age = usr.age,
+                    .type = "2"}
+                db.History1.Add(hs)
+                db.SaveChanges()
+                hsId = db.History1.Where(Function(x) x.type = "2").Where(Function(x) x.userId = usr.userId).Where(Function(x) x.symptom = usr.symptom).First
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!", .hsId = hsId.historyId}
+            }
+    End Function
+    Function removeHistory1(usr As History1) As JsonResult
+        usr.userId = User.Identity.GetUserId
+
+        Using db As New ApplicationDbContext
+            If usr.userId IsNot Nothing Then
+                Dim hs = db.History1.Where(Function(x) x.historyId = usr.historyId).First
+
+                db.History1.Remove(hs)
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
 
 End Class
