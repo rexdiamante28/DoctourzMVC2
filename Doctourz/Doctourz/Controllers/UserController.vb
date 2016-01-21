@@ -160,9 +160,9 @@ Public Class UserController
     End Function
 
     Function SearchDoctor(ByVal keyword As String, ByVal location As String, ByVal gender As String, ByVal specialty As String, ByVal degree As String) As ActionResult
-        ViewBag.Keyword = keyword
+        'ViewBag.Keyword = keyword
         'ViewBag.Location = gender
-        ViewBag.Location = location
+        'ViewBag.Location = location
 
         MainSearch(keyword)
 
@@ -262,10 +262,13 @@ Public Class UserController
                     docGender = item.u.gender
                 End If
                 If item.s IsNot Nothing Then
-                    docSpecialization = item.s.categoryId
+                    docSpecializationId = item.s.categoryId
                 End If
                 If item.e IsNot Nothing Then
                     docDegeree = item.e.degreeId
+                End If
+                If item.c IsNot Nothing Then
+                    docSpecialization = item.c.name
                 End If
 
                 userDoctor.Add(New DoctorList() With { _
