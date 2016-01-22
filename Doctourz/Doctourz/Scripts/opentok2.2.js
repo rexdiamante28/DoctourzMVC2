@@ -154,7 +154,6 @@ var OnlineUsers = {
 
 
 function endCall(obj, label) {
-
     console.log(obj.value);
     obj.setAttribute("title",label);
     obj.setAttribute("onclick", "begincallsignal(this)");
@@ -164,7 +163,7 @@ function endCall(obj, label) {
 function endcallsignal(obj, label) {
     var rtc = $.connection.rTCHub;
     endCall(obj, label);
-    var connectionid = obj.id.replace("btn_", "")
+    var connectionid = obj.id.replace("btn_", "");
     rtc.server.endCall(connectionid);
 }
 
@@ -178,7 +177,7 @@ function begincallsignal(obj) {
 
 
 function beginCall(obj) {
-    obj.setAttribute("onclick", "endcallsignal(this,'" + obj.value + "')");
+    obj.setAttribute("onclick", "endcallsignal(this,'" + obj.title + "')");
     obj.title = 'End call';
 
 }

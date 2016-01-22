@@ -23,9 +23,7 @@
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
                             <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+                            <span class="fa fa-bars fa-2x custom-fblue"></span>
                         </button>
                         <a class="navbar-brand no-padd" href="#"><img src="~/Content/Images/Website/logo_blue.png" style="width:240px;" /></a>
                     </div>

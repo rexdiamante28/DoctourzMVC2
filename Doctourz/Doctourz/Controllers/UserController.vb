@@ -8,6 +8,7 @@ Imports System.Web.Mvc
 Imports System
 Imports System.Collections.Generic
 Imports System.IO
+Imports System.Drawing
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
@@ -476,6 +477,8 @@ Public Class UserController
             If System.IO.Directory.Exists(path0) = False Then
                 System.IO.Directory.CreateDirectory(path0)
             End If
+
+
 
             Dim pic As String = System.IO.Path.GetFileName(file.FileName)
             Dim path As String = System.IO.Path.Combine(Server.MapPath("~/Images/"), pic)

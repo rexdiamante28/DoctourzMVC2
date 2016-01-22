@@ -309,13 +309,13 @@ body {
 }
 .sidebar-open{
     z-index: 1;
-    position: absolute;
+    position: fixed;
     width: 300px !important;
     overflow-y:scroll;
 }
 .sidebar-close{
     z-index: 1;
-    position: absolute;
+    position: fixed;
     width: 50px !important;
 }
 
@@ -937,8 +937,9 @@ table.dataTable thead .sorting:after {
     margin-right:10px;
     min-height:30px;
     min-width:30px;
-    background-size: 100%;
+    background-size:cover;
     border-radius:50%;
+    background-repeat:no-repeat;
 }
 
 #subscribers{
@@ -971,4 +972,33 @@ table.dataTable thead .sorting:after {
 }
 .callSubscriber:nth-child(9){
     margin-left:2%;
+}
+
+
+/*=====================================================
+=            Bootstrap 2.3.2 Media Queries            =
+=====================================================*/
+@media only screen and (max-width : 1200px) {
+
+}
+
+@media only screen and (max-width : 979px) {
+
+}
+
+@media only screen and (max-width : 767px) {
+    .navbar li{
+        display:inline-block;
+    }
+}
+}
+
+@media only screen and (max-width : 480px) {
+}
+
+@media only screen and (max-width : 320px) {
+    .navbar-brand img{
+        width:200px !important;
+        margin-top:7px;
+    }
 }
