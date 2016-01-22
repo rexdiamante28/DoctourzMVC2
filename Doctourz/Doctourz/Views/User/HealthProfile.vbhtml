@@ -227,37 +227,47 @@
                     <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('edit_history1')"></i>
                 </small>
             </li>
-            @For Each x In ViewBag.history1
-                @<li class="list-group-item">
-                    @x.symptom<label class="normal fgray4">(@x.whoHadIt)</label>
-                    <i class="fa fa-remove pull-right" id={{_id}} onclick="ConfirmActionDelete(this.id,FamilyHistory)"></i>
-                </li>
-            Next
+            <li>
+                <ul class="appendnewhistory list-group-item">
+                    @For Each x In ViewBag.history1
+                        @<li class="list-group-item">
+                            @x.symptom<label class="normal fgray4">(@x.whoHadIt)</label>
+                            <i class="fa fa-remove pull-right removeHs" id="@x.historyId"></i>
+                        </li>
+                    Next
+                </ul>
+            </li>
+
             <li class="list-group-item bggray5 no-display" id="edit_history1">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="form-group">
-                            <label class="normal">Condition or Symptom</label>
-                            <input type="text" id="condition1" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="normal">Who had it?</label>
-                            <select class="form-control" id="relative1">
-                                <option>Mother</option>
-                                <option>Father</option>
-                                <option>Sister</option>
-                                <option>Brother</option>
-                                <option>Grandmother</option>
-                                <option>Grandfather</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="normal">How old is he/she?</label>
-                            <input type="number" id="age1" min="1" max="200" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary savehistory1 pull-right">Save</button>
-                        </div>
+                        @Using Html.BeginForm("AddHistory1", "User", FormMethod.Post, New With {.role = "form", .id = "AddHistory1"})
+                            @Html.AntiForgeryToken()
+
+                            @<div class="form-group">
+                                <label class="normal">Condition or Symptom</label>
+                                <input type="text" id="condition1" class="form-control">
+                            </div>
+                            @<div class="form-group">
+                                <label class="normal">Who had it?</label>
+                                <select class="form-control" id="relative1">
+                                    <option>Mother</option>
+                                    <option>Father</option>
+                                    <option>Sister</option>
+                                    <option>Brother</option>
+                                    <option>Grandmother</option>
+                                    <option>Grandfather</option>
+                                </select>
+                            </div>
+                            @<div class="form-group">
+                                <label class="normal">How old is he/she?</label>
+                                <input type="number" id="age1" min="1" max="200" class="form-control">
+                            </div>
+                            @<div class="form-group">
+                                <button class="btn btn-primary savehistory1 pull-right" type="submit">Save</button>
+                            </div>
+                        End Using
+
                     </div>
                 </div>
             </li>
@@ -268,37 +278,45 @@
                     <i class="fa fa-pencil-square-o pull-right" onclick="toggleElement('edit_history2')"></i>
                 </small>
             </li>
-            {{#each history2}}
-            <li class="list-group-item">
-                {{condition}}<label class="normal fgray4">({{relative}})</label>
-                <i class="fa fa-remove pull-right" id={{_id}} onclick="ConfirmActionDelete(this.id,FamilyHistory)"></i>
+            <li>
+                <ul class="appendnewhistory2 list-group-item">
+                    @For Each x In ViewBag.history2
+                        @<li class="list-group-item">
+                            @x.symptom<label class="normal fgray4">(@x.whoHadIt)</label>
+                            <i class="fa fa-remove pull-right removeHs" id="@x.historyId"></i>
+                        </li>
+                    Next
+                </ul>
             </li>
-            {{/each}}
             <li class="list-group-item bggray5 no-display" id="edit_history2">
                 <div class="row">
                     <div class="col-xs-12">
-                        <div class="form-group">
-                            <label class="normal">Condition or Symptom</label>
-                            <input type="text" id="condition2" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="normal">Who had it?</label>
-                            <select class="form-control" id="relative2">
-                                <option>Mother</option>
-                                <option>Father</option>
-                                <option>Sister</option>
-                                <option>Brother</option>
-                                <option>Grandmother</option>
-                                <option>Grandfather</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="normal">How old is he/she?</label>
-                            <input type="number" min="1" max="200" id="age2" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary savehistory2 pull-right">Save</button>
-                        </div>
+                        @Using Html.BeginForm("AddHistory2", "User", FormMethod.Post, New With {.role = "form", .id = "AddHistory2"})
+                            @Html.AntiForgeryToken()
+
+                            @<div class="form-group">
+                                <label class="normal">Condition or Symptom</label>
+                                <input type="text" id="condition2" class="form-control">
+                            </div>
+                            @<div class="form-group">
+                                <label class="normal">Who had it?</label>
+                                <select class="form-control" id="relative2">
+                                    <option>Mother</option>
+                                    <option>Father</option>
+                                    <option>Sister</option>
+                                    <option>Brother</option>
+                                    <option>Grandmother</option>
+                                    <option>Grandfather</option>
+                                </select>
+                            </div>
+                            @<div class="form-group">
+                                <label class="normal">How old is he/she?</label>
+                                <input type="number" id="age2" min="1" max="200" class="form-control">
+                            </div>
+                            @<div class="form-group">
+                                <button class="btn btn-primary savehistory1 pull-right" type="submit">Save</button>
+                            </div>
+                        End Using
                     </div>
                 </div>
             </li>
@@ -651,9 +669,9 @@
         }
 
         $.ajax({
-            url:                        '/User/UpdateName',
-            type:                       'POST',
-            data:                       name,
+            url: '/User/UpdateName',
+            type: 'POST',
+            data: name,
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
@@ -670,10 +688,10 @@
         }
 
         $.ajax({
-            url:                        '/User/UpdateGender',
-            type:                       'POST',
-            data:                       User,
-            DataType :'json',
+            url: '/User/UpdateGender',
+            type: 'POST',
+            data: User,
+            DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('gender_edit')
@@ -689,9 +707,9 @@
         }
 
         $.ajax({
-            url:                        '/User/UpdateBirthDate',
-            type:                       'POST',
-            data:                       User,
+            url: '/User/UpdateBirthDate',
+            type: 'POST',
+            data: User,
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
@@ -708,9 +726,9 @@
         }
 
         $.ajax({
-            url:                        '/User/UpdateLocation',
-            type:                       'POST',
-            data:                       User,
+            url: '/User/UpdateLocation',
+            type: 'POST',
+            data: User,
             DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
@@ -727,9 +745,9 @@
         }
 
         $.ajax({
-            url:                        '/User/UpdateEthnicity',
-            type:                       'POST',
-            data:                       User,
+            url: '/User/UpdateEthnicity',
+            type: 'POST',
+            data: User,
             DataType: 'json',
             success: function (data) {
                 var id = $("input[name='ethnicity']:checked").attr('value');
@@ -762,14 +780,14 @@
 
         var user = {
             height: $("#heightVal").val(),
-            bmi:                            bmi.toFixed(2)
+            bmi: bmi.toFixed(2)
         }
 
         $.ajax({
-            url:                            '/User/UpdateHeight',
-            type:                           'POST',
-            data:                           User,
-            DataType :'json',
+            url: '/User/UpdateHeight',
+            type: 'POST',
+            data: User,
+            DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('height_edit')
@@ -802,16 +820,93 @@
         }
 
         $.ajax({
-            url:                                '/User/UpdateWeight',
-            type:                               'POST',
-            data:                               User,
-            DataType :'json',
+            url: '/User/UpdateWeight',
+            type: 'POST',
+            data: User,
+            DataType: 'json',
             success: function (data) {
                 loadHealthProfile();
                 toggleElement('weight_edit')
             }
         });
-
-
     })
+
+    $("#AddHistory1").submit(function (e) {
+        e.preventDefault();
+
+        var user = {
+            symptom: $("#condition1").val().trim(),
+            whoHadIt: $("#relative1").val().trim(),
+            age: $("#age1").val().trim()
+        }
+
+        $.ajax({
+            url: '/User/AddHistory1',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+                toggleElement('edit_history1')
+                $(".appendnewhistory").append('<li class="list-group-item">' +
+               $("#condition1").val() + '<label class="normal fgray4">(' + $("#relative1").val() + ')</label><i class="fa fa-remove pull-right removeHs" id="' + data.hsId + '" onclick="removeHs(this);"></i></li>');
+            }
+        });
+    })
+
+    $("#AddHistory2").submit(function (e) {
+        e.preventDefault();
+
+        var user = {
+            symptom: $("#condition2").val().trim(),
+            whoHadIt: $("#relative2").val().trim(),
+            age: $("#age2").val().trim()
+        }
+
+        $.ajax({
+            url: '/User/AddHistory2',
+            type: 'POST',
+            data: user,
+            DataType: 'json',
+            success: function (data) {
+                loadHealthProfile();
+                toggleElement('edit_history2')
+                $(".appendnewhistory2").append('<li class="list-group-item">' +
+               $("#condition2").val() + '<label class="normal fgray4">(' + $("#relative2").val() + ')</label><i class="fa fa-remove pull-right removeHs" id="' + data.hsId + '" onclick="removeHs(this);"></i></li>');
+            }
+        });
+    })
+
+    function removeHs(e) {
+        //alert('removing..')
+        e.parentNode.remove();
+        var hs = {
+            historyId: e.id
+        }
+        $.ajax({
+            url: '/User/removeHistory1',
+            type: 'POST',
+            data: hs,
+            DataType: 'json',
+            success: function () {
+                console.log("Deleted")
+            }
+        })
+    }
+
+    $(".removeHs").click(function (e) {
+        e.currentTarget.parentNode.remove();
+        var hs = {
+            historyId: e.currentTarget.id
+        }
+        $.ajax({
+            url: '/User/removeHistory1',
+            type: 'POST',
+            data: hs,
+            DataType: 'json',
+            success: function () {
+                console.log("Deleted")
+            }
+        })
+    });
 </script>

@@ -2,16 +2,14 @@
 Imports System.ComponentModel.DataAnnotations.Schema
 
 Public Class History1
-    Private _historyId As String
-
-
+    Private _historyId As Integer
     <Key>
     <DatabaseGenerated(DatabaseGeneratedOption.Identity)>
-    Public Property historyId() As String
+    Public Property historyId() As Integer
         Get
             Return _historyId
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Integer)
             _historyId = value
         End Set
     End Property
@@ -45,6 +43,16 @@ Public Class History1
             _age = value
         End Set
     End Property
+    Private _type As String
+    Public Property type() As String
+        Get
+            Return _type
+        End Get
+        Set(ByVal value As String)
+            _type = value
+        End Set
+    End Property
+
 
     Private _userId As String
     Public Property userId() As String
