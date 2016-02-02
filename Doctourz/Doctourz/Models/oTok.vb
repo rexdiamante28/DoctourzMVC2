@@ -38,7 +38,7 @@ Namespace opentokRTC.Models
         Private m_Token As String
 
 
-        Public Sub New(REMOTE_ADDR As String)
+        Public Sub New(REMOTE_ADDR As String, Optional sessionId As String = "")
 
 
             Try
@@ -48,15 +48,19 @@ Namespace opentokRTC.Models
 
                 options.Add(SessionProperties.P2PPreference, "enabled")
 
-                Me.SessionId = ot.CreateSession(REMOTE_ADDR, options)
-                Me.Token = ot.GenerateToken(Me.SessionId)
+                If sessionId = "" Then
+                    Me.SessionId = ot.CreateSession(REMOTE_ADDR, options)
+                Else
+                    Me.SessionId = sessionId
+                End If
 
+                Me.Token = ot.GenerateToken(Me.SessionId)
 
                 Me.ApiKey = ConfigurationManager.AppSettings("opentok.key")
             Catch ex As Exception
 
             End Try
-           
+
         End Sub
 
     End Class

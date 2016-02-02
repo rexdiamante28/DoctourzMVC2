@@ -153,6 +153,17 @@ Public Class UserController
     End Function
 
     Function Telemed() As ActionResult
+
+
+
+        Return View()
+    End Function
+
+    Function Telemed2() As ActionResult
+
+        ViewData("Room") = Request.QueryString("room")
+        'MsgBox(ViewData("Room"))
+
         Return View()
     End Function
 

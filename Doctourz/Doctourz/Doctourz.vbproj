@@ -215,6 +215,7 @@
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
     <Compile Include="Controllers\QuestionController.vb" />
+    <Compile Include="Controllers\RTCHub.vb" />
     <Compile Include="Controllers\UserController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
@@ -237,6 +238,7 @@
     <Compile Include="Models\Procedures.vb" />
     <Compile Include="Models\Questions.vb" />
     <Compile Include="Models\Ratings.vb" />
+    <Compile Include="Models\Rooms.vb" />
     <Compile Include="Models\SpecializationCategory.vb" />
     <Compile Include="Models\Specializations.vb" />
     <Compile Include="Models\SubSpecializations.vb" />
@@ -261,7 +263,6 @@
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Startup.vb" />
-    <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -480,6 +481,7 @@
     <Content Include="Views\User\Notifications.vbhtml" />
     <Content Include="Views\User\HealthProfile.vbhtml" />
     <Content Include="Views\User\Upload.vbhtml" />
+    <Content Include="Views\User\Telemed2.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
