@@ -46,13 +46,13 @@ End Code
 
     <div class="row step-page" id="learn">
         <div class="col-xs-12 text-left top-50">
-            <h1 style="font-weight: 600; color:#262626 ;font-size: 45px" class="text-center">We're here with you every step of the way</h1>
+            <h1 style="font-weight: 600; color:#262626 ;font-size: 60px" class="text-center">We're here with you every step of the way</h1>
             <div style="background-image: url('../../Content/Images/Website/greenbar.png');height: 200px;background-position:center;background-repeat:no-repeat !important">
                 <ul class="nav nav-pills round-pills text-center" role="tablist" style="margin-left:250px;">
-                    <li class="active"><a href="#1" role="tab" data-toggle="tab">1</a><span class="step-text">PHYSICIAN SEARCH</span></li>
-                    <li><a href="#2" role="tab" data-toggle="tab">2</a><span class="step-text">NURSE CONCIERGE</span></li>
-                    <li><a href="#3" role="tab" data-toggle="tab">3</a><span class="step-text">TELEMED<br>CONSULTATION</span></li>
-                    <li><a href="#4" role="tab" data-toggle="tab">4</a><span class="step-text">FOLLOW-UP CARE</span></li>
+                    <li class="active"><a href="#1" role="tab" data-toggle="tab">1</a><span class="step-text"><br/><br/><br/>PHYSICIAN SEARCH</span></li>
+                    <li><a href="#2" role="tab" data-toggle="tab">2</a><span class="step-text"><br /><br /><br />NURSE CONCIERGE</span></li>
+                    <li><a href="#3" role="tab" data-toggle="tab">3</a><span class="step-text"><br /><br /><br />TELEMED<br>CONSULTATION</span></li>
+                    <li><a href="#4" role="tab" data-toggle="tab">4</a><span class="step-text"><br /><br /><br />FOLLOW-UP CARE</span></li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -102,7 +102,7 @@ End Code
 
 
     <div class="col-xs-12 no-padd">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="false">
+        @*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="false">
             <!-- Indicators
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -185,6 +185,27 @@ End Code
                 <span class="sr-only">Next</span>
             </a>
              -->
+        </div>*@
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="false">
+            <div class="carousel-inner" role="listbox">
+                <div class="item active relative">
+                    <img src="~/Content/Images/Website/New/img1.png" class="col-xs-12 no-padd">
+                </div>
+
+                <div class="item relative">
+                    <img src="~/Content/Images/Website/New/img2.png" class="col-xs-12 no-padd">
+                </div>
+
+                <div class="item relative">
+                    <img src="~/Content/Images/Website/New/img3.png" class="col-xs-12 no-padd">
+                </div>
+
+                <div class="item relative">
+                    <img src="~/Content/Images/Website/New/img4.png" class="col-xs-12 no-padd">
+                </div>
+            </div>
+            <div>
+            </div>
         </div>
     </div>
     <div class="col-xs-12 text-center padd-30">
