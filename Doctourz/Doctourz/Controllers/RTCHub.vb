@@ -13,6 +13,7 @@ Namespace opentokRTC.Controllers
         Inherits Hub
 
         Public Shared Users As New ConcurrentDictionary(Of String, User)()
+        Public Shared OnlineRooms As New ConcurrentDictionary(Of String, Rooms)()
         Public Shared connections As New connections()
 
 
@@ -20,19 +21,62 @@ Namespace opentokRTC.Controllers
             Clients.All.addNewMessageToPage(name, message, senderAvatar)
         End Sub
 
+        Public Sub sendMessage(ByVal name As String, ByVal message As String, ByVal senderAvatar As String, sessionId As String)
+            Dim myClients As New List(Of String)()
 
-        Public Function GetConnected(username As String, avatar As String, Remote_Address As String) As User
-            Dim user As User
-            connections.Add(Context.ConnectionId)
-            Dim ot = New oTok(Remote_Address)
-            user = New User(username, Context.ConnectionId, ot, avatar)
+            For Each u In Users
+                If u.Value.Opentok.SessionId = sessionId Then
+                    myClients.Add(u.Value.ConnectionId)
+                End If
+            Next
 
-            Users.TryAdd(Context.ConnectionId, user)
-            Clients.Clients(connections.AllExcept(Context.ConnectionId)).getNewOnlineUser(user)
-            Clients.Client(Context.ConnectionId).getOnlineUsers(Users)
+            Clients.Clients(myClients).addNewMessageToPage(name, message, senderAvatar)
+
+        End Sub
+
+        Public Function GetConnected(username As String, avatar As String, Remote_Address As String, roomName As String) As User
+            If roomName <> "" Then
+                Dim sessionId As String = ""
+                For Each r In OnlineRooms
+                    If roomName = r.Value.roomName Then
+                        sessionId = r.Value.session
+                    End If
+                Next
+
+                Dim user As User
+                connections.Add(Context.ConnectionId)
+                Dim ot = New oTok(Remote_Address, sessionId)
+
+                user = New User(username, Context.ConnectionId, ot, avatar)
+
+                If sessionId = "" Then
+                    Dim room As Rooms
+                    room = New Rooms(roomName, user.Opentok.SessionId)
+
+                    OnlineRooms.TryAdd(Context.ConnectionId, room)
+                End If
 
 
-            Return user
+                Dim onlineUsers As New ConcurrentDictionary(Of String, User)()
+                Dim onlineConnections As New List(Of String)()
+
+                For Each u In Users
+                    If u.Value.Opentok.SessionId = sessionId Then
+                        If Not u.Value.ConnectionId = user.ConnectionId Then
+                            onlineUsers.TryAdd(u.Key, u.Value)
+                            onlineConnections.Add(u.Value.ConnectionId)
+                        End If
+                    End If
+                Next
+
+                Users.TryAdd(Context.ConnectionId, user)
+                Clients.Clients(onlineConnections).getNewOnlineUser(user)
+                Clients.Client(Context.ConnectionId).getOnlineUsers(onlineUsers)
+
+                Return user
+            End If
+
+            Return Nothing
         End Function
 
 
@@ -81,7 +125,23 @@ Namespace opentokRTC.Controllers
                 Users.TryRemove(ConnectionId.ToString(), user)
                 connections.Remove(ConnectionId)
                 Clients.Clients(connections.AllExcept(ConnectionId)).disconnected(user)
+
+
+                Try
+                    Dim room As Rooms
+                    Dim newRoom = OnlineRooms(ConnectionId)
+                    Dim newOwner = Users.Where(Function(x) x.Value.Opentok.SessionId = newRoom.session).First
+                    If OnlineRooms.TryRemove(ConnectionId.ToString(), room) Then
+                        room = New Rooms(newRoom.roomName, newRoom.session)
+
+                        OnlineRooms.TryAdd(newOwner.Value.ConnectionId, room)
+                    End If
+                Catch
+                    Dim room As Rooms
+                    OnlineRooms.TryRemove(ConnectionId.ToString(), room)
+                End Try
             End If
+
         End Sub
 
         Public Sub GetDisConnected()

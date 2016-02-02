@@ -215,22 +215,11 @@
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
     <Compile Include="Controllers\QuestionController.vb" />
+    <Compile Include="Controllers\RTCHub.vb" />
     <Compile Include="Controllers\UserController.vb" />
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201601210126259_historyIDtoInteger.Designer.vb">
-      <DependentUpon>201601210126259_historyIDtoInteger.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601210126259_historyIDtoInteger.vb" />
-    <Compile Include="Migrations\201601210131280_historyIDtoInteger1.Designer.vb">
-      <DependentUpon>201601210131280_historyIDtoInteger1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601210131280_historyIDtoInteger1.vb" />
-    <Compile Include="Migrations\201601210316273_historyType.Designer.vb">
-      <DependentUpon>201601210316273_historyType.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201601210316273_historyType.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -249,6 +238,7 @@
     <Compile Include="Models\Procedures.vb" />
     <Compile Include="Models\Questions.vb" />
     <Compile Include="Models\Ratings.vb" />
+    <Compile Include="Models\Rooms.vb" />
     <Compile Include="Models\SpecializationCategory.vb" />
     <Compile Include="Models\Specializations.vb" />
     <Compile Include="Models\SubSpecializations.vb" />
@@ -273,18 +263,8 @@
     </Compile>
     <Compile Include="Controllers\HomeController.vb" />
     <Compile Include="Startup.vb" />
-    <Compile Include="Controllers\RTCHub.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201601210126259_historyIDtoInteger.resx">
-      <DependentUpon>201601210126259_historyIDtoInteger.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601210131280_historyIDtoInteger1.resx">
-      <DependentUpon>201601210131280_historyIDtoInteger1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201601210316273_historyType.resx">
-      <DependentUpon>201601210316273_historyType.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -495,6 +475,7 @@
     <Content Include="Views\User\Notifications.vbhtml" />
     <Content Include="Views\User\HealthProfile.vbhtml" />
     <Content Include="Views\User\Upload.vbhtml" />
+    <Content Include="Views\User\Telemed2.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
