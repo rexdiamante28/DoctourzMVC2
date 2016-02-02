@@ -30,7 +30,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                         <ul class="nav navbar-nav"></ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li id="topbar0"><a href="/user/telemed"><i class="fa fa-video-camera "></i><br />Telemed</a></li>
+                            <li id="topbar0"><a href="/user/telemed2?room=room1"><i class="fa fa-video-camera "></i><br />Telemed</a></li>
                             <li id="topbar1"><a href="#"><i class="fa fa-user-md "></i><br />Ask Doctor</a></li>
                             <li id="topbar2"><a href="/user/news"><i class="fa fa-newspaper-o "></i><br />News</a></li>
                             <li id="topbar3"><a href="/user/search"><i class="fa fa-search "></i><br />Search</a></li>

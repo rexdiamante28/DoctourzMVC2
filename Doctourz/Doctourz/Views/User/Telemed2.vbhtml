@@ -21,7 +21,7 @@ End Code
     </div>
 </div>
 
-<div id="bottom-dock" class="bottom-dock-close">
+<div id="bottom-dock" class="bottom-dock-close relative">
     <div class="bottom-link" id="bottomLink1" onclick="TelemedCoverDecide(this.id); loadPageBottom('appointment')">
         <label>APPOINTMENTS</label>
     </div>
@@ -37,7 +37,9 @@ End Code
     <div class="bottom-link" id="bottomLink5" onclick="TelemedCoverDecide(this.id); loadPageBottom('Diagnosis')">
         <label>DIAGNOSIS</label>
     </div>
-    <div class="col-xs-12 " id="bottom-container">
+    <div style="position: absolute; top:3px; right:3px; width:40px; height:33px; background-color:red;" class="padd-5 point" onclick="TeleDecide()">
+        <i class="fa fa-arrow-up fwhite"></i>
+        <i class="fa fa-arrow-down fwhite"></i>
     </div>
 </div>
 
@@ -277,6 +279,8 @@ End Code
             }
 
             $(document).ready(function () {
+
+                $('.slider').slider();
 
                 $.connection.hub.start().done(function () {
                     var room = document.getElementById('roomName').value;
