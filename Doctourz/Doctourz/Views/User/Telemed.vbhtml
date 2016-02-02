@@ -21,7 +21,7 @@ End Code
 </div>
 
 
-<div id="bottom-dock" class="bottom-dock-close">
+<div id="bottom-dock" class="bottom-dock-close relative">
     <div class="bottom-link" id="bottomLink1"  onclick="TelemedCoverDecide(this.id); loadPageBottom('appointment')">
         <label>APPOINTMENTS</label>
     </div>
@@ -37,7 +37,9 @@ End Code
     <div class="bottom-link" id="bottomLink5" onclick="TelemedCoverDecide(this.id); loadPageBottom('Diagnosis')">
         <label>DIAGNOSIS</label>
     </div>
-    <div class="col-xs-12 " id="bottom-container">
+    <div style="position: absolute; top:3px; right:3px; width:40px; height:33px; background-color:red;" class="padd-5 point" onclick="TeleDecide()">
+        <i class="fa fa-arrow-up fwhite"></i>
+        <i class="fa fa-arrow-down fwhite"></i>
     </div>
 </div>
 
@@ -50,7 +52,7 @@ End Code
             <div class="header">
                 <text id="l1" class="fwhite _13 pull-right">INFO &nbsp;<i class="fa fa-file-text-o"></i></text>
                 <i id="l2" class="pull-right fa fa-file-text-o fwhite opener" style="display:none;" onclick="ExpandInfo()"></i>
-                <i id="l3" class="pull-left fa fa-minus fwhite" style="font-size:10px;margin-top:10px;" onclick="CompressInfo()"></i>
+                <i id="l3" class="pull-left fa fa-minus fwhite" style="font-size:10px;margin-top:17px;" onclick="CompressInfo()"></i>
             </div>
             
             <ul class="list-group" id="patient-initial-info">
@@ -122,8 +124,8 @@ End Code
                     <a id="videoControlSlashed" class="no-display" onclick="HideElement(this.id), ShowElement('videoControl')" title="Enable video"><i class="fa fa-eye-slash"></i></a>
                     <a id="audioControl" onclick="HideElement(this.id), ShowElement('audioControlSlashed')"><i class="fa fa-microphone" title="Disable audio"></i></a>
                     <a id="audioControlSlashed" onclick="HideElement(this.id), ShowElement('audioControl')" class="no-display" title="Enable audio"><i class="fa fa-microphone-slash"></i></a>
-                    <a id="recordStart" onclick="HideElement(this.id), ShowElement('recordStop')" class="" title="Start recording"><i class="fa fa-stop"></i></a>
-                    <a id="recordStop" onclick="HideElement(this.id), ShowElement('recordStart')" class="no-display" title="Stop recording"><i class="fa fa-play"></i></a>
+                    <a id="recordStart" onclick="HideElement(this.id), ShowElement('recordStop')" class="fred1" title="Start recording"><i class="fa fa-stop fred1" style="color:red;"></i></a>
+                    <a id="recordStop" onclick="HideElement(this.id), ShowElement('recordStart')" class="no-display fred1" title="Stop recording"><i class="fa fa-play fred1" style="color:red;"></i></a>
                     <a id="selfVideo" onclick="HideElement(this.id), ShowElement('sefVideoHidden'), HideElement('myCamera')" class="" title="Enable audio"><i class="fa fa-compress" title="hide self video"></i></a>
                     <a id="sefVideoHidden" onclick="HideElement(this.id), ShowElement('selfVideo'), ShowElement('myCamera')" class="no-display" title="Enable audio"><i class="fa fa-expand" title="Show self video"></i></a>
                 </div>
@@ -141,6 +143,8 @@ End Code
 <script src="@Url.Content("~/Scripts/opentok2.2.js")" type="text/javascript" charset="utf-8"></script>
 <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
 <script src="~/signalr/hubs"></script>
+
+  
 
 <script>
 

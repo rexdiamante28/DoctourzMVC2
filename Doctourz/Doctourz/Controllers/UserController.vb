@@ -8,6 +8,7 @@ Imports System.Web.Mvc
 Imports System
 Imports System.Collections.Generic
 Imports System.IO
+Imports System.Drawing
 Public Class UserController
     Inherits System.Web.Mvc.Controller
 
@@ -152,6 +153,17 @@ Public Class UserController
     End Function
 
     Function Telemed() As ActionResult
+
+
+
+        Return View()
+    End Function
+
+    Function Telemed2() As ActionResult
+
+        ViewData("Room") = Request.QueryString("room")
+        'MsgBox(ViewData("Room"))
+
         Return View()
     End Function
 
@@ -493,6 +505,8 @@ Public Class UserController
             If System.IO.Directory.Exists(path0) = False Then
                 System.IO.Directory.CreateDirectory(path0)
             End If
+
+
 
             Dim pic As String = System.IO.Path.GetFileName(file.FileName)
             Dim path As String = System.IO.Path.Combine(Server.MapPath("~/Images/"), pic)

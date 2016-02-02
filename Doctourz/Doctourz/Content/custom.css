@@ -507,3 +507,8 @@ table td
 .capital{
     text-transform:capitalize !important;
 }
+
+.justify{
+    text-align: justify !important;
+    text-justify: inter-word !important;
+}

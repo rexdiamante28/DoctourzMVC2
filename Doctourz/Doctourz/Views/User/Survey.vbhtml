@@ -4,6 +4,9 @@ End Code
 
 <div class="col-sm-6 col-sm-offset-3 no-padd">
     <div class="col-sm-12 bgwhite">
+        {{#each questions}}
+        <button>#</button>
+        {{/each}}
         <div id="myTabContent" class="tab-content">
             {{#each questions}}
             <div class="col-xs-12">
