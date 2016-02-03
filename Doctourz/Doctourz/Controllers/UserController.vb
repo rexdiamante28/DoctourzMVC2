@@ -349,23 +349,23 @@ Public Class UserController
     End Function
 
     Public Function appointment() As ActionResult
-        Return PartialView("appointment")
+        Return PartialView()
     End Function
 
     Public Function CareTeam() As ActionResult
-        Return PartialView("CareTeam")
+        Return PartialView()
     End Function
 
     Public Function PatientRecords() As ActionResult
-        Return PartialView("PatientRecords")
+        Return PartialView()
     End Function
 
     Public Function Notes() As ActionResult
-        Return PartialView("Notes")
+        Return PartialView()
     End Function
 
     Public Function Diagnosis() As ActionResult
-        Return PartialView("Diagnosis")
+        Return PartialView()
     End Function
     'Public Function SearchDoctor() As ActionResult
     '    Return PartialView("SearchDoctor")
@@ -594,6 +594,43 @@ Public Class UserController
 
         Return New JsonResult With {
                 .Data = New With {.message = "Successfully Updated!"}
+            }
+    End Function
+
+
+    Function addNewNote(note As Notes) As JsonResult
+        Dim userId = User.Identity.GetUserId
+        Dim name As String = ""
+
+        Using db As New ApplicationDbContext
+            If userId IsNot Nothing Then
+                Dim user = db.AppUsers.Where(Function(x) x.userId = userId).First
+                name = user.name
+                Dim newNote As New Notes With {
+                    .message = note.message,
+                    .dateSent = DateTime.Now,
+                    .ownerName = user.name
+                }
+
+                db.Notes.Add(newNote)
+                db.SaveChanges()
+            End If
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "New Note Added!", .user = name}
+            }
+    End Function
+
+    Function getNotes() As JsonResult
+        Dim notes As List(Of Notes)
+
+        Using db As New ApplicationDbContext
+            notes = db.Notes.ToList
+        End Using
+
+        Return New JsonResult With {
+                .Data = New With {.message = "Notes Retrieved", .notes = notes}
             }
     End Function
 
