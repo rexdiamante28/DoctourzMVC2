@@ -233,6 +233,7 @@
     <Compile Include="Models\History1.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
+    <Compile Include="Models\Notes.vb" />
     <Compile Include="Models\opentok.vb" />
     <Compile Include="Models\oTok.vb" />
     <Compile Include="Models\Procedures.vb" />

@@ -178,4 +178,15 @@ Public Class ApplicationDbContext
         End Set
     End Property
 
+    Private _Notes As DbSet(Of Notes)
+    Public Property Notes() As DbSet(Of Notes)
+        Get
+            Return _Notes
+        End Get
+        Set(ByVal value As DbSet(Of Notes))
+            _Notes = value
+        End Set
+    End Property
+
+
 End Class
