@@ -202,7 +202,8 @@ Public Class UserController
                                                          .docSpecialization = item.docSpecialization, _
                                                          .docLocation = item.docLocation, _
                                                          .docGender = item.docGender, _
-                                                         .docDegree = item.docDegree
+                                                         .docDegree = item.docDegree, _
+                                                         .docAvatar = item.docAvatar
                                                      })
                         End If
                     End If
@@ -224,7 +225,8 @@ Public Class UserController
                                                           .docSpecialization = item.docSpecialization, _
                                                           .docLocation = item.docLocation, _
                                                           .docGender = item.docGender, _
-                                                          .docDegree = item.docDegree
+                                                          .docDegree = item.docDegree, _
+                                                          .docAvatar = item.docAvatar
                                                       })
                         End If
                     End If
@@ -250,6 +252,7 @@ Public Class UserController
         Dim docSpecializationId As String = ""
         Dim docSpecialization As String = ""
         Dim docDegeree As String = ""
+        Dim docAvatar As String = ""
         Try
             'GET DOCTOR ROLE
             Dim userRoie = db.Roles.Where(Function(x) x.Name = "Doctor").FirstOrDefault()
@@ -274,6 +277,7 @@ Public Class UserController
                     docName = item.u.name
                     docLocation = item.u.location
                     docGender = item.u.gender
+                    docAvatar = item.u.avatar
                 End If
                 If item.s IsNot Nothing Then
                     docSpecializationId = item.s.categoryId
@@ -292,7 +296,8 @@ Public Class UserController
                                .docSpecialization = docSpecialization, _
                                .docLocation = docLocation, _
                                .docGender = docGender, _
-                               .docDegree = docDegeree
+                               .docDegree = docDegeree, _
+                               .docAvatar = docAvatar
                            })
             Next
         Catch
