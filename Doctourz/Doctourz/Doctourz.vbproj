@@ -317,7 +317,13 @@
     <Content Include="Content\Images\Website\about_img4.png" />
     <Content Include="Content\Images\Website\feeds.png" />
     <Content Include="Content\Images\Website\dummy.jpg" />
+    <Content Include="Content\Images\Website\heartbeat.png" />
     <Content Include="Content\Images\Website\img1.png" />
+    <Content Include="Content\Images\Website\New\img1.png" />
+    <Content Include="Content\Images\Website\New\img2.png" />
+    <Content Include="Content\Images\Website\New\img3.png" />
+    <Content Include="Content\Images\Website\New\img4.png" />
+    <Content Include="Content\oldUser.css" />
     <Content Include="Content\User.css" />
     <Content Include="Content\custom.css" />
     <Content Include="Content\Images\Website\ft-logo.gif" />

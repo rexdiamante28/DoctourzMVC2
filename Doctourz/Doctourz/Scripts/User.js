@@ -175,6 +175,21 @@ TelemedCoverDecide = function telemedCoverDecide(id) {
 
 }
 
+TeleDecide = function telemedCoverDecide() {
+
+
+    var bottomDock = document.getElementById('bottom-dock');
+    var bottomClass = document.getElementById('bottom-dock').getAttribute("class");
+
+
+    if (bottomClass == "bottom-dock-close relative") {
+        bottomDock.setAttribute("class", "bottom-dock-open relative");
+    }
+    else if (bottomClass == "bottom-dock-open relative") {
+        bottomDock.setAttribute("class", "bottom-dock-close relative");
+    }
+
+}
 // this is for the slider
 /* =========================================================
  * bootstrap-slider.js v2.0.0

@@ -68,4 +68,14 @@
         End Set
     End Property
     Private m_docDegree As String
+
+    Public Property docAvatar() As String
+        Get
+            Return m_docAvatar
+        End Get
+        Set(value As String)
+            m_docAvatar = value
+        End Set
+    End Property
+    Private m_docAvatar As String
 End Class

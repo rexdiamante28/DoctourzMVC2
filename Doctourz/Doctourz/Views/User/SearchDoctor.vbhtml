@@ -12,7 +12,11 @@ End Code
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="col-xs-2 no-padd">
-                                <img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
+                                @If doc.docAvatar = "" Then
+                                    @<img src="~/Content/Images/Website/dummy.jpg" class="col-xs-12 img-circle no-padd" />
+                                Else
+                                    @<img src="~/Images/@doc.docAvatar" class="col-xs-12 img-circle no-padd" />
+                                End If
                             </div>
                             <div class="col-xs-10">
                                 <text class="bold custom-fblue">@doc.docName</text><br />
