@@ -68,7 +68,7 @@ End Code
                         </a>
                     Next
                 </div>
-                <input id="toggleSpecialty" type="hidden" />
+                @*<input id="toggleSpecialty" type="hidden" />*@
 
 
                 <li class="list-group-item" onclick="ToggleElement('language-spoken')">
@@ -309,20 +309,20 @@ End Code
             search()
         })
 
-        $("#doctor-specialty-li").click(function (event) {
-            if ($('#toggleSpecialty').val() == "") {
-                $('#toggleSpecialty').val("1");
-                $.cookie('toggle') = "1";
-            } else {
-                if ($('#toggleSpecialty').val() == "0") {
-                    $('#toggleSpecialty').val("1");
-                    $.cookie('toggle') = "1";
-                } else {
-                    $('#toggleSpecialty').val("0");
-                    $.cookie('toggle') = "0";
-                }
-            }
-        })
+        //$("#doctor-specialty-li").click(function (event) {
+        //    if ($('#toggleSpecialty').val() == "") {
+        //        $('#toggleSpecialty').val("1");
+        //        $.cookie('toggle') = "1";
+        //    } else {
+        //        if ($('#toggleSpecialty').val() == "0") {
+        //            $('#toggleSpecialty').val("1");
+        //            $.cookie('toggle') = "1";
+        //        } else {
+        //            $('#toggleSpecialty').val("0");
+        //            $.cookie('toggle') = "0";
+        //        }
+        //    }
+        //})
 
     </script>
 
