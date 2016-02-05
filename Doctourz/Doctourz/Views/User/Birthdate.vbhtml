@@ -7,8 +7,8 @@ End Code
         <h4 class="bold fgray2">Hi there!</h4>
         <div class="progress">
             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="30"
-                 aria-valuemin="0" aria-valuemax="100" style="width:30%;">
-                30%
+                 aria-valuemin="0" aria-valuemax="100" style="width:50%;">
+                50%
             </div>
         </div>
         <div class="alert alert-info">
