@@ -37,9 +37,9 @@ End Code
     <div class="bottom-link" id="bottomLink5" onclick="TelemedCoverDecide(this.id); loadPageBottom('Diagnosis')">
         <label>DIAGNOSIS</label>
     </div>
-    <div style="position: absolute; top:3px; right:3px; width:40px; height:33px; background-color:red;" class="padd-5 point" onclick="TeleDecide()">
-        <i class="fa fa-arrow-up fwhite"></i>
-        <i class="fa fa-arrow-down fwhite"></i>
+    <div id="bottomToggle" class="point" onclick="TeleDecide()">
+        <i class="fa fa-minus custom-fblue"></i>
+        <i class="fa fa-plus custom-fblue"></i>
     </div>
     <div id="bottom-container">
 
@@ -316,6 +316,30 @@ End Code
             });
 
 
+        })
+
+
+        $('#r2').click(function () {
+            $('#r2').css("color", "white");
+        });
+
+        $('#videoControl').click(function () {
+            publisher.publishVideo(false);
+        });
+
+        $('#videoControlSlashed').click(function () {
+            publisher.publishVideo(true);
+        });
+
+        $('#audioControl').click(function () {
+            publisher.publishAudio(false);
+        });
+
+        $('#audioControlSlashed').click(function () {
+            publisher.publishAudio(true);
+        });
+        $('#endCall').click(function () {
+            window.location.reload(false);
         })
 
     </script>

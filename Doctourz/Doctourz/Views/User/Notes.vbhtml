@@ -4,11 +4,12 @@
     </div>*@
 <script></script>
 
-<div id="noteBox" class="padd-10" style="min-height:60vh;">
+<div id="noteBox" class="padd-10">
 
 </div>
 <div class="input-group">
     <textarea type="text" id="noteMessage" style="max-height:53px;" class="form-control" placeholder="Type your note..."></textarea>
+
     <span class="input-group-btn">
         <button class="btn btn-primary" id="noteSendButton" type="button" style="height:53px;">Send</button>
     </span>

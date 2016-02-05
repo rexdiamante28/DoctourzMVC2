@@ -701,10 +701,11 @@ table.dataTable thead .sorting:after {
 }
 
 .bottom-dock-close{
-    bottom: -94vh;
+    bottom: -93vh;
 }
 
 #bottom-dock > .bottom-link{
+    margin-top:20px;
     width:20%;
     float:left;
     cursor:pointer;
@@ -717,6 +718,7 @@ table.dataTable thead .sorting:after {
 }
 
 #bottom-dock > .bottom-link-active{
+    margin-top:20px;
     width:20%;
     float:left;
     cursor:pointer;
@@ -1012,4 +1014,19 @@ table.dataTable thead .sorting:after {
         width:100% ;
         z-index:4444;
     }
+}
+
+#noteBox{
+    min-height:80vh !important;
+    max-height:80vh !important;
+    overflow-y:scroll;
+}
+#bottomToggle{
+    position: absolute;
+    top:0px;
+    right:3px;
+    width:100%;;
+    height:20px;
+    background-color:#E1E0E1;
+    text-align:right;
 }

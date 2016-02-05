@@ -163,12 +163,12 @@ TelemedCoverDecide = function telemedCoverDecide(id) {
 
     if (telemedCoverClass == "hidden") {
         telemedCover.setAttribute("class", "");
-        bottomDock.setAttribute("class", "bottom-dock-open");
+        bottomDock.setAttribute("class", "bottom-dock-open relative");
     }
     else if (telemedCoverClass == "" && oldVal == newVal) {
         telemedCover.setAttribute("class", "hidden");
         document.getElementById(id).setAttribute("class", "bottom-link");
-        bottomDock.setAttribute("class", "bottom-dock-close");
+        bottomDock.setAttribute("class", "bottom-dock-close relative");
     }
     else if (telemedCoverClass == "" && oldVal != newVal) {
     }
@@ -177,16 +177,18 @@ TelemedCoverDecide = function telemedCoverDecide(id) {
 
 TeleDecide = function telemedCoverDecide() {
 
-
+    var telemedCover = document.getElementById('telemedCover');
     var bottomDock = document.getElementById('bottom-dock');
     var bottomClass = document.getElementById('bottom-dock').getAttribute("class");
 
 
     if (bottomClass == "bottom-dock-close relative") {
         bottomDock.setAttribute("class", "bottom-dock-open relative");
+        telemedCover.setAttribute("class", "");
     }
     else if (bottomClass == "bottom-dock-open relative") {
         bottomDock.setAttribute("class", "bottom-dock-close relative");
+        telemedCover.setAttribute("class", "hidden");
     }
 
 }
