@@ -220,6 +220,10 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602030324059_notes.Designer.vb">
+      <DependentUpon>201602030324059_notes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602030324059_notes.vb" />
     <Compile Include="Migrations\Configuration.vb" />
     <Compile Include="Models\AccountViewModels.vb" />
     <Compile Include="Models\Affiliations.vb" />
@@ -233,6 +237,7 @@
     <Compile Include="Models\History1.vb" />
     <Compile Include="Models\IdentityModels.vb" />
     <Compile Include="Models\ManageViewModels.vb" />
+    <Compile Include="Models\Notes.vb" />
     <Compile Include="Models\opentok.vb" />
     <Compile Include="Models\oTok.vb" />
     <Compile Include="Models\Procedures.vb" />
@@ -265,6 +270,9 @@
     <Compile Include="Startup.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602030324059_notes.resx">
+      <DependentUpon>201602030324059_notes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -417,6 +425,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\opentok.min.js" />
     <Content Include="Scripts\opentok2.2.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
