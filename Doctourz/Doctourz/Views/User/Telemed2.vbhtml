@@ -123,8 +123,8 @@ End Code
                     <a id="videoControlSlashed" class="no-display" onclick="HideElement(this.id), ShowElement('videoControl')" title="Enable video"><i class="fa fa-eye-slash"></i></a>
                     <a id="audioControl" onclick="HideElement(this.id), ShowElement('audioControlSlashed')"><i class="fa fa-microphone" title="Disable audio"></i></a>
                     <a id="audioControlSlashed" onclick="HideElement(this.id), ShowElement('audioControl')" class="no-display" title="Enable audio"><i class="fa fa-microphone-slash"></i></a>
-                    <a id="recordStart" onclick="HideElement(this.id), ShowElement('recordStop')" class="" title="Start recording"><i class="fa fa-stop"></i></a>
-                    <a id="recordStop" onclick="HideElement(this.id), ShowElement('recordStart')" class="no-display" title="Stop recording"><i class="fa fa-play"></i></a>
+                    <a id="recordStart" onclick="HideElement(this.id), ShowElement('recordStop')" class="fred1" title="Start recording"><i class="fa fa-stop"></i></a>
+                    <a id="recordStop" onclick="HideElement(this.id), ShowElement('recordStart')" class="no-display fred1" title="Stop recording"><i class="fa fa-play"></i></a>
                     <a id="selfVideo" onclick="HideElement(this.id), ShowElement('sefVideoHidden'), HideElement('myCamera')" class="" title="Enable audio"><i class="fa fa-compress" title="hide self video"></i></a>
                     <a id="sefVideoHidden" onclick="HideElement(this.id), ShowElement('selfVideo'), ShowElement('myCamera')" class="no-display" title="Enable audio"><i class="fa fa-expand" title="Show self video"></i></a>
                 </div>
