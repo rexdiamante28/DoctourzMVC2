@@ -178,6 +178,8 @@ Public Class ApplicationDbContext
         End Set
     End Property
 
+
+
     Private _Notes As DbSet(Of Notes)
     Public Property Notes() As DbSet(Of Notes)
         Get
@@ -187,6 +189,5 @@ Public Class ApplicationDbContext
             _Notes = value
         End Set
     End Property
-
 
 End Class
