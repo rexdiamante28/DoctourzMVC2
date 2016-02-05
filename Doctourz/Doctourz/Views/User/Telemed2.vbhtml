@@ -41,6 +41,7 @@ End Code
         <i class="fa fa-arrow-up fwhite"></i>
         <i class="fa fa-arrow-down fwhite"></i>
     </div>
+    <div id="bottom-container"></div>
 </div>
 
 <div id="main-frame">

@@ -39,13 +39,15 @@ End Using
          e.preventDefault();
 
          var note = {
-             message: $('# noteMessage').val()
+             message: $('#noteMessage').val()
          }
+
+
 
          $.ajax({
              url: '/User/addNewNote',
              type: 'POST',
-             data: hs,
+             data: note,
              DataType: 'json',
              success: function () {
                  console.log("Note Added!")
