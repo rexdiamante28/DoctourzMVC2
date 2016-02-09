@@ -273,6 +273,8 @@ End Code
                 });
 
             }
+
+
             rtc.client.getNewOnlineUser = function (user) {
                 var room = document.getElementById('roomName').value;
                 OnlineUsers.addButton(user);
