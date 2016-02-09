@@ -115,6 +115,8 @@ End Code
                 <div id="onlineusers">
                     <i class="fa fa-users"></i>
                 </div>
+
+
                 <div id="controls-frame" class="text-center">
                     <i class="fa fa-volume-down" onclick="countSubscriber()" style="margin-right:0px;" title="Adjust volume"></i>
                     <input type="number" class="slider" ondrag="TestAlert('sdg')" value="" style="width:50px;margin-top:0px;" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="70" data-slider-orientation="horizontal" data-slider-selection="after" data-slider-tooltip="show">
