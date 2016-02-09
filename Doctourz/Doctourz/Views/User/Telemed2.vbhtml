@@ -133,6 +133,10 @@ End Code
     </div>
 </div>
 
+<audio id="rigning" style="display :none" loop>
+    <source src="~/media/ringing .mp3" type="audio/mpeg">
+</audio>
+
 @Section scripts
     <script src="~/Scripts/opentok.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="@Url.Content("~/Scripts/opentok2.2.js")" type="text/javascript" charset="utf-8"></script>
@@ -270,16 +274,82 @@ End Code
 
             }
             rtc.client.getNewOnlineUser = function (user) {
-
+                var room = document.getElementById('roomName').value;
                 OnlineUsers.addButton(user);
-                rtc.server.sendMessage("TeleMed", user.Name + " have joined the chat.", "", user.Opentok.SessionId);
+                //server.sendMessage("TeleMed", user.Name + " has joined the chat.", "", user.Opentok.SessionId,room);
 
 
             };
             rtc.client.disconnected = function (user) {
+                var room = document.getElementById('roomName').value;
                 OnlineUsers.removeButton(user);
-                rtc.server.sendMessage("TeleMed", user.Name + " have disconnected from chat.", "", user.Opentok.SessionId);
+                ///rtc.server.sendMessage("TeleMed", user.Name + " has disconnected from chat.", "", user.Opentok.SessionId,room);
             }
+
+            rtc.client.notifybeginCall = function (touser, caller_user) {
+
+                acceptCallBox.show();
+                acceptCallBox.message('Incoming call from ' + caller_user.Name);
+                caller = caller_user;
+                ringing.play();
+            }
+
+
+
+
+            rtc.client.notifyCallend = function (self, caller) {
+
+                if (acceptCallBox.IsVisible()) {
+
+                    acceptCallBox.hide();
+                    ringing.mute();
+
+                }
+                else {
+
+                    btn = document.getElementById("btn_" + caller.ConnectionId);
+
+                    if (btn) {
+                        endCall(btn, "Call " + caller.Name);
+                        Opentok.disconnect();
+                        Opentok.connect(self.Opentok);
+
+                    }
+
+
+                }
+
+            }
+
+            rtc.client.notifyCallrejected = function (message, calleruser) {
+                alert(message);
+                var btn = document.getElementById("btn_" + calleruser.ConnectionId);
+                if (btn.value == "")
+                    endCall();
+                ringing.mute();
+            }
+
+
+            document.getElementById('callAcceptButton').onclick = function () {
+
+                _btn = document.getElementById('btn_' + caller.ConnectionId);
+                beginCall(_btn);
+                Opentok.disconnect();
+                Opentok.connect(caller.Opentok);
+                ringing.mute();
+                acceptCallBox.hide();
+
+
+
+
+            }
+            document.getElementById('callRejectButton').onclick = function () {
+                acceptCallBox.hide();
+                ringing.mute();
+
+                rtc.server.callRejectedSignal(caller.ConnectionId);
+            }
+
 
             $(document).ready(function () {
 
@@ -287,6 +357,8 @@ End Code
 
                 $.connection.hub.start().done(function () {
                     var room = document.getElementById('roomName').value;
+
+
 
                     rtc.server.getConnected(name, avatar, 'http://localhost:13624', room).done(function (thisUser) {
                         Opentok.connect(thisUser.Opentok);
@@ -296,9 +368,9 @@ End Code
 
                     $('#chatSendButton').click(function () {
                         // Call the Send method on the hub.
-
+                        var room = document.getElementById('roomName').value;
                         var myAvatar = document.getElementById('myAvatar').getAttribute("src");
-                        rtc.server.sendMessage($('#userFullName').html(), $('#chatMessage').val(), myAvatar, user.Opentok.SessionId);
+                        rtc.server.sendMessage($('#userFullName').html(), $('#chatMessage').val(), myAvatar, user.Opentok.SessionId, room);
                         // Clear text box and reset focus for next comment.
                         $('#chatMessage').val('').focus();
                     });

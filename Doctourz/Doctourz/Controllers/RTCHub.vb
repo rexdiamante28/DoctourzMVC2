@@ -21,11 +21,11 @@ Namespace opentokRTC.Controllers
             Clients.All.addNewMessageToPage(name, message, senderAvatar)
         End Sub
 
-        Public Sub sendMessage(ByVal name As String, ByVal message As String, ByVal senderAvatar As String, sessionId As String)
+        Public Sub sendMessage(ByVal name As String, ByVal message As String, ByVal senderAvatar As String, sessionId As String, roomName As String)
             Dim myClients As New List(Of String)()
 
             For Each u In Users
-                If u.Value.Opentok.SessionId = sessionId Then
+                If u.Value.CurrentRoom = roomName Then
                     myClients.Add(u.Value.ConnectionId)
                 End If
             Next
@@ -39,7 +39,7 @@ Namespace opentokRTC.Controllers
                 Dim sessionId As String = ""
                 For Each r In OnlineRooms
                     If roomName = r.Value.roomName Then
-                        sessionId = r.Value.session
+                        'sessionId = r.Value.session
                     End If
                 Next
 
@@ -47,12 +47,11 @@ Namespace opentokRTC.Controllers
                 connections.Add(Context.ConnectionId)
                 Dim ot = New oTok(Remote_Address, sessionId)
 
-                user = New User(username, Context.ConnectionId, ot, avatar)
+                user = New User(username, Context.ConnectionId, ot, avatar, roomName)
 
                 If sessionId = "" Then
                     Dim room As Rooms
                     room = New Rooms(roomName, user.Opentok.SessionId)
-
                     OnlineRooms.TryAdd(Context.ConnectionId, room)
                 End If
 
@@ -60,8 +59,17 @@ Namespace opentokRTC.Controllers
                 Dim onlineUsers As New ConcurrentDictionary(Of String, User)()
                 Dim onlineConnections As New List(Of String)()
 
+                'For Each u In Users
+                '    If u.Value.Opentok.SessionId = sessionId Then
+                '        If Not u.Value.ConnectionId = user.ConnectionId Then
+                '            onlineUsers.TryAdd(u.Key, u.Value)
+                '            onlineConnections.Add(u.Value.ConnectionId)
+                '        End If
+                '    End If
+                'Next
+
                 For Each u In Users
-                    If u.Value.Opentok.SessionId = sessionId Then
+                    If u.Value.CurrentRoom = roomName Then
                         If Not u.Value.ConnectionId = user.ConnectionId Then
                             onlineUsers.TryAdd(u.Key, u.Value)
                             onlineConnections.Add(u.Value.ConnectionId)

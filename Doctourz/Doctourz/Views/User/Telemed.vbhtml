@@ -297,12 +297,6 @@ End Code
             acceptCallBox.message('Incoming call from ' + caller_user.Name);
             caller = caller_user;
             ringing.play();
-
-
-
-
-
-
         }
 
        
