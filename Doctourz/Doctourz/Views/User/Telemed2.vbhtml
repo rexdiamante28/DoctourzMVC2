@@ -143,6 +143,15 @@ End Code
     <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
     <script src="~/signalr/hubs"></script>
 
+<script>
+    var width = window.innerWidth;
+
+    if (width < 768) {
+        window.location = "/User/mobiletelemed?room=room1";
+    }
+
+</script>
+
 
 
     <script>

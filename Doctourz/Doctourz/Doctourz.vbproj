@@ -214,6 +214,7 @@
     <Compile Include="App_Start\Startup.Auth.vb" />
     <Compile Include="Controllers\AccountController.vb" />
     <Compile Include="Controllers\ManageController.vb" />
+    <Compile Include="Controllers\MobileRTCHub.vb" />
     <Compile Include="Controllers\QuestionController.vb" />
     <Compile Include="Controllers\RTCHub.vb" />
     <Compile Include="Controllers\UserController.vb" />
@@ -344,6 +345,7 @@
     <Content Include="Content\Images\Website\logo_white.png" />
     <Content Include="Content\Images\Website\Section4.png" />
     <Content Include="Content\old.css" />
+    <Content Include="Content\User1.css" />
     <Content Include="font-awesome\css\font-awesome.css" />
     <Content Include="font-awesome\css\font-awesome.min.css" />
     <Content Include="font-awesome\fonts\fontawesome-webfont.svg" />
@@ -417,6 +419,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mobiletalk.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
@@ -429,6 +432,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\SideBar.js" />
     <Content Include="Scripts\User.js" />
+    <Content Include="Scripts\User1.js" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.vbhtml" />
     <Content Include="Views\Account\ConfirmEmail.vbhtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.vbhtml" />
@@ -487,6 +491,7 @@
     <Content Include="Views\User\HealthProfile.vbhtml" />
     <Content Include="Views\User\Upload.vbhtml" />
     <Content Include="Views\User\Telemed2.vbhtml" />
+    <Content Include="Views\User\mobileTelemed.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
@@ -512,6 +517,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MobileRTCHub\" />
     <Folder Include="Views\_UserLayout\" />
   </ItemGroup>
   <ItemGroup>
