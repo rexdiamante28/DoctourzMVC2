@@ -241,7 +241,7 @@ End Code
                 a.css({ "width": "100%", "height": "100vh" });
                 $('#subscribers').css({ "width": "100%", "top": "0px", "left": "0px" });
                 $('#opentok_publisher').css({ "width": "100%", "height": "100%" });
-                $('#myCamera').css({ "bottom": "50px", "right": "10px", "width": "80px", "height":"100px","border":"2px solid white","position":"absolute" });
+                $('#myCamera').css({ "bottom": "75px", "right": "10px", "width": "80px", "height":"100px","border":"2px solid white","position":"absolute" });
             }
             else if (b == 2) {
                 a.css({ "width": "49%", "height": "38vh" });
@@ -424,7 +424,7 @@ End Code
                         // Call the Send method on the hub.
                         var room = document.getElementById('roomName').value;
                         var myAvatar = document.getElementById('myAvatar').getAttribute("src");
-                        rtc.server.sendMessage($('#userFullName').html(), $('#chatMessage').val(), myAvatar, user.Opentok.SessionId, room);
+                        rtc.server.sendMessage($('#txtName').val(), $('#chatMessage').val(), myAvatar, user.Opentok.SessionId, room);
                         // Clear text box and reset focus for next comment.
                         $('#chatMessage').val('').focus();
                     });
