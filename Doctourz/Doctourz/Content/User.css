@@ -991,6 +991,11 @@ table.dataTable thead .sorting:after {
 @media only screen and (max-width : 767px) {
     .navbar li{
         display:inline-block;
+        font-size:10px;
+        text-align:center;
+    }
+    .navbar li a{
+        padding:12px;
     }
     .chat-open, .info-open{
         width:50%;
