@@ -1656,7 +1656,7 @@ ul.tabs > li > a:hover{
     left:8%;
 }
 
-@media screen and (max-width:320px){
+@media screen and (max-width:480px){
     .caption{
     position:absolute;
     background-color: rgba(0,0,0,.3);
