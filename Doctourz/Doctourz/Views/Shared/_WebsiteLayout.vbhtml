@@ -11,10 +11,19 @@
 </head>
 <body style="padding-top:0px;font-family: 'PT Sans', sans-serif;">
     <nav class="topbar">
-        <div class="col-xs-12 no-padd">
-            <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 3%;width: 250px;"></a>
-            <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius no-border" style="margin-right:3%; margin-left: 5px !important;border-radius: 5px; background-color:#F26E23;">Sign In</a>
-            <a href="/Home/About" class="btn btn-warning pull-right top-10 no-radius no-border" style="border-radius: 5px;background-color:#F26E23;">About</a>
+        <div class="hidden-xs">
+            <div class="col-xs-12 no-padd">
+                <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 3%;width: 250px;"></a>
+                <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius no-border" style="margin-right:3%; margin-left: 5px !important;border-radius: 5px; background-color:#F26E23;">Sign In</a>
+                <a href="/Home/About" class="btn btn-warning pull-right top-10 no-radius no-border" style="border-radius: 5px;background-color:#F26E23;">About</a>
+            </div>
+        </div>
+        <div class="hidden-sm hidden-md hidden-lg ">
+            <div class="col-xs-12 no-padd">
+                <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 3%;width: 120px;"></a>
+                <a href="/Account/Login" class="btn btn-warning btn-sm pull-right top-10 no-radius no-border" style="margin-right:3%; margin-left: 5px !important;border-radius: 5px; background-color:#F26E23;">Sign In</a>
+                <a href="/Home/About" class="btn btn-warning btn-sm pull-right top-10 no-radius no-border" style="border-radius: 5px;background-color:#F26E23;">About</a>
+            </div>
         </div>
     </nav>
         @RenderBody()

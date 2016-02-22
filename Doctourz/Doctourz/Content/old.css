@@ -1656,6 +1656,30 @@ ul.tabs > li > a:hover{
     left:8%;
 }
 
+@media screen and (max-width:320px){
+    .caption{
+    position:absolute;
+    background-color: rgba(0,0,0,.3);
+    padding: 2px;
+    bottom:0px;
+    width:84%;
+    left:8%;
+    max-height:170px;
+    }
+
+    .caption h1{
+        font-size:15px;
+    }
+
+    .caption p{
+        font-size:10px;
+    }
+
+    .titleh1{
+        font-size:25px !important;
+    }
+}
+
 .relative{
     position: relative;
 }

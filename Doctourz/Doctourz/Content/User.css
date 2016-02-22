@@ -981,11 +981,11 @@ table.dataTable thead .sorting:after {
 =            Bootstrap 2.3.2 Media Queries            =
 =====================================================*/
 @media only screen and (max-width : 1200px) {
-
+    
 }
 
 @media only screen and (max-width : 979px) {
-
+  
 }
 
 @media only screen and (max-width : 767px) {
@@ -1001,6 +1001,7 @@ table.dataTable thead .sorting:after {
         width:50%;
         z-index:4444;
     }
+
 }
 
 @media only screen and (max-width : 480px) {

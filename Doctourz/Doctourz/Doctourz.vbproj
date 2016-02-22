@@ -320,6 +320,10 @@
     <Content Include="Content\Images\Website\dummy.jpg" />
     <Content Include="Content\Images\Website\heartbeat.png" />
     <Content Include="Content\Images\Website\img1.png" />
+    <Content Include="Content\Images\Website\New\dw-1.png" />
+    <Content Include="Content\Images\Website\New\dw-2.png" />
+    <Content Include="Content\Images\Website\New\dw-3.png" />
+    <Content Include="Content\Images\Website\New\dw-bg.png" />
     <Content Include="Content\Images\Website\New\img1.png" />
     <Content Include="Content\Images\Website\New\img2.png" />
     <Content Include="Content\Images\Website\New\img3.png" />
