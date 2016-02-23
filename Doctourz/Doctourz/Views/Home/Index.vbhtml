@@ -351,7 +351,7 @@ End Code
 
 
     <div class="col-xs-12 no-padd">
-       <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="false">
+       @*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="false">
             <!-- Indicators
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -595,12 +595,12 @@ End Code
             <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
-            </a>
-             -->
-        </div>
+            </a>-->
+             
+        </div>*@
 
 
-        @*<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="false">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000" data-pause="false">
             <div class="carousel-inner" role="listbox">
                 <div class="item active relative">
                     <img src="~/Content/Images/Website/New/img1.png" class="col-xs-12 no-padd">
@@ -621,7 +621,7 @@ End Code
             <div>
             </div>
         </div>
-            *@
+            
 
     </div>
    <div class="row">
@@ -683,9 +683,32 @@ End Code
                    </div>
 
                </div>
+               
+
 
 
            </div>
        </section><!-- worldclass-Experience -->
+
+       <div class="col-xs-12 no-padd" style="background-image: url(../../Content/Images/Website/blueBG.png);background-size: cover;background-position:center;background-repeat: no-repeat">
+           <div class="mybody-content text-center" id="registration">
+               <h1 style="font-size:45px;" class="fwhite">The vision of DOCTOURZ is to make healthcare<br />personal and accessible. <br /> Join the Healthcare revolution</h1>
+               <div class="col-xs-12 top-50" style="padding-bottom: 100px">
+                   <form class="form-inline" role="form">
+                       <div class="form-group">
+                           <select class="form-control input-lg" id="type">
+                               <option>I am a...</option>
+                               <option>I am a patient</option>
+                               <option>I am a doctor</option>
+                           </select>
+                       </div>
+                       <div class="form-group">
+                           <input type="email" class="form-control input-lg" placeholder="Email" id="email">
+                       </div>
+                       <button type="submit" class="btn btn-warning btn-lg" style="background-color:#F26E23;">Signup</button>
+                   </form>
+               </div>
+           </div>
+       </div>
    </div>
 </div>
