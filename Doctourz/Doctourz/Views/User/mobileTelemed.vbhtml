@@ -138,6 +138,7 @@ End Code
         <div class="row">
             <div class="col-xs-12">
                 <div id="controls-frame" class="text-center">
+                    <a href="#"><i class="fa fa-plus-square " style="color:red;"></i></a>
                     <a id="onlineUsersShown" style="z-index:3333;" onclick="HideElement(this.id), ShowElement('onlineUsersHidden'), ShowElement('onlineusers')" class="" title="Show online users"><i class="fa fa-users" title="Show self video"></i></a>
                     <a id="onlineUsersHidden" onclick="HideElement(this.id), ShowElement('onlineUsersShown'), HideElement('onlineusers')" class="no-display" title="Hide online users"><i class="fa fa-users" title="Show self video" style="color:gray;"></i></a>
                     <i class="fa fa-volume-up" onclick="countSubscriber()" style="margin-right:0px;" title="Adjust volume"></i>
@@ -157,12 +158,11 @@ End Code
         </div>
     </div>
 
-    <div id="controls2">
+    @*<div id="controls2">
         <div class="row">
             <div class="col-xs-12">
                 <div id="controls-frame" class="text-center">
                     <a href="/user/telemed2?room=room1"><i class="fa fa-video-camera "></i></a>
-                    <a href="#"><i class="fa fa-plus-square " style="color:red;"></i></a>
                     <a href="#"><i class="fa fa-user-md "></i></a>
                     <a href="/user/news"><i class="fa fa-newspaper-o "></i></a>
                     @If Request.IsAuthenticated Then
@@ -174,7 +174,7 @@ End Code
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 
 </div>
 

@@ -124,10 +124,10 @@ var OnlineUsers = {
             var buttonContainer = document.getElementById("onlineList");
 
 
-            li.setAttribute("class", "list-group-item");
-            li.innerHTML = '<img style="width:70px; border-radius:999999px;" src="' + user.Avatar + '"></img>' +
+            li.setAttribute("class", "list-group-item relative");
+            li.innerHTML = '<img style="width:50px; margin-right: 8px; border-radius:999999px;" src="' + user.Avatar + '"></img>' +
                             '<text>' + user.Name + '</text>' +
-                            '<button onclick="begincallsignal(this);" class="btn btn-info btn-sm" id="btn_' + user.ConnectionId + '">Call</button>';
+                            '<button style="margin-left:8px; position:absolute; margin-top:10px;" onclick="begincallsignal(this);" class="btn btn-info btn-sm" id="btn_' + user.ConnectionId + '">Call</button>';
             buttonContainer.appendChild(li);
 
         }
@@ -157,6 +157,8 @@ function endCall(obj, label) {
     obj.setAttribute("title", label);
     obj.innerHTML = label
     obj.setAttribute("onclick", "begincallsignal(this)");
+
+    window.location = "news";
 
 }
 

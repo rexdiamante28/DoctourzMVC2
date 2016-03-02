@@ -70,6 +70,5 @@
     </script>
 
 
-    @RenderSection("scripts", required:=False)
 </body>
 </html>
