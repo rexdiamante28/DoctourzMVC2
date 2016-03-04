@@ -10,36 +10,38 @@
 
 </head>
 <body style="padding-top:0px;font-family: 'PT Sans', sans-serif;">
-    <nav class="topbar">
-        <div class="hidden-xs">
-            <div class="col-xs-12 no-padd">
-                <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 3%;width: 250px;"></a>
-                <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius no-border" style="margin-right:3%; margin-left: 5px !important;border-radius: 5px; background-color:#F26E23;">Sign In</a>
-                <a href="/Home/About" class="btn btn-warning pull-right top-10 no-radius no-border" style="border-radius: 5px;background-color:#F26E23;">About</a>
+    <div class="col-xs-12 no-padd" style="max-width:100%; overflow-x:hidden;">
+        <nav class="topbar">
+            <div class="hidden-xs">
+                <div class="col-xs-12 no-padd">
+                    <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 3%;width: 250px;"></a>
+                    <a href="/Account/Login" class="btn btn-warning pull-right top-10 no-radius no-border" style="margin-right:3%; margin-left: 5px !important;border-radius: 5px; background-color:#F26E23;">Sign In</a>
+                    <a href="/Home/About" class="btn btn-warning pull-right top-10 no-radius no-border" style="border-radius: 5px;background-color:#F26E23;">About</a>
+                </div>
             </div>
-        </div>
-        <div class="hidden-sm hidden-md hidden-lg ">
-            <div class="col-xs-12 no-padd">
-                <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 3%;width: 120px;"></a>
-                <a href="/Account/Login" class="btn btn-warning btn-sm pull-right top-10 no-radius no-border" style="margin-right:3%; margin-left: 5px !important;border-radius: 5px; background-color:#F26E23;">Sign In</a>
-                <a href="/Home/About" class="btn btn-warning btn-sm pull-right top-10 no-radius no-border" style="border-radius: 5px;background-color:#F26E23;">About</a>
+            <div class="hidden-sm hidden-md hidden-lg ">
+                <div class="col-xs-12 no-padd">
+                    <a href="/Home/"><img id="logo" src="~/Content/Images/Website/logo_white.png" style="margin-left: 3%;width: 120px;"></a>
+                    <a href="/Account/Login" class="btn btn-warning btn-sm pull-right top-10 no-radius no-border" style="margin-right:3%; margin-left: 5px !important;border-radius: 5px; background-color:#F26E23;">Sign In</a>
+                    <a href="/Home/About" class="btn btn-warning btn-sm pull-right top-10 no-radius no-border" style="border-radius: 5px;background-color:#F26E23;">About</a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
         @RenderBody()
 
-    <div class="col-xs-12 no-padd text-center bggray5 padd-30">
-        <ul id="social">
-            <li id="social1"><a href="#"><img src="~/Content/Images/Website/px.gif" width="32" height="33"></a></li>
-            <li id="social2"><a href="#"><img src="~/Content/Images/Website/px.gif" width="32" height="33"></a></li>
-            <li id="social3"><a href="#"><img src="~/Content/Images/Website/px.gif" width="32" height="33"></a></li>
-        </ul>
-        <a class="fgray2 right-10 point">Terms of Service</a>
-        <a class="fgray2 right-10 point">Privacy Policy</a>
-        <a class="fgray2 right-10 point">Legal Disclaimers</a>
-        <a class="fgray2 right-10 point">Contact us</a>
-        <br /><br />
-        <img src="~/Content/Images/Website/ft-logo.gif">
+        <div class="col-xs-12 no-padd text-center bggray5 padd-30">
+            <ul id="social">
+                <li id="social1"><a href="#"><img src="~/Content/Images/Website/px.gif" width="32" height="33"></a></li>
+                <li id="social2"><a href="#"><img src="~/Content/Images/Website/px.gif" width="32" height="33"></a></li>
+                <li id="social3"><a href="#"><img src="~/Content/Images/Website/px.gif" width="32" height="33"></a></li>
+            </ul>
+            <a class="fgray2 right-10 point">Terms of Service</a>
+            <a class="fgray2 right-10 point">Privacy Policy</a>
+            <a class="fgray2 right-10 point">Legal Disclaimers</a>
+            <a class="fgray2 right-10 point">Contact us</a>
+            <br /><br />
+            <img src="~/Content/Images/Website/ft-logo.gif">
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
