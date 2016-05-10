@@ -5,7 +5,7 @@
 
     Try
         Dim rssDoc As New XmlDocument
-        rssDoc.Load("http://www.health.com/fitness/feed")
+        rssDoc.Load("http://localhost:13624/Content/feed.xml")
         'rssDoc.Load("https://www.nlm.nih.gov/medlineplus/feeds/news_en.xml")
 
 
@@ -51,7 +51,9 @@ Catch ex As Exception
         @<div class="col-xs-12 col-sm-4 col-sm-offset-4  padd-20 top-100">
               <h1 class="text-muted">Problem loading the RSS feed.</h1>
                <hr>
-               <p class="text-muted">http://www.health.com/fitness/feed is down at the moment. News feeds will be availble once they fixed the problem at their end.</p>
+               <p class="text-muted">
+                @ex.Message
+                    http://www.health.com/fitness/feed is down at the moment. News feeds will be availble once they fixed the problem at their end.</p>
         </div>
     End Try
    
