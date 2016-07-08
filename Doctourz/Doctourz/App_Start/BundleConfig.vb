@@ -24,6 +24,12 @@ Public Module BundleConfig
                   "~/Scripts/User.js",
                   "~/Scripts/respond.js"))
 
+        bundles.Add(New ScriptBundle("~/bundles/xmpp").Include(
+                  "~/Scripts/bootstrap.js",
+                  "~/Scripts/User.js",
+                  "~/Scripts/strophe.js",
+                  "~/Scripts/respond.js"))
+
         bundles.Add(New ScriptBundle("~/bundles/user1").Include(
                   "~/Scripts/bootstrap.js",
                   "~/Scripts/User1.js",
@@ -38,6 +44,13 @@ Public Module BundleConfig
                   "~/Content/bootstrap.css",
                   "~/Content/User.css",
                   "~/Content/custom.css",
+                  "~/font-awesome/css/font-awesome.css"))
+
+        bundles.Add(New StyleBundle("~/Content/xmpp").Include(
+                  "~/Content/bootstrap.css",
+                  "~/Content/User.css",
+                  "~/Content/custom.css",
+                  "~/Content/xmpp.css",
                   "~/font-awesome/css/font-awesome.css"))
 
         bundles.Add(New StyleBundle("~/Content/user1").Include(

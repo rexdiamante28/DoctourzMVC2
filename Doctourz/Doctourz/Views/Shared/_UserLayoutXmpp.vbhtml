@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Doctourz</title>
-    @Styles.Render("~/Content/user")
+    @Styles.Render("~/Content/xmpp")
     <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
 
  </head>
@@ -44,7 +44,7 @@
         <!-- /#page-wrapper -->
     </div>
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/user")
+    @Scripts.Render("~/bundles/xmpp")
     @RenderSection("scripts", required:=False)
 
 </body>
