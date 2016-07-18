@@ -138,7 +138,7 @@ End Code
 </audio>
 
 @Section scripts
-    <script src="~/Scripts/opentok.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://static.opentok.com/v2/js/opentok.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="@Url.Content("~/Scripts/opentok2.2.js")" type="text/javascript" charset="utf-8"></script>
     <script src="~/Scripts/jquery.signalR-2.2.0.min.js"></script>
     <script src="~/signalr/hubs"></script>
